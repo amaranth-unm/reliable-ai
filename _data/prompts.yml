@@ -1,0 +1,162 @@
+# Prompts are written once here and rendered wherever they're needed with
+# {% include prompt.html id="..." %} — so a prompt used in a session and in the
+# library can never drift apart. Add new sessions by adding entries with a new
+# `session:` value.
+
+- id: baseline
+  session: editorial-assistant
+  step: 1
+  label: The baseline
+  note: "Paste a paragraph of your own writing, then send exactly this. Keep the result — it's what everything else gets compared against."
+  text: |
+    Edit this.
+
+- id: editorial-brief
+  session: editorial-assistant
+  step: 2
+  label: The editorial brief
+  note: "Fill in the brackets. The last line is the important one: you are asking for a reading, not a rewrite."
+  text: |
+    This is a [genre: seminar paper / abstract / syllabus policy / cover letter]
+    for [audience]. It is trying to [do what].
+
+    I am worried about [first concern] and [second concern].
+    Do not change my [voice / hedging / terminology / citation style].
+
+    Don't rewrite anything. Read it and tell me the three places a reader is
+    most likely to get lost. Quote the exact sentence, and say why it loses
+    them.
+
+- id: quote-it
+  session: editorial-assistant
+  step: 2
+  label: Make it show its work
+  note: "Use this whenever a comment sounds plausible but vague. If it can't point at the text, the problem isn't real — and you've just learned to check rather than accept."
+  text: |
+    Quote the exact words that made you say that. If you can't point to
+    specific text, say so instead of explaining further.
+
+- id: anti-sycophancy
+  session: editorial-assistant
+  step: 2
+  label: Turn off the flattery
+  note: "Never ask \"is this good?\" — a yes/no question buys you praise. Ask for a ranking instead; something always has to come last."
+  text: |
+    Don't tell me what's working. Rank my paragraphs from weakest to
+    strongest and explain what makes the weakest one weak.
+
+- id: role-reviewer
+  session: editorial-assistant
+  step: 3
+  label: Reader — the skeptical peer reviewer
+  text: |
+    Read this as a skeptical peer reviewer in [field] who is inclined to
+    recommend major revisions. Don't fix anything. Tell me the single claim
+    you'd push back on hardest, and the question you'd put in your report.
+
+- id: role-outsider
+  session: editorial-assistant
+  step: 3
+  label: Reader — the smart outsider
+  text: |
+    Read this as a smart graduate student from a different discipline. Don't
+    fix anything. Tell me every point where you had to guess what I meant, and
+    what you guessed.
+
+- id: role-panelist
+  session: editorial-assistant
+  step: 3
+  label: Reader — the tired panelist
+  text: |
+    Read this as a grant panelist who has 40 applications to get through and
+    four minutes for mine. Don't fix anything. Tell me what you took away, and
+    where you started skimming.
+
+- id: role-desk-editor
+  session: editorial-assistant
+  step: 3
+  label: Reader — the desk editor (for researchers)
+  note: "Paste your abstract plus the journal's aims-and-scope statement."
+  text: |
+    Here is a journal's aims and scope, then my abstract. Read as the desk
+    editor. Would you send this out for review or desk-reject it? Give me the
+    grounds, in the journal's own terms.
+
+- id: role-confused-student
+  session: editorial-assistant
+  step: 3
+  label: Reader — the confused student (for teaching)
+  note: "Paste an assignment prompt instead of your own prose. This one tends to be uncomfortable in a useful way."
+  text: |
+    Here is an assignment I give to undergraduates. Read it as a sophomore who
+    wants a good grade and is reading it for the first time, the night before
+    it's due.
+
+    Don't improve it. Tell me: what do you think I'm asking for, what would you
+    do first, and what are you unsure about?
+
+- id: role-grader
+  session: editorial-assistant
+  step: 3
+  label: Reader — the grader (for students)
+  note: "Paste the rubric, then your draft. This is diagnosis, not ghostwriting — the words stay yours."
+  text: |
+    Here is the rubric for an assignment, then my draft. Read it only against
+    these criteria. For each criterion, tell me where my draft currently meets
+    it and where it doesn't, quoting the relevant text. Don't rewrite anything
+    and don't give me a grade.
+
+- id: compare-readers
+  session: editorial-assistant
+  step: 3
+  label: Compare the readers
+  note: "The most important prompt in the session. Disagreement between readers is a finding — it usually marks a real decision you haven't made yet."
+  text: |
+    Compare those readings. Where did the two readers disagree about what the
+    problem was? Don't resolve the disagreement — just tell me what it suggests
+    I haven't decided yet.
+
+- id: style-extract
+  session: editorial-assistant
+  step: 4
+  label: Draft your style sheet
+  note: "It will get part of this wrong. Correcting it is how the style sheet becomes yours rather than its."
+  text: |
+    Here are three passages I've written that I'm happy with.
+
+    Describe my style as a set of rules an editor should follow: typical
+    sentence length and rhythm, how I handle hedging and qualification, how
+    formal I am, what I do with evidence and quotation, and any habits you
+    notice that I may not have noticed.
+
+    Write it as instructions to an editor, not as a compliment to me.
+
+- id: style-never
+  session: editorial-assistant
+  step: 4
+  label: The never-do list
+  note: "Often more useful than the positive rules. Add your own grievances — everyone has them."
+  text: |
+    Add a "never do this" section to that style sheet:
+
+    - Never remove my hedges. If a claim is qualified, the qualification is doing work.
+    - Never replace my terminology with more common synonyms.
+    - Never add transitions like "Moreover" or "Furthermore" to paper over a gap.
+    - Never use em-dashes to join independent clauses.
+    - Never compliment the writing before commenting on it.
+
+- id: standing-instruction
+  session: editorial-assistant
+  step: 4
+  label: The standing instruction
+  note: "Keep this in a text file and paste it at the top of any editing session — or put it in a Claude Project or a custom GPT so it applies every time. This is the whole workshop in one block."
+  text: |
+    When I bring you my writing, you are my editor, not my ghostwriter.
+
+    - Comment; don't rewrite. If I want new prose I'll ask for it explicitly.
+    - Quote the text you're commenting on. No quotation, no comment.
+    - Say what confused you, not what you would have written instead.
+    - Don't open with praise. Start with the problem.
+    - If you're unsure what I'm trying to do, ask before diagnosing.
+
+    Then apply my style sheet, below.

@@ -1,0 +1,124 @@
+/* === Prompt blocks =================================================== */
+/* A prompt is a thing people copy, not a thing they read past, so it gets a
+   handle (the label), an action (copy), and the plain-text look of the box
+   they'll paste it into. Colours come from base.css tokens so the block
+   follows whatever theme the site is set to. */
+
+.prompt {
+  margin: 1.75rem 0;
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.prompt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.prompt-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-kicker, var(--accent-primary));
+}
+
+.prompt-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: none;
+  padding: 0.3rem 0.7rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.2;
+  color: var(--button-text);
+  background: var(--button-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.prompt-copy:hover,
+.prompt-copy:focus-visible {
+  background: var(--button-hover-bg);
+}
+
+.prompt-copy.is-copied {
+  background: var(--accent-primary-dark);
+}
+
+.prompt-text {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  background: var(--bg-code-block);
+  color: var(--text-code-block);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  white-space: pre-wrap;   /* prompts are prose; let them wrap on a phone */
+  word-break: break-word;
+  overflow-x: auto;
+}
+
+.prompt-text code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.prompt-note {
+  margin: 0;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  background: var(--bg-editorial-note, transparent);
+}
+
+/* Step headings on the session page ---------------------------------- */
+.step {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--metadata-border, var(--border-light));
+  /* Keep #step-2 style links from landing underneath the sticky navbar. */
+  scroll-margin-top: 5rem;
+}
+
+.prompt { scroll-margin-top: 5rem; }
+
+.step-clock {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* The one-line rule that the whole session hangs on. */
+.rule {
+  margin: 2rem 0;
+  padding: 1.1rem 1.4rem;
+  border-left: 4px solid var(--interactive-hover);
+  background: var(--bg-accent);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .prompt-text { font-size: 0.85rem; padding: 0.85rem 0.9rem; }
+  .prompt-copy-text { display: none; }   /* icon-only button on small screens */
+  .rule { font-size: 1.1rem; }
+}

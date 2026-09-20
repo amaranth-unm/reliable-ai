@@ -1,0 +1,9 @@
+_site
+.DS_Store
+.claude
+_config.local.yml
+_config.analytics.yml
+
+# Artefacts from scripts/optimize-images.sh
+*-backup-20*/
+png_to_jpg_conversions.txt
