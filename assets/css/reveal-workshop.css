@@ -1,0 +1,541 @@
+/* Brown-bag presentation theme.
+   Uses the same Rubric colors and font tokens as the tutorial. The 1280 x 720
+   canvas follows the Markdown-section pattern in mysite/presents, with a
+   prompt on the left and a reading on the right. All measurements live here.
+   .workshop-example: prompt/response pair; .workshop-reading: shared specimen;
+   .workshop-title: cover; .workshop-summary: practice, resources, and closing.
+   Notes contain the 45-minute schedule. Never hide a disclosure in notes alone. */
+
+/* base.css defines fonts inside @media screen; keep the same faces in print. */
+:root {
+  --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-mono: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+  --font-serif: 'Lora', Georgia, serif;
+}
+
+body.workshop-deck {
+  background: var(--bg-page);
+  color: var(--text-body);
+}
+
+.reveal {
+  font-family: var(--font-body);
+  font-size: 30px;
+  color: var(--text-body);
+}
+
+.reveal .slides { text-align: left; }
+
+/* Reveal supplies display:grid inline. Fixed outer rows reserve space for the
+   audience question and source line, keeping long replies away from controls. */
+.reveal .slides > section {
+  top: 0;
+  left: 0;
+  height: 720px;
+  padding: 40px 54px 26px;
+  box-sizing: border-box;
+  grid-template-rows: 128px minmax(0, 1fr) 70px 30px;
+  gap: 12px;
+  align-content: stretch;
+}
+
+.reveal .slides section header { min-width: 0; }
+.reveal .slides section p { margin: 0 0 0.6em; line-height: 1.28; }
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3 {
+  font-family: var(--font-heading);
+  color: var(--text-h1);
+  font-weight: 600;
+  text-transform: none;
+  text-shadow: none;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0;
+}
+.reveal .slides section h2 { font-size: 43px; max-width: 1160px; }
+.reveal .slides section h3 { font-size: 30px; }
+.reveal .slides section .deck-topic {
+  font-family: var(--font-heading);
+  color: var(--accent-primary);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 18px;
+}
+
+.reveal .slides section .deck-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 46px;
+  align-items: start;
+  min-height: 0;
+}
+
+.reveal .slides section .prompt,
+.reveal .slides section .deck-response { min-width: 0; margin: 0; }
+
+.reveal .slides section .prompt-head {
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  align-items: start;
+  min-height: 44px;
+}
+.reveal .slides section .deck-label {
+  font-size: 19px;
+  color: var(--text-muted);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+.reveal .slides section .prompt-text {
+  display: block;
+  margin: 0;
+  width: auto;
+  padding: 24px 27px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--bg-code-block);
+  color: var(--text-code-block);
+}
+.reveal .slides section .prompt-text code {
+  display: block;
+  max-height: none;
+  padding: 0;
+  overflow: visible;
+  background: none;
+  color: inherit;
+  font: inherit;
+  white-space: inherit;
+}
+.reveal .slides section .prompt-short .prompt-text { font-size: 48px; padding: 38px 30px; }
+
+.reveal .slides section .prompt-copy {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.1;
+  color: var(--accent-primary);
+  background: transparent;
+  border: 1px solid var(--metadata-border);
+  border-radius: 2px;
+  padding: 4px 9px;
+  cursor: pointer;
+}
+.reveal .slides section .prompt-copy:hover,
+.reveal .slides section .prompt-copy.is-copied { background: var(--bg-accent); }
+
+.reveal .slides section .deck-response blockquote {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  box-shadow: none;
+  background: none;
+  border: 0;
+  font-style: normal;
+  font-size: 29px;
+  line-height: 1.28;
+}
+.reveal .slides section .deck-response blockquote > :first-child { margin-top: 0; }
+.reveal .slides section .deck-response blockquote p:last-child { margin-bottom: 0; }
+.reveal .slides section .deck-response strong { color: var(--accent-primary); font-weight: 600; }
+.reveal .slides section .example-lines { font-size: 27px; line-height: 1.28; }
+.reveal .slides section .example-lines dt {
+  font-family: var(--font-heading);
+  color: var(--text-kicker);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.reveal .slides section .example-lines dd { margin: 0 0 22px; }
+.reveal .slides section .example-lines dd p { margin: 0 0 10px; }
+
+.reveal .slides section .deck-question {
+  align-self: end;
+  font-family: var(--font-heading);
+  color: var(--accent-primary);
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 0;
+}
+.reveal .slides section .deck-source {
+  align-self: end;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 24px;
+  padding-right: 135px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--text-muted);
+}
+.reveal .slides section .deck-source p { margin: 0; }
+.reveal .slides section .deck-source a { white-space: nowrap; }
+.reveal a { color: var(--accent-primary); text-decoration: underline; text-underline-offset: 0.17em; }
+.reveal a:hover { color: var(--interactive-hover); }
+.reveal a:focus-visible,
+.reveal button:focus-visible,
+.deck-nav a:focus-visible,
+.deck-nav button:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 5px; }
+
+.reveal .slides section .deck-specimen { font-size: 31px; line-height: 1.42; }
+.reveal .slides section .deck-specimen p { line-height: inherit; }
+.reveal .slides section .deck-summary { align-self: center; font-size: 32px; max-width: 1080px; }
+.reveal .slides section .deck-summary dl { margin: 0; }
+.reveal .slides section .deck-summary dt { font-family: var(--font-heading); font-size: 29px; margin-bottom: 8px; }
+/* line-height matches .example-lines: a dd here runs to two lines at 32px, and
+   the deck's tight default sets them close enough to touch. */
+.reveal .slides section .deck-summary dd { margin: 0 0 28px; line-height: 1.28; }
+.reveal .slides section .deck-summary ul { display: block; list-style: none; margin: 0; padding: 0; }
+.reveal .slides section .deck-summary li { margin: 0 0 14px; }
+.reveal .slides section .deck-url { font-family: var(--font-heading); font-size: 38px; margin-bottom: 35px; }
+
+.reveal .slides section.workshop-title {
+  grid-template-rows: auto 1fr auto;
+  padding-top: 75px;
+  isolation: isolate;
+}
+.reveal .slides section .deck-decoration { display: contents; }
+.reveal .slides section.workshop-title h1 { font-size: 75px; max-width: 850px; }
+.reveal .slides section.workshop-title .deck-thesis {
+  color: var(--accent-primary);
+  font-family: var(--font-serif);
+  font-size: 43px;
+  margin-top: 26px;
+}
+.reveal .slides section.workshop-title .deck-summary { font-size: 30px; align-self: center; }
+/* Cover art, bled to the full slide rather than sitting in the bottom-right
+   corner as a panel. inset: 0 resolves against the section's padding box, and
+   reveal positions each section absolutely, so this is the whole slide.
+
+   Opacity is much lower than a contained panel needs: a tall engraving scaled
+   to cover a 16:9 slide puts its densest hatching straight under the title, so
+   what read as a quiet decoration at 0.13 in the corner reads as noise at full
+   bleed. 0.06 leaves it as a texture in the sheet. */
+.reveal .slides section.workshop-title .deck-art {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+  max-height: none;
+  max-width: none;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  filter: sepia(0.6);
+}
+
+.reveal .controls { color: var(--accent-primary); }
+.reveal .progress { height: 3px; color: var(--accent-primary); background: var(--parchment); }
+.reveal .slide-number { background: transparent; color: var(--text-muted); font-family: var(--font-mono); font-size: 14px; right: 100px; bottom: 18px; }
+.reveal .slide-number a { text-decoration: none; color: inherit; }
+.reveal .slides .notes { display: none; }
+.deck-nav { position: fixed; z-index: 20; top: 12px; right: 22px; display: flex; gap: 20px; font: 15px var(--font-body); }
+.deck-nav a,
+.deck-nav button { color: var(--text-muted); text-decoration: none; background: transparent; border: 0; font: inherit; padding: 2px; cursor: pointer; }
+.deck-nav a:hover,
+.deck-nav button:hover { color: var(--accent-primary); }
+.deck-noscript { padding: 60px 30px; font: 22px var(--font-body); }
+
+@media (max-width: 600px) {
+  .deck-nav { top: 8px; right: 12px; font-size: 13px; gap: 15px; }
+}
+
+@media print {
+  .deck-nav, .prompt-copy { display: none !important; }
+  .reveal .slides > section { background: var(--bg-page); }
+  .reveal .slides section .fragment { visibility: visible !important; opacity: 1 !important; }
+  body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+
+/* Reveal's PDF stylesheet uses block slides; these compositions need their
+   grid in both the PDF preview and the actual printed pages. */
+.print-pdf .reveal .slides section:not(.stack) {
+  display: grid !important;
+  height: 720px;
+  padding: 40px 54px 26px !important;
+  grid-template-rows: 128px minmax(0, 1fr) 70px 30px;
+  gap: 12px;
+  align-content: stretch;
+}
+.print-pdf .reveal .slides section.workshop-title {
+  grid-template-rows: auto 1fr auto;
+  padding-top: 75px !important;
+}
+.print-pdf .deck-nav,
+.print-pdf .prompt-copy { display: none !important; }
+.print-pdf .reveal .slides section .fragment {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* =====================================================
+   PAGE MOCKUPS  (.deck-mockups)
+
+   Three miniature essay pages side by side, each filled in the way a
+   different student actually filled it. They are drawn in CSS rather than
+   screenshotted: a real capture of a 1200px page shrunk to 330px on a
+   projector turns into grey mush, and the point here is not what the pages
+   look like but which four or five decisions they disagree about. Bars stand
+   in for body text so the eye goes to the disagreements, which are set in
+   real type.
+
+   Used by: the "one template, five conventions" slide preceding the guide.
+   ===================================================== */
+
+.reveal .slides section .deck-mockups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  align-items: start;
+  min-height: 0;
+}
+
+.reveal .slides section .deck-mock {
+  background: var(--bg-card);
+  border: 1px solid var(--metadata-border);
+  min-width: 0;
+}
+
+/* The hero band every essay page carries, with its eyebrow and title. */
+.reveal .slides section .deck-mock-hero {
+  background: color-mix(in srgb, var(--text-h1) 82%, transparent);
+  color: var(--bg-card);
+  padding: 12px 14px 14px;
+}
+.reveal .slides section .deck-mock-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+.reveal .slides section .deck-mock-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.reveal .slides section .deck-mock-body { padding: 14px 14px 16px; }
+
+/* A line of body text. Height and width are the only variables; the widths
+   are staggered so a stack of them reads as a paragraph rather than a table. */
+.reveal .slides section .deck-mock-line {
+  display: block;
+  height: 7px;
+  margin-bottom: 7px;
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--text-body) 26%, transparent);
+}
+.reveal .slides section .deck-mock-line:nth-child(3n) { width: 82%; }
+.reveal .slides section .deck-mock-line:nth-child(4n) { width: 91%; }
+.reveal .slides section .deck-mock-line.is-short { width: 54%; }
+.reveal .slides section .deck-mock-gap { display: block; height: 10px; }
+
+/* The elements the essays disagree about are set in real type, because these
+   are what the room is being asked to compare. */
+.reveal .slides section .deck-mock-h1,
+.reveal .slides section .deck-mock-h2,
+.reveal .slides section .deck-mock-bold {
+  font-family: var(--font-heading);
+  color: var(--text-h1);
+  margin: 0 0 9px;
+  line-height: 1.15;
+}
+.reveal .slides section .deck-mock-h1 { font-size: 21px; font-weight: 600; letter-spacing: -0.02em; }
+.reveal .slides section .deck-mock-h2 { font-size: 16px; font-weight: 600; }
+.reveal .slides section .deck-mock-bold { font-size: 14px; font-weight: 700; }
+
+.reveal .slides section .deck-mock-run {
+  font-size: 13px;
+  line-height: 1.3;
+  color: color-mix(in srgb, var(--text-body) 70%, transparent);
+  margin: 0;
+}
+.reveal .slides section .deck-mock-img {
+  display: block;
+  height: 46px;
+  margin-bottom: 10px;
+  background: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--text-body) 15%, transparent) 0 6px,
+    transparent 6px 12px);
+  border: 1px solid color-mix(in srgb, var(--text-body) 20%, transparent);
+}
+
+/* What this page did differently, in the accent colour, outside the card. */
+.reveal .slides section .deck-mock-note {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--accent-primary);
+  margin: 12px 0 0;
+}
+
+
+/* =====================================================
+   FILE MOCKUP  (.deck-editor)
+
+   The style guide shown as what it is: a text file someone opens and edits.
+   Built in markup rather than screenshotted for the same reason as above, plus
+   one more — a screenshot of a file goes stale the moment the file changes,
+   and this one is quoted from a guide that is still in use.
+
+   Colours are mixed from the deck's own code-block tokens so the window
+   follows a theme change instead of pinning Sublime's palette.
+   ===================================================== */
+
+.reveal .slides section .deck-editor {
+  background: var(--bg-code-block);
+  color: var(--text-code-block);
+  font-family: var(--font-mono);
+  min-width: 0;
+}
+
+.reveal .slides section .deck-editor-bar {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 16px;
+  background: color-mix(in srgb, var(--text-code-block) 13%, var(--bg-code-block));
+  font-size: 16px;
+  color: color-mix(in srgb, var(--text-code-block) 70%, transparent);
+}
+.reveal .slides section .deck-editor-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--text-code-block) 32%, transparent);
+  flex-shrink: 0;
+}
+.reveal .slides section .deck-editor-name { margin-left: 6px; }
+
+/* Gutter and code share a row box so the line numbers stay aligned with the
+   lines they number; the code column wraps, the gutter never does. */
+.reveal .slides section .deck-editor-body {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 18px;
+  padding: 12px 20px 14px;
+  /* Sized, not chosen: thirteen lines plus the title bar have to clear the
+     ~390px content row this deck's grid leaves between the heading and the
+     audience question. At 20px/1.5 the window ran over and the question line
+     printed on top of it. Adding lines means dropping the size again. */
+  font-size: 17px;
+  line-height: 1.4;
+}
+.reveal .slides section .deck-editor-gutter {
+  margin: 0;
+  text-align: right;
+  white-space: pre;
+  color: color-mix(in srgb, var(--text-code-block) 34%, transparent);
+}
+.reveal .slides section .deck-editor-code {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Markdown syntax colours, mixed toward the accent so they read as one family
+   against the ink. */
+.reveal .slides section .deck-editor .tok-head {
+  color: color-mix(in srgb, var(--accent-primary) 52%, var(--text-code-block));
+  font-weight: 700;
+}
+.reveal .slides section .deck-editor .tok-mark {
+  color: color-mix(in srgb, var(--text-code-block) 40%, transparent);
+}
+.reveal .slides section .deck-editor .tok-code {
+  color: color-mix(in srgb, var(--accent-primary) 34%, var(--text-code-block));
+}
+
+/* A slide whose whole job is the file window. The deck's standard rows reserve
+   128px for the heading and 70px for the audience question, which together cap
+   the window at about 390px — thirteen lines. Trimming both rows to what their
+   content actually needs buys roughly 60px, and the smaller type below turns
+   that into nineteen lines, enough to show all three of the guide's section
+   headings rather than just the first.
+
+   Only this slide takes the tighter rows: the heading here is two lines of
+   short text, and the question is one line. A slide with a longer heading
+   would clip. */
+.reveal .slides > section.workshop-file {
+  grid-template-rows: 88px minmax(0, 1fr) 42px 30px;
+}
+.print-pdf .reveal .slides section.workshop-file {
+  grid-template-rows: 88px minmax(0, 1fr) 42px 30px;
+}
+.reveal .slides section.workshop-file .deck-editor-body {
+  font-size: 15px;
+  line-height: 1.32;
+}
+
+/* =====================================================
+   BEFORE/AFTER INSIDE AN EXAMPLE PANEL
+
+   The "before" slide of the archive pair used to quote a revision without its
+   original and then name a tension between two clauses that appeared nowhere
+   on screen, so the panel asked the room to take both on trust. It now carries
+   the original, the revision, and the two clauses themselves.
+
+   That is roughly twice the text, which is what the smaller size below is for.
+   A panel this quote-heavy is read, not glanced at, and the presenter reads the
+   key line aloud anyway.
+   ===================================================== */
+
+.reveal .slides section .example-lines--tight { font-size: 20px; line-height: 1.3; }
+.reveal .slides section .example-lines--tight dt { font-size: 17px; margin-bottom: 6px; }
+.reveal .slides section .example-lines--tight dd { margin-bottom: 16px; }
+
+/* was / now, tagged in the margin so the comparison needs no sentence to
+   explain it. */
+.reveal .slides section .edit-pair {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 8px;
+}
+.reveal .slides section .edit-tag {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.reveal .slides section .edit-was { color: var(--text-muted); }
+.reveal .slides section .edit-now { color: var(--text-body); }
+
+/* Two clauses from one paragraph that do not sit together. The rule between
+   them does the work of the word "yet". */
+.reveal .slides section .edit-clash { display: grid; row-gap: 9px; }
+.reveal .slides section .edit-clash span + span {
+  padding-top: 9px;
+  border-top: 1px solid var(--metadata-border);
+}
+
+/* Markdown fragments quoted inside a was/now pair. Reveal's default code style
+   boxes and recolours these; here they are the sentence, not a callout in it. */
+.reveal .slides section .edit-pair code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: none;
+  padding: 0;
+  color: inherit;
+}

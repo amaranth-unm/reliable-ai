@@ -1,0 +1,116 @@
+Workshop source snapshot · September 23, 2026
+Source: https://fredgibbs.net/courses/making-history/campus-history-human
+Fred Gibbs · Making History · HIST 1105 · Fall 2026
+Display boxes converted to headings; assignment wording retained.
+
+
+# Campus History — Part 2: Archive Visit and Campus History Essay
+
+This is **Part 2** of a two-part project. 
+
+You've already completed the AI draft and critique in [Part 1](https://fredgibbs.net/courses/making-history/campus-history-ai). Now you go to the actual archive to find what the historical record really says, reshape your AI essay into a [UNM Campus History](https://amaranth.unm.edu/campus-history) essay, that fuses both the AI essay and your own findings from the archive.
+
+## Skills you are practicing
+* **Structural analysis** — understanding how institutions (archives, universities, cataloguing systems) shape what knowledge survives and what gets lost. The archive isn't neutral; it reflects decisions about what was worth keeping.
+* **Reading for absence** — asking not just what the archive contains but what's missing, and why. What would the AI never know because it was never digitized?
+* **Source criticism** — evaluating primary sources on their own terms: who created this document, why, and what can (and can't) it tell us?
+
+
+---
+
+## Archive Visit (CSWR)
+
+**Your intellectual goal here is simple:** find out what the historical record actually says about your topic and compare it to what the AI told you. The logistics below are just the means to that end.
+
+The Center for Southwest Research is in Zimmerman Library. Enter through the main door, make a U-turn to the left, and proceed to the reading room. **Plan to spend at least an hour.**
+
+
+### Getting started
+- Bring a **pencil** (pens are not allowed), your phone for photos, and your AI essay critique
+- Store your bag in the lockers at the service kiosk — staff will give you a key.
+- Check in at the reference desk, tell the librarian you're researching your topic for a history class, and ask for their guidance. They're used to helping students with exactly this, and are genuinely glad to do it.
+
+
+### Published UNM campus histories (reference shelf)
+A few published histories of UNM are available for reference. You should check your topic against these. 
+
+- **Van Dorn Hooker**, [*Only in New Mexico*](https://search.worldcat.org/title/42420906) — best starting point for campus buildings; rich context, sparse citations.
+- **William E. Davis**, [*Miracle on the Mesa*](https://search.worldcat.org/title/61879603) — administrative history by presidential era; useful for broad context.
+- **Dorothy B. Hughes**, [*Pueblo on the Mesa*](https://search.worldcat.org/title/19638445) (1939) — best for UNM's first fifty years.
+- **Susan McColeman**, [*A History of the Buildings of the University of New Mexico: 1890–1934*](https://search.worldcat.org/title/55135823) — ask for it at the reference desk; essential for early buildings.
+
+
+### Archival records (manuscript boxes)
+- Search the [New Mexico Digital Archive](https://econtent.unm.edu/) for your topic. Use exact quotes around multi-word terms.
+- Note the Collection Number and relevant box numbers from the results.
+- Ask the librarian for a manuscript request form, fill it out, and hand it in. Boxes usually take about 10 minutes to retrieve.
+- Root through what you find: letters, photographs, planning documents, newspaper clippings, meeting minutes. You never know what will be there — that's the point.
+- **Take photos with your phone** for your own reference. Use the **scanner in the reading room** for images you want in your web page.
+- You can have your box held in the reading room if you need to return for a second session.
+
+
+### Research tips
+- **Names change.** Buildings and organizations often had earlier names. Mesa Vista Hall was the "400-man dorm" when it opened in 1950. Search alternate names if your first search returns nothing.
+- **You're not searching full text.** Most archival documents have never been digitized. The cataloguing is imperfect. Be creative and persistent.
+- **Think about the story you want to tell as you go.** Having a working argument helps you decide what to photograph and what to skip.
+
+---
+
+## Your Campus History Essay
+Your finished essay will be published on the [UNM Campus History](https://amaranth.unm.edu/campus-history) website. Write for a curious reader — a student, a faculty member, someone who walks past your building every day — who knows nothing about its history.
+
+## Publishing instructions
+The course page explains what the assignment should accomplish. The technical steps for creating your page, adding images, checking metadata, and submitting a pull request live on the [Campus History student publishing guide](https://amaranth.unm.edu/campus-history/student-guide/).
+
+
+### Requirements
+- **~800–1000 words**
+- **4–5 images** — historical photographs and/or scanned primary sources from CSWR
+- **Informative captions** on every image: not just what it shows, but why it's significant. Cite where you found it (box number, collection name, or URL).
+- **Subheadings** to organize your main sections
+- **Bibliography** of sources used (CSWR materials + published histories) You need to specify exactly where you found something so it can be verified.
+
+
+### Publication workflow
+Follow the [Campus History student publishing guide](https://amaranth.unm.edu/campus-history/student-guide/) for the site mechanics. 
+
+For this course, the important distinction is:
+- The **Campus History guide** explains how to publish the page.
+- This **assignment guide** explains what the page needs to argue, document, and reflect on for class.
+
+### Style
+- Write something you and your friends would actually want to read
+- Informal sophistication — smart magazine, not academic paper
+- Demonstrate expertise through specific detail and analysis, not just summary
+
+
+---
+
+## What I'm looking for
+
+I grade this project primarily on **effort and intellectual engagement**, not writing polish or whether you found spectacular archival material. The archive doesn't always cooperate — sometimes there isn't much there. What you do with what you find matters more than what you find.
+
+**A strong submission shows:**
+- Clear evidence of time spent at CSWR — specific sources cited, real images scanned, notes that reflect actual digging through boxes
+- A readable story with a point, even if a modest one
+- An AI-Archive Comparison that's *specific*: quotes the AI draft and names what was confirmed, contradicted, or simply absent from the archive
+- Captions that explain why an image matters, not just what it shows
+
+**A weak submission:**
+- Could have been written without visiting the archive
+- Has a generic AI comparison ("AI can sometimes be inaccurate")
+- Is missing images or has uncaptioned ones
+- Is just a list of facts with no narrative thread
+
+The grade distinction comes down to how seriously you engaged with the archive and how clearly that engagement shows in the writing.
+
+- **A** — clear archival evidence throughout; specific sources cited; AI-Archive Comparison quotes the draft directly and names concrete differences; images with substantive captions that explain significance
+- **B** — archive visit clearly evident; readable narrative with a point; comparison is mostly specific
+- **C** — archive visit evident but engagement is thin; comparison stays general ("AI can be inaccurate")
+- **D** — could have been written without visiting the archive
+- **F** — missing major components
+
+---
+
+## Questions
+Reach out if anything is unclear — especially before your CSWR visit. A quick conversation can save a lot of confusion in the reading room.

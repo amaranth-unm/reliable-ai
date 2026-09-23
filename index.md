@@ -1,9 +1,11 @@
 ---
 title: Reliable AI for Humanists
 layout: base
-header-image: "/assets/images/amaranth-flower-etch.jpg"
+header-image: "/assets/images/aldine-colophon-1521.jpg"
 header-tier: hero
+header-position: center center
 header-filter: botanical
+header-caption: "Festina lente: the closing leaves of the Aldine <i>Terence</i>, Venice, June 1521 — the imprint, and the anchor-and-dolphin mark. John Carter Brown Library."
 header-eyebrow: Amaranth Brown Bag Series
 header-title: Reliable AI for Humanists
 header-divider: see examples · try it out · ask questions
@@ -26,12 +28,12 @@ Editing is the best place to start, because it's the one task where you already 
 
 **Before you come:** bring a laptop and **one paragraph of your own writing** — a draft, an abstract, a syllabus policy, a cover letter, anything. If you'd rather not bring your own, we have [practice texts]({{ site.baseurl }}/practice-texts) ready to go. Arrive with an AI tool already open in a browser tab and you'll save yourself five minutes.
 
-<p><a href="{{ site.baseurl }}/sessions/editorial-assistant" class="btn-primary">Follow along →</a></p>
+<p>
+  <a href="{{ site.baseurl }}/sessions/editorial-assistant" class="btn-primary">Follow along →</a>
+  <a href="{{ site.baseurl }}/sessions/" class="btn-secondary">See all sessions</a>
+</p>
 
-## Sessions
-
-{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" %}
-{% include cards/card-grid.html cards=session_pages %}
+[View the presentation slides]({{ site.baseurl }}/presents/editorial-assistant/)
 
 ## What every session assumes
 

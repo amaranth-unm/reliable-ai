@@ -57,7 +57,9 @@ color just for headers.
   background-size: 40px 40px;
 }
 
-/* Accent color bar along the left edge */
+/* Accent color bar along the left edge.
+   z-index puts it above the text scrim below, which otherwise washes over it —
+   the scrim is at its most opaque exactly where this bar sits. */
 .page-header-bar {
   position: absolute;
   left: 0;
@@ -65,6 +67,39 @@ color just for headers.
   bottom: 0;
   width: 4px;
   background: var(--accent-primary);
+  z-index: 7;
+}
+
+/* Text scrim: a wash of the header's own background color across the side the
+   text sits on, fading out before the image's focal point.
+
+   This is the fix for a header whose title and standfirst are hard to read.
+   The obvious alternative — turning .page-header-bg opacity down until the
+   text reads — dims the picture everywhere, including the two-thirds of the
+   header that has nothing on top of it, and on this site that means paying for
+   legibility with the only image on the page. A one-sided gradient quiets the
+   image only under the type and leaves it at full strength elsewhere.
+
+   The stops are sized to the text column: content is inset about 8rem from the
+   left and the subtitle is capped at 580px, so full strength to 28% covers the
+   type, and by 62% the linework is back untouched. bg-position defaults to
+   "center right", which puts the subject on the side the scrim has let go.
+
+   Banner tier is left out: at 22vh and 0.10 image opacity it carries a single
+   line of heading and has no legibility problem to solve. */
+.page-header--hero::after,
+.page-header--section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    var(--page-header-text-scrim) 0%,
+    var(--page-header-text-scrim) 28%,
+    transparent 62%
+  );
 }
 
 /* Text content box — sits above the image and grid layers */
@@ -94,7 +129,7 @@ color just for headers.
   font-family: var(--font-heading);
   font-size: clamp(3rem, 7vw, 5.4rem);
   font-weight: 700;
-  color: var(--text-on-dark);
+  color: var(--page-header-title, var(--text-on-dark));
   line-height: 1.05;
   margin-bottom: 0.6rem;
   margin-top: 0;
@@ -219,6 +254,26 @@ color just for headers.
   max-width: 40%;
 }
 
+/* A section header carrying a subtitle needs room for a paragraph: 40% is
+   sized for a title alone and turns prose into a column of two-word lines.
+   The subtitle is also smaller than the hero's 1.4rem — this tier is 60vh,
+   so a standfirst set at hero size crowds out the image it sits on. */
+.page-header--section:has(p) .page-header-content {
+  max-width: 58%;
+}
+
+/* Full-strength text, not the hero's translucent standfirst: on a session
+   page this paragraph carries the session's argument, and it sits over the
+   busiest part of a line-art header. --page-header-subtitle is mixed to 82%
+   for the hero, which is a shade too faint against hatching. */
+.page-header--section p {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  max-width: 46ch;
+  margin-top: 0.9rem;
+  color: var(--page-header-ink, var(--text-body));
+}
+
 /* Smaller title for section tier — overrides .page-header h1 above */
 .page-header--section h1 {
   font-size: clamp(2.4rem, 3.2vw, 3.5rem);
@@ -315,16 +370,21 @@ color just for headers.
               Darkened and desaturated slightly for legibility.
    ===================================================== */
 
-/* --- Filter: Botanical --- */
+/* --- Filter: Botanical ---
+     invert+screen glows the linework over a dark page-header background.
+     Themes with a light page-header (e.g. rubric) override
+     --page-header-tint-filter/--page-header-tint-blend to drop the
+     invert and multiply the ink directly onto the paper-colored bg instead —
+     screen washes a light background out to near-white. */
 .page-header-bg--botanical {
-  filter: invert(1) sepia(0.6) hue-rotate(320deg) saturate(2.5);
-  mix-blend-mode: screen;
+  filter: var(--page-header-tint-filter, invert(1) sepia(0.6) hue-rotate(340deg) saturate(2.5));
+  mix-blend-mode: var(--page-header-tint-blend, screen);
 }
 
 /* --- Filter: Sketch
      Tune: contrast (2–4, higher = thicker lines), final brightness (1.5–2.5) --- */
 .page-header-bg--sketch {
-  filter: grayscale(1) contrast(2.5) invert(1) sepia(0.6) hue-rotate(320deg) saturate(3) brightness(2);
+  filter: grayscale(1) contrast(2.5) invert(1) sepia(0.6) hue-rotate(340deg) saturate(3) brightness(2);
   mix-blend-mode: screen;
 }
 
@@ -353,21 +413,36 @@ color just for headers.
 }
 
 /* --- Filter: Etching
-     Pipeline: grayscale → pre-brighten → threshold → post-darken → invert → tint
-     contrast(5+) collapses continuous tone to black/white.
-     Pre-brightness(1.3) shifts which tones fall above threshold.
-     Post-brightness(0.55) controls darkness of the inverted result. --- */
+     Ink on paper: dark brown lines, the sheet left as a muted field.
+
+     Deliberately NOT inverted. botanical and sketch invert their line art and
+     composite with mix-blend-mode: screen, which is why their lines come out
+     pale. On this site that goes double: the rubric theme sets
+     --bg-page-header to parchment, and screening onto a light ground can
+     barely darken anything,
+     so an inverted etching washes out to near-white. Keeping the image the way
+     round it was printed, with a normal composite, leaves the marks dark on
+     both light and dark grounds.
+
+     Opacity is the trade-off, and it is set low here on purpose: session
+     headers carry a subtitle, and this woodcut is dense enough to fight it.
+     Raise it per page with the bg-opacity front-matter parameter on a sparser
+     image; drop it if a header's text stops reading.
+
+     Tune: contrast (2–3) for how hard the lines bite, hue-rotate (340–355)
+     for the brown's warmth, brightness (1.05–1.25) for the paper's tone. --- */
 .page-header-bg--etching {
-  filter: grayscale(1) brightness(1.3) contrast(5) brightness(0.55) invert(1) sepia(0.5) hue-rotate(320deg) saturate(3);
-  mix-blend-mode: screen;
+  filter: grayscale(1) brightness(1.15) contrast(2.2) sepia(1) hue-rotate(348deg) saturate(2.4);
+  mix-blend-mode: normal;
+  opacity: 0.30;
 }
 
 .page-header--section .page-header-bg--etching {
-  opacity: 0.40;
+  opacity: 0.26;
 }
 
 .page-header--banner .page-header-bg--etching {
-  opacity: 0.25;
+  opacity: 0.20;
 }
 
 /* --- Filter: Photo (default)
@@ -397,8 +472,13 @@ color just for headers.
     padding: 2rem 1.5rem;
   }
 
+  /* Grow to fit rather than clip. A fixed 30vh is sized for a title alone;
+     a session header also carries a subtitle, and on a phone that paragraph
+     is several times taller than it is on a laptop. min-height keeps the
+     proportions for short headers and lets long ones push down. */
   .page-header--section {
-    height: 30vh;
+    min-height: 30vh;
+    height: auto;
   }
 
   .page-header--section .page-header-content {

@@ -6,7 +6,7 @@ url: https://amaranth.unm.edu
 baseurl: /reliable-ai
 repository: amaranth-unm/reliable-ai
 
-theme_css: terra-cotta
+theme_css: rubric
 search: true
 
 plugins:
@@ -14,6 +14,7 @@ plugins:
 
 exclude:
   - Dockerfile
+  - SESSION-STYLE.md
   - docker-compose.yaml
   - scripts
   - README.md

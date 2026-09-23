@@ -1,0 +1,57 @@
+{% comment %}
+  Demo block — a real reply from a real run, shown as evidence.
+
+  Usage:
+    {% include demo.html id="policy-baseline" %}
+
+  The counterpart to prompt.html. A prompt is a thing people copy; a demo is a
+  thing people read, so it gets no copy button and it carries provenance
+  instead: which tool, which date. Models drift, and an unlabelled transcript
+  quietly stops being true.
+
+  Demos live in _data/demos.yml keyed by id. An entry with an empty `text`
+  renders as a loud unfilled slot rather than as nothing, so a half-finished
+  demonstration cannot ship looking finished. Never write the `text` by hand
+  from memory or imagination — the whole page rests on the reader being able
+  to check it, and an invented transcript is the one error that can't be
+  recovered from.
+{% endcomment %}
+
+{% if include.id %}
+  {% assign d = site.data.demos | where: "id", include.id | first %}
+{% endif %}
+{% assign demo_text  = include.text  | default: d.text %}
+{% assign demo_label = include.label | default: d.label | default: "What came back" %}
+{% assign demo_note  = include.note  | default: d.note %}
+{% assign demo_tool  = include.tool  | default: d.tool %}
+{% assign demo_date  = include.date  | default: d.date %}
+{% assign demo_run   = include.run   | default: d.run %}
+
+{::nomarkdown}
+{% if d or include.text %}
+  {% assign trimmed = demo_text | strip %}
+  {% if trimmed != "" %}
+<figure class="demo" id="demo-{{ include.id | default: demo_label | slugify }}">
+  <figcaption class="demo-head">
+    <span class="demo-label">{{ demo_label }}</span>
+    {% if demo_tool != blank %}
+    <span class="demo-meta">{{ demo_tool }}{% if demo_date != blank %} · {{ demo_date }}{% endif %}</span>
+    {% endif %}
+  </figcaption>
+  <div class="demo-text">{{ demo_text | strip | markdownify }}</div>
+  {% if demo_note != blank %}
+  <p class="demo-note">{{ demo_note }}</p>
+  {% endif %}
+</figure>
+  {% else %}
+<div class="demo demo--empty">
+  <p class="demo-empty-head">Unfilled demonstration slot — <code>{{ include.id }}</code></p>
+  <p>Run {% if demo_run %}<code>{{ demo_run }}</code>{% else %}the prompt above{% endif %} on the running example, then paste the reply into <code>_data/demos.yml</code> under this id, with the tool and the date.</p>
+</div>
+  {% endif %}
+{% else %}
+<div class="xanthan-warning">
+  demo include: no demo found for id &ldquo;{{ include.id }}&rdquo; in _data/demos.yml.
+</div>
+{% endif %}
+{:/nomarkdown}

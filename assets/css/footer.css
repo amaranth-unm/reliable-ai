@@ -86,11 +86,41 @@ footer {
   text-align: center;
 }
 
-.footer-bottom p {
+/* Inline flow rather than flex: the phrases have to be able to wrap *inside*
+   themselves at phone width. As flex items they carry min-width:auto, which
+   keeps "Expanding digital horizons in the humanities" on one line and pushes
+   the whole page into horizontal scroll. */
+.footer-bottom-brand {
+  /* Display & Positioning */
+  margin-bottom: 0.4rem;
+
+  /* Typography */
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-footer-bottom);
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-footer-brand);
+}
+
+/* Tracks the accent by default, but kept on its own token so a theme can give
+   it a warmer colour than the brand word without touching anything else. */
+.footer-heart {
+  color: var(--text-footer-heart);
+}
+
+.footer-sep {
+  padding: 0 0.25rem;
+  color: var(--text-footer-bottom);
+}
+
+.footer-bottom-contact {
   font-size: 0.8rem;
   color: var(--text-footer-bottom);
-  margin: 0.25rem 0;
-  text-align: center;
 }
 
 .footer-bottom a {
@@ -102,11 +132,6 @@ footer {
 .footer-bottom a:hover {
   color: var(--interactive-hover);
   text-decoration: underline;
-}
-
-.footer-tagline {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6); /* subdued — intentionally lighter than --text-footer-bottom */
 }
 
 /* Responsive footer */

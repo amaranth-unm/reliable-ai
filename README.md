@@ -17,6 +17,13 @@ bundle exec jekyll serve
 Then <http://localhost:4000/reliable-ai/>. The `baseurl` in `_config.yml` means
 the path is required â€” plain `localhost:4000` will 404.
 
+## Writing a session
+
+**Read `SESSION-STYLE.md` before starting or editing a session page.** It is
+the source of truth for front matter, the fixed page skeleton, how steps and
+prompts are written, and the voice. `sessions/editorial-assistant.md` is the
+worked example.
+
 ## How it's put together
 
 ```
@@ -56,6 +63,25 @@ The card grids on the home page and `/sessions` pick the page up automatically â
 nothing to register.
 
 ### Presenting
+
+The editorial-assistant slide deck is at
+[`presents/editorial-assistant/`](slides/editorial-assistant/index.md).
+It uses Reveal.js with the site's Rubric colors and typography. Edit its
+Markdown sections directly; each section includes timing and speaker notes.
+
+- **Space / arrow keys:** advance. On demonstration slides, the next advance
+  reveals the response and discussion question.
+- **Esc / All slides:** overview. **S:** speaker notes and timer.
+- **Copy:** copy the displayed prompt. **Full tutorial:** return to the longer
+  workshop page.
+- Add `?print-pdf` to the deck URL, then print from the browser to export slides
+  with all responses visible.
+
+The shared layout is `_layouts/reveal-workshop.html`, with styles in
+`assets/css/reveal-workshop.css` and initialization in
+`assets/js/reveal-workshop.js`. Reveal.js 5.2.1 is bundled under
+`assets/vendor/`; the runtime does not depend on a CDN. The upstream license
+and distribution details are included there.
 
 Session pages set `workshop_mode: true`, which turns on Xanthan's presentation
 helper: press <kbd>w</kbd>, then <kbd>space</kbd> or the arrow keys to

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }} // {{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.summary | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/vendor/reveal.js-5.2.1/dist/reset.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/vendor/reveal.js-5.2.1/dist/reveal.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/themes/rubric.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/reveal-workshop.css' | relative_url }}">
+</head>
+<body class="workshop-deck">
+  <nav class="deck-nav" aria-label="Presentation resources">
+    <a href="{{ page.tutorial | relative_url }}">Full tutorial</a>
+    <button type="button" data-deck-overview aria-label="Show all slides">All slides</button>
+  </nav>
+  <noscript><p class="deck-noscript">Slides require JavaScript. <a href="{{ page.tutorial | relative_url }}">Read the complete tutorial.</a></p></noscript>
+  <div class="reveal">
+    <div class="slides">
+{{ content }}
+    </div>
+  </div>
+  <script src="{{ '/assets/vendor/reveal.js-5.2.1/dist/reveal.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/reveal.js-5.2.1/plugin/notes/notes.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/prompt-copy.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/reveal-workshop.js' | relative_url }}"></script>
+</body>
+</html>

@@ -123,19 +123,56 @@ p:has(+ ol) {
    like everything else, so its right edge lines up with the body copy. The
    larger type already shortens the measure in characters — capping the width
    as well made it noticeably narrower than the text around it. */
+/* The lede is set in a Garamond rather than the body sans. The face is the
+   argument as much as the decoration: this site's imagery is Aldine, and
+   Garamond's romans descend from the types Francesco Griffo cut for Aldus —
+   the opening paragraph is set in the closest living relative of the type in
+   the header image.
+
+   Three settings below exist because of the face, not by preference:
+     - Size is up a step. EB Garamond has a small x-height and a light colour;
+       at the sans's 1.2–1.45rem it reads smaller than the body copy under it
+       rather than larger, which defeats the point of a standfirst.
+     - Tracking is 0, not the sans's -0.01em. Garamond is already close-fitting
+       at this size and negative tracking closes the counters up.
+     - Line height comes down slightly, because the larger size more than makes
+       up the leading the old value was buying. */
 .lede,
 .lead {
   margin: 0 0 var(--spacing-lg) 0;
   color: var(--text-lede);
-  font-size: clamp(1.2rem, 2vw, 1.45rem);
-  line-height: 1.55;
+  font-family: var(--font-lede);
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+  line-height: 1.45;
 
   /* Justified to both margins. hyphens is not optional here: without it the
      browser can only stretch the word spaces to reach the right edge, which
      opens rivers of white down a paragraph set this large. Hyphenation lets
-     it break words instead and keeps the spacing even. */
+     it break words instead and keeps the spacing even.
+
+     But unconstrained hyphenation breaks short words — "writ-ing" turned up
+     in the lead at tablet widths, which reads as a typo at this size. The
+     limits below require 4 characters on each side of the break, so nothing
+     under eight letters can ever split, while long words still break and go
+     on doing the spacing work justification needs them for.
+
+     Two properties for one job: hyphenate-limit-chars is the standard and is
+     unsupported in Safari, where the -webkit- pair from the old CSS3 Text
+     draft is what lands. Both are needed; neither alone covers every browser. */
   text-align: justify;
   hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;
+  -webkit-hyphenate-limit-before: 4;
+  -webkit-hyphenate-limit-after: 4;
+
+  /* No text-wrap here, deliberately. A short last line is the one justified
+     flaw CSS can't currently fix: `pretty` is specified for it but Chrome
+     ignores it on justified text (measured — identical breaks on and off),
+     and `balance` does apply but makes things worse, shortening every line so
+     justification then stretches the spacing wide open. Reword the sentence
+     if a lead strands its last line; don't reach for a wrap property. */
+
+  letter-spacing: 0;
 }
 
 .section-intro {
@@ -643,6 +680,10 @@ ALERTS
 /* SMALL SCREEN
 /*
 /*****************************************************************************/
+
+.practice-anchor {
+  scroll-margin-top: 5rem;
+}
 
 @media (max-width: 768px) {
 

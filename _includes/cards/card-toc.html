@@ -8,6 +8,7 @@
   Recommended row fields:
     - title:   card title
     - summary: short description
+    - kicker:  optional line above the title (e.g. "Session 1 · 23 Sept")
     - link:    optional URL; falls back to page url
     - position: sort order
 {% endcomment %}
@@ -24,6 +25,9 @@
       <a href="{{ link_resolved | strip }}">
         <div class="toc-row-flex">
           <div class="toc-body">
+            {% if row.kicker %}
+              <p class="toc-kicker">{{ row.kicker }}</p>
+            {% endif %}
             <h{{ heading_level }}>{{ row.title | default: 'Untitled' }}</h{{ heading_level }}>
             {% if row.summary %}
               <p>{{ row.summary }}</p>

@@ -97,15 +97,6 @@
 
 .prompt { scroll-margin-top: 5rem; }
 
-.step-clock {
-  display: inline-block;
-  margin-bottom: 0.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
 /* The one-line rule that the whole session hangs on. */
 .rule {
   margin: 2rem 0;
@@ -121,4 +112,83 @@
   .prompt-text { font-size: 0.85rem; padding: 0.85rem 0.9rem; }
   .prompt-copy-text { display: none; }   /* icon-only button on small screens */
   .rule { font-size: 1.1rem; }
+}
+
+
+/* === Demo blocks ===================================================== */
+/* A demo is the counterpart to a prompt: the prompt is what you paste, the
+   demo is what actually came back. It deliberately does NOT look like a
+   prompt — no copy button, no mono paste-box — because it is evidence to be
+   read rather than an instruction to be used. Paper rather than terminal:
+   this is a transcript, and it should feel like a quotation.
+
+   The head carries provenance. An unlabelled transcript stops being true
+   without anyone noticing when the model changes underneath it. */
+
+.demo {
+  margin: 1.75rem 0;
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--text-muted);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--bg-card) 60%, var(--bg-page));
+  overflow: hidden;
+}
+
+.demo-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.demo-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Which tool, which day. Quiet, but never optional. */
+.demo-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.demo-text {
+  padding: 0.9rem 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.demo-text > :first-child { margin-top: 0; }
+.demo-text > :last-child  { margin-bottom: 0; }
+
+.demo-note {
+  margin: 0;
+  padding: 0.6rem 1.2rem 0.9rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* An unfilled slot is loud on purpose. A demonstration that ships with
+   invented or missing transcripts is worse than one that admits it isn't
+   finished, so this is hard to mistake for content. */
+.demo--empty {
+  border-left-color: var(--error);
+  background: color-mix(in srgb, var(--error) 7%, var(--bg-page));
+  padding: 0.9rem 1.2rem;
+}
+
+.demo--empty p { margin: 0.35rem 0; font-size: 0.9rem; }
+
+.demo-empty-head {
+  font-weight: 600;
+  color: var(--error);
 }

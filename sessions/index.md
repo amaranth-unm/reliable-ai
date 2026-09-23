@@ -1,10 +1,13 @@
 ---
 title: Sessions
 layout: base
-header-image: "/assets/images/letterforms.webp"
-header-tier: banner
+header-image: "/assets/images/stradanus-press-1600.jpg"
+header-tier: section
 header-filter: etching
+header-position: center right
 header-title: Sessions
+header-subtitle: "A printing house in about 1600: compositors at the cases, a corrector reading proof, pressmen at the press, sheets hung to dry. Every session here is about the same division of labour — the machine does the setting, you do the judging."
+header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from <i>Nova Reperta</i>, engraved by Joannes Galle. Museum Plantin-Moretus, public domain." 
 summary: "Every session in the Reliable AI for Humanists brown bag series, with the full materials from each."
 ---
 
@@ -12,7 +15,7 @@ Each session is a working hour: a short framing, three or four exercises you do 
 {: .lead}
 
 {% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" %}
-{% include cards/card-grid.html cards=session_pages %}
+{% include cards/card-toc.html rows=session_pages %}
 
 ## Coming up
 

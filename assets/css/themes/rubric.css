@@ -1,0 +1,159 @@
+/* === Rubric Theme === */
+/*
+  A variable-only theme drawn from a printed antiphonal: a decorative letter D
+  in vermilion and dense black on a warm parchment sheet, with ochre shadow
+  where the page curls away from the light.
+
+  Load this AFTER the base Xanthan CSS files in _includes/html/html-head.html.
+
+  Why this reference, for a series about writing with AI: rubrication is the
+  original two-ink system. The black carries the text; the red marks what the
+  reader is supposed to notice — the start of a thing, the name of a thing, the
+  instruction about how to proceed. That is exactly the division of labour this
+  site argues for, so the palette is two inks and a sheet, and red is reserved
+  for what matters rather than spent on decoration.
+
+  Colors were sampled from the source image rather than guessed: the vermilion
+  is the most saturated pixel in the rubricated initial, the ink is the darkest,
+  and the parchment is the lightest. Note the ink is NOT neutral — it sits at
+  hue ~38, a warm near-black, which is why a cool #222 looks wrong here.
+
+  Every foreground/background pair below was checked; the ratios are recorded
+  where they are close or where a later edit might break them.
+*/
+
+/*****************************************************
+CSS VARIABLE OVERRIDES
+*****************************************************/
+:root {
+  /* ===== Rubric Color Palette ===== */
+  --rubric-red: #9a1416;          /* The rubricated initial and its rules */
+  --rubric-red-dark: #6d0f11;     /* Ink pooled in the stroke */
+  --rubric-red-light: #b7342f;    /* Lifted, for hover states */
+  --ink-black: #1c1710;           /* Text ink — warm, not neutral */
+  --parchment: #ded0c0;           /* The sheet */
+  --parchment-pale: #f4ede2;      /* The sheet where the light hits it */
+  --ochre: #7a5a33;               /* Warm shadow at the curl of the page */
+  --ochre-light: #b3946a;         /* Aged edge, reserved for warnings */
+
+  /* ===== Override Base Theme Variables ===== */
+  /* Backgrounds */
+  --bg-page: var(--parchment-pale);
+  --bg-card: color-mix(in srgb, var(--parchment-pale) 94%, var(--parchment));
+  --bg-accent: color-mix(in srgb, var(--ochre) 8%, var(--bg-page));
+  --bg-code: color-mix(in srgb, var(--parchment) 68%, var(--bg-page));
+  --bg-code-block: var(--ink-black);
+  --text-code-block: var(--parchment-pale);
+  --bg-nav: var(--ink-black);
+  --bg-footer: var(--ink-black);
+  --bg-footer-bottom: var(--ink-black);
+
+  /* Homepage sections */
+  --bg-section-alt: linear-gradient(180deg, color-mix(in srgb, var(--parchment) 70%, var(--parchment-pale)), color-mix(in srgb, var(--parchment) 46%, var(--parchment-pale)));
+  --bg-section-alt-flat: color-mix(in srgb, var(--parchment) 58%, var(--parchment-pale));
+  --border-section-alt: color-mix(in srgb, var(--rubric-red) 18%, var(--parchment-pale));
+  --text-section-alt-heading: var(--rubric-red-dark);
+  /* The source has no cool hue at all — two inks and a sheet. So the "cool"
+     band is a cooler, greyer parchment rather than an invented blue-green,
+     and it is distinguished from the "alt" band by tone, not by temperature. */
+  --text-section-cool-heading: var(--ochre);
+  --bg-section-cool: linear-gradient(180deg, color-mix(in srgb, var(--ochre) 14%, var(--parchment-pale)), color-mix(in srgb, var(--ochre) 7%, var(--parchment-pale)));
+  --border-section-cool: color-mix(in srgb, var(--ochre) 26%, var(--parchment-pale));
+  /* The one dark band on the page: ink, because on this sheet the only thing
+     darker than the text is more of the same ink. Parchment on ink is 15.3:1;
+     the link lightens to ochre-light, which is 6.2:1 on ink. */
+  --bg-section-warm: var(--ink-black);
+  --text-section-warm: var(--parchment-pale);
+  --text-section-warm-heading: color-mix(in srgb, var(--ochre-light) 42%, var(--parchment-pale));
+  --text-section-warm-link: var(--ochre-light);
+  --text-section-warm-link-hover: var(--parchment-pale);
+  --border-section-warm: var(--rubric-red);
+  --border-section-accent: var(--rubric-red);
+  --hero-tagline-color: color-mix(in srgb, var(--ink-black) 74%, var(--bg-page));
+
+  --bg-feature-card: var(--ink-black);
+  --text-feature-card: var(--parchment-pale);
+  --text-feature-card-muted: color-mix(in srgb, var(--parchment-pale) 74%, transparent);
+  --border-feature-card: color-mix(in srgb, var(--rubric-red) 72%, var(--ink-black));
+  --border-feature-card-hover: var(--ochre-light);
+  --bg-feature-band: var(--ink-black);
+  --text-feature-band: var(--parchment-pale);
+  --text-feature-band-muted: color-mix(in srgb, var(--parchment-pale) 74%, transparent);
+  --text-feature-band-link: var(--ochre-light);
+  --text-feature-band-link-hover: var(--parchment-pale);
+  --bg-editorial-note: color-mix(in srgb, var(--ochre) 12%, var(--parchment-pale));
+  --border-editorial-note: var(--rubric-red);
+  --text-lede: color-mix(in srgb, var(--ink-black) 84%, var(--rubric-red));
+  --text-kicker: var(--rubric-red-dark);
+  --metadata-border: color-mix(in srgb, var(--rubric-red) 30%, transparent);
+
+  /* Text */
+  --text-body: var(--ink-black);
+  --text-on-dark: var(--parchment-pale);
+  --text-muted: color-mix(in srgb, var(--ink-black) 64%, var(--bg-page));
+  --text-footer-link: var(--parchment-pale);
+  --text-footer-bottom: color-mix(in srgb, var(--parchment-pale) 70%, transparent);
+
+  /* Accents & Interactive — red is the rubric: it marks, it does not decorate.
+     7.3:1 on the page, so it can carry a link as well as an ornament. */
+  --accent-primary: var(--rubric-red);
+  --accent-border: var(--rubric-red);
+  --interactive-hover: var(--rubric-red-light);
+  --interactive-hover-bg: var(--rubric-red-light);
+  --interactive-subtle: color-mix(in srgb, var(--ochre) 12%, transparent);
+  --interactive-subtle-hover: color-mix(in srgb, var(--rubric-red) 14%, transparent);
+  --accent-primary-dark: var(--rubric-red-dark);
+
+  /* Heading hierarchy */
+  --text-h1: var(--ink-black);
+  --text-h2: var(--ink-black);
+  --text-h3: var(--ink-black);
+  --text-h4: var(--ink-black);
+  --text-h5: var(--ink-black);
+
+  /* Status colors tuned to the palette. There is no green in the source, so
+     success borrows the ochre end rather than importing a hue from nowhere. */
+  --success: var(--ochre);
+  --warning: var(--ochre-light);
+  --warning-bg: color-mix(in srgb, var(--ochre-light) 22%, var(--bg-page));
+  --error: var(--rubric-red-dark);
+  --info: color-mix(in srgb, var(--ochre) 70%, var(--parchment-pale));
+
+  /* Page headers — the sheet, not the framework's default near-black, so the
+     header band reads as more of the same page rather than a dark panel laid
+     over it. Title and supporting text are ink on paper. */
+  --bg-page-header: var(--parchment);
+
+  /* Header ink: the text ink warmed toward the ochre shadow, so a title set on
+     a brown-printed woodcut belongs to the image instead of sitting on top of
+     it. Resolves to about #463520 — 7.8:1 on parchment. */
+  --page-header-ink: color-mix(in srgb, var(--ochre) 45%, var(--ink-black));
+  --page-header-title: var(--page-header-ink);
+  --page-header-grid-line: var(--ink-black);
+  --page-header-divider-line: color-mix(in srgb, var(--ink-black) 22%, transparent);
+  --page-header-divider-text: color-mix(in srgb, var(--ink-black) 50%, transparent);
+  --page-header-subtitle: color-mix(in srgb, var(--page-header-ink) 88%, transparent);
+  --page-header-caption: color-mix(in srgb, var(--ink-black) 62%, transparent);
+  --page-header-caption-hover: var(--rubric-red);
+  --page-header-title-shadow: none;
+  --page-header-subtitle-shadow: none;
+  --page-header-section-title-shadow: none;
+  --page-header-top-scrim: transparent;
+  /* Parchment, near-opaque: this header is light and its ink is dark, so the
+     scrim fades the line art back toward the sheet rather than darkening it. */
+  --page-header-text-scrim: color-mix(in srgb, var(--parchment) 88%, transparent);
+  --page-header-caption-scrim: color-mix(in srgb, var(--parchment) 85%, transparent);
+  --page-header-tint-filter: sepia(0.6) hue-rotate(340deg) saturate(2.2);
+  --page-header-tint-blend: multiply;
+}
+
+/* The nav overlays the hero transparently (see nav.css) and was built assuming
+   a dark image showing through it. Scoped to hero pages only — section/banner
+   headers keep the nav's normal solid ink bar, which reads fine as-is. */
+.page-wrap:has(.page-header--hero) {
+  --page-header-nav-text: var(--ink-black);
+  --page-header-nav-dropdown-bg: var(--parchment-pale);
+  --page-header-nav-dropdown-border: color-mix(in srgb, var(--ink-black) 20%, transparent);
+  --page-header-nav-dropdown-text: var(--ink-black);
+  --page-header-nav-focus-ring: color-mix(in srgb, var(--ink-black) 25%, transparent);
+}

@@ -32,7 +32,17 @@ See the [full session]({{ site.baseurl }}/sessions/editorial-assistant) for what
 {% assign step3 = site.data.prompts | where: "session", "editorial-assistant" | where: "step", 3 %}
 {% for p in step3 %}{% include prompt.html id=p.id %}{% endfor %}
 
-### Rules and style sheets
+### Making rules
 
 {% assign step4 = site.data.prompts | where: "session", "editorial-assistant" | where: "step", 4 %}
 {% for p in step4 %}{% include prompt.html id=p.id %}{% endfor %}
+
+### Rules and style sheets
+
+{% assign step5 = site.data.prompts | where: "session", "editorial-assistant" | where: "step", 5 %}
+{% for p in step5 %}{% include prompt.html id=p.id %}{% endfor %}
+
+### Working in files
+
+{% assign step6 = site.data.prompts | where: "session", "editorial-assistant" | where: "step", 6 %}
+{% for p in step6 %}{% include prompt.html id=p.id %}{% endfor %}

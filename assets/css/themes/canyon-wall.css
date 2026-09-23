@@ -110,9 +110,45 @@ CSS VARIABLE OVERRIDES
   --error: var(--canyon-red-dark);
   --info: color-mix(in srgb, var(--ponderosa-green) 70%, var(--granite-white));
 
-  /* Page headers */
-  --bg-page-header: var(--shadow-gray);
-  --page-header-subtitle: color-mix(in srgb, var(--granite-white) 74%, transparent);
-  --page-header-caption: color-mix(in srgb, var(--granite-white) 78%, transparent);
-  --page-header-caption-hover: var(--granite-white);
+  /* Page headers — tan/limestone rather than the framework's default
+     near-black, so the hero band reads as part of this palette instead of
+     a generic dark panel. Title and supporting text flip to ink-on-paper;
+     the botanical/sketch tint switches from invert+screen (built for a dark
+     backdrop) to a plain sepia tint multiplied onto the light one, so the
+     woodcut's white paper disappears into the header bg instead of washing
+     out to a pale ghost. */
+  --bg-page-header: var(--limestone);
+
+  /* Header ink. --shadow-gray is the palette's ink, but it is a cool
+     near-black: against limestone, and against a woodcut now printed in brown,
+     it reads as plain black and sits outside the palette. This is the same ink
+     pulled toward the red stratum — dark enough to carry a title and a
+     paragraph, warm enough to belong to the header it sits on. */
+  --page-header-ink: color-mix(in srgb, var(--canyon-red-dark) 62%, var(--shadow-gray));
+  --page-header-title: var(--page-header-ink);
+  --page-header-grid-line: var(--shadow-gray);
+  --page-header-divider-line: color-mix(in srgb, var(--shadow-gray) 22%, transparent);
+  --page-header-divider-text: color-mix(in srgb, var(--shadow-gray) 50%, transparent);
+  --page-header-subtitle: color-mix(in srgb, var(--page-header-ink) 88%, transparent);
+  --page-header-caption: color-mix(in srgb, var(--shadow-gray) 65%, transparent);
+  --page-header-caption-hover: var(--canyon-red);
+  --page-header-title-shadow: none;
+  --page-header-subtitle-shadow: none;
+  --page-header-section-title-shadow: none;
+  --page-header-top-scrim: transparent;
+  --page-header-caption-scrim: color-mix(in srgb, var(--limestone) 85%, transparent);
+  --page-header-tint-filter: sepia(0.6) hue-rotate(340deg) saturate(2.2);
+  --page-header-tint-blend: multiply;
+}
+
+/* The nav overlays the hero transparently (see nav.css) and was built
+   assuming a dark image showing through it. Scoped to hero pages only —
+   section/banner headers keep the nav's normal solid dark bar, which
+   already reads fine against this theme. */
+.page-wrap:has(.page-header--hero) {
+  --page-header-nav-text: var(--shadow-gray);
+  --page-header-nav-dropdown-bg: var(--granite-white);
+  --page-header-nav-dropdown-border: color-mix(in srgb, var(--shadow-gray) 20%, transparent);
+  --page-header-nav-dropdown-text: var(--shadow-gray);
+  --page-header-nav-focus-ring: color-mix(in srgb, var(--shadow-gray) 25%, transparent);
 }

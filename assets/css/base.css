@@ -30,6 +30,9 @@ Not here: prose and headings (typography.css), which read as "base" but are
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap');
+/* Lede face. Italic is pulled too: the lede is justified, so it leans on the
+   roman for colour, but pull quotes and titles inside one need the italic. */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 @media screen {
 /*****************************************************
@@ -203,6 +206,9 @@ PAGE SETUP & CUSTOMIZATION
   --font-heading: 'Space Grotesk', 'Inter', sans-serif;
   --font-body: 'Source Sans 3', sans-serif;
   --font-serif: 'Lora', serif;
+  /* The standfirst face, separate from --font-serif so a theme can change the
+     opening paragraph without touching pull quotes and deck headings. */
+  --font-lede: 'EB Garamond', 'Lora', Georgia, serif;
   --font-mono: 'Fira Mono', 'Consolas', 'Menlo', monospace;
 
   /* Spacing */
@@ -227,6 +233,8 @@ PAGE SETUP & CUSTOMIZATION
   --bg-footer-bottom: var(--sage-deep);
   --text-footer-link: var(--warm-white);
   --text-footer-bottom: var(--sage-pale);
+  --text-footer-brand: var(--interactive-hover);
+  --text-footer-heart: var(--interactive-hover);
 
   /* Page headers */
   --bg-page-header: #161618;
@@ -240,6 +248,8 @@ PAGE SETUP & CUSTOMIZATION
   --page-header-subtitle-shadow: 0 1px 4px rgba(0, 0, 0, 0.75), 0 0 28px rgba(0, 0, 0, 0.45);
   --page-header-section-title-shadow: 0 0 25px rgba(0, 0, 0, 0.95), 0 0 55px rgba(0, 0, 0, 0.75), 0 0 90px rgba(0, 0, 0, 0.45);
   --page-header-top-scrim: rgba(0, 0, 0, 0.45);
+  /* Horizontal wash behind hero/section header text; see page-header.css */
+  --page-header-text-scrim: rgba(0, 0, 0, 0.55);
   --page-header-caption-scrim: rgba(0, 0, 0, 0.72);
 }
 

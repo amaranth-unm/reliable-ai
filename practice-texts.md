@@ -3,7 +3,7 @@ title: Practice texts
 layout: base
 header-tier: banner
 header-title: Practice texts
-summary: "Three invented paragraphs to edit if you'd rather not use your own writing — a seminar paper, an abstract, and a syllabus policy."
+summary: "Invented practice texts, including a syllabus policy for reader roles and a four-paragraph project report for editing with a style guide."
 ---
 
 Bring your own writing if you can: you'll learn more from a paragraph whose problems you already half-know. But if you'd rather not put your own work in, or you forgot, take one of these.
@@ -29,6 +29,54 @@ Bring your own writing if you can: you'll learn more from a paragraph whose prob
 
 > **Use of AI Tools.** Students may use generative AI tools in this course where appropriate, but should not use them to complete assignments for them. Any use of AI should be disclosed. Work that is substantially produced by AI will not receive credit and may be referred as an academic integrity violation. Students are responsible for the accuracy of everything they submit. If you are unsure whether a particular use is permitted, ask before submitting. The goal of this policy is to support learning rather than to prohibit technology, and I expect students to use their judgment.
 
+## 4. A community archive project report
+{: #community-archive .practice-anchor}
+
+*For: applying a style guide across several paragraphs. This report, its project, and its numbers are invented for the exercise.*
+
+The audience is community partners and university colleagues. The writer wants to describe what a pilot accomplished, acknowledge its limits, and explain the next stage. Read the report once before looking at the guide.
+
+### A community archive takes shape
+
+> Over the past year, the Arroyo Memory Project has recorded 32 interviews and digitized photographs contributed by local families. We began with a practical aim: to make materials held in separate homes easier to find and use. The collection now includes accounts of work, migration, and neighborhood change that rarely appear in the town's official records. Bringing these materials together also raises a less practical question about who gets to describe them and whose account becomes the one a visitor encounters first.
+>
+> We use “shared stewardship” to mean that contributors have a continuing role in decisions about description and access. The implementation of a common description template has facilitated the comparison of records by contributors. They can suggest corrections, add context, or request that an interview remain unavailable online. Final decisions about descriptions are made by the project team after consultation. This arrangement allows us to maintain consistency while ensuring that community members retain control over how their histories are presented.
+>
+> Eight of the 32 people interviewed reviewed their descriptions during the pilot. Their comments led us to revise several place names and distinguish a remembered event from a date established in another source. The limited response may reflect the time required to review a transcript, uncertainty about what could be changed, or a preference for discussing revisions in person. We cannot yet tell which explanation matters most. Making the collection searchable is therefore only one part of making it usable.
+>
+> In the next phase, we plan to hold two review sessions at the public library and invite contributors to compare descriptions together. Additional contextual information will be incorporated where appropriate, and unresolved disagreements will be documented. We also hope to learn whether visitors can recognize when an account is a recollection rather than an agreed chronology. The pilot shows that digital access strengthens community ownership of local history, although the decisions about whose words appear on the screen remain unfinished.
+
+### A working style guide
+{: #archive-style-guide .practice-anchor}
+
+This is a proposed guide for this report. Change a rule if it conflicts with the writer's purpose. Apply the rules in this order when they pull in different directions.
+
+1. **Preserve the evidence and its limits.** Keep numbers, plans, and qualifications such as “may” and “we cannot yet tell.” Flag a conclusion that exceeds the evidence rather than silently making it stronger or weaker.
+2. **Keep the important distinctions.** Preserve the defined term “shared stewardship.” Do not treat access, participation, control, and ownership as interchangeable. If a claim depends on their relationship, ask the writer to explain it.
+3. **Make decision-making clear.** Identify who makes a decision when the text supplies that information. If it does not, ask. Passive voice is acceptable when the actor is known or does not matter to the point.
+4. **Use direct language.** Replace a wordy noun phrase with a shorter expression when the meaning stays the same. Keep quotations and necessary technical terms intact. Do not impose a sentence-length limit.
+5. **Keep the report's voice.** Retain the first-person “we,” concrete examples, and measured tone. Suggest a structural change in a comment before reorganizing paragraphs. Avoid adding promotional claims.
+
+{% include prompt.html id="archive-style-review" %}
+
+Read the comments before asking for new wording. Choose one passage where you agree a local edit would help, then use the follow-up.
+
+{% include prompt.html id="archive-style-edit" %}
+
+<details markdown="1">
+<summary>Compare your reading with a few prepared examples</summary>
+
+These are teaching examples prepared with the passage, not recorded AI replies or an exhaustive answer key.
+
+- **A wording change, paragraph 2.** “The implementation of a common description template has facilitated the comparison of records by contributors” could become “A common description template has made it easier for contributors to compare records.” Rule 4 supports the change; no new actor or outcome is added.
+- **A question, paragraph 2.** How does the project team's final decision-making authority fit with the claim that contributors “retain control”? Rules 2 and 3 call for an explanation. Replacing “control” with “a voice” would decide the relationship for the author.
+- **A passage to retain, paragraph 3.** “The limited response may reflect…” names several possible explanations and says the project cannot distinguish them yet. Rule 1 protects that uncertainty. It does not require the editor to preserve every hedge in every document.
+- **A question, paragraph 4.** What evidence supports “digital access strengthens community ownership”? The pilot describes access and some participation; the author still needs to establish the connection to ownership. Rule 1 calls for a question before a substantive revision.
+
+Keep a suggested edit only if you can explain how it serves the report. A polished replacement can still settle a question the writer has not answered.
+
+</details>
+
 ---
 
 ## Suggested pairings
@@ -38,5 +86,6 @@ Bring your own writing if you can: you'll learn more from a paragraph whose prob
 | Seminar paragraph | [The skeptical peer reviewer]({{ site.baseurl }}/prompts#prompt-role-reviewer), then [the grader]({{ site.baseurl }}/prompts#prompt-role-grader) |
 | Abstract | [The tired panelist]({{ site.baseurl }}/prompts#prompt-role-panelist), then [the desk editor]({{ site.baseurl }}/prompts#prompt-role-desk-editor) |
 | Syllabus policy | [The confused student]({{ site.baseurl }}/prompts#prompt-role-confused-student) — then count how many different readings it produces |
+| Community archive report | [The working style guide](#archive-style-guide), followed by a small edit you choose |
 
 The syllabus policy is the one to try if you only have time for one. It looks perfectly clear until somebody reads it as a nervous nineteen-year-old at 11pm, and then it has roughly four unanswered questions in it. That gap — between what we think we've written and what someone else can actually do with it — is the thing this whole technique is for.

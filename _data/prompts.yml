@@ -6,10 +6,32 @@
 - id: baseline
   session: editorial-assistant
   step: 1
-  label: The baseline
-  note: "Paste a paragraph of your own writing, then send exactly this. Keep the result — it's what everything else gets compared against."
+  label: A reasonable first request
+  note: "Paste the syllabus policy, then send this. Save the reply and compare its changes with the original. For another text, replace 'syllabus policy' with its genre."
   text: |
-    Edit this.
+    Please edit this syllabus policy for clarity and concision. Preserve my
+    meaning and tone, and explain any substantive changes.
+
+- id: policy-reader-brief
+  session: editorial-assistant
+  step: 2
+  label: Give the policy reader a specific job
+  note: "Use the same original policy as in the general editing request. Compare the usefulness of the observations, rather than assuming that a longer prompt always works better."
+  text: |
+    This syllabus policy is for first-year students.
+
+    Before editing, identify unclear instructions. Focus on disclosure.
+
+    Quote the passage, explain what a student cannot do, and name the
+    decision I need to make. Don't invent a policy.
+
+- id: policy-open-followup
+  session: editorial-assistant
+  step: 2
+  label: Try an open-ended follow-up
+  note: "After a reading of the policy, try this broad follow-up. Inspect whether the reply distinguishes a finding about your text from general advice."
+  text: |
+    Anything else I should worry about?
 
 - id: editorial-brief
   session: editorial-assistant
@@ -44,6 +66,110 @@
   text: |
     Don't tell me what's working. Rank my paragraphs from weakest to
     strongest and explain what makes the weakest one weak.
+
+- id: rule-harvest
+  session: editorial-assistant
+  step: 4
+  label: Find the rule you keep applying
+  note: "Run this at the end of a working session, while the corrections are still in the transcript. It is describing your own judgment back to you — expect to disagree with part of it."
+  text: |
+    Look back over this conversation. I corrected you several times.
+
+    For each correction, tell me what rule I was applying — written as an
+    instruction you could follow next time, not as a description of what I
+    seemed to prefer.
+
+    Quote the exchange each rule comes from. If you can't point to a specific
+    correction, don't list the rule.
+
+- id: rule-sharpen
+  session: editorial-assistant
+  step: 4
+  label: Make a rule checkable
+  note: "The test every rule has to pass. Most first drafts name a quality rather than an action, and this is what catches it."
+  text: |
+    Here is a rule I wrote for my style sheet:
+
+    [paste the rule]
+
+    Could someone who doesn't know me tell whether this rule was followed,
+    looking only at the text? If not, rewrite it so they could — as a specific
+    action to take or to avoid.
+
+    If it can't be made checkable, say so, and tell me what I would have to
+    decide first.
+
+- id: rule-test
+  session: editorial-assistant
+  step: 4
+  label: Test the rule where it shouldn't fire
+  note: "A rule that catches everything is as useless as one that catches nothing. Include at least one passage the rule should leave alone."
+  text: |
+    Here is one of my rules, then three passages.
+
+    [paste the rule]
+    [paste three passages — at least one the rule should NOT apply to]
+
+    For each passage: does the rule apply? Quote the exact text that triggers
+    it, or say that the rule doesn't apply here.
+
+    I am looking for cases where the rule fires when it shouldn't. Tell me if
+    you find one.
+
+- id: assignment-student
+  session: editorial-assistant
+  step: 3
+  label: Read the assignment as a student
+  note: "Use the complete Campus History Part 2 assignment. Supply any course schedule or rubric you want included, and list what you supplied."
+  text: |
+    Read this assignment as a first-year student encountering it for the
+    first time. Do not complete the assignment or rewrite the instructions.
+
+    Explain what I would do first, what I think I must submit, and how I
+    would judge whether my work meets the expectations. Quote the instructions
+    that support each part of your reading.
+
+    Identify up to three places where I would have to guess. Separate what
+    the assignment says from what you inferred. Treat information absent
+    from these materials as a question for the instructor, not proof that
+    it was never explained elsewhere.
+
+- id: assignment-designer
+  session: editorial-assistant
+  step: 3
+  label: Read the assignment as a designer
+  note: "Use the same assignment and supporting materials in a separate conversation. The review uses TILT's purpose, task, and criteria framework."
+  text: |
+    Review this assignment using transparent assignment design:
+    - Purpose: what students will learn and why it matters.
+    - Task: what they must do, in what sequence, and submit.
+    - Criteria: how they can recognize successful work.
+
+    For each, quote the evidence and distinguish what is clear, partly
+    explained, or not stated in the supplied materials. Recognize strengths
+    as well as gaps. Check whether every graded component is introduced in
+    the task instructions.
+
+    Prioritize three questions or small clarifications. Do not invent
+    requirements, dates, grading weights, or teaching activities. Do not
+    treat missing section labels as proof of poor design. Do not rewrite
+    the assignment or give it a numerical score.
+
+- id: assignment-compare
+  session: editorial-assistant
+  step: 3
+  label: Compare the student and designer readings
+  note: "Supply the assignment and both full readings. Agreement between generated roles is a lead to investigate, not independent confirmation."
+  text: |
+    Compare these two readings of the same assignment.
+
+    Where does a student's practical uncertainty connect to a design issue?
+    Where do the readings differ? Check each claim against the assignment
+    and quote the evidence. Identify any claim the readings do not support.
+
+    Recommend one clarification for the instructor to consider, then state
+    what decision the instructor still needs to make. Do not resolve that
+    decision or rewrite the assignment yet.
 
 - id: role-reviewer
   session: editorial-assistant
@@ -116,9 +242,73 @@
     problem was? Don't resolve the disagreement — just tell me what it suggests
     I haven't decided yet.
 
+- id: archive-general-edit
+  session: editorial-assistant
+  step: 5
+  label: Edit the report without a style guide
+  note: "Supply the complete four-paragraph community archive report first, without the guide. Save the reply, then compare it with a separate review using the guide and the same original text."
+  text: |
+    Edit this community archive report for clarity and concision.
+
+    Preserve its meaning and voice. Explain the changes.
+
+- id: archive-style-review
+  session: editorial-assistant
+  step: 5
+  label: Read against a style guide
+  note: "Paste the four-paragraph community-archive report and the working guide from Practice texts. Start with comments so you can choose which edits to accept."
+  text: |
+    This is a short project report for community partners and university
+    colleagues. Read it against the style guide below. Do not rewrite it yet.
+
+    Identify up to five places where a change or an author decision would
+    help. For each, quote the passage, name the relevant rule, and explain
+    the issue. Separate wording changes from decisions about meaning.
+
+    Also quote one passage the guide gives you a reason to leave alone.
+    Do not invent missing information or assume every sentence needs editing.
+
+    [paste the working style guide]
+    [paste the four-paragraph report]
+
+- id: archive-style-edit
+  session: editorial-assistant
+  step: 5
+  label: Propose a small edit
+  note: "After reviewing the comments, choose a specific passage. The full report stays available for context."
+  text: |
+    Suggest the smallest edit to this passage that satisfies the style guide:
+
+    [paste the passage you chose]
+
+    Show the original and proposed wording, name the rule you applied, and
+    explain any change in meaning. If the edit requires a fact or decision
+    I haven't supplied, ask a question instead. Leave the rest of the report
+    unchanged.
+
+- id: campus-history-normalize
+  session: editorial-assistant
+  step: 5
+  label: Reuse a collection's editorial guide
+  note: "Attach the Campus History Essay Style Guide and one essay you are authorized to share. Test one essay before applying the guide across a collection."
+  text: |
+    Use the attached Campus History Essay Style Guide to review this essay
+    for publication in the collection. First propose changes, grouped as
+    formatting, light prose edits, and questions for the editor. Name the
+    guide rule behind each proposal.
+
+    Preserve the student's authorship, argument, evidence, distinctive
+    phrasing, and justified uncertainty. Normalize presentation without
+    making every essay sound alike. Flag missing citations and changes
+    that would alter a claim. Ask if guide rules conflict.
+
+    After I approve the scope, edit a copy and give me a change list.
+    Do not publish or change other essays. Check the rendered page as well
+    as its text before calling the work finished.
+
 - id: style-extract
   session: editorial-assistant
-  step: 4
+  step: 5
   label: Draft your style sheet
   note: "It will get part of this wrong. Correcting it is how the style sheet becomes yours rather than its."
   text: |
@@ -133,7 +323,7 @@
 
 - id: style-never
   session: editorial-assistant
-  step: 4
+  step: 5
   label: The never-do list
   note: "Often more useful than the positive rules. Add your own grievances — everyone has them."
   text: |
@@ -147,7 +337,7 @@
 
 - id: standing-instruction
   session: editorial-assistant
-  step: 4
+  step: 5
   label: The standing instruction
   note: "Keep this in a text file and paste it at the top of any editing session — or put it in a Claude Project or a custom GPT so it applies every time. This is the whole workshop in one block."
   text: |
@@ -160,3 +350,51 @@
     - If you're unsure what I'm trying to do, ask before diagnosing.
 
     Then apply my style sheet, below.
+
+- id: project-instructions
+  session: editorial-assistant
+  step: 6
+  label: What goes in the project
+  note: "Paste this into the project's instructions field — a Claude Project, a ChatGPT project or custom GPT, a Gemini Gem. Written once, applied to every conversation inside it."
+  text: |
+    You are my editor for everything in this project. My standing instruction
+    and style sheet are below. Apply them without being reminded.
+
+    [paste your standing instruction]
+    [paste your style sheet]
+
+    About this project: I am working on [what], for [audience], by [when].
+
+    The current draft is whatever I paste at the start of a conversation — not
+    a version you remember from an earlier one. If you aren't sure you have the
+    current text, ask for it.
+
+    When I paste a draft, wait for me to say what I want read. Don't comment on
+    the whole thing unless I ask.
+
+- id: working-file
+  session: editorial-assistant
+  step: 6
+  label: A pass on one section
+  note: "Paste the whole file, then this. The rest of the draft is context — it stops the tool solving a problem the next paragraph already solves."
+  text: |
+    Here is my full draft. I am only working on [section / the paragraph
+    beginning "..."] right now. Everything else is context. Don't comment on it.
+
+    Read that section against what surrounds it. Where does it repeat something
+    I have already said, contradict something later, or promise something I
+    never deliver?
+
+    Quote the specific text. Don't rewrite.
+
+- id: no-silent-edits
+  session: editorial-assistant
+  step: 6
+  label: Make the changes visible
+  note: "The failure mode of working in files is the silent rewrite — a clean new version with three sentences quietly changed. Ask for the list instead of the file."
+  text: |
+    Don't give me a revised version of the file. Give me a numbered list of the
+    changes you would make: the exact text as it stands, the exact text you
+    would put in its place, and why.
+
+    I will make the edits myself.
