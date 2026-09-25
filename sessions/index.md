@@ -19,7 +19,9 @@ Each session is about an hour of hands-on work: a short introduction, three or f
 
 ## Coming up
 
-Later sessions take the same approach: try the tools on work you already know how to judge. Topics we're considering:
+**Next: Transcribing Handwritten Documents**, Wednesday, October 14, 12:00–12:50, History Common Room. Bring a photo or scan of a handwritten document you'd like to read.
+
+Later sessions take the same approach: try the tools on work you already know how to judge. Other topics we're considering:
 
 - **Reading and note-taking.** Ask AI about a text you know well, and see what that tells you about asking it about one you don't.
 - **AI in the classroom.** Design assignments that assume students have these tools.
