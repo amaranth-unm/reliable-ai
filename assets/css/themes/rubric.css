@@ -332,3 +332,185 @@ h3 {
   margin-bottom: 0;
 }
 
+
+/*****************************************************
+VERTICAL RHYTHM
+*****************************************************/
+/* .container is a CSS grid, and margins between grid items never collapse,
+   so every gap on the page was the sum of two unrelated margins: a heading
+   sat 18px above a paragraph but 53px above a callout, and the space before
+   an h2 ran anywhere from 60 to 88px depending on what preceded it.
+
+   One rule instead: blocks space themselves with margin-bottom only, and
+   headings own the space above them. Framed blocks (callouts, prompts,
+   quotations, tables) get a little more air on both sides than prose does. */
+:root {
+  --flow: 1.5rem;          /* between paragraphs, lists, and the like */
+  --flow-framed: 2rem;     /* around boxed or indented blocks */
+}
+
+/* Room under the page header and above the footer. The first paragraph was
+   sitting flush against the header image. */
+main > .container {
+  padding-top: 3rem;
+  padding-bottom: 4.5rem;
+}
+
+.container > * {
+  margin-top: 0;
+  margin-bottom: var(--flow);
+}
+
+.container > :is(.rule, .prompt, .demo, blockquote, table, details, .highlight, pre, .evidence-note) {
+  margin-bottom: var(--flow-framed);
+}
+
+/* Prose above a framed block leaves only --flow, so top it up to match the
+   space below. Framed after framed already has the full gap. */
+.container > :is(p:not(.lead), ul, ol) + :is(.rule, .prompt, .demo, blockquote, table, details, .highlight, pre, .evidence-note) {
+  margin-top: calc(var(--flow-framed) - var(--flow));
+}
+
+/* A paragraph that introduces a list stays with it. */
+.container > p:has(+ :is(ul, ol)) {
+  margin-bottom: 0.75rem;
+}
+
+.container > .lead {
+  margin-bottom: 2rem;
+}
+
+.container > h2 {
+  --space-above: 3rem;
+  margin-top: var(--space-above);
+  margin-bottom: 1rem;
+}
+
+.container > h3 {
+  --space-above: 2.25rem;
+  margin-top: var(--space-above);
+  margin-bottom: 0.75rem;
+}
+
+.container > h4 {
+  --space-above: 1.75rem;
+  margin-top: var(--space-above);
+  margin-bottom: 0.5rem;
+}
+
+/* A heading after a framed block or the lede would otherwise inherit their
+   larger bottom margin on top of its own. */
+.container > :is(.rule, .prompt, .demo, blockquote, table, details, .highlight, pre, .evidence-note) + :is(h2, h3, h4) {
+  margin-top: calc(var(--space-above) - (var(--flow-framed) - var(--flow)));
+}
+
+.container > .lead + :is(h2, h3, h4) {
+  margin-top: calc(var(--space-above) - (2rem - var(--flow)));
+}
+
+/* Whatever follows a heading belongs to it: no extra space of its own. */
+.container > :is(h2, h3, h4) + * {
+  margin-top: 0;
+}
+
+/* Consecutive headings (a section title straight into its first subsection)
+   shouldn't open a full section gap between them. */
+.container > h2 + :is(h3, h4) {
+  margin-top: 0.5rem;
+}
+
+.container > hr {
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* The rule already marks the section break; the heading after it doesn't
+   need its own gap stacked on top. */
+.container > hr + :is(h2, h3, h4) {
+  margin-top: 0;
+}
+
+.container > :first-child {
+  margin-top: 0;
+}
+
+.container > :last-child {
+  margin-bottom: 0;
+}
+
+
+/*****************************************************
+COMPONENT SPACING
+*****************************************************/
+
+/* Blockquotes carry the practice texts and the sample policy: documents a
+   reader will paste, so they should read like a printed page. typography.css
+   set them as 120% italic sans, 80% wide and centred, with the last
+   paragraph's margin left inside the rule — long italic runs were hard to
+   read and each quote ended in a band of empty space. */
+.container > blockquote {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  font-family: var(--font-lede);
+  font-size: 1.2rem;
+  font-style: normal;
+  line-height: 1.55;
+  border-left: 3px solid var(--ochre-light);
+}
+
+.container > blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.container > blockquote p {
+  margin-bottom: 0.9rem;
+}
+
+/* Session cards: the title was forced to capitals, which Garamond doesn't
+   wear well at this size. */
+.toc-row h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-transform: none;
+  margin-bottom: 0.35rem;
+}
+
+.toc-kicker + h3 {
+  margin-top: 0.2rem;
+}
+
+/* Header text on the content column. page-header.css insets the title a
+   fixed 5–8rem from the viewport edge, so on a wide screen "About" sat
+   150px left of the paragraph below it. Line the two up instead: same
+   width and centring as .container's content track. Phones keep the
+   stylesheet's own padding. */
+@media (min-width: 769px) {
+  .page-wrap .page-header .page-header-content {
+    width: min(48rem, 100% - 2rem);
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Session pages add a 190px + 3rem sidebar column to the grid, which moves
+   the content track left of centre (see nav/scrollspy-toc.html). Follow it. */
+@media (min-width: 1100px) {
+  .page-wrap:has(.scrollspy-toc) .page-header .page-header-content {
+    margin-left: max(1rem, (100% - (48rem + 190px + 3rem)) / 2);
+  }
+}
+
+/* Phones: the same edge as the text below, which .container sets at 1rem. */
+@media (max-width: 768px) {
+  .page-wrap .page-header .page-header-content {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+  }
+}
