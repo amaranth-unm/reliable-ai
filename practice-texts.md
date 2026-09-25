@@ -6,10 +6,10 @@ header-title: Practice texts
 summary: "Invented practice texts, including a syllabus policy for reader roles and a four-paragraph project report for editing with a style guide."
 ---
 
-Bring your own writing if you can: you'll learn more from a paragraph whose problems you already half-know. But if you'd rather not put your own work in, or you forgot, take one of these.
+If you can, bring your own writing. You'll learn more from a paragraph whose problems you already half know. If you'd rather not use your own work, or you forgot to bring some, use one of these.
 {: .lead}
 
-**These are invented.** Nobody wrote them in earnest, and each has been built with the kinds of problems that turn up in real drafts — a claim arriving three sentences late, a term of art doing unexplained work, a pronoun with nothing to attach to, a policy that can't actually be enforced. Part of the exercise is finding out whether the machine notices the same ones you do.
+These texts are invented. Each one includes problems that turn up in real drafts: a claim that arrives three sentences late, a technical term doing unexplained work, a pronoun with nothing to refer to, a policy that can't be enforced. Part of the exercise is seeing whether the tool notices the same problems you do.
 
 ## 1. A seminar paper paragraph
 
@@ -85,7 +85,7 @@ Keep a suggested edit only if you can explain how it serves the report. A polish
 |---|---|
 | Seminar paragraph | [The skeptical peer reviewer]({{ site.baseurl }}/prompts#prompt-role-reviewer), then [the grader]({{ site.baseurl }}/prompts#prompt-role-grader) |
 | Abstract | [The tired panelist]({{ site.baseurl }}/prompts#prompt-role-panelist), then [the desk editor]({{ site.baseurl }}/prompts#prompt-role-desk-editor) |
-| Syllabus policy | [The confused student]({{ site.baseurl }}/prompts#prompt-role-confused-student) — then count how many different readings it produces |
+| Syllabus policy | [The confused student]({{ site.baseurl }}/prompts#prompt-role-confused-student), then count how many different readings it produces |
 | Community archive report | [The working style guide](#archive-style-guide), followed by a small edit you choose |
 
-The syllabus policy is the one to try if you only have time for one. It looks perfectly clear until somebody reads it as a nervous nineteen-year-old at 11pm, and then it has roughly four unanswered questions in it. That gap — between what we think we've written and what someone else can actually do with it — is the thing this whole technique is for.
+If you only have time for one, try the syllabus policy. It looks clear until you read it as a nervous nineteen-year-old at 11pm, and then about four questions go unanswered. Finding the gap between what you meant to write and what a reader can actually do with it is what these exercises are for.

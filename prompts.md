@@ -8,12 +8,12 @@ header-title: Prompt library
 summary: "Every prompt from the series in one place, grouped by session and ready to copy."
 ---
 
-Everything we've used, in one place. Copy, then change the parts in brackets — these are scaffolds, not incantations, and the specifics you add are what makes them work.
+Every prompt from the series, grouped by session. Copy one, then fill in the parts in brackets. The details you add are what make a prompt work.
 {: .lead}
 
-A note on how to read these: none of them are magic words. Each one is a way of supplying information the tool doesn't have (what this is, who it's for, what counts as good) or of constraining what it's allowed to hand back. That's all prompting is.
+None of these are magic words. Each one either gives the tool information it doesn't have (what the text is, who it's for, what counts as good) or limits what it's allowed to send back. That covers most of what prompting is.
 
-## Session 1 — AI as Editorial Assistant
+## Session 1: AI as Editorial Assistant
 
 See the [full session]({{ site.baseurl }}/sessions/editorial-assistant) for what each of these is doing and why.
 

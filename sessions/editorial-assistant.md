@@ -4,7 +4,7 @@ layout: base
 position: 1
 date: 2026-09-23
 kicker: Session 1 · September 23, 2026
-summary: "Treat AI as an eager but naive editor: teach it what to look for, tell it whose eyes to read with, and write down the rules so you don't have to repeat yourself."
+summary: "Use AI as an eager but inexperienced editor: tell it what to look for and who the reader is, then save your rules so you don't have to repeat them."
 thumbnail: "/assets/images/amman-typefounder-1568.jpg"
 header-image: "/assets/images/amman-typefounder-1568.jpg"
 header-tier: section
@@ -29,9 +29,9 @@ workshop_mode: true
 
 ## Why editing is the place to start
 
-Most people meet these tools by asking for something they can't check — a summary of a literature they haven't read, a draft in an unfamiliar genre. You can't tell a good answer from a merely plausible one, so you either trust it or you don't.
+Most people first use these tools to ask for something they can't check, such as a summary of a literature they haven't read or a draft in an unfamiliar genre. You can't tell a good answer from a merely plausible one, so you either trust it or you don't.
 
-Editing gives you something concrete to check. **You know what you intended your paragraph to say.** You can compare a comment or proposed edit with the original and decide whether it helps. Start by asking AI to read; choose any revisions after examining its reasons.
+Editing gives you something concrete to check. **You know what you intended your paragraph to say.** You can compare a comment or proposed edit with the original and decide whether it helps. Ask it to read first, and decide on revisions only after you've looked at its reasons.
 
 ## What you're working with
 
@@ -49,8 +49,8 @@ Practice four habits with the text in front of you:
 
 ## Before you start
 
-- **A laptop**, and an AI assistant open in a browser tab — Claude, ChatGPT, Gemini, Copilot, any of them, free account is fine.
-- **One paragraph of your own writing** — a draft, an abstract, a policy, a grant blurb. Real stakes work better than invented ones. No paragraph? Take one from the [practice texts]({{ site.baseurl }}/practice-texts).
+- **A laptop**, with an AI assistant open in a browser tab. Claude, ChatGPT, Gemini, or Copilot all work, and a free account is fine.
+- **One paragraph of your own writing**, such as a draft, an abstract, a policy, or a grant blurb. Your own work teaches more than an invented example. No paragraph? Take one from the [practice texts]({{ site.baseurl }}/practice-texts).
 - **One thing to leave out:** other people's unpublished work, student writing with names attached, anything under embargo or an IRB protocol.
 
 ## The paragraph we'll use
@@ -73,11 +73,13 @@ where wording choices have to hold across a longer argument.
 Read it as the person who wrote it and it is clear enough. The session is about
 what happens when you stop reading it that way.
 
-The existing policy replies are **provisional examples**: their source records
-the tool and date, but they came from the conversation that developed this
-workshop. They need a fresh run without that prior context. Cuts are marked.
-The style-guide exercise uses separately labeled prepared examples. Compare
-your own results with the text; a different response can be just as useful.
+**About the replies on this page.** The recorded replies to the policy show
+the tool and date. They come from the conversation in which this workshop was
+developed, so the tool already had some context, and they should be re-run in a
+fresh conversation before being treated as typical. Passages marked […] were
+cut. Examples labeled *prepared* were written for the slides and are not
+recorded replies. Your own results may differ, and a different reply can be
+just as useful.
 
 ## 1. Try a reasonable editing request
 {: .step #step-1}
@@ -101,11 +103,11 @@ instruction, but an ambiguous sentence can leave that meaning undecided. If
 the assistant keeps an ambiguity or asks you about it, count that as useful
 work too. The next step asks it to identify those decisions before rewriting.
 
-**Illustrative edit:** “Students may use AI where appropriate, but not to
-complete assignments for them.” The sentence is shorter, yet “appropriate”
-still needs examples and the paragraph still gives no disclosure method.
-This is a prepared comparison for the slides, not a recorded reply. Your own
-run may identify those gaps; keep and examine what actually comes back.
+**Prepared example:** “Students may use AI where appropriate, but not to
+complete assignments for them.” The sentence is shorter, but “appropriate”
+still needs examples, and the paragraph still doesn't say how to disclose AI
+use. Your own run may catch those gaps. Either way, look closely at what
+actually comes back.
 
 ## 2. Teach it to read like you do
 {: .step #step-2}
@@ -115,78 +117,72 @@ focus the concern, and ask for the evidence behind each observation.
 
 {% include prompt.html id="policy-reader-brief" %}
 
-**Illustrative reader report:** “Any use of AI should be disclosed” gives no
-location or format for that disclosure. The instructor needs to choose where
-it goes and what it includes, then add that instruction.
+**Prepared example:** “Any use of AI should be disclosed” doesn't say where
+or how to disclose it. The instructor needs to decide what disclosure should
+include and where it goes, then add that to the policy.
 
-The gain is something you can act on: **a passage, a specific problem, and a
-next step**. The prompt asks for a diagnosis before editing, so it changes the
-task as well as adding detail. This prepared illustration shows what to look
-for in the reply; it does not guarantee that any prompt will produce it.
+That gives you something to act on: **a passage, a specific problem, and a
+next step**. Because the prompt asks for a diagnosis before any editing, it
+changes the task as well as adding detail. The example shows what to look for
+in the reply. No prompt guarantees it.
 
-For another document, use the more general brief below. The saved policy
-response after it belongs to that earlier, fuller prompt.
+For other documents, use the general brief below. The recorded reply after it
+comes from running this brief on the policy.
 
-A brief needs five things: **what this is**, **who reads it**, **what it's trying to do**, **what you're worried about**, and **what not to touch**. Then the move that changes everything — ask for a reading, not a rewrite.
+A brief covers five things: what the text is, who reads it, what it's trying
+to do, what you're worried about, and what shouldn't change. Most important,
+it asks the tool to comment rather than rewrite.
 
 {% include prompt.html id="editorial-brief" %}
 
 {% include demo.html id="policy-briefed" %}
 
-Compare this kind of response with your first edit. The brief adds a purpose
-and a specific concern, and it also changes the requested task from rewriting
-to commenting. Look for a useful question the edit alone did not resolve.
-If you want to compare prompts directly, use the same starting text and tool
-in fresh conversations and keep both replies.
+Compare this reply with your first edit. Look for a useful question that
+the edit alone didn't raise. To compare prompts fairly, use the same text and
+tool in fresh conversations and keep both replies.
 
-Now the second strategy, which is what keeps the first one honest — and notice
-first what the brief already bought you. Every one of those three findings
-arrived with the sentence it was about, because the prompt demanded it. That
-is not the tool being scrupulous; it is the tool doing what it was told.
-
-The saved conversation also gives us a second before/after comparison.
-An open-ended follow-up produced the comment below:
+Notice that each finding in that reply came with the sentence it refers to.
+That happened because the prompt asked for it, and it's worth seeing what
+happens when you stop asking. Later in the same conversation, a loosely worded
+follow-up produced this:
 
 {% include prompt.html id="policy-open-followup" %}
 
 {% include demo.html id="policy-vague" %}
 
-Don't accept it and don't argue with it. Make it point:
+Rather than accepting it or arguing with it, ask it to point to the text:
 
 {% include prompt.html id="quote-it" %}
 
 {% include demo.html id="policy-quoted" %}
 
-The gain is a more accountable comment: the reply distinguishes a finding
-about the supplied text from general teaching advice. **Ask for evidence you
+The reply now separates what it found in the text from general teaching
+advice. **Ask for evidence you
 can inspect.** A quotation does not automatically prove the criticism; for
 something missing, ask which purpose or rule makes the omission matter.
 
-One more, because it will flatter you by default:
+One more, because these tools tend to open with praise:
 
 {% include prompt.html id="anti-sycophancy" %}
 
-Never ask *is this good?* A yes-or-no question buys you praise. Ask for a ranking and something has to come last.
+Avoid asking *is this good?* A yes-or-no question usually gets a yes. If you
+ask for a ranking, something has to come last.
 
-### Two of these are permanent, one isn't
+### Which instructions to keep
 
-Worth stopping on, because it decides where each move lives.
+**The brief changes with every document.** What the text is, who reads it,
+and what it's trying to do are different each time, so you write the brief
+fresh. That's worth doing anyway, because writing it is how you work out what
+the piece is for.
 
-**The brief is per piece.** What this is, who reads it, what it's trying to do
-— that changes with every document, so you type it fresh every time. There's
-no automating it and no reason to want to: writing the brief is how you find
-out what you think the piece is doing.
+The other two instructions, *quote the text for every claim* and *don't open
+with praise*, have nothing to do with this particular policy. They describe how
+you want any of your writing to be read. Typing them by hand today is a good
+way to learn them, but you won't want to keep doing it.
 
-**The other two aren't about this policy at all.** *Never make a claim about
-my text without quoting it* and *never open with praise* are facts about how
-you want to be read. They'll be just as true of the next thing you write, and
-the one after that. You've just pasted them by hand, which is the right way to
-meet them and a silly way to keep them.
-
-So don't keep pasting them. **Those are the first two lines of the rule file**
-you'll assemble in step 5 — and you have them already, before writing a single
-rule of your own. What step 4 adds is the ones you could only have found by
-watching it get your own work wrong.
+**They become the first two lines of the rule file** you'll build in step 5.
+Step 4 adds the rules you can only find by watching the tool get your own work
+wrong.
 
 ## 3. Assign reader roles
 {: .step #step-3}
@@ -231,7 +227,7 @@ You already imagine readers when revising: the reviewer who may object, the
 student meeting a term for the first time, or the editor in a hurry. Make
 that perspective explicit and inspect what it helps you notice.
 
-Same paragraph, same brief. Change only who's reading. **Run at least two**, and don't let any of them fix anything.
+Keep the paragraph and the brief the same, and change only the reader. **Run at least two roles**, and ask for comments only, not fixes.
 
 {% include prompt.html id="role-reviewer" %}
 
@@ -245,18 +241,15 @@ Then pick the one that fits the work you actually brought:
 
 {% include prompt.html id="role-confused-student" %}
 
-The earlier policy demonstration gives another example of a possible
-student reading:
+Here is how the confused-student role read the syllabus policy:
 
 {% include demo.html id="policy-student" %}
 
-{% include prompt.html id="role-outsider" %}
-
-Here is the same paragraph under an outsider-reader prompt:
+And here is the outsider's reading of the same policy:
 
 {% include demo.html id="policy-outsider" %}
 
-### The part that matters
+### Compare the readings
 
 Put the readings side by side. Check the comparison against both replies
 and the original text; a fluent summary can misrepresent any of them.
@@ -280,8 +273,8 @@ intended audience. A specialist's request for detail and a newcomer's request
 for a definition may both be reasonable in different settings.
 
 **Where the readers disagree.** Ask whether the disagreement exposes an
-authorial choice, a mistaken reading, or missing context. In the provisional
-policy comparison above, “instruction or enforcement” is presented as a
+authorial choice, a mistaken reading, or missing context. In the policy
+comparison above, “instruction or enforcement” is presented as a
 choice. A policy can reasonably serve both purposes. You can keep the useful
 question without accepting that framing.
 
@@ -297,48 +290,48 @@ corrections will apply to more than this policy: preserve a qualification,
 keep a defined term, or ask before resolving an ambiguity. Write those down
 as rules you can reuse.
 
-This step is about how to write one that holds. Not where to keep it, which is step 5, and not what your rules should say, which is yours to decide. **The difference between a rule that works and one that gets quietly ignored is almost entirely in how it's phrased.**
+This step is about wording. Where to keep your rules is step 5, and what
+they say is up to you. **Whether a rule gets followed depends mostly on how
+it's phrased.**
 
-### Harvest, don't invent
+### Start from your corrections
 
-Don't open a blank file and write a style sheet. You'll produce a description
-of the writer you would like to be, which is no use as an instruction to
-anyone. The raw material already exists: every time you've said *no, put that
-back*, you found a candidate.
+Don't start with a blank page. A style sheet written from scratch tends to
+describe the writer you'd like to be, which doesn't work well as an
+instruction. Your corrections are better material: each time you said *no,
+put that back*, you found a possible rule.
 
 {% include prompt.html id="rule-harvest" %}
 
-**Twice is a rule.** The first time it flattens a hedge, that's noise. The
-second time it's a pattern, and fixing it by hand a third time is unpaid
-labour.
+**If you've made the same correction twice, make it a rule.** One flattened
+hedge could be chance. Two is a pattern, and you shouldn't have to fix it by
+hand a third time.
 
 ### A rule has to be checkable
 
-This is the whole craft, and it's one test: **could someone who doesn't know
-you tell whether the rule was followed, looking only at the text?**
+One test does most of the work: **could someone who doesn't know you tell
+whether the rule was followed, just by looking at the text?**
 
-"Be more scholarly" fails — there's no way to be wrong about it, so there's
-nothing to follow. "Never replace a hedged verb with an unhedged one" passes:
-you point at *suggests* becoming *demonstrates*, and the argument is over.
-Most first drafts of a rule fail the same way, naming a **quality** (rigorous,
-clear, academic) where they need an **action**. A quality is a wish. An action
-is a rule.
+"Be more scholarly" fails, because there's no clear way to break it. "Never
+replace a hedged verb with an unhedged one" passes: if *suggests* becomes
+*demonstrates*, you can point to the change. Most first drafts of a rule name
+a quality (rigorous, clear, academic) when they need an action. Qualities are
+hard to check. Actions aren't.
 
-Two things follow from that, and they're the reason a rule sticks:
+Two more things help a rule hold:
 
-- **Say what not to do.** A positive rule licenses everything it doesn't
-  forbid — "write clearly" is satisfied by any prose the tool thinks is clear,
-  which is to say its prose rather than yours. Pair them: say what you want,
-  then fence off the way it usually goes wrong.
-- **Rank them, because they will conflict.** "Never remove my hedges" and "cut
-  anything that isn't working" will land on the same sentence eventually, and
-  if you haven't said which wins, the tool decides differently every time.
-  **Five rules you can put in order beat twenty you can't.**
+- **Say what not to do.** "Write clearly" is satisfied by anything the tool
+  considers clear, which usually means its own style. Say what you want, then
+  rule out the way it usually goes wrong.
+- **Put your rules in order.** "Never remove my hedges" and "cut anything that
+  isn't working" will eventually apply to the same sentence. If you haven't
+  said which one wins, the tool may decide differently each time. Five rules
+  in a clear order work better than twenty with none.
 
 {% include prompt.html id="rule-sharpen" %}
 
-Then try it where it *shouldn't* fire. A rule that catches everything is as
-useless as one that catches nothing.
+Then test it on a passage where it *shouldn't* apply. A rule that fires
+everywhere is no more useful than one that never fires.
 
 {% include prompt.html id="rule-test" %}
 
@@ -359,7 +352,7 @@ Read the report first, then try a general edit without the guide.
 
 {% include prompt.html id="archive-general-edit" %}
 
-**Illustrative edit:** “A common description template has made it easier for
+**Prepared example:** “A common description template has made it easier for
 contributors to compare records.” This usefully simplifies one sentence.
 It leaves a separate question about the paragraph: how does the team's final
 decision-making authority fit with the claim that contributors retain control?
@@ -374,8 +367,8 @@ actually apply? Is the suggested change a matter of wording, or does it decide
 what the writer means? The prompt also asks for a passage to leave alone:
 a guide should help an editor recognize deliberate choices as well as problems.
 
-The gain is an explicit reason for each editorial choice. In the slide
-illustration, the guide protects “may reflect” because the evidence cannot
+What you get is a stated reason for each editorial choice. In the prepared
+example on the slides, the guide protects “may reflect” because the evidence cannot
 distinguish several explanations. It also calls attention to who controls
 decisions. Compare those observations with your first reply; a broad prompt
 may have caught them too.
@@ -418,7 +411,7 @@ assistant to describe their patterns from evidence:
 
 {% include prompt.html id="style-extract" %}
 
-It will get part of this wrong — it tends to mistake caution for vagueness, and it will miss the habits you'd most like named. **Correcting it is the point.** Ten minutes of arguing with a description of your own prose is how the style sheet stops being its and starts being yours.
+Expect it to get some of this wrong. It often mistakes caution for vagueness, and it may miss the habits you most want named. **Correcting its description is the useful part.** Ten minutes spent arguing with an account of your own prose is how the style sheet becomes yours.
 
 Then add the negative rules, which in practice do more work than the positive ones:
 
@@ -428,39 +421,38 @@ Finally, put the standing instruction at the top, so the editorial stance doesn'
 
 {% include prompt.html id="standing-instruction" %}
 
-**Where to keep it.** A plain text file you paste at the top of a conversation works completely and depends on nothing. If you want it applied automatically, most tools have somewhere to put it — a Project in Claude, custom instructions or a custom GPT in ChatGPT, a Gem in Gemini. Start with the text file. Upgrade later, or never.
+**Where to keep it.** A plain text file you paste at the top of a conversation works completely and depends on nothing. If you want it applied automatically, most tools have a place for it: a Project in Claude, custom instructions or a custom GPT in ChatGPT, a Gem in Gemini. Start with the text file. You can move it into a tool later if you want to.
 
 ## 6. Move out of the chat window
 {: .step #step-6}
 
-Optional, and the shortest step here. Everything above works in a browser tab
-with nothing set up. But two things you've built today don't survive the tab:
-**your rules scroll away** when the conversation ends, and **your draft isn't
-anywhere** — it's spread across forty messages in a tool that owns the
-transcript. Same shape, same fix: put them somewhere that persists.
+This step is optional. Everything above works in a browser tab with nothing
+set up, but two things you made today won't outlast the conversation. Your
+rules scroll out of view, and your draft is scattered across dozens of
+messages in someone else's tool. **Keep both somewhere more permanent.**
 
 ### Give the rules somewhere to live
 
 A **project** holds instructions and applies them to every conversation inside
-it — Projects in Claude, projects or custom GPTs in ChatGPT, Gems in Gemini.
-Make one per piece of work, not one for everything: "book chapter 3" and
-"grant narrative" want different briefs, and a project covering both briefs
-for neither.
+it: Projects in Claude, projects or custom GPTs in ChatGPT, Gems in Gemini.
+Make one per piece of work rather than one for everything. A book chapter and
+a grant narrative need different briefs, and a project that tries to cover
+both won't serve either well.
 
 {% include prompt.html id="project-instructions" %}
 
-Two cautions. A project's memory is a liability as well as a convenience — it
-will happily reason from a draft you replaced three weeks ago, which is why
-that block tells it to ask rather than assume. And the limits from *Before you
-start* still apply: a project is a place you've uploaded things.
+Two cautions. A project remembers what you've given it, which cuts both ways:
+it may reason from a draft you replaced three weeks ago, which is why the
+instructions above tell it to ask rather than assume. And the limits from
+*Before you start* still apply, because a project is a place where you've
+uploaded material.
 
 ### Keep the draft in a file
 
-Write in a plain text file — `.txt`, or `.md` if you want headings to
-survive. The reason is ordinary rather than technical: a plain file opens in
-anything, outlives whichever assistant you're using this year, and leaves no
-question about which version is current. **The conversation is scratch. The
-file is the draft.**
+Write in a plain text file: `.txt`, or `.md` if you want to keep headings.
+A plain file opens in any program, will outlast whichever assistant you use
+this year, and makes it obvious which version is current. **Treat the
+conversation as scratch paper and the file as the draft.**
 
 Keep the original file as the point of comparison. Ask for a reading of one
 part, decide which findings are useful, then make an edit yourself or request
@@ -469,11 +461,11 @@ change list helps you check the scope as well as the wording.
 
 {% include prompt.html id="working-file" %}
 
-Some tools will edit your files directly rather than making you copy and
-paste. That's faster, and it removes friction that was doing useful work for
-you — when it takes one sentence to rewrite the whole draft, ask whether you'd
-have approved each of those changes had you seen them. So keep the discipline
-explicit, and work somewhere you can undo.
+Some tools can edit your files directly, without copying and pasting. That's
+faster, but copying and pasting was also a chance to look at each change. When
+one instruction can rewrite a whole draft, ask whether you'd have approved each
+change if you'd seen it. Ask for a list of changes, and work somewhere you can
+undo.
 
 {% include prompt.html id="no-silent-edits" %}
 
@@ -503,9 +495,9 @@ collection. Start with one passage or one recurring problem.
 
 ## Take the session with you
 
-- The full [prompt library]({{ site.baseurl }}/prompts) — everything above, in one page, still copy-able.
-- The [assignment review]({{ site.baseurl }}/examples/assignment-review/) and [Campus History guide exercise]({{ site.baseurl }}/examples/campus-history-style-guide/) — real teaching materials, full prompts, and prepared observations.
+- The [prompt library]({{ site.baseurl }}/prompts): every prompt from this page, ready to copy.
+- The [assignment review]({{ site.baseurl }}/examples/assignment-review/) and [Campus History guide exercise]({{ site.baseurl }}/examples/campus-history-style-guide/): real teaching materials with full prompts and prepared observations.
 - The [practice texts]({{ site.baseurl }}/practice-texts), if you want to run the whole sequence again on something low-stakes.
 - <a href="{{ site.baseurl }}/assets/posters/sept-23-amaranth-ai-brown-bag-flyer.pdf">The session flyer</a> (PDF).
 
-Questions that came up in the room get added here after the session. If something didn't work on your machine or your writing, tell us — that's the most useful thing we can put on this page.
+We add questions from the room here after each session. If something didn't work on your computer or with your writing, please tell us. It's the most useful thing we can add to this page.

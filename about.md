@@ -8,36 +8,32 @@ header-title: About
 summary: "What the Reliable AI for Humanists brown bag series is, who it's for, and what it assumes."
 ---
 
-**Reliable AI for Humanists** is a brown bag workshop series run by [Amaranth](https://amaranth.unm.edu), the digital humanities and public scholarship studio at the University of New Mexico. Sessions are 50 minutes, hands-on, and open to anyone at UNM — undergraduates, graduate students, staff, and faculty.
+**Reliable AI for Humanists** is a brown bag workshop series run by [Amaranth](https://amaranth.unm.edu), the digital humanities and public scholarship studio at the University of New Mexico. Sessions are 50 minutes long and hands-on, and they're open to anyone at UNM: undergraduates, graduate students, staff, and faculty.
 {: .lead}
 
 ## What it's for
 
-There is no shortage of opinion about AI in the university and not much shared experience to argue from. These sessions are an attempt at the second thing. Each one takes a task humanists already do well, applies these tools to it carefully, and pays close attention to what happens — including when it goes badly.
+There's plenty of opinion about AI in universities and not much shared experience to argue from. These sessions try to supply some. Each one takes a task humanists already do well, tries these tools on it carefully, and pays attention to what happens, including when it goes badly.
 
-The premise is that **you can't teach about AI, or with it, or against it, without knowing something about how it behaves** — and that the fastest way to know something is to use it on work you're already qualified to judge.
+We start from a simple premise: it's hard to teach about AI, with it, or against it without knowing how it behaves, and the quickest way to learn that is to use it on work you're already qualified to judge.
 
 ## Who it's for
 
-Sessions are built to speak to three overlapping audiences at once:
+The sessions are built with three groups in mind. Students are already using these tools, often without much guidance on how to use them without skipping the learning. Faculty doing research want to know whether any of this helps with their actual work, and where it's likely to embarrass them. Faculty who teach have to write policies, design assignments, and answer students' questions, which is hard to do without some firsthand experience.
 
-- **Students**, who are already using these tools, usually without much guidance about how to do it in a way that leaves the learning intact.
-- **Faculty thinking about research**, who want to know whether any of this is useful for the actual work and where it will embarrass them.
-- **Faculty thinking about teaching**, who need to make policy, design assignments, and answer questions in class — none of which is possible from the outside.
-
-The exercises are the same for everyone. Only the text you bring changes.
+Everyone does the same exercises. Only the text you bring changes.
 
 ## What we assume
 
-- **No prior experience.** Every session starts from the ground up. "I have never used one of these" is the intended starting point, not a disadvantage.
-- **No subscription.** Everything works on free accounts. We'll name several tools and endorse none.
-- **No settled position.** Skepticism is welcome and useful. So is enthusiasm, as long as it survives contact with the exercises.
-- **Your judgment is the point.** These tools are worth something when they extend expertise and worth very little when they substitute for it. Every session is designed around that distinction.
+- **No experience.** If you've never used one of these tools, that's a fine place to start.
+- **No subscription.** Everything works on free accounts. We'll show several tools and recommend none.
+- **No particular view on AI.** Skeptics are welcome, and so is enthusiasm, as long as it's willing to be tested.
+- **Your judgment matters most.** These tools are most useful when they support your expertise and least useful when they stand in for it. Every session is designed around that difference.
 
 ## Materials
 
-Everything from every session stays on this site: [the sessions]({{ site.baseurl }}/sessions), [the prompt library]({{ site.baseurl }}/prompts), and [practice texts]({{ site.baseurl }}/practice-texts). It's all reusable — in your own classroom, in a workshop of your own, wherever it's useful. If you adapt something for a class, we'd like to hear how it went.
+Everything from each session stays on this site: the [session pages]({{ site.baseurl }}/sessions), the [prompt library]({{ site.baseurl }}/prompts), and the [practice texts]({{ site.baseurl }}/practice-texts). You're welcome to reuse any of it in your own classes or workshops. If you adapt something, we'd love to hear how it went.
 
 ## Getting in touch
 
-Questions, requests for future topics, or reports of something that didn't work: contact [Amaranth](https://amaranth.unm.edu).
+For questions, ideas for future topics, or reports of something that didn't work, contact [Amaranth](https://amaranth.unm.edu).

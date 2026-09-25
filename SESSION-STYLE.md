@@ -247,10 +247,25 @@ it.
 skim layer — someone reading only the bold should get the argument. Two bolds
 in a paragraph means neither is the point.
 
-**Aphorisms are the currency, and they must be checkable.** "No quotation, no
-finding." "Twice is a rule." "A quality is a wish. An action is a rule." Each
-one compresses a move the reader just made. Don't invent them in advance;
-they come out of watching what people actually get wrong.
+**Write like a colleague explaining something, not like a slogan.** Earlier
+drafts leaned on patterns that read as machine-written once they pile up, and
+a September 2026 copy pass took most of them out. Watch for:
+
+- **Aphorisms and punchy closers.** "Twice is a rule." "That's all prompting
+  is." "Correcting it is the point." One memorable line per step at most, and
+  only if it compresses a move the reader just made. Otherwise say it plainly.
+- **"Not X, but Y" contrasts.** "Working sessions, not demonstrations."
+  "Scaffolds, not incantations." Say what the thing is.
+- **Em-dashes as all-purpose joints.** Use a period, comma, colon or
+  parentheses. The session page has none now; keep it that way.
+- **Triplets by reflex.** Three examples, three clauses, three nouns. Use as
+  many as the point needs.
+- **Bold lead-ins on every bullet.** Fine for a list of distinct items people
+  scan (what to bring, the takeaways). Elsewhere, write the list plainly or
+  make it a paragraph.
+- **Drafting notes left on the page.** Provenance belongs in one clear note
+  near the top ("About the replies on this page") and in the demo headers,
+  not repeated in hedges after every example.
 
 **Explain failure as behaviour, not malfunction.** "None of that is
 malfunction. You asked an eager, well-read, thoroughly naive assistant to edit
