@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
 /* === Rubric Theme === */
 /*
   A variable-only theme drawn from a printed antiphonal: a decorative letter D
@@ -13,10 +15,15 @@
   site argues for, so the palette is two inks and a sheet, and red is reserved
   for what matters rather than spent on decoration.
 
-  Colors were sampled from the source image rather than guessed: the vermilion
-  is the most saturated pixel in the rubricated initial, the ink is the darkest,
-  and the parchment is the lightest. Note the ink is NOT neutral — it sits at
+  The ink and parchment were sampled from the source image. The red was first
+  sampled too, but the sampled pixel came out oxblood, which read as stern on
+  screen, so it has been moved toward the orange of real vermilion (cinnabar)
+  and kept at about 6:1 on the page. The ink is NOT neutral — it sits at
   hue ~38, a warm near-black, which is why a cool #222 looks wrong here.
+
+  Type: headings and ledes are EB Garamond, a revival of the types cut for the
+  same generation of printers as the Aldine and Amman images on the site. Sans
+  is kept for body copy and interface text only.
 
   Every foreground/background pair below was checked; the ratios are recorded
   where they are close or where a later edit might break them.
@@ -27,24 +34,30 @@ CSS VARIABLE OVERRIDES
 *****************************************************/
 :root {
   /* ===== Rubric Color Palette ===== */
-  --rubric-red: #9a1416;          /* The rubricated initial and its rules */
-  --rubric-red-dark: #6d0f11;     /* Ink pooled in the stroke */
-  --rubric-red-light: #b7342f;    /* Lifted, for hover states */
+  --rubric-red: #a8321c;          /* Vermilion — 5.9:1 on the page */
+  --rubric-red-dark: #7e2412;     /* Ink pooled in the stroke */
+  --rubric-red-light: #c0412a;    /* Lifted, for hover states — 4.9:1 under white text */
   --ink-black: #1c1710;           /* Text ink — warm, not neutral */
-  --parchment: #ded0c0;           /* The sheet */
-  --parchment-pale: #f4ede2;      /* The sheet where the light hits it */
+  --parchment: #e9dcc8;           /* The sheet */
+  --parchment-pale: #f8f2e7;      /* The sheet where the light hits it */
   --ochre: #7a5a33;               /* Warm shadow at the curl of the page */
   --ochre-light: #b3946a;         /* Aged edge, reserved for warnings */
+  --gilt: #c9973f;                /* Faded gold leaf — washes only, never text */
 
   /* ===== Override Base Theme Variables ===== */
   /* Backgrounds */
   --bg-page: var(--parchment-pale);
   --bg-card: color-mix(in srgb, var(--parchment-pale) 94%, var(--parchment));
-  --bg-accent: color-mix(in srgb, var(--ochre) 8%, var(--bg-page));
+  /* Callout wash: faded gilt, not grey. Ochre tints at low strength went
+     muddy against the cream; the gold keeps the box warm. */
+  --bg-accent: color-mix(in srgb, var(--gilt) 15%, var(--bg-page));
   --bg-code: color-mix(in srgb, var(--parchment) 68%, var(--bg-page));
   --bg-code-block: var(--ink-black);
   --text-code-block: var(--parchment-pale);
-  --bg-nav: var(--ink-black);
+  /* Nav is the sheet, not a bar of ink: the dark bar was the heaviest thing
+     on every page. A red hairline (below) separates it from the content. */
+  --bg-nav: var(--parchment-pale);
+  --page-header-nav-text: var(--ink-black);
   --bg-footer: var(--ink-black);
   --bg-footer-bottom: var(--ink-black);
 
@@ -111,6 +124,11 @@ CSS VARIABLE OVERRIDES
   --text-h4: var(--ink-black);
   --text-h5: var(--ink-black);
 
+  /* ===== Type ===== */
+  --font-heading: 'EB Garamond', Georgia, serif;
+  --font-serif: 'EB Garamond', Georgia, serif;
+  --font-lede: 'EB Garamond', Georgia, serif;
+
   /* Status colors tuned to the palette. There is no green in the source, so
      success borrows the ochre end rather than importing a hue from nowhere. */
   --success: var(--ochre);
@@ -122,12 +140,12 @@ CSS VARIABLE OVERRIDES
   /* Page headers — the sheet, not the framework's default near-black, so the
      header band reads as more of the same page rather than a dark panel laid
      over it. Title and supporting text are ink on paper. */
-  --bg-page-header: var(--parchment);
+  --bg-page-header: color-mix(in srgb, var(--parchment) 55%, var(--parchment-pale));
 
   /* Header ink: the text ink warmed toward the ochre shadow, so a title set on
      a brown-printed woodcut belongs to the image instead of sitting on top of
      it. Resolves to about #463520 — 7.8:1 on parchment. */
-  --page-header-ink: color-mix(in srgb, var(--ochre) 45%, var(--ink-black));
+  --page-header-ink: color-mix(in srgb, var(--ochre) 25%, var(--ink-black));
   --page-header-title: var(--page-header-ink);
   --page-header-grid-line: var(--ink-black);
   --page-header-divider-line: color-mix(in srgb, var(--ink-black) 22%, transparent);
@@ -143,7 +161,9 @@ CSS VARIABLE OVERRIDES
      scrim fades the line art back toward the sheet rather than darkening it. */
   --page-header-text-scrim: color-mix(in srgb, var(--parchment) 88%, transparent);
   --page-header-caption-scrim: color-mix(in srgb, var(--parchment) 85%, transparent);
-  --page-header-tint-filter: sepia(0.6) hue-rotate(340deg) saturate(2.2);
+  /* Ink on paper: take the colour out, then warm it to a brown-black, and
+     multiply so the lines print onto the sheet without tinting the sheet. */
+  --page-header-tint-filter: grayscale(1) sepia(0.35) contrast(1.15);
   --page-header-tint-blend: multiply;
 }
 
@@ -157,3 +177,158 @@ CSS VARIABLE OVERRIDES
   --page-header-nav-dropdown-text: var(--ink-black);
   --page-header-nav-focus-ring: color-mix(in srgb, var(--ink-black) 25%, transparent);
 }
+
+
+/*****************************************************
+COMPONENT OVERRIDES
+*****************************************************/
+
+/* ===== Nav: ink on the sheet ===== */
+/* nav.css colours the brand and links with --text-on-dark, which is also the
+   button text colour, so the nav is recoloured here rather than by changing
+   that token. */
+.top-nav {
+  color: var(--ink-black);
+  /* Solid, not nav.css's 92%: on a light bar the scrolled text showed through. */
+  background-color: var(--bg-nav);
+  border-bottom: 1px solid color-mix(in srgb, var(--rubric-red) 45%, transparent);
+}
+
+.top-nav-brand,
+.top-nav-brand:hover,
+.top-nav-link {
+  color: var(--ink-black);
+}
+
+.top-nav-brand {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.top-nav-link:hover,
+.top-nav-link:focus,
+.top-nav a:visited:hover,
+.top-nav a:visited:focus {
+  color: var(--rubric-red);
+}
+
+/* search.css loads after this file, hence the extra .top-nav. */
+.top-nav .search-toggle {
+  color: var(--ink-black);
+}
+
+.top-nav .search-toggle:hover,
+.top-nav .search-toggle:focus {
+  color: var(--rubric-red);
+}
+
+.top-nav-dropdown {
+  background-color: var(--parchment-pale);
+}
+
+.top-nav-dropdown-item {
+  color: var(--ink-black);
+}
+
+/* On the hero the nav floats over the image; no hairline there. */
+.page-wrap:has(.page-header--hero) .top-nav {
+  border-bottom: none;
+}
+
+/* ===== Headings ===== */
+/* Garamond has a small x-height and thin strokes: set it at 500–600 rather
+   than the grotesk's 700, and a touch larger so it holds its size. */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2.6vw, 1.65rem);
+}
+
+/* ===== Page headers ===== */
+/* page-header.css loads after this file, so these rules carry an extra
+   .page-wrap to win on specificity. */
+.page-wrap .page-header h1 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-indent: 0;
+}
+
+.page-wrap .page-header p {
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* The eyebrow, divider and caption were set in spaced monospace, which read as
+   a terminal. Letterspaced small caps in the text face do the same job. */
+.page-wrap .page-header-eyebrow,
+.page-wrap .page-header-divider span {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.page-wrap .page-header-divider span {
+  font-size: 0.8rem;
+}
+
+.page-wrap .page-header-caption {
+  font-family: var(--font-lede);
+  font-size: 0.85rem;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+/* Garamond sets narrower than the grotesk did, so the hero title fit on one
+   line and ran across the woodcut. Cap the measure so it breaks in two. */
+.page-wrap .page-header--hero h1 {
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+/* The red bar down the left edge read as a rendering glitch, not a rule. */
+.page-wrap .page-header-bar {
+  display: none;
+}
+
+/* Let the woodcut print a little darker now that it is not tinted. */
+.page-wrap .page-header--hero .page-header-bg--botanical {
+  opacity: 0.4;
+}
+
+/* ===== Buttons ===== */
+/* Primary is the filled red; secondary is the same red as an outline, so the
+   page's main action is obvious when the two sit side by side. */
+.btn-secondary,
+.btn-secondary:visited {
+  color: var(--rubric-red);
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--rubric-red);
+}
+
+.btn-secondary:hover,
+.btn-secondary:visited:hover {
+  color: var(--parchment-pale);
+  background: var(--rubric-red);
+}
+
+/* ===== Callouts ===== */
+.rule {
+  border-left-color: var(--rubric-red);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* Markdown wraps the callout text in a <p>, whose bottom margin left the box
+   visibly heavier at the bottom than the top. */
+.rule > :last-child {
+  margin-bottom: 0;
+}
+
