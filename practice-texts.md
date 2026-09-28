@@ -1,8 +1,12 @@
 ---
 title: Practice texts
 layout: base
-header-tier: banner
+header-image: "/assets/images/aldine-colophon-1502.jpg"
+header-tier: section
+header-filter: etching
+header-position: center center
 header-title: Practice texts
+header-subtitle: "Paragraphs written to be worked on, with the kinds of faults that turn up in real drafts. Use one when you would rather not put your own writing in front of the tool."
 summary: "Invented practice texts, including a syllabus policy for reader roles and a four-paragraph project report for editing with a style guide."
 ---
 
@@ -83,9 +87,9 @@ Keep a suggested edit only if you can explain how it serves the report. A polish
 
 | Text | Try it with |
 |---|---|
-| Seminar paragraph | [The skeptical peer reviewer]({{ site.baseurl }}/prompts#prompt-role-reviewer), then [the grader]({{ site.baseurl }}/prompts#prompt-role-grader) |
-| Abstract | [The tired panelist]({{ site.baseurl }}/prompts#prompt-role-panelist), then [the desk editor]({{ site.baseurl }}/prompts#prompt-role-desk-editor) |
-| Syllabus policy | [The confused student]({{ site.baseurl }}/prompts#prompt-role-confused-student), then count how many different readings it produces |
+| Seminar paragraph | [The skeptical peer reviewer]({{ site.baseurl }}/sessions/editorial-assistant#prompt-role-reviewer), then [the grader]({{ site.baseurl }}/sessions/editorial-assistant#prompt-role-grader) |
+| Abstract | [The tired panelist]({{ site.baseurl }}/sessions/editorial-assistant#prompt-role-panelist), then [the desk editor]({{ site.baseurl }}/sessions/editorial-assistant#prompt-role-desk-editor) |
+| Syllabus policy | [The confused student]({{ site.baseurl }}/sessions/editorial-assistant#prompt-role-confused-student), then count how many different readings it produces |
 | Community archive report | [The working style guide](#archive-style-guide), followed by a small edit you choose |
 
 If you only have time for one, try the syllabus policy. It looks clear until you read it as a nervous nineteen-year-old at 11pm, and then about four questions go unanswered. Finding the gap between what you meant to write and what a reader can actually do with it is what these exercises are for.

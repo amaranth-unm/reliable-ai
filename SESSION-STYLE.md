@@ -56,11 +56,16 @@ single sentence that says what the session *does*.
 script (`_includes/html/html-js.html`), which is what lets you walk the room
 through a list without a cursor. Every session page needs it.
 
-**`header-tier: section`** for sessions and for the sessions index. `hero` is
-the series home alone; `banner` is for reference pages (the prompt library,
-about) where the header is signage rather than an image worth looking at.
-Don't reach for `hero` on a session: opening at 100vh makes people scroll
-before they can start.
+**`header-tier: section`** for every page but one. Sessions, the sessions
+index, about and practice texts all use it, so the header is the same 60vh
+band wherever you land. `hero` is the series home alone, and it is the only
+place 100vh is worth the scroll. Don't reach for it on a session: opening at
+full height makes people scroll before they can start.
+
+`banner` (22vh) is no longer used. About and practice texts were on it, and at
+that height the header read as a nameplate rather than part of the page. If
+you bring it back, know that the tier renders a title and nothing else: no
+subtitle, which is where a page's argument goes.
 
 **Header images are early modern prints, and they carry a `header-caption`.**
 The series is about a division of labour between machine and judgment, so the
@@ -79,6 +84,17 @@ magick raw.jpg -crop <plate area> +repage -resize 2000x2000\> -quality 84 out.jp
 Crop to the engraved area and drop the letterpress caption and sheet margins —
 they read as grubby edges at header size, and the identification belongs in
 `header-caption` anyway.
+
+**`header-flip: true` mirrors the background image.** The `section` tier sets
+its text in a column on the left, so a print whose figure also works on the
+left puts the two on top of each other. Session 1 uses it: Amman's typefounder
+sits at his bench on the left of the block, and flipping moves him clear of
+the subtitle. It mirrors the image layer only, so the title and caption stay
+the right way round. Two things to know: a mirrored print is a reversed
+historical document, so don't use it where the image contains legible type or
+a device that reads as a signature (the Aldine anchor, a maker's monogram);
+and `header-position` applies to the unflipped image, so `right` shows what
+ends up on the left.
 
 ## The header carries the argument
 
@@ -139,9 +155,11 @@ The spine is fixed. Sessions differ in their steps, not their skeleton.
    compressed to a bulleted list of principles, each one bolded and then
    explained in a clause. These should read as portable rules, not as a recap
    of what was clicked.
-10. **`## Take the session with you`** — links out: the prompt library, the
-    practice texts, the flyer. Close with an invitation to report what didn't
-    work; questions from the room get added here afterwards.
+10. **`## Take the session with you`** — links out: the worked examples, the
+    practice texts, the flyer. Not a prompt list; the prompts are already on
+    the page with copy buttons, in the exercises that explain them. Close with
+    an invitation to report what didn't work; questions from the room get added
+    here afterwards.
 
 **Watch the proportions, and measure them.** The failure mode of a session
 like this is that it quietly becomes a prompting lesson: the steps that
@@ -168,7 +186,7 @@ not what topic is covered.
 
 `.step` draws the rule above the heading and sets `scroll-margin-top` so a
 `#step-3` link doesn't land under the navbar. The id is what the scrollspy and
-the prompt library both point at, so keep the `#step-N` form.
+any cross-page link point at, so keep the `#step-N` form.
 
 **Sub-steps are plain `###`**, no `.step`. Use them when a step has genuinely
 separate moves — step 3 has five, each one a rule about writing rules.
@@ -225,9 +243,15 @@ flatters us" is itself one of the most useful things the series can show.
 {% include prompt.html id="rule-harvest" %}
 ```
 
-Each entry carries `id`, `session`, `step`, `label`, `note`, `text`. The
-`session` and `step` keys are what group it in `prompts.md`, so fill them in
-or the prompt goes missing from the library.
+Each entry carries `id`, `session`, `step`, `label`, `note`, `text`. Fill in
+`session` and `step` so it's clear which exercise an entry belongs to.
+
+**Render every prompt inside the session that teaches it.** There is no
+standalone prompt library, and adding one back would undo the argument the
+series makes: a prompt lifted away from the exercise it came out of is exactly
+the "magic words" reading these sessions exist to break. If a prompt seems to
+have nowhere to go, that means the page is missing the step that earns it, not
+that the site needs a list.
 
 **The `note` is instructions for the person pasting it** — what to fill in,
 what to keep, what to watch for. The body text around the prompt is the
@@ -266,6 +290,21 @@ a September 2026 copy pass took most of them out. Watch for:
 - **Drafting notes left on the page.** Provenance belongs in one clear note
   near the top ("About the replies on this page") and in the demo headers,
   not repeated in hedges after every example.
+- **Clinical verbs standing in for ordinary ones.** "Inspect the result,"
+  "examine its comments," "evaluate the reply," "surface different questions."
+  A September 2026 pass took ten uses of "inspect" off the session page, where
+  it had come to mean read, reread, check and test on different lines. Write
+  the verb you mean: read it, check it against the original, go and look at
+  the sentence, test the rule where it shouldn't fire.
+- **Nominalizations that hide who acts.** "A request to identify an unclear
+  instruction gives you more to evaluate." "The useful result is a decision you
+  can explain." Find the buried verb and give it back its subject: "Asking
+  which instruction is unclear gets you more to work with."
+- **Hedges stacked on hedges.** "Agreement can suggest a place to inspect."
+  One hedge is honest, two is evasive. Say what the reader learns and what they
+  don't: "Where the readings agree, you have learned where to look. You have
+  not learned that the criticism is right."
+
 
 **Explain failure as behaviour, not malfunction.** "None of that is
 malfunction. You asked an eager, well-read, thoroughly naive assistant to edit

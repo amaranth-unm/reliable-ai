@@ -1,10 +1,12 @@
 ---
 title: About the series
 layout: base
-header-image: "/assets/images/amaranth-flower-etch.jpg"
-header-tier: banner
-header-filter: botanical
+header-image: "/assets/images/press.webp"
+header-tier: section
+header-filter: etching
+header-position: center center
 header-title: About
+header-subtitle: "The series exists because argument about AI in the university has run ahead of anyone's experience of it. Fifty minutes at a time, on work you already know how to judge."
 summary: "What the Reliable AI for Humanists brown bag series is, who it's for, and what it assumes."
 ---
 
@@ -32,7 +34,7 @@ Everyone does the same exercises. Only the text you bring changes.
 
 ## Materials
 
-Everything from each session stays on this site: the [session pages]({{ site.baseurl }}/sessions), the [prompt library]({{ site.baseurl }}/prompts), and the [practice texts]({{ site.baseurl }}/practice-texts). You're welcome to reuse any of it in your own classes or workshops. If you adapt something, we'd love to hear how it went.
+Everything from each session stays on this site: the [session pages]({{ site.baseurl }}/sessions), with every prompt and transcript in the exercise it came from, and the [practice texts]({{ site.baseurl }}/practice-texts). You're welcome to reuse any of it in your own classes or workshops. If you adapt something, we'd love to hear how it went.
 
 ## Getting in touch
 

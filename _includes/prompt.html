@@ -6,7 +6,9 @@
     {% include prompt.html text="Edit this." label="The baseline" %}
 
   Prompts live in _data/prompts.yml keyed by id, so the same prompt can appear
-  on a session page and in the prompt library without the two drifting apart.
+  in an exercise and again in that session's recap without the two drifting
+  apart. Render prompts inside the session that teaches them — there is no
+  standalone prompt library (see SESSION-STYLE.md).
   Passing text= directly is the escape hatch for one-offs.
 {% endcomment %}
 

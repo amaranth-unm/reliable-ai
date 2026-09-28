@@ -43,6 +43,7 @@ CSS VARIABLE OVERRIDES
   --ochre: #7a5a33;               /* Warm shadow at the curl of the page */
   --ochre-light: #b3946a;         /* Aged edge, reserved for warnings */
   --gilt: #c9973f;                /* Faded gold leaf — washes only, never text */
+  --bistre: #2d1f12;              /* Soot-brown ink, for the nav bar — 14.3:1 under parchment */
 
   /* ===== Override Base Theme Variables ===== */
   /* Backgrounds */
@@ -54,10 +55,18 @@ CSS VARIABLE OVERRIDES
   --bg-code: color-mix(in srgb, var(--parchment) 68%, var(--bg-page));
   --bg-code-block: var(--ink-black);
   --text-code-block: var(--parchment-pale);
-  /* Nav is the sheet, not a bar of ink: the dark bar was the heaviest thing
-     on every page. A red hairline (below) separates it from the content. */
-  --bg-nav: var(--parchment-pale);
-  --page-header-nav-text: var(--ink-black);
+  /* Prompt slab, one step off full ink. A session page carries 29 of these,
+     and at --ink-black they read as a column of black holes down the page.
+     Mixed toward ochre they stay clearly dark, and clearly not the paper of a
+     demo block, without the weight. Resolves to #3d2e1c; parchment on it is 11.7:1.
+     --bg-code-block stays at full ink for real code and for the slides. */
+  --bg-prompt: color-mix(in srgb, var(--ochre) 35%, var(--ink-black));
+  /* Nav is a bar of bistre on every page, hero included: one fixed dark edge
+     at the top of the sheet. A red hairline (below) separates it from the
+     content. Bistre rather than --ink-black so the bar reads as brown next to
+     the black of the body text and the footer.  */
+  --bg-nav: var(--bistre);
+  --page-header-nav-text: var(--parchment-pale);
   --bg-footer: var(--ink-black);
   --bg-footer-bottom: var(--ink-black);
 
@@ -167,15 +176,30 @@ CSS VARIABLE OVERRIDES
   --page-header-tint-blend: multiply;
 }
 
-/* The nav overlays the hero transparently (see nav.css) and was built assuming
-   a dark image showing through it. Scoped to hero pages only — section/banner
-   headers keep the nav's normal solid ink bar, which reads fine as-is. */
+/* nav.css floats the nav transparently over a hero header and drops it out of
+   the sticky flow. This site wants one nav everywhere, so the hero case is
+   folded back into the ordinary bar: same bistre, same hairline, still sticky.
+   The colour variables below are what nav.css's hero rules read. */
 .page-wrap:has(.page-header--hero) {
-  --page-header-nav-text: var(--ink-black);
-  --page-header-nav-dropdown-bg: var(--parchment-pale);
-  --page-header-nav-dropdown-border: color-mix(in srgb, var(--ink-black) 20%, transparent);
-  --page-header-nav-dropdown-text: var(--ink-black);
-  --page-header-nav-focus-ring: color-mix(in srgb, var(--ink-black) 25%, transparent);
+  --page-header-nav-text: var(--parchment-pale);
+  --page-header-nav-dropdown-bg: var(--bistre);
+  --page-header-nav-dropdown-border: color-mix(in srgb, var(--parchment-pale) 20%, transparent);
+  --page-header-nav-dropdown-text: var(--parchment-pale);
+  --page-header-nav-focus-ring: color-mix(in srgb, var(--parchment-pale) 40%, transparent);
+}
+
+.page-wrap:has(.page-header--hero) .top-nav {
+  position: sticky;
+  background-color: var(--bg-nav);
+}
+
+/* nav.css also gives hero links an underlined hover, on the assumption the bar
+   is transparent. Ours isn't, so hover is the plain colour change used on every
+   other page. */
+.page-wrap:has(.page-header--hero) .top-nav-link:hover,
+.page-wrap:has(.page-header--hero) .top-nav-link:focus {
+  color: var(--ochre-light);
+  box-shadow: none;
 }
 
 
@@ -183,13 +207,13 @@ CSS VARIABLE OVERRIDES
 COMPONENT OVERRIDES
 *****************************************************/
 
-/* ===== Nav: ink on the sheet ===== */
-/* nav.css colours the brand and links with --text-on-dark, which is also the
-   button text colour, so the nav is recoloured here rather than by changing
-   that token. */
+/* ===== Nav: a bar of bistre ===== */
+/* Parchment on bistre is 14.3:1; the hover lightens to ochre-light, 5.6:1 on
+   the same bar. Same pattern as the dark --bg-section-warm band above. */
 .top-nav {
-  color: var(--ink-black);
-  /* Solid, not nav.css's 92%: on a light bar the scrolled text showed through. */
+  color: var(--parchment-pale);
+  /* Solid, not nav.css's 92%: page content showed through the bar when
+     scrolled underneath it. */
   background-color: var(--bg-nav);
   border-bottom: 1px solid color-mix(in srgb, var(--rubric-red) 45%, transparent);
 }
@@ -197,7 +221,7 @@ COMPONENT OVERRIDES
 .top-nav-brand,
 .top-nav-brand:hover,
 .top-nav-link {
-  color: var(--ink-black);
+  color: var(--parchment-pale);
 }
 
 .top-nav-brand {
@@ -210,30 +234,31 @@ COMPONENT OVERRIDES
 .top-nav-link:focus,
 .top-nav a:visited:hover,
 .top-nav a:visited:focus {
-  color: var(--rubric-red);
+  color: var(--ochre-light);
 }
 
 /* search.css loads after this file, hence the extra .top-nav. */
 .top-nav .search-toggle {
-  color: var(--ink-black);
+  color: var(--parchment-pale);
 }
 
 .top-nav .search-toggle:hover,
 .top-nav .search-toggle:focus {
-  color: var(--rubric-red);
+  color: var(--ochre-light);
 }
 
 .top-nav-dropdown {
-  background-color: var(--parchment-pale);
+  background-color: var(--bistre);
+  border-color: color-mix(in srgb, var(--parchment-pale) 20%, transparent);
 }
 
 .top-nav-dropdown-item {
-  color: var(--ink-black);
+  color: var(--parchment-pale);
 }
 
-/* On the hero the nav floats over the image; no hairline there. */
-.page-wrap:has(.page-header--hero) .top-nav {
-  border-bottom: none;
+.top-nav-dropdown-item:hover,
+.top-nav-dropdown-item:focus {
+  color: var(--ochre-light);
 }
 
 /* ===== Headings ===== */
@@ -251,6 +276,13 @@ h2 {
 
 h3 {
   font-size: clamp(1.35rem, 2.6vw, 1.65rem);
+}
+
+/* ===== Prompt blocks ===== */
+/* prompt.css paints the slab with --bg-code-block; this site sends it to the
+   lighter --bg-prompt instead. See the token for why. */
+.prompt-text {
+  background: var(--bg-prompt);
 }
 
 /* ===== Page headers ===== */
@@ -381,19 +413,24 @@ main > .container {
 }
 
 .container > h2 {
-  --space-above: 3rem;
+  /* --space-above is what the heading adds on top of the preceding block's
+     own margin-bottom, because .container is a grid and margins don't
+     collapse. So the rendered gap is --flow + --space-above (3rem above an h2
+     after a paragraph), and the calc() rules below keep that same total after
+     framed blocks and the lede. */
+  --space-above: 1.5rem;
   margin-top: var(--space-above);
   margin-bottom: 1rem;
 }
 
 .container > h3 {
-  --space-above: 2.25rem;
+  --space-above: 1rem;
   margin-top: var(--space-above);
   margin-bottom: 0.75rem;
 }
 
 .container > h4 {
-  --space-above: 1.75rem;
+  --space-above: 0.5rem;
   margin-top: var(--space-above);
   margin-bottom: 0.5rem;
 }

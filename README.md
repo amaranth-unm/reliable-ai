@@ -33,7 +33,6 @@ assets/css/prompt.css       prompt blocks, step headings, the .rule callout
 assets/js/prompt-copy.js    the copy buttons
 index.md                    series home
 sessions/                   one page per session; the card grid builds itself
-prompts.md                  the whole prompt library, grouped by session
 practice-texts.md           invented paragraphs for people who didn't bring one
 ```
 
@@ -46,18 +45,25 @@ needed:
 {% include prompt.html id="editorial-brief" %}
 ```
 
-That's why a prompt can appear on a session page and in the library without the
-two versions drifting apart. Each entry takes `id`, `session`, `step`, `label`,
-`text`, and an optional `note`. If an `id` doesn't match anything, the page
-shows a visible warning rather than failing silently.
+That's why the same prompt can appear in a session's exercise and again in its
+recap without the two versions drifting apart. Each entry takes `id`, `session`,
+`step`, `label`, `text`, and an optional `note`. If an `id` doesn't match
+anything, the page shows a visible warning rather than failing silently.
+
+Prompts are only ever rendered inside the session that teaches them. There is
+deliberately no standalone prompt library: a prompt separated from the exercise
+it came out of is the thing this series argues against, and a single page
+accumulating every prompt in the series would get long enough to be useless
+anyway. `session` and `step` stay on each entry because they order the prompts
+within a session page and make it clear which session an entry belongs to.
 
 ### Adding a session
 
 1. Add `sessions/your-session.md` with front matter: `title`, `position`
    (controls card order), `kicker`, `summary`, `thumbnail`, and
    `workshop_mode: true`.
-2. Add that session's prompts to `_data/prompts.yml` with a new `session:` value.
-3. Add a section to `prompts.md` that filters on it.
+2. Add that session's prompts to `_data/prompts.yml` with a new `session:` value,
+   and render each one with `prompt.html` at the point in the page it's taught.
 
 The card grids on the home page and `/sessions` pick the page up automatically —
 nothing to register.

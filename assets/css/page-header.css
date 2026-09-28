@@ -46,6 +46,14 @@ color just for headers.
   opacity: 0.28;
 }
 
+/* Mirrored background. For images whose subject sits on the same side as the
+   header text: the section tier puts its text on the left, so a figure working
+   at the left of a woodcut ends up underneath it. Only this layer is flipped,
+   so the title, subtitle and caption stay the right way round. */
+.page-header-bg--flip {
+  transform: scaleX(-1);
+}
+
 /* Subtle grid overlay for visual texture */
 .page-header-grid {
   position: absolute;

@@ -19,6 +19,11 @@
                  e.g. "left center", "80% 50%", "center top"
     bg-opacity:  override CSS opacity (0–1). Defaults: hero 0.28, section 0.18, banner 0.10
     zoom:        zoom level as a percentage (default: cover). e.g. "150%" zooms in
+    flip:        true to mirror the background image horizontally. Use when the
+                 subject sits on the same side as the header text (section tier
+                 sets its text on the left). Mirrors the image only, never the
+                 title or caption. Note that bg-position is applied to the
+                 unflipped image, so "right" shows what ends up on the left.
     title:       page title (shown in all tiers)
     eyebrow:     small caps line above title (hero only)
     divider:     text between decorative lines (hero only)
@@ -36,7 +41,7 @@
 
 <div class="page-header page-header--{{ tier }}"{% if include.height %} style="height: {{ include.height }};"{% endif %}>
   {% if img_url != '' %}
-  <div class="page-header-bg page-header-bg--{{ filter }}" style="background-image: url('{{ img_url }}'); background-position: {{ include.bg-position | default: 'center right' }};{% if include.bg-opacity %} opacity: {{ include.bg-opacity }};{% endif %}{% if include.zoom %} background-size: {{ include.zoom }};{% endif %}"></div>
+  <div class="page-header-bg page-header-bg--{{ filter }}{% if include.flip %} page-header-bg--flip{% endif %}" style="background-image: url('{{ img_url }}'); background-position: {{ include.bg-position | default: 'center right' }};{% if include.bg-opacity %} opacity: {{ include.bg-opacity }};{% endif %}{% if include.zoom %} background-size: {{ include.zoom }};{% endif %}"></div>
   {% endif %}
   <div class="page-header-grid"></div>
   <div class="page-header-bar"></div>
