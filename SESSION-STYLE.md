@@ -278,6 +278,13 @@ a September 2026 copy pass took most of them out. Watch for:
 - **Aphorisms and punchy closers.** "Twice is a rule." "That's all prompting
   is." "Correcting it is the point." One memorable line per step at most, and
   only if it compresses a move the reader just made. Otherwise say it plainly.
+- **Sentences that rate their own importance.** "That is the whole method."
+  "This is the whole workshop in one block." "That retraction is the
+  demonstration." The sentence stops to tell the reader that what they just
+  read was the important part. If the point landed, the label adds nothing; if
+  it didn't, the label won't rescue it. Cut it and let the claim stand, or
+  write a better claim. Watch for "that is the whole X", "X is the point",
+  and "that is what this is really about".
 - **"Not X, but Y" contrasts.** "Working sessions, not demonstrations."
   "Scaffolds, not incantations." Say what the thing is.
 - **Em-dashes as all-purpose joints.** Use a period, comma, colon or
@@ -314,8 +321,8 @@ not resenting it.
 **No hype, no doom, and no claims about how the model works internally.**
 Everything on the page should be verifiable by someone sitting in front of a
 chat window with their own paragraph. If a sentence requires the reader to
-trust you about model internals, cut it — that is the whole epistemics of the
-series.
+trust you about model internals, cut it. The reader has to be able to check
+everything here, or the series has no standing to ask them to check anything.
 
 **Never promise a specific tool's behaviour.** "Claude, ChatGPT, Gemini,
 Copilot, any of them" — the exercises work across tools, and naming versions

@@ -339,7 +339,7 @@
   session: editorial-assistant
   step: 5
   label: The standing instruction
-  note: "Keep this in a text file and paste it at the top of any editing session — or put it in a Claude Project or a custom GPT so it applies every time. This is the whole workshop in one block."
+  note: "Keep this in a text file and paste it at the top of any editing session, or put it in a Claude Project or a custom GPT so it applies every time. It collects the instructions from every step above into one block."
   text: |
     When I bring you my writing, you are my editor, not my ghostwriter.
 

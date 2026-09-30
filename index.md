@@ -13,31 +13,35 @@ header-subtitle: Hands-on sessions on getting useful, checkable results from gen
 summary: "A brown bag series on using generative AI well in humanities research and teaching. All skill levels welcome."
 ---
 
-A lunchtime series from Amaranth for anyone at UNM who wants to find out what generative AI is actually good for in humanities research and teaching. Each session takes one everyday task, tries the tools on it, and looks closely at the results.
+A lunchtime series from Amaranth for people at UNM who are curious about generative AI but skeptical if not unconvinced by most of what they have heard about it. Each session takes a routine task or process common in the humanaities and explores how AI can augment or speed up the process in reliable ways.
 {: .lead}
 
-Bring a laptop and something you're working on. You'll leave with prompts you can reuse and a better sense of when to trust what comes back. No experience is needed. If you've never opened one of these tools, you're in the right place.
+There are many reasons to be skeptical about AI. Much of what gets claimed for these tools is overstated, and the failures are the ones that matter most in our work: invented sources, confident misreadings, prose that flattens significant nuance. 
 
-## Next session
+But that doesn't mean AI is hopeless for the humanities. And often, unhelpful AI output comes from unrefined prompting and cursory use, rather than sustained engagement with a complex tool that takes significant practice to harness. 
 
-<div class="rule" markdown="1">
-**Transcribing Handwritten Documents** · Wednesday, October 14, 12:00–12:50 · History Common Room
-</div>
 
-Transcription is another task where you can check the tool's work, because the page is right in front of you. We'll try AI on handwritten sources, compare its readings with the originals, and look closely at where it goes wrong.
+## How the sessions work
 
-**Before you come:** bring a laptop and a photo or scan of a handwritten document you'd like to read, such as a letter, a diary page, or a register entry. Leave out anything you don't have permission to share and anything containing sensitive personal information. It helps to have an AI tool open in a browser tab when you arrive.
+Our meetings aim for a deliberate combination of demonstration and discussion. We go through some use cases that can help you augment your work. You can follow along with our sample prompts and texts, or you can work with your own writing or sources so it's easier to tell whether a tool helped or whether it merely sounded fluent.
+
+This is not about outsourcing thinking or writing. This is about using a powerful tool to help and augment what you're already doing.
+
+Everything runs on free accounts, and we try to showcase a variety of tools and workflows, since everyone has different ways of working. 
+
+These are not AI propaganda sessions. These are not anti-AI communiona. We try to be balanaced about what AI tools can do now, how they have changed, and where they are headed. Read more on the [About]({{ site.baseurl }}/about) page.
+
+{% include next-session.html
+   title = "Transcribing Handwritten Documents"
+   when  = "Wednesday, October 14, 12:00–12:50"
+   where = "History Common Room"
+   blurb = "Another task where you can check the work, because the page is right in front of you. We try AI on handwritten sources, compare its readings with the originals, and look closely at where it goes wrong."
+   note  = "Just show up. Bring a laptop if you have one." %}
+
+Missed the first session? **AI as Editorial Assistant** is [online in full]({{ site.baseurl }}/sessions/editorial-assistant), with [the slides]({{ site.baseurl }}/presents/editorial-assistant/), so you can work through it at your own pace.
 
 <p>
   <a href="{{ site.baseurl }}/sessions/" class="btn-primary">See all sessions →</a>
 </p>
-
-Missed the first session? **AI as Editorial Assistant** is [online in full]({{ site.baseurl }}/sessions/editorial-assistant), with [the slides]({{ site.baseurl }}/presents/editorial-assistant/), so you can work through it at your own pace.
-
-## How the sessions work
-
-You'll work with material you know well, such as your own writing or sources from your research, because that's where you can tell whether the tool is helping. The exercises ask AI to read, question, and check, and the decisions stay yours.
-
-Everything works on free accounts. We'll show more than one tool and won't recommend any of them. Skeptics are very welcome; some of us are still unconvinced ourselves. More about the series is on the [About]({{ site.baseurl }}/about) page.
 
 *Hosted by [Amaranth](https://amaranth.unm.edu), UNM's digital humanities and public scholarship studio.*

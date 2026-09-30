@@ -1,0 +1,32 @@
+{% comment %}
+  The next session, as a full-bleed bar on the home page.
+
+  Usage:
+    {% include next-session.html
+       title = "Transcribing Handwritten Documents"
+       when  = "Wednesday, October 14 · 12:00–12:50"
+       where = "History Common Room"
+       blurb = "One sentence on what the hour does."
+       note  = "Just show up." %}
+
+  Built on .section-warm (base.css), which is the framework's full-width band:
+  it claims the container's `full` column and re-centres its own contents, so
+  the bar spans the window without any wrapper markup in the page.
+
+  Updated every time a session is announced. When there is no next session,
+  leave the include out rather than shipping an empty bar.
+{% endcomment %}
+
+{::nomarkdown}
+<div class="section-warm next-session">
+  <p class="next-session-eyebrow">Next session</p>
+  {% if include.title %}<h2 class="next-session-title">{{ include.title }}</h2>{% endif %}
+  {% if include.when or include.where %}
+  <p class="next-session-meta">
+    {{ include.when }}{% if include.when and include.where %} <span aria-hidden="true">·</span> {% endif %}{{ include.where }}
+  </p>
+  {% endif %}
+  {% if include.blurb %}<p class="next-session-blurb">{{ include.blurb }}</p>{% endif %}
+  {% if include.note %}<p class="next-session-note">{{ include.note }}</p>{% endif %}
+</div>
+{:/nomarkdown}

@@ -145,7 +145,7 @@
   run: 'prompt id="quote-it"'
   tool: "Claude Opus 5"
   date: "2026-09-22"
-  note: "It could source one claim out of three, and said so about the other two. That retraction is the demonstration — and note it took one sentence to get."
+  note: "It could source one claim out of three, and said so about the other two. Note how little it took to get the retraction: one sentence."
   text: |
     I can point to one of the three:
 

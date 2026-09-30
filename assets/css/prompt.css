@@ -97,6 +97,82 @@
 
 .prompt { scroll-margin-top: 5rem; }
 
+/* === Next session bar ================================================ */
+/* The home page announcement. .section-warm (base.css) already supplies the
+   full-bleed band, the ink background, the vermilion hairlines and the
+   centring; everything here is the stack inside it. Typography.css gives a
+   bare h2 a 3rem top margin, which inside a band would drop the title away
+   from its own eyebrow, so the vertical rhythm is set explicitly. */
+.next-session {
+  /* Scales with the title, which is clamped against the viewport too. The
+     flat --spacing-md this used to carry was set for a 2.3rem title and
+     crowds the display size. */
+  padding-top: clamp(1.75rem, 4vw, 2.75rem);
+  padding-bottom: clamp(1.75rem, 4vw, 2.75rem);
+  text-align: left;
+}
+
+.next-session > * {
+  margin: 0;
+}
+
+.next-session-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-section-warm-heading);
+}
+
+.next-session-title {
+  margin-top: 0.4rem;
+  /* Display scale, not heading scale. At the old 2.3rem cap this sat level
+     with a body h2 and read as another section head. */
+  font-size: clamp(2.2rem, 5.4vw, 3.6rem);
+  line-height: 1.02;
+  /* Garamond is loaded at 400/500/600; the theme's own note is to set it at
+     500-600 and a touch larger, because its thin strokes lose weight at size.
+     Display sizes also want the tracking pulled back in. */
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  /* Hangs the first glyph's sidebearing so the title aligns optically flush
+     with the eyebrow above it, the same trick page-header.css uses on its h1. */
+  text-indent: -0.04em;
+  text-wrap: balance;
+}
+
+/* .section-warm h2 takes the band's heading colour, which is mixed toward the
+   parchment. The title is the loudest thing in the bar, so it takes the full
+   parchment instead. */
+.next-session .next-session-title {
+  color: var(--text-section-warm);
+}
+
+.next-session-meta {
+  margin-top: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--text-section-warm-link);
+}
+
+.next-session-blurb {
+  margin-top: 0.9rem;
+  max-width: 46ch;
+  line-height: 1.55;
+}
+
+.next-session-note {
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--text-section-warm) 72%, transparent);
+}
+
+@media (max-width: 480px) {
+  .next-session-meta { font-size: 0.95rem; }
+}
+
 /* The one-line rule that the whole session hangs on. */
 .rule {
   margin: 2rem 0;
