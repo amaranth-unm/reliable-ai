@@ -44,4 +44,4 @@ Missed the first session? **AI as Editorial Assistant** is [online in full]({{ s
   <a href="{{ site.baseurl }}/sessions/" class="btn-primary">See all sessions →</a>
 </p>
 
-*Hosted by [Amaranth](https://amaranth.unm.edu), UNM's digital humanities and public scholarship studio.*
+*Hosted by [Amaranth](https://amaranth.unm.edu), a digital humanities and public scholarship studio at UNM.*

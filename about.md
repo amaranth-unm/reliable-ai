@@ -6,7 +6,7 @@ header-tier: section
 header-filter: etching
 header-position: center center
 header-title: About
-header-subtitle: "The series exists because argument about AI in the university has run ahead of anyone's experience of it. Fifty minutes at a time, on work you already know how to judge."
+header-subtitle: "Let's learn together! We want to experiment with how AI can and cannot be useful in different kinds of research and teaching scenarios. We emphasize documented results over general pronouncements."
 summary: "What the Reliable AI for Humanists brown bag series is, who it's for, and what it assumes."
 ---
 

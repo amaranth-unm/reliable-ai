@@ -285,6 +285,46 @@ h3 {
   background: var(--bg-prompt);
 }
 
+/* ===== Session rows ===== */
+/* toc.css draws a row as a left stripe over --bg-card, and on this theme
+   --bg-card is 94% of the page colour, so there was no box: with a single
+   session listed, the entry read as loose text under the lede and was easy to
+   scroll past. This gives it a real edge on all four sides. The ground is
+   pulled further toward --parchment so the card separates from the sheet, and
+   the left rule goes to the full vermilion, since a session is exactly the
+   kind of thing the rubric is meant to mark. */
+.toc-row {
+  background: color-mix(in srgb, var(--parchment) 38%, var(--parchment-pale));
+  /* 50% ink puts the hairline at 3.1:1 against the card, the non-text
+     contrast threshold. At the 22% this started on it measured 1.48:1 and
+     the edge was there without being visible. */
+  border: 1px solid color-mix(in srgb, var(--ink-black) 50%, transparent);
+  border-left: 5px solid var(--rubric-red);
+  border-radius: var(--radius-sm, 6px);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--ink-black) 8%, transparent);
+  margin-bottom: var(--spacing-md);
+}
+
+/* The whole row is a link, so the hover has to look like one: the card lifts
+   off the sheet rather than just recolouring its stripe. */
+.toc-row:hover {
+  background: var(--parchment-pale);
+  border-color: color-mix(in srgb, var(--ink-black) 68%, transparent);
+  border-left-color: var(--rubric-red-light);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--ink-black) 14%, transparent);
+}
+
+/* The kicker is the session number and date. It carries the ochre so the row
+   has a warm line above a black title, matching the eyebrow in the home
+   page's next-session bar. */
+.toc-row .toc-kicker {
+  color: var(--ochre);
+}
+
+.toc-row h3 {
+  color: var(--ink-black);
+}
+
 /* ===== Page headers ===== */
 /* page-header.css loads after this file, so these rules carry an extra
    .page-wrap to win on specificity. */

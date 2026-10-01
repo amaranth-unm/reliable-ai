@@ -109,6 +109,13 @@
      crowds the display size. */
   padding-top: clamp(1.75rem, 4vw, 2.75rem);
   padding-bottom: clamp(1.75rem, 4vw, 2.75rem);
+  /* .section-warm centres its contents at 48rem, the body text measure. This
+     is an announcement rather than something you read a page of, so it takes
+     the framework's wide measure instead (--home-measure, 64rem, the same one
+     .wide-header and .gallery-grid--wide use). The max() keeps a real gutter
+     on narrow screens rather than letting the text reach the edge. */
+  padding-left: max(clamp(1.25rem, 5vw, 3rem), calc(50% - 32rem));
+  padding-right: max(clamp(1.25rem, 5vw, 3rem), calc(50% - 32rem));
   text-align: left;
 }
 
@@ -159,7 +166,13 @@
 
 .next-session-blurb {
   margin-top: 0.9rem;
-  max-width: 46ch;
+  /* 46ch was half the old band and read as a narrow column under a wide
+     title. A single paragraph stops being comfortable somewhere around 75-80
+     characters, so this runs to the top of that range rather than filling the
+     band edge to edge. Set slightly larger than body copy so the line holds
+     its own under a 58px title. */
+  max-width: 74ch;
+  font-size: 1.1rem;
   line-height: 1.55;
 }
 
