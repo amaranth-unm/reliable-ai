@@ -1,0 +1,37 @@
+{% comment %}
+  Session Row — compact linked boxes for a handful of past sessions
+
+  Usage:
+    {% include cards/session-row.html rows=recent_sessions limit=3 %}
+
+  Parameters:
+    - rows:  collection of session pages, most recent first (required)
+    - limit: how many to show (default: 3)
+
+  Row fields used: kicker, title, summary, url. Lighter than card-grid.html —
+  no thumbnail, no tags — because this is a teaser row pointing at the full
+  listing (sessions/index.md, via cards/card-toc.html), not the listing
+  itself.
+{% endcomment %}
+
+{% assign limit = include.limit | default: 3 %}
+{% assign rows = include.rows | slice: 0, limit %}
+
+{::nomarkdown}
+{% if include.rows and rows.size > 0 %}
+  <div class="session-row">
+    {% for row in rows %}
+      {% capture link_resolved %}{% include helpers/link-path.html link=row.url %}{% endcapture %}
+      <a class="session-box" href="{{ link_resolved | strip }}">
+        {% if row.kicker %}<p class="session-box-kicker">{{ row.kicker }}</p>{% endif %}
+        <h3 class="session-box-title">{{ row.title | default: 'Untitled' }}</h3>
+        {% if row.summary %}<p class="session-box-summary">{{ row.summary }}</p>{% endif %}
+      </a>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="xanthan-warning">
+    session-row include needs a rows collection.
+  </div>
+{% endif %}
+{:/nomarkdown}

@@ -29,16 +29,45 @@ This is not about outsourcing thinking or writing. This is about using a powerfu
 
 Everything runs on free accounts, and we try to showcase a variety of tools and workflows, since everyone has different ways of working. 
 
-These are not AI propaganda sessions. These are not anti-AI communiona. We try to be balanaced about what AI tools can do now, how they have changed, and where they are headed. Read more on the [About]({{ site.baseurl }}/about) page.
+These are not AI propaganda sessions. These are not anti-AI communions. We try to be balanaced about what AI tools can do now, how they have changed, and where they are headed. Read more on the [About]({{ site.baseurl }}/about) page.
 
-{% include next-session.html
-   title = "Transcribing Handwritten Documents"
-   when  = "Wednesday, October 14, 12:00–12:50"
-   where = "History Common Room"
-   blurb = "Another task where you can check the work, because the page is right in front of you. We try AI on handwritten sources, compare its readings with the originals, and look closely at where it goes wrong."
-   note  = "Just show up. Bring a laptop if you have one." %}
+{% comment %}
+  Next/past sessions are read from the sessions/ folder's own front matter
+  (date, time, location, summary, note) instead of being typed here — add a
+  session's file and this picks it up. sessions/index.md repeats this same
+  lookup for its own "Coming up" line: Liquid's include tag scopes assigned
+  variables to the include, so this can't be worked out once and shared across pages.
+  Keep the two in sync if the lookup logic changes.
+{% endcomment %}
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" %}
+{% assign session_pages = session_pages | sort: "date" %}
+{% assign upcoming_sessions = "" | split: "," %}
+{% assign past_sessions = "" | split: "," %}
+{% for s in session_pages %}
+  {% assign s_date = s.date | date: "%Y-%m-%d" %}
+  {% if s_date > today %}
+    {% assign upcoming_sessions = upcoming_sessions | push: s %}
+  {% else %}
+    {% assign past_sessions = past_sessions | push: s %}
+  {% endif %}
+{% endfor %}
+{% assign next_session = upcoming_sessions | first %}
+{% assign recent_sessions = past_sessions | reverse %}
 
-Missed the first session? **AI as Editorial Assistant** is [online in full]({{ site.baseurl }}/sessions/editorial-assistant), with [the slides]({{ site.baseurl }}/presents/editorial-assistant/), so you can work through it at your own pace.
+{% if next_session %}
+{% include next-session.html session=next_session %}
+{% endif %}
+
+## Later this semester
+
+{% include schedule-list.html %}
+
+{% if recent_sessions.size > 0 %}
+## Past sessions
+
+{% include cards/session-row.html rows=recent_sessions limit=3 %}
+{% endif %}
 
 <p>
   <a href="{{ site.baseurl }}/sessions/" class="btn-primary">See all sessions →</a>

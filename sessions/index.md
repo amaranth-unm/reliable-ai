@@ -19,9 +19,30 @@ Each session is about an hour of hands-on work: a short introduction, three or f
 
 ## Coming up
 
-**Next: Transcribing Handwritten Documents**, Wednesday, October 14, 12:00–12:50, History Common Room. Bring a photo or scan of a handwritten document you'd like to read.
+{% comment %}
+  Mirrors the lookup in index.md — see the comment there for why this can't
+  be shared via an include.
+{% endcomment %}
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign upcoming_sessions = "" | split: "," %}
+{% for s in session_pages %}
+  {% assign s_date = s.date | date: "%Y-%m-%d" %}
+  {% if s_date > today %}
+    {% assign upcoming_sessions = upcoming_sessions | push: s %}
+  {% endif %}
+{% endfor %}
+{% assign upcoming_sessions = upcoming_sessions | sort: "date" %}
+{% assign next_session = upcoming_sessions | first %}
 
-Later sessions take the same approach: try the tools on work you already know how to judge. Other topics we're considering:
+{% if next_session %}
+**Next: {{ next_session.title }}**, {{ next_session.date | date: "%A, %B %-d" }}{% if next_session.time %}, {{ next_session.time }}{% endif %}{% if next_session.location %}, {{ next_session.location }}{% endif %}.{% if next_session.note %} {{ next_session.note }}{% endif %}
+{% endif %}
+
+### Later this semester
+
+{% include schedule-list.html %}
+
+Later sessions take the same approach: try the tools on work you already know how to judge. Topics for the TBA dates are still being decided — some we're considering:
 
 - **Reading and note-taking.** Ask AI about a text you know well, and see what that tells you about asking it about one you don't.
 - **AI in the classroom.** Design assignments that assume students have these tools.

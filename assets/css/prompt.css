@@ -156,6 +156,19 @@
   color: var(--text-section-warm);
 }
 
+/* The title links to the session page now that one always exists. .section-
+   warm's own `a` rule would otherwise recolour it to the band's link colour,
+   which is a lot quieter than the parchment white the title is set in. */
+.next-session-title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.next-session-title a:hover {
+  text-decoration: underline;
+}
+
 .next-session-meta {
   margin-top: 0.5rem;
   font-family: var(--font-body);
@@ -184,6 +197,97 @@
 
 @media (max-width: 480px) {
   .next-session-meta { font-size: 0.95rem; }
+}
+
+/* === Past sessions row ================================================ */
+/* Up to three compact boxes under the next-session bar on the home page. A
+   teaser row, not a card (cards.css): no thumbnail, no tags, just enough to
+   decide whether to click through. auto-fit rather than a flat repeat(3,…):
+   the series has one past session right now, and a fixed three-column grid
+   would strand that one box in a third of the row with two empty columns
+   beside it. This fills one box to the full width, splits two evenly, and
+   only reaches three columns once there are three to show — the home page
+   include already caps it at three (see cards/session-row.html). */
+.session-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.session-box {
+  display: block;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.session-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-hover-border);
+  box-shadow: var(--shadow-md);
+}
+
+.session-box-kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.session-box-title {
+  margin: 0.3rem 0 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--card-heading-color);
+}
+
+.session-box-summary {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--card-text-color);
+}
+
+/* === Schedule list ===================================================== */
+/* The semester's remaining dates, one per row, topic or "Topic TBA". Plain
+   rows rather than another card — this is a calendar, not a set of things to
+   click into, and most rows don't have anywhere to link yet. --metadata-border
+   and the mono date already carry the right weight (typography.css uses the
+   same pairing for .metadata-strip). */
+.schedule-list {
+  list-style: none;
+  margin: var(--spacing-md) 0 var(--spacing-lg);
+  padding: 0;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--metadata-border);
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-date {
+  flex: 0 0 4.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.schedule-tba {
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 /* The one-line rule that the whole session hangs on. */

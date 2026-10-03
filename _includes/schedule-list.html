@@ -1,0 +1,44 @@
+{% comment %}
+  Schedule List — the semester's remaining meeting dates, topic if decided
+
+  Usage:
+    {% include schedule-list.html %}
+
+  Reads _data/schedule.yml: a flat list of { date, session }. `session` is a
+  session page's filename (without extension) in sessions/ — when a topic is
+  decided, add its session page and reference it here by filename; until
+  then, leave `session` out and the date renders as "Topic TBA". Past dates
+  are skipped — they're already shown as real sessions, via card-toc.html on
+  sessions/index.md and the home page's Past sessions row.
+{% endcomment %}
+
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" %}
+
+{::nomarkdown}
+<ul class="schedule-list">
+  {% for entry in site.data.schedule %}
+    {% assign entry_date = entry.date | date: "%Y-%m-%d" %}
+    {% if entry_date >= today %}
+      {% assign matched = nil %}
+      {% if entry.session %}
+        {% for s in session_pages %}
+          {% assign s_slug = s.path | split: '/' | last | remove: '.md' %}
+          {% if s_slug == entry.session %}
+            {% assign matched = s %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      <li class="schedule-item">
+        <span class="schedule-date">{{ entry.date | date: "%b %-d" }}</span>
+        {% if matched %}
+          {% capture link_resolved %}{% include helpers/link-path.html link=matched.url %}{% endcapture %}
+          <a href="{{ link_resolved | strip }}">{{ matched.title }}</a>
+        {% else %}
+          <span class="schedule-tba">Topic TBA</span>
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+{:/nomarkdown}

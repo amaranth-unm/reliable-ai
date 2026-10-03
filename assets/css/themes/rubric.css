@@ -325,6 +325,31 @@ h3 {
   color: var(--ink-black);
 }
 
+/* The home page's teaser boxes (prompt.css) get the same treatment, scaled
+   down: a real edge instead of melting into --bg-card at 94% of the page
+   colour, and the same vermilion marking that a session is worth noticing. */
+.session-box {
+  background: color-mix(in srgb, var(--parchment) 38%, var(--parchment-pale));
+  border: 1px solid color-mix(in srgb, var(--ink-black) 50%, transparent);
+  border-left: 4px solid var(--rubric-red);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--ink-black) 8%, transparent);
+}
+
+.session-box:hover {
+  background: var(--parchment-pale);
+  border-color: color-mix(in srgb, var(--ink-black) 68%, transparent);
+  border-left-color: var(--rubric-red-light);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--ink-black) 14%, transparent);
+}
+
+.session-box-kicker {
+  color: var(--ochre);
+}
+
+.session-box-title {
+  color: var(--ink-black);
+}
+
 /* ===== Page headers ===== */
 /* page-header.css loads after this file, so these rules carry an extra
    .page-wrap to win on specificity. */

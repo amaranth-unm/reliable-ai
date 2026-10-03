@@ -52,6 +52,18 @@ row takes `kicker`, `title` and `summary`, so all three have to carry their
 weight on their own: there is no thumbnail to do the work. Keep `summary` to a
 single sentence that says what the session *does*.
 
+**`time` and `location` are optional, and only matter before the session
+happens.** The home page and `sessions/index.md` both scan the sessions
+folder for whichever page has the soonest future `date` and announce it
+automatically — see the lookup in `index.md` — so these two fields are what
+that announcement shows (alongside `summary`, reused as the announcement's
+blurb, and `note` for a logistics line like what to bring). Announcing a
+session is adding its file with these fields filled in and a short
+placeholder body; nothing on the home page is hand-typed per announcement.
+Once a session is in the past, nothing reads `time` or `location` any more —
+`editorial-assistant.md` doesn't carry them, and a session you're writing up
+after the fact doesn't need to either.
+
 **`workshop_mode: true` is not decoration.** It loads the bullet-highlighting
 script (`_includes/html/html-js.html`), which is what lets you walk the room
 through a list without a cursor. Every session page needs it.

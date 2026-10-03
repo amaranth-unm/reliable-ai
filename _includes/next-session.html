@@ -2,31 +2,33 @@
   The next session, as a full-bleed bar on the home page.
 
   Usage:
-    {% include next-session.html
-       title = "Transcribing Handwritten Documents"
-       when  = "Wednesday, October 14 · 12:00–12:50"
-       where = "History Common Room"
-       blurb = "One sentence on what the hour does."
-       note  = "Just show up." %}
+    {% include next-session.html session=next_session %}
+
+  `session` is a page from sessions/ (front matter: title, date, time,
+  location, summary, note). The caller finds it by scanning the sessions
+  folder for the soonest future-dated page — see index.md — so announcing a
+  session is just adding its file; nothing here is retyped by hand.
 
   Built on .section-warm (base.css), which is the framework's full-width band:
   it claims the container's `full` column and re-centres its own contents, so
   the bar spans the window without any wrapper markup in the page.
 
-  Updated every time a session is announced. When there is no next session,
-  leave the include out rather than shipping an empty bar.
+  When there's no upcoming session, the caller's lookup comes back empty and
+  skips this include entirely rather than shipping an empty bar.
 {% endcomment %}
+
+{% assign session = include.session %}
+{% assign when_date = session.date | date: "%A, %B %-d" %}
+{% capture link_resolved %}{% include helpers/link-path.html link=session.url %}{% endcapture %}
 
 {::nomarkdown}
 <div class="section-warm next-session">
   <p class="next-session-eyebrow">Next session</p>
-  {% if include.title %}<h2 class="next-session-title">{{ include.title }}</h2>{% endif %}
-  {% if include.when or include.where %}
+  {% if session.title %}<h2 class="next-session-title"><a href="{{ link_resolved | strip }}">{{ session.title }}</a></h2>{% endif %}
   <p class="next-session-meta">
-    {{ include.when }}{% if include.when and include.where %} <span aria-hidden="true">·</span> {% endif %}{{ include.where }}
+    {{ when_date }}{% if session.time %}, {{ session.time }}{% endif %}{% if session.location %} <span aria-hidden="true">·</span> {{ session.location }}{% endif %}
   </p>
-  {% endif %}
-  {% if include.blurb %}<p class="next-session-blurb">{{ include.blurb }}</p>{% endif %}
-  {% if include.note %}<p class="next-session-note">{{ include.note }}</p>{% endif %}
+  {% if session.summary %}<p class="next-session-blurb">{{ session.summary }}</p>{% endif %}
+  {% if session.note %}<p class="next-session-note">{{ session.note }}</p>{% endif %}
 </div>
 {:/nomarkdown}

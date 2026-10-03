@@ -1,0 +1,14 @@
+# The semester's meeting dates. `session` is a session page's filename
+# (without extension) in sessions/ — add it once a topic is decided and the
+# date picks up that page's title and link automatically. Leave it out and
+# the date renders as "Topic TBA" (see _includes/schedule-list.html).
+#
+# Dates we're not meeting (e.g. Colloquium weeks) just aren't listed here.
+- date: 2026-09-23
+  session: editorial-assistant
+- date: 2026-10-14
+  session: transcribing-handwritten-documents
+- date: 2026-10-21
+- date: 2026-11-11
+- date: 2026-11-18
+- date: 2026-12-02
