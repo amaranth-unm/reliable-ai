@@ -35,7 +35,7 @@ These are not AI propaganda sessions. These are not anti-AI communions. We try t
   Next/past sessions are read from the sessions/ folder's own front matter
   (date, time, location, summary, note) instead of being typed here — add a
   session's file and this picks it up. sessions/index.md repeats this same
-  lookup for its own "Coming up" line: Liquid's include tag scopes assigned
+  lookup for its own next-session bar and past-session list: Liquid's include tag scopes assigned
   variables to the include, so this can't be worked out once and shared across pages.
   Keep the two in sync if the lookup logic changes.
 {% endcomment %}

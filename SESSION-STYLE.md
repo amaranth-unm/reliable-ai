@@ -45,8 +45,8 @@ different jobs and should not be the same sentence. The summary sells the
 session to someone scanning `sessions/`; the subtitle tells someone who has
 already arrived what the session is arguing.
 
-**`sessions/index.md` lists sessions as `cards/card-toc.html` rows**, not as a
-card grid — a series index is a table of contents, and a full-width row with
+**`sessions/index.md` lists past sessions as `cards/card-toc.html` rows**,
+under the same next-session bar as the home page, not as a card grid — a series index is a table of contents, and a full-width row with
 the session number, the title and one sentence reads as one at a glance. The
 row takes `kicker`, `title` and `summary`, so all three have to carry their
 weight on their own: there is no thumbnail to do the work. Keep `summary` to a
