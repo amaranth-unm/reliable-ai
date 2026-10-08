@@ -7,7 +7,9 @@ baseurl: /reliable-ai
 repository: amaranth-unm/reliable-ai
 
 theme_css: rubric
-search: true
+# Site search (the magnifying glass in the nav). Off: the nav already reaches
+# every page, and a handful of pages doesn't need a search box.
+search: false
 
 plugins:
   - jekyll-sitemap
