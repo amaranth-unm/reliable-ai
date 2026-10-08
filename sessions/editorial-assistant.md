@@ -56,7 +56,10 @@ You don't need to know how a model works inside to judge what it tells you. Four
 
 - **A laptop**, with an AI assistant open in a browser tab. Claude, ChatGPT, Gemini, or Copilot all work, and a free account is fine.
 - **One paragraph of your own writing**, such as a draft, an abstract, a policy, or a grant blurb. Your own work teaches more than an invented example. No paragraph? Take one from the [practice texts]({{ site.baseurl }}/practice-texts).
-- **One thing to leave out:** other people's unpublished work, student writing with names attached, anything under embargo or an IRB protocol.
+
+<div class="reminder" markdown="1">
+Use texts you have permission to share, such as your own writing or the practice texts.
+</div>
 
 ### The paragraph we'll use
 
@@ -101,8 +104,11 @@ with.
 - Did it explain the changes that alter meaning, or only the small ones?
 - Which questions are still unanswered now that every sentence reads smoothly?
 
-**A smooth edit still needs your judgment.** “Preserve my meaning” only helps
-if a sentence has one meaning to begin with. Where the original is ambiguous,
+<div class="keypoint" markdown="1">
+A smooth edit still needs your judgment.
+</div>
+
+“Preserve my meaning” only helps if a sentence has one meaning to begin with. Where the original is ambiguous,
 the tool either picks a reading or asks which you meant, and a question is the
 better result. Step 2 gets it to name those decisions before it rewrites
 anything.
@@ -170,10 +176,15 @@ to anchor what it said:
 
 Now you can sort the reply. One point is about a sentence in the policy, and
 you can go and check it. The other two are general advice: decide whether you
-agree, but don't treat them as problems with this policy. **When a comment is
-about your text, ask for the exact words.** A quotation doesn't prove the
-criticism is right, but it gives you somewhere to look, and when the claim is
-that something is missing, ask which purpose or rule makes the absence matter.
+agree, but don't treat them as problems with this policy.
+
+<div class="keypoint" markdown="1">
+When a comment is about your text, ask for the exact words.
+</div>
+
+A quotation doesn't prove the criticism is right, but it gives you somewhere to
+look. When the claim is that something is missing, ask which purpose or rule
+makes the absence matter.
 
 These tools also tend to open with praise. When you want criticism, ask in a
 form where something has to come last:
@@ -279,8 +290,10 @@ and the original, since a tidy summary can still misrepresent all three.
 
 {% include demo.html id="policy-compare" %}
 
+<div class="keypoint" markdown="1">
 Where the readings agree, you have learned where to look. You have not
 learned that the criticism is right.
+</div>
 
 **Read the comparison for three things.**
 
@@ -307,8 +320,11 @@ real reader.
 The first three steps gave you changes and comments to judge. Some of your
 corrections will apply beyond this policy: keep a qualification, keep a
 defined term, ask before resolving an ambiguity. Write those down as rules you
-can reuse. **Whether a rule gets followed depends mostly on how it's
-phrased.**
+can reuse.
+
+<div class="keypoint" markdown="1">
+Whether a rule gets followed depends mostly on how it's phrased.
+</div>
 
 ### Start from your corrections
 
@@ -403,7 +419,7 @@ The [Campus History style-guide exercise]({{ site.baseurl }}/examples/campus-his
 uses the actual guide for the student essay collection. It carries editorial
 decisions across semesters: consistent headings, captions, citations, and
 light prose cleanup, while preserving each student's argument and voice.
-Download its snapshot and try it on one essay you are authorized to share.
+Download its snapshot and try it on one essay you have permission to share.
 
 {% include prompt.html id="campus-history-normalize" %}
 
@@ -435,7 +451,11 @@ assistant to describe their patterns from evidence:
 
 {% include prompt.html id="style-extract" %}
 
-Expect it to get some of this wrong. It often reads caution as vagueness, and it may miss the habits you most want named. **Saying why its description is wrong is how you find the rules you want.**
+Expect it to get some of this wrong. It often reads caution as vagueness, and it may miss the habits you most want named.
+
+<div class="keypoint" markdown="1">
+Saying why its description is wrong is how you find the rules you want.
+</div>
 
 Then add rules about what not to do, which tend to change the output more than positive ones:
 
@@ -468,15 +488,18 @@ narrative need different briefs.
 
 A project remembers everything you have given it, including the draft you
 replaced three weeks ago, which is why the instructions above tell it to ask
-which version to use. The limits from *Before you start* apply to anything you
-upload to a project.
+which version to use. As with anything you paste, upload texts you have
+permission to share.
 
 ### Keep the draft in a file
 
 Write in a plain text file: `.txt`, or `.md` if you want to keep headings.
 A plain file opens in any program, will outlast whichever assistant you use
-this year, and makes it obvious which version is current. **Treat the
-conversation as scratch paper and the file as the draft.**
+this year, and makes it obvious which version is current.
+
+<div class="keypoint" markdown="1">
+Treat the conversation as scratch paper and the file as the draft.
+</div>
 
 Keep the original file to compare against. Ask for a reading of one part,
 decide which findings to act on, then either edit it yourself or ask for one
@@ -515,6 +538,7 @@ instead.
 ## What to take with you
 {: .step #takeaways}
 
+<div class="takeaways" markdown="1">
 Use these five techniques on a syllabus, report, abstract, CV, or shared
 collection. Start with one passage or one recurring problem.
 
@@ -523,3 +547,4 @@ collection. Start with one passage or one recurring problem.
 - **Compare readers.** Keep the text fixed and change the reader. Turn the differences into questions, then check them against the text and against real readers.
 - **Save your decisions.** Turn corrections you keep making into a short, reusable guide. Say what to preserve and when to ask, and rewrite rules that conflict or fire too widely.
 - **Work in passes.** Diagnose, choose an edit, then read the result. Keep the original, and check both meaning and formatting before you accept a change.
+</div>

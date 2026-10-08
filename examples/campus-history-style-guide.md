@@ -27,7 +27,7 @@ This makes consistency a matter of shared editorial decisions. It does not requi
 
 ## Try it on one essay
 
-Attach the guide and an essay you are authorized to share. Use a copy and inspect the proposed scope before editing a collection.
+Attach the guide and an essay you have permission to share. Use a copy and inspect the proposed scope before editing a collection.
 
 {% include prompt.html id="campus-history-normalize" %}
 

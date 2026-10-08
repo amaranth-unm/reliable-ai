@@ -162,14 +162,17 @@ and the takeaways, and nothing else.
    not checkable from a browser tab and the whole series rests on the reader
    being able to check. Keep it to about 150 words — it is a map, not a
    lecture, and a long one re-creates the problem the session exists to avoid.
-6. **`### Before you start`** — what to bring, and, as its own bullet, **what
-   to leave out**. Unpublished work, student writing with names, anything
-   under embargo or IRB. Never skip the second half.
+6. **`### Before you start`** — what to bring, as a bulleted list, then a
+   `<div class="reminder" markdown="1">` with one sentence asking readers to
+   use texts they have permission to share, such as their own writing or the
+   practice texts. Keep it a gentle reminder, not a list of what to leave out:
+   the reader should come away knowing what they can use.
 7. **Numbered steps** — see below.
 8. **`## What to take with you`**, marked `{: .step #takeaways}` — the last
    section. The session compressed to a bulleted list of principles, each one
    bolded and then explained in a clause. These should read as portable rules,
-   not as a recap of what was clicked.
+   not as a recap of what was clicked. Wrap the intro sentence and the list in
+   `<div class="takeaways" markdown="1">`, which frames them as a card.
 
 There is no separate closing pass or links section. Send readers back to the
 thing they brought inside the steps instead: a line at the end of an early
@@ -207,6 +210,19 @@ any cross-page link point at, so keep the `#step-N` form.
 
 **Sub-steps are plain `###`**, no `.step`. Use them when a step has genuinely
 separate moves — step 3 has five, each one a rule about writing rules.
+
+**Give each step one key point, at most.** The sentence a reader skimming
+the page should come away with goes in its own box:
+
+```markdown
+<div class="keypoint" markdown="1">
+When a comment is about your text, ask for the exact words.
+</div>
+```
+
+The box adds the "Key point" label itself. Move the sentence out of its
+paragraph rather than repeating it, and don't bold it, since the box already
+sets it off. If no sentence in a step earns a box, leave the step without one.
 
 **Open each step with the move, not with context.** "Paste your paragraph,
 then send this and nothing else." The explanation goes after the prompt, once
@@ -352,7 +368,7 @@ dates the page.
 - `position` doesn't collide with an existing session.
 - The step ids run `#step-1`…`#step-N` with no gaps, and `#takeaways` closes.
 - The header subtitle is three sentences or fewer and reads against the image.
-- The "what to leave out" bullet is present in **Before you start**.
+- The permission reminder is present in **Before you start**.
 - `bundle exec jekyll serve` and walk the page at phone width. The section
   header grows to fit its subtitle under 768px rather than clipping it, so a
   long one pushes the table of contents down the page — check it still opens

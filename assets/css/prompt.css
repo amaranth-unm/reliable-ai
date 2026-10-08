@@ -308,10 +308,69 @@
   line-height: 1.4;
 }
 
+/* One sentence per step that a reader skimming the page should come away
+   with. Same family as .rule, a size down, with a small label so it reads as
+   a marker rather than a pull quote. Markup:
+   <div class="keypoint" markdown="1">The sentence.</div> */
+.keypoint {
+  padding: 0.8rem 1.25rem 0.9rem;
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 var(--radius-sm, 4px) var(--radius-sm, 4px) 0;
+  background: var(--bg-accent);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.keypoint::before {
+  content: "Key point";
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+/* The closing list of principles, framed as a card to take away. */
+.takeaways {
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--border-section-alt, var(--border-light));
+  border-radius: var(--radius-sm, 4px);
+  background: var(--bg-section-alt-flat, var(--bg-card));
+}
+
+.takeaways p {
+  margin-bottom: 0.75rem;
+}
+
+.takeaways li + li {
+  margin-top: 0.6rem;
+}
+
+/* A quiet note, for things worth keeping in mind rather than warnings. */
+.reminder {
+  padding: 0.7rem 1.1rem;
+  border-left: 3px solid var(--info);
+  border-radius: 0 var(--radius-sm, 4px) var(--radius-sm, 4px) 0;
+  background: var(--bg-editorial-note);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+:is(.keypoint, .takeaways, .reminder) > :last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 480px) {
   .prompt-text { font-size: 0.85rem; padding: 0.85rem 0.9rem; }
   .prompt-copy-text { display: none; }   /* icon-only button on small screens */
   .rule { font-size: 1.1rem; }
+  .keypoint { font-size: 1.05rem; }
+  .takeaways { padding: 1.1rem 1.15rem; }
 }
 
 

@@ -180,7 +180,9 @@ CSS VARIABLE OVERRIDES
    in place of page-header.css's near-opaque scrim (full strength to 28%,
    gone by 62%), which washed out the left half of every print. The glow
    keeps the dark ink legible over hatching while the image shows around
-   the words. The home page's hero keeps the full scrim: its image is a
+   the words. It is kept tight and partly transparent so it reads as clean
+   paper behind the letters rather than as a visible halo; the medium-weight
+   subtitle below does the rest. The home page's hero keeps the full scrim: its image is a
    printed page whose own lines of type would run behind the title.
 
    page-header.css loads after this file, so the fade needs the extra class
@@ -188,12 +190,13 @@ CSS VARIABLE OVERRIDES
    wherever it loads. */
 .page-header--section {
   --page-header-section-title-shadow:
-    0 0 2px var(--parchment-pale), 0 0 10px var(--parchment-pale),
-    0 0 22px var(--parchment-pale), 0 0 34px var(--parchment-pale);
+    0 0 1px var(--parchment-pale),
+    0 0 7px color-mix(in srgb, var(--parchment-pale) 70%, transparent),
+    0 0 16px color-mix(in srgb, var(--parchment-pale) 40%, transparent);
   --page-header-subtitle-shadow:
-    0 0 2px var(--parchment-pale), 0 0 6px var(--parchment-pale),
-    0 0 12px var(--parchment-pale), 0 0 20px var(--parchment-pale),
-    0 0 28px var(--parchment-pale);
+    0 0 1px var(--parchment-pale),
+    0 0 4px color-mix(in srgb, var(--parchment-pale) 80%, transparent),
+    0 0 10px color-mix(in srgb, var(--parchment-pale) 45%, transparent);
 }
 
 /* The subtitle carries the page's argument, over the busiest part of the
@@ -500,13 +503,13 @@ main > .container {
   margin-bottom: var(--flow);
 }
 
-.container > :is(.rule, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) {
+.container > :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) {
   margin-bottom: var(--flow-framed);
 }
 
 /* Prose above a framed block leaves only --flow, so top it up to match the
    space below. Framed after framed already has the full gap. */
-.container > :is(p:not(.lead), ul, ol) + :is(.rule, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) {
+.container > :is(p:not(.lead), ul, ol) + :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) {
   margin-top: calc(var(--flow-framed) - var(--flow));
 }
 
@@ -544,7 +547,7 @@ main > .container {
 
 /* A heading after a framed block or the lede would otherwise inherit their
    larger bottom margin on top of its own. */
-.container > :is(.rule, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) + :is(h2, h3, h4) {
+.container > :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) + :is(h2, h3, h4) {
   margin-top: calc(var(--space-above) - (var(--flow-framed) - var(--flow)));
 }
 
