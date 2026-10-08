@@ -128,7 +128,7 @@
   label: "A comment that sounds like a finding"
   tool: "Claude Opus 5"
   date: "2026-09-22"
-  note: "Follow-up question, asked deliberately loosely: “anything else I should worry about?” The briefed prompt had demanded quotation, so this is what it produces when you stop demanding it."
+  note: "Follow-up question, asked openly: “anything else I should worry about?” The briefed prompt had asked for quotations and this one didn't, so the reply mixes a point about the policy with general advice."
   text: |
     The tone is generally supportive, but the policy could do more to convey
     the pedagogical rationale behind these restrictions. Students respond
@@ -145,7 +145,7 @@
   run: 'prompt id="quote-it"'
   tool: "Claude Opus 5"
   date: "2026-09-22"
-  note: "It could source one claim out of three, and said so about the other two. Note how little it took to get the retraction: one sentence."
+  note: "It tied one point to a sentence in the policy and identified the other two as general advice. One sentence was enough to sort the reply."
   text: |
     I can point to one of the three:
 

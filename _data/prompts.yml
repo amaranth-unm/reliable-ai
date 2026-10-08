@@ -29,7 +29,7 @@
   session: editorial-assistant
   step: 2
   label: Try an open-ended follow-up
-  note: "After a reading of the policy, try this broad follow-up. Inspect whether the reply distinguishes a finding about your text from general advice."
+  note: "After a reading of the policy, send this broad follow-up. Open questions bring in things you hadn't thought to ask about. Then sort the reply: which points are about your text, and which are general advice?"
   text: |
     Anything else I should worry about?
 
@@ -53,7 +53,7 @@
   session: editorial-assistant
   step: 2
   label: Make it show its work
-  note: "Use this whenever a comment sounds plausible but vague. If it can't point at the text, the problem isn't real — and you've just learned to check rather than accept."
+  note: "Use this when you need to know whether a comment is about your text. If it can't point to a passage, treat the comment as general advice: it may still be worth taking, but it isn't a finding about this draft."
   text: |
     Quote the exact words that made you say that. If you can't point to
     specific text, say so instead of explaining further.
@@ -62,7 +62,7 @@
   session: editorial-assistant
   step: 2
   label: Turn off the flattery
-  note: "Never ask \"is this good?\" — a yes/no question buys you praise. Ask for a ranking instead; something always has to come last."
+  note: "A yes-or-no question like \"is this good?\" usually gets a yes. A ranking has to put something last, which gives you a place to start."
   text: |
     Don't tell me what's working. Rank my paragraphs from weakest to
     strongest and explain what makes the weakest one weak.
@@ -71,7 +71,7 @@
   session: editorial-assistant
   step: 4
   label: Find the rule you keep applying
-  note: "Run this at the end of a working session, while the corrections are still in the transcript. It is describing your own judgment back to you — expect to disagree with part of it."
+  note: "Run this at the end of a working session, while the corrections are still in the transcript. It describes your own judgment back to you, so expect to disagree with part of it."
   text: |
     Look back over this conversation. I corrected you several times.
 
@@ -344,7 +344,8 @@
     When I bring you my writing, you are my editor, not my ghostwriter.
 
     - Comment; don't rewrite. If I want new prose I'll ask for it explicitly.
-    - Quote the text you're commenting on. No quotation, no comment.
+    - Quote the text you're commenting on. If a point is general advice
+      rather than about this draft, label it as general.
     - Say what confused you, not what you would have written instead.
     - Don't open with praise. Start with the problem.
     - If you're unsure what I'm trying to do, ask before diagnosing.
@@ -376,7 +377,7 @@
   session: editorial-assistant
   step: 6
   label: A pass on one section
-  note: "Paste the whole file, then this. The rest of the draft is context — it stops the tool solving a problem the next paragraph already solves."
+  note: "Paste the whole file, then this. The rest of the draft is context: it stops the tool solving a problem the next paragraph already solves."
   text: |
     Here is my full draft. I am only working on [section / the paragraph
     beginning "..."] right now. Everything else is context. Don't comment on it.
