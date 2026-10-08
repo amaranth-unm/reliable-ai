@@ -192,7 +192,20 @@ CSS VARIABLE OVERRIDES
     0 0 22px var(--parchment-pale), 0 0 34px var(--parchment-pale);
   --page-header-subtitle-shadow:
     0 0 2px var(--parchment-pale), 0 0 6px var(--parchment-pale),
-    0 0 12px var(--parchment-pale), 0 0 20px var(--parchment-pale);
+    0 0 12px var(--parchment-pale), 0 0 20px var(--parchment-pale),
+    0 0 28px var(--parchment-pale);
+}
+
+/* The subtitle carries the page's argument, over the busiest part of the
+   print. page-header.css sets it at weight 300 with wide tracking, but only
+   400, 500 and 700 of Source Sans 3 are loaded, so it rendered as a thin 400
+   at 1.08rem. Medium weight, a size up and normal tracking hold up against
+   hatching. The extra class outranks page-header.css, which loads later. */
+.page-header.page-header--section p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  line-height: 1.5;
 }
 
 .page-header.page-header--section::after {
