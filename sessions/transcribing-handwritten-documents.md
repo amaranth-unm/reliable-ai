@@ -4,7 +4,7 @@ layout: base
 position: 2
 date: 2026-10-14
 time: "12:00–12:50"
-location: History Common Room
+location: History Commons (MVH 1104)
 kicker: Session 2 · October 14, 2026
 summary: "Another task where you can check the work, because the page is right in front of you. We try AI on handwritten sources, compare its readings with the originals, and look closely at where it goes wrong."
 note: "Bring a photo or scan of a handwritten document you'd like to read. No laptop? Just show up."
