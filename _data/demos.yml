@@ -168,7 +168,7 @@
   run: 'prompt id="role-confused-student"'
   tool: "Claude Opus 5"
   date: "2026-09-22"
-  note: "The prompt says “assignment”; it was adapted to “syllabus policy” and otherwise sent as written. Four questions, which is what practice-texts.md has claimed all along — and the fourth is the one worth the session."
+  note: "The prompt says “assignment”; it was adapted to “syllabus policy” and otherwise sent as written. It asked four questions, as practice-texts.md says it would, and the fourth is the one to read closely."
   text: |
     **What I think you're asking for:** I can use AI but not too much? I think
     I'm allowed to use it for some things as long as I say I did. But I'm not
@@ -204,7 +204,7 @@
   run: 'prompt id="role-outsider"'
   tool: "Claude Opus 5"
   date: "2026-09-22"
-  note: "The same paragraph read calmly instead of anxiously. It lands on the same words and calls them something else — a definition problem rather than a risk."
+  note: "The same paragraph read calmly instead of anxiously. It stops at the same words and calls the problem something else: a definition problem rather than a risk."
   text: |
     Points where I had to guess:
 
@@ -237,7 +237,7 @@
   run: 'prompt id="compare-readers"'
   tool: "Claude Opus 5"
   date: "2026-09-22"
-  note: "Both readers stopped at “substantially.” They disagreed about what kind of problem it is — and that disagreement is the finding."
+  note: "Both readers stopped at “substantially.” They disagreed about what kind of problem it is, which points to a decision the author hasn't made."
   text: |
     Where they disagreed:
 

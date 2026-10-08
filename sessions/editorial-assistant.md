@@ -214,13 +214,18 @@ already explains as much attention as what may be missing.
 
 {% include prompt.html id="assignment-compare" %}
 
-**Prepared observation:** the assignment explains the archive visit, essay
-length, images, and what strong work looks like. Its grading section also
-expects an “AI-Archive Comparison,” but the requirements don't say where that
-comparison goes or whether it counts toward the word target. A student would
-ask where to put it, and a designer would ask why the grading expects
-something the instructions never assign. Both lead to the same missing
-sentence.
+**Prepared observation**, in TILT's three parts:
+
+- **Purpose.** “Skills you are practicing” explains what students learn and why.
+- **Task.** The archive visit and the essay requirements give a workable sequence.
+- **Criteria.** “What I'm looking for” describes strong work. But the grading
+  also expects an “AI-Archive Comparison” that the requirements never place,
+  so students can't tell where it goes or whether it counts toward the word
+  target.
+
+A student would ask where to put the comparison, and a designer would ask why
+the grading expects something the instructions never assign. Both lead to the
+same missing sentence.
 
 The instructor decides how to fix it, and other course materials or class
 discussion may already cover it. Before you treat an AI reading as evidence of
@@ -406,9 +411,18 @@ the current guide that contradict each other. Look for conflicts like that
 before you apply a guide across a whole collection, and read the rendered page
 afterwards, not just the file.
 
+### Audit formatting as well as prose
+
+The same approach works on formatting. The [CV audit exercise]({{ site.baseurl }}/examples/cv-audit/)
+uses a four-page fictional CV in Word that looks finished but has small
+inconsistencies, such as mixed date ranges and an article listed under two
+different statuses. Its three prompts audit the CV, check its Word structure,
+and draw a style guide from its own patterns. The first asks the tool to say
+whether it read the page, the extracted text, or the Word file itself.
+
 ### Build a guide from your own writing
 
-The sample guide belongs to that report. For your own work, combine rules from
+The guide in the first exercise belongs to the archive report. For your own work, combine rules from
 your corrections with a few passages whose style you want to keep. Ask the
 assistant to describe their patterns from evidence:
 
@@ -499,6 +513,7 @@ collection. Start with one passage or one recurring problem.
 
 - Every prompt on this page has a copy button, so you can work straight from it.
 - The [assignment review]({{ site.baseurl }}/examples/assignment-review/) and [Campus History guide exercise]({{ site.baseurl }}/examples/campus-history-style-guide/): real teaching materials with full prompts and prepared observations.
+- The [CV audit]({{ site.baseurl }}/examples/cv-audit/), on a fictional four-page CV in Word.
 - The [practice texts]({{ site.baseurl }}/practice-texts), if you want to run the whole sequence again on something low-stakes.
 - <a href="{{ site.baseurl }}/assets/posters/sept-23-amaranth-ai-brown-bag-flyer.pdf">The session flyer</a> (PDF).
 

@@ -869,7 +869,7 @@ Which finding is a formatting fix, and which needs a decision?
 
 <footer class="deck-source">
 
-[Download Word CV]({{ site.baseurl }}/assets/documents/alexandra-ruiz-cv-workshop.docx)
+[Exercise]({{ site.baseurl }}/examples/cv-audit/) · [Download Word CV]({{ site.baseurl }}/assets/documents/alexandra-ruiz-cv-workshop.docx)
 
 </footer>
 

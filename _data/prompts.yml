@@ -225,7 +225,7 @@
   session: editorial-assistant
   step: 3
   label: Reader — the grader (for students)
-  note: "Paste the rubric, then your draft. This is diagnosis, not ghostwriting — the words stay yours."
+  note: "Paste the rubric, then your draft. It asks for a diagnosis, and the words stay yours."
   text: |
     Here is the rubric for an assignment, then my draft. Read it only against
     these criteria. For each criterion, tell me where my draft currently meets
@@ -236,7 +236,7 @@
   session: editorial-assistant
   step: 3
   label: Compare the readers
-  note: "The most important prompt in the session. Disagreement between readers is a finding — it usually marks a real decision you haven't made yet."
+  note: "Where the readers disagree, look for a decision you haven't made yet."
   text: |
     Compare those readings. Where did the two readers disagree about what the
     problem was? Don't resolve the disagreement — just tell me what it suggests
@@ -306,6 +306,44 @@
     Do not publish or change other essays. Check the rendered page as well
     as its text before calling the work finished.
 
+- id: cv-audit-first
+  session: editorial-assistant
+  step: 5
+  label: Audit the CV before editing it
+  note: "Attach the Word file to a fresh conversation, then send this. The last paragraph asks the tool to say whether it looked at the page, its text, or its Word structure."
+  text: |
+    Audit this CV without editing it.
+
+    Look for inconsistencies within comparable entries, missing information, possible duplicate entries, and statements that may conflict. For each finding, quote the evidence and identify the section and entry. Explain why it matters.
+
+    Separate demonstrable inconsistencies, questions for the author, and optional style preferences. Do not invent missing facts, change publication statuses, or assume that an unusual format is wrong.
+
+    Prioritize the five most useful findings, then list any others briefly. State whether you examined the document's appearance, its extracted text, or its underlying Word structure, and what you could not inspect.
+
+- id: cv-audit-structure
+  session: editorial-assistant
+  step: 5
+  label: Look at the Word structure
+  note: "This one names what to check, so keep its findings separate from what the first pass noticed on its own. If your tool only reads the extracted text, it should say which checks it couldn't do."
+  text: |
+    Now inspect the actual Word document structure, if your tools permit it. Do not edit the file.
+
+    Check for tables used to arrange ordinary text, empty or merged cells, headings implemented with direct formatting, inconsistent styles or local formatting overrides, hidden text, proofing-language differences, and hyperlink destinations.
+
+    Report only structures you can actually inspect. For each finding, identify its location, give the observed property, explain its practical effect, and suggest how I can verify it in Word. Distinguish a maintenance concern from a defect. If you only have extracted text, say which checks are unavailable; do not infer hidden structures from the layout.
+
+- id: cv-audit-rules
+  session: editorial-assistant
+  step: 5
+  label: Turn the audit into a style guide
+  note: "Approve the guide before anything is edited. When the new file comes back, open it and look at it as well as reading the change list."
+  text: |
+    Propose a short style guide based on the prevailing patterns in this CV. Keep formatting decisions separate from factual questions that require my answer.
+
+    For each proposed change, identify the affected entries and explain what would change. Preserve names, titles, dates, institutions, publication statuses, and substantive wording. Do not remove repeated entries until I confirm they are duplicates.
+
+    Wait for me to approve the guide before editing. Any approved edit must be made in a new Word file, with a change list.
+
 - id: style-extract
   session: editorial-assistant
   step: 5
@@ -325,7 +363,7 @@
   session: editorial-assistant
   step: 5
   label: The never-do list
-  note: "Often more useful than the positive rules. Add your own grievances — everyone has them."
+  note: "These often change the output more than positive rules do. Add the habits you most want gone."
   text: |
     Add a "never do this" section to that style sheet:
 
@@ -356,7 +394,7 @@
   session: editorial-assistant
   step: 6
   label: What goes in the project
-  note: "Paste this into the project's instructions field — a Claude Project, a ChatGPT project or custom GPT, a Gemini Gem. Written once, applied to every conversation inside it."
+  note: "Paste this into the project's instructions field (a Claude Project, a ChatGPT project or custom GPT, a Gemini Gem). You write it once, and it applies to every conversation inside the project."
   text: |
     You are my editor for everything in this project. My standing instruction
     and style sheet are below. Apply them without being reminded.
@@ -392,7 +430,7 @@
   session: editorial-assistant
   step: 6
   label: Make the changes visible
-  note: "The failure mode of working in files is the silent rewrite — a clean new version with three sentences quietly changed. Ask for the list instead of the file."
+  note: "The risk with a file is a clean new version with three sentences quietly changed. Ask for the list instead of the file."
   text: |
     Don't give me a revised version of the file. Give me a numbered list of the
     changes you would make: the exact text as it stands, the exact text you
