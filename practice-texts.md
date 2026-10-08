@@ -1,12 +1,13 @@
 ---
 title: Practice texts
 layout: base
-header-image: "/assets/images/aldine-colophon-1502.jpg"
+header-image: "/assets/images/bosse-taille-douce-1642.jpg"
 header-tier: section
 header-filter: etching
 header-position: center center
 header-title: Practice texts
 header-subtitle: "Paragraphs written to be worked on, with the kinds of faults that turn up in real drafts. Use one when you would rather not put your own writing in front of the tool."
+header-caption: "Abraham Bosse, <i>L'Imprimerie en taille-douce</i>: copperplate printers at work, proofs hung up to dry. Etching, Paris, 1642. Bibliothèque nationale de France, public domain."
 summary: "Invented practice texts, including a syllabus policy for reader roles and a four-paragraph project report for editing with a style guide."
 ---
 
