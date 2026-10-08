@@ -32,7 +32,7 @@ We work through a few exercises on screen and talk about what the tool is doing 
 {% assign past_sessions = "" | split: "," %}
 {% for s in session_pages %}
   {% assign s_date = s.date | date: "%Y-%m-%d" %}
-  {% if s_date > today %}
+  {% if s_date >= today %}
     {% assign upcoming_sessions = upcoming_sessions | push: s %}
   {% else %}
     {% assign past_sessions = past_sessions | push: s %}

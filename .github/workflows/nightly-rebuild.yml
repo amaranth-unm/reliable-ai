@@ -1,0 +1,31 @@
+name: Nightly rebuild
+
+# The home page and sessions/index.md work out the next session when the
+# site is built (site.time), so a session stays announced until something
+# rebuilds the site. This asks GitHub Pages for a rebuild every night, so
+# the announcement moves on by itself the night after each session.
+#
+# 08:00 UTC is 2am in Albuquerque during daylight time (1am in winter),
+# safely after the day's session and before anyone checks the site.
+#
+# GitHub pauses scheduled workflows in a public repository after 60 days
+# without a commit, and emails the owner. Re-enable it from the Actions tab,
+# or run it by hand there with "Run workflow".
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  pages: write   # request a Pages build
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ask GitHub Pages to rebuild the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: gh api -X POST "repos/$REPO/pages/builds" --jq '"Pages build " + .status'

@@ -38,6 +38,11 @@ These are not AI propaganda sessions. These are not anti-AI communions. We try t
   lookup for its own next-session bar and past-session list: Liquid's include tag scopes assigned
   variables to the include, so this can't be worked out once and shared across pages.
   Keep the two in sync if the lookup logic changes.
+
+  A session stays "next" through its own date (>=), and moves to past
+  sessions the night after, when .github/workflows/nightly-rebuild.yml
+  rebuilds the site. site.time is the build time, so without that rebuild
+  the page would keep announcing a session until the next push.
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
 {% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" %}
@@ -46,7 +51,7 @@ These are not AI propaganda sessions. These are not anti-AI communions. We try t
 {% assign past_sessions = "" | split: "," %}
 {% for s in session_pages %}
   {% assign s_date = s.date | date: "%Y-%m-%d" %}
-  {% if s_date > today %}
+  {% if s_date >= today %}
     {% assign upcoming_sessions = upcoming_sessions | push: s %}
   {% else %}
     {% assign past_sessions = past_sessions | push: s %}
