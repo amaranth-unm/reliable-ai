@@ -29,6 +29,7 @@ This page is the full tutorial, with every prompt and some extra exercises to wo
 </div>
 
 ## Introduction
+{: .step #introduction}
 
 ### Why editing is the place to start
 

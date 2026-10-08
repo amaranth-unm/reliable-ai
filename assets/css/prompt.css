@@ -87,10 +87,17 @@
 }
 
 /* Step headings on the session page ---------------------------------- */
+/* The page's main divisions (the entries in "On this page") are set as
+   vermilion bands, a rubric in the manuscript sense, so they read as a level
+   above the ### headings inside them while scrolling. */
 .step {
   margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 2px solid var(--metadata-border, var(--border-light));
+  padding: 0.4em 0.7em;
+  border: 0;
+  border-radius: var(--radius-sm, 4px);
+  background: var(--accent-primary);
+  color: var(--parchment-pale, #fff);
+  font-weight: 600;
   /* Keep #step-2 style links from landing underneath the sticky navbar. */
   scroll-margin-top: 5rem;
 }

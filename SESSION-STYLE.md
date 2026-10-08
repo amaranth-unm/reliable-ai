@@ -129,6 +129,8 @@ about that much before it starts crowding the image.
 antiphonal: black ink and vermilion on parchment. Red is the rubric — it marks
 what the reader should notice and is never decoration, so use `--accent-primary`
 for the one thing on a page that matters and let ink carry everything else.
+The standing exception is the `.step` band on each main division, which is
+what a rubric originally was: a heading written in red.
 
 **Pick a header image that is line art**, and use `header-filter: etching` —
 the filter is tuned for marks on paper and renders them as dark brown ink.
@@ -141,7 +143,8 @@ filter for everyone.
 The spine is fixed. Sessions differ in their steps, not their skeleton.
 
 Items 4 to 6, and a `### The paragraph we'll use` for the session's running
-example if it has one, sit under a single `## Introduction`. The table of
+example if it has one, sit under a single `## Introduction`, marked
+`{: .step #introduction}` like the steps so it gets the same band. The table of
 contents lists `##` headings, so it shows the introduction, the numbered steps
 and the takeaways, and nothing else.
 
@@ -197,8 +200,9 @@ version", "Teach it to read like you do", "Move out of the chat window". The
 reader should be able to tell from the table of contents what they will *do*,
 not what topic is covered.
 
-`.step` draws the rule above the heading and sets `scroll-margin-top` so a
-`#step-3` link doesn't land under the navbar. The id is what the scrollspy and
+`.step` sets the heading as a vermilion band (`assets/css/prompt.css`), so the
+page's main divisions stand apart from the `###` headings inside them, and sets
+`scroll-margin-top` so a `#step-3` link doesn't land under the navbar. The id is what the scrollspy and
 any cross-page link point at, so keep the `#step-N` form.
 
 **Sub-steps are plain `###`**, no `.step`. Use them when a step has genuinely
