@@ -647,3 +647,27 @@
     ### The decision still open
 
     The instructor needs to decide whether the comparison is part of the public Campus History page, written for the “curious reader” who “knows nothing about its history,” or a course-only piece read just by the instructor. That choice determines the audience, the word budget, and whether notes or other evidence are submitted. I haven’t resolved it or drafted any wording.
+
+- id: machiavelli-comments
+  session: editorial-assistant
+  strategy: 6
+  label: "Three of Claude's comments, with their passages"
+  tool: Claude Fable 5.1
+  date: '2026-09-23'
+  note: "Copied from the returned Word file, which has 37 comments in all. The study guide was written on September 18, 2026 by Gemma 4 (e4b), a small model run locally through Ollama, and is shared with permission. The prompt for this run wasn't saved; the one above is the workshop's version."
+  text: |
+    > This is a monumental and complex topic. Machiavelli is not just a political thinker; he was a radical paradigm shift. He moved political theory away from the moral ideals of classical philosophy (Plato, Cicero) and into the messy, pragmatic reality of power.
+
+    Overstated and partly backwards. Machiavelli's break is with the moralizing humanist tradition (the Ciceronian 'mirror for princes'), not with classical antiquity as such. He is saturated in Roman sources — Livy above all, plus Polybius, Sallust, Tacitus, Xenophon, Lucretius — and the preface to Discourses Book I explicitly calls for imitating the ancients. The precise point is that he inverts Cicero's De officiis rather than abandoning it. 'Radical paradigm shift' is filler; the concrete claim is Prince ch. 15's 'verità effettuale della cosa' (the effectual truth of the matter) set against 'imagined republics and principalities.' That phrase is the manifesto of the whole project and appears nowhere in this guide.
+
+    ---
+
+    > To build a comprehensive guide, we must move beyond the common—and often inaccurate—caricature of the "Machiavellian villain." We are analyzing a sophisticated treatise on statecraft and human psychology.
+
+    Good framing — but the guide's own Study Checklist ends by declaring 'The survival of the state justifies the means,' which is exactly the caricature this paragraph promises to move beyond. Internal inconsistency; see comment there.
+
+    ---
+
+    > Before studying his ideas, you must understand the world he lived in. Machiavelli was a product of the tumultuous Renaissance Italian city-states (Florence, Milan, Rome).
+
+    Rome was the seat of the Papal States, not a city-state in the sense Florence and Milan were. The standard five-power system of the Peace of Lodi (1454) is Florence, Milan, Venice, Naples, and the Papacy. Venice and Naples matter here: Venice is the republic Machiavelli measures Rome against throughout the Discourses, and the Neapolitan succession is what brought Charles VIII over the Alps in 1494.

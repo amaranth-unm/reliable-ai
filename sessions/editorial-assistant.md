@@ -489,6 +489,26 @@ somewhere you can undo.
 
 {% include prompt.html id="no-silent-edits" %}
 
+### Ask for comments instead of changes
+
+Some tools can return a copy of your Word file with comments attached to the
+passages they're about, the way a colleague marks up a draft. Nothing in your
+text changes. You read each comment beside its passage and decide what to do
+with it.
+
+{% include prompt.html id="word-comments" %}
+
+In this example, a small model running locally (Gemma 4, through Ollama)
+wrote a study guide to Machiavelli's political thought, and Claude added 37
+comments to it in Word. Here are three of them, with the passages they're
+attached to:
+
+{% include demo.html id="machiavelli-comments" %}
+
+Not every tool or account can return a Word file with comments. If yours
+can't, the last line of the prompt asks for a table of passages and comments
+instead.
+
 ## Look at your paragraph again
 {: .step #closing-pass}
 

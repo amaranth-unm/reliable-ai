@@ -437,3 +437,22 @@
     would put in its place, and why.
 
     I will make the edits myself.
+
+- id: word-comments
+  session: editorial-assistant
+  step: 6
+  label: Ask for comments in the document
+  note: "Attach a Word file and pick the reader. Your text comes back unchanged, so you can read each comment beside its passage and decide what to do with it."
+  text: |
+    Read the attached Word document as [a specialist in the field / a reviewer
+    for a journal / a first-year student].
+
+    Add native Word comments anchored to the exact passages you would question.
+    For each comment, say what is wrong, unclear, or unsupported, and what the
+    author could check. Clearly identify any inference.
+
+    Preserve the document's text, styles, layout, and formatting. Do not rewrite
+    sentences or add tracked changes. Return a new copy with your comments.
+
+    If you cannot return native Word comments, say so and give me a two-column
+    table containing the exact passage and the proposed comment.
