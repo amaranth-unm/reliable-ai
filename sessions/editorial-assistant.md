@@ -104,14 +104,14 @@ with.
 - Did it explain the changes that alter meaning, or only the small ones?
 - Which questions are still unanswered now that every sentence reads smoothly?
 
-<div class="keypoint" markdown="1">
-A smooth edit still needs your judgment.
-</div>
-
 “Preserve my meaning” only helps if a sentence has one meaning to begin with. Where the original is ambiguous,
 the tool either picks a reading or asks which you meant, and a question is the
 better result. Step 2 gets it to name those decisions before it rewrites
 anything.
+
+<div class="keypoint" markdown="1">
+Add one line to any editing request: “If a sentence could mean more than one thing, ask me which I meant before you change it.”
+</div>
 
 **Prepared example:** “Students may use AI where appropriate, but not to
 complete assignments for them.” The sentence is shorter, but “appropriate”
@@ -179,7 +179,7 @@ you can go and check it. The other two are general advice: decide whether you
 agree, but don't treat them as problems with this policy.
 
 <div class="keypoint" markdown="1">
-When a comment is about your text, ask for the exact words.
+Ask open questions when you want ideas, and ask for the exact words when you want to know what's on the page. A comment that can't point to a passage is general advice, which may still be worth taking.
 </div>
 
 A quotation doesn't prove the criticism is right, but it gives you somewhere to
@@ -290,10 +290,8 @@ and the original, since a tidy summary can still misrepresent all three.
 
 {% include demo.html id="policy-compare" %}
 
-<div class="keypoint" markdown="1">
 Where the readings agree, you have learned where to look. You have not
 learned that the criticism is right.
-</div>
 
 **Read the comparison for three things.**
 
@@ -314,17 +312,18 @@ and drop the either-or.
 Use the questions that hold up to plan a revision, or to decide what to ask a
 real reader.
 
+<div class="keypoint" markdown="1">
+Give each imagined reader its own conversation and ask for questions, not fixes. Check the concerns they share against the passage, and the ones that matter against a real reader.
+</div>
+
 ## 4. Turn corrections into rules
 {: .step #step-4}
 
 The first three steps gave you changes and comments to judge. Some of your
 corrections will apply beyond this policy: keep a qualification, keep a
 defined term, ask before resolving an ambiguity. Write those down as rules you
-can reuse.
-
-<div class="keypoint" markdown="1">
-Whether a rule gets followed depends mostly on how it's phrased.
-</div>
+can reuse. **Whether a rule gets followed depends mostly on how it's
+phrased.**
 
 ### Start from your corrections
 
@@ -368,6 +367,10 @@ doesn't fire everywhere.
 
 If it fires on a passage where the hedge should have gone, the rule is too
 broad. Add the exception now, while you still remember what it was for.
+
+<div class="keypoint" markdown="1">
+When you make the same correction twice, write it as a rule someone else could check by looking at the text, then test it on a passage where it shouldn't apply.
+</div>
 
 ## 5. Work from a style guide
 {: .step #step-5}
@@ -413,6 +416,10 @@ Replacing “retain control” with “have a voice” changes the claim and nee
 the writer's agreement. The [prepared examples]({{ site.baseurl }}/practice-texts#archive-style-guide)
 give you a few comparisons to check once you have made your own.
 
+<div class="keypoint" markdown="1">
+Ask for a reading against your guide before any edits, with each comment quoting the passage and naming its rule. Then ask for one small change at a time, and for a question whenever a change would need your decision.
+</div>
+
 ### Reuse a guide across semesters
 
 The [Campus History style-guide exercise]({{ site.baseurl }}/examples/campus-history-style-guide/)
@@ -451,11 +458,7 @@ assistant to describe their patterns from evidence:
 
 {% include prompt.html id="style-extract" %}
 
-Expect it to get some of this wrong. It often reads caution as vagueness, and it may miss the habits you most want named.
-
-<div class="keypoint" markdown="1">
-Saying why its description is wrong is how you find the rules you want.
-</div>
+Expect it to get some of this wrong. It often reads caution as vagueness, and it may miss the habits you most want named. **Saying why its description is wrong is how you find the rules you want.**
 
 Then add rules about what not to do, which tend to change the output more than positive ones:
 
@@ -495,11 +498,8 @@ permission to share.
 
 Write in a plain text file: `.txt`, or `.md` if you want to keep headings.
 A plain file opens in any program, will outlast whichever assistant you use
-this year, and makes it obvious which version is current.
-
-<div class="keypoint" markdown="1">
-Treat the conversation as scratch paper and the file as the draft.
-</div>
+this year, and makes it obvious which version is current. **Treat the
+conversation as scratch paper and the file as the draft.**
 
 Keep the original file to compare against. Ask for a reading of one part,
 decide which findings to act on, then either edit it yourself or ask for one
@@ -534,6 +534,10 @@ attached to:
 Not every tool or account can return a Word file with comments. If yours
 can't, the last line of the prompt asks for a table of passages and comments
 instead.
+
+<div class="keypoint" markdown="1">
+Keep the draft and your rules in files you control, and bring them to each new conversation. Ask for a list of changes, or for comments instead of changes, so you read each one before it reaches your draft.
+</div>
 
 ## What to take with you
 {: .step #takeaways}

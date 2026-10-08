@@ -211,18 +211,23 @@ any cross-page link point at, so keep the `#step-N` form.
 **Sub-steps are plain `###`**, no `.step`. Use them when a step has genuinely
 separate moves — step 3 has five, each one a rule about writing rules.
 
-**Give each step one key point, at most.** The sentence a reader skimming
-the page should come away with goes in its own box:
+**Give each step one key point, at most.** It is the step's advice
+compressed into a tip the reader can use in their next conversation: a line
+to add to a prompt, a way to set up the request, a check to run on the reply.
 
 ```markdown
 <div class="keypoint" markdown="1">
-When a comment is about your text, ask for the exact words.
+Add one line to any editing request: “If a sentence could mean more than one
+thing, ask me which I meant before you change it.”
 </div>
 ```
 
-The box adds the "Key point" label itself. Move the sentence out of its
-paragraph rather than repeating it, and don't bold it, since the box already
-sets it off. If no sentence in a step earns a box, leave the step without one.
+The box adds the "Key point" label itself; don't bold the text. Test it by
+asking whether a reader could act on it without the rest of the step. "A
+smooth edit still needs your judgment" was true but told the reader nothing to
+do, so it came out. A key point can sum up advice spread across a step, so it
+often sits at the end of the step or of the subsection where the advice
+lands. Keep it to two sentences.
 
 **Open each step with the move, not with context.** "Paste your paragraph,
 then send this and nothing else." The explanation goes after the prompt, once
