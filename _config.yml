@@ -18,6 +18,7 @@ exclude:
   - docker-compose.yaml
   - scripts
   - README.md
+  - MAINTAINING.md
   - XANTHAN_CHANGELOG.md
   - Gemfile
   - Gemfile.lock
