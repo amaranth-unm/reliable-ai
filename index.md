@@ -29,7 +29,7 @@ This is not about outsourcing thinking or writing. This is about using a powerfu
 
 Everything runs on free accounts, and we try to showcase a variety of tools and workflows, since everyone has different ways of working. 
 
-These are not AI propaganda sessions. These are not anti-AI communions. We try to be balanaced about what AI tools can do now, how they have changed, and where they are headed. Read more on the [About]({{ site.baseurl }}/about) page.
+These are not AI propaganda sessions. These are not anti-AI communions. We try to be balanced about what AI tools can do now, how they have changed, and where they are headed. Read more on the [About]({{ site.baseurl }}/about) page.
 
 {% comment %}
   Next/past sessions are read from the sessions/ folder's own front matter
