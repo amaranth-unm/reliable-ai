@@ -158,20 +158,16 @@ The spine is fixed. Sessions differ in their steps, not their skeleton.
    to leave out**. Unpublished work, student writing with names, anything
    under embargo or IRB. Never skip the second half.
 7. **Numbered steps** — see below.
-8. **A closing pass** — send them back to the thing they brought, and name
-   what changed about it. Not a recap of the steps: the point is that they can
-   see something in their own work they couldn't see at the start, and that
-   they can say exactly what the machine did and didn't do. This is the
-   session's payoff and it belongs at the end, where a payoff goes.
-9. **`## What to take with you`**, marked `{: .step #takeaways}` — the session
-   compressed to a bulleted list of principles, each one bolded and then
-   explained in a clause. These should read as portable rules, not as a recap
-   of what was clicked.
-10. **`## Take the session with you`** — links out: the worked examples, the
-    practice texts, the flyer. Not a prompt list; the prompts are already on
-    the page with copy buttons, in the exercises that explain them. Close with
-    an invitation to report what didn't work; questions from the room get added
-    here afterwards.
+8. **`## What to take with you`**, marked `{: .step #takeaways}` — the last
+   section. The session compressed to a bulleted list of principles, each one
+   bolded and then explained in a clause. These should read as portable rules,
+   not as a recap of what was clicked.
+
+There is no separate closing pass or links section. Send readers back to the
+thing they brought inside the steps instead: a line at the end of an early
+step ("Now send the same request with your own paragraph") does the work a
+closing section used to, while the exercise is still fresh. Link each worked
+example from the step that uses it, so nothing depends on a list at the end.
 
 **Watch the proportions, and measure them.** The failure mode of a session
 like this is that it quietly becomes a prompting lesson: the steps that

@@ -509,18 +509,6 @@ Not every tool or account can return a Word file with comments. If yours
 can't, the last line of the prompt asks for a table of passages and comments
 instead.
 
-## Look at your paragraph again
-{: .step #closing-pass}
-
-Return to the paragraph you brought and compare it with the original. Choose
-one finding you accepted, rejected, or want to look into, point to the
-passage, and explain your decision.
-
-If you took an edit, check that the sentence still means what you meant. If you
-kept your own wording, say what the reading showed you. **You should be able to
-explain the decision**, whether or not a sentence changed. Save one rule that
-will help with the next piece.
-
 ## What to take with you
 {: .step #takeaways}
 
@@ -532,13 +520,3 @@ collection. Start with one passage or one recurring problem.
 - **Compare readers.** Keep the text fixed and change the reader. Turn the differences into questions, then check them against the text and against real readers.
 - **Save your decisions.** Turn corrections you keep making into a short, reusable guide. Say what to preserve and when to ask, and rewrite rules that conflict or fire too widely.
 - **Work in passes.** Diagnose, choose an edit, then read the result. Keep the original, and check both meaning and formatting before you accept a change.
-
-## Take the session with you
-
-- Every prompt on this page has a copy button, so you can work straight from it.
-- The [assignment review]({{ site.baseurl }}/examples/assignment-review/) and [Campus History guide exercise]({{ site.baseurl }}/examples/campus-history-style-guide/): real teaching materials with full prompts and prepared observations.
-- The [CV audit]({{ site.baseurl }}/examples/cv-audit/), on a fictional four-page CV in Word.
-- The [practice texts]({{ site.baseurl }}/practice-texts), if you want to run the whole sequence again on something low-stakes.
-- <a href="{{ site.baseurl }}/assets/posters/sept-23-amaranth-ai-brown-bag-flyer.pdf">The session flyer</a> (PDF).
-
-We add questions from the room here after each session. If something didn't work on your computer or with your writing, please tell us and we'll add it here.
