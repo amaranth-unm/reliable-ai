@@ -38,6 +38,15 @@ Start with what it says it examined. This run read only the text Claude extracte
 
 This prompt names the things to look for, so it is a guided check rather than a second independent audit. Keep its findings separate from what the first pass noticed on its own.
 
+In the recorded run, Claude said it couldn't inspect the Word structure, listed the checks it couldn't do, and pointed to places worth verifying in Word. It also corrected two details of its own first reply.
+
+<details markdown="1">
+<summary>The recorded reply</summary>
+
+{% include demo.html id="cv-audit-structure-run" %}
+
+</details>
+
 A structure isn't wrong just because it's unusual. A borderless table, for example, is a common way to line up text. The question is whether comparable entries behave differently when you edit them.
 
 ## Decide on rules
@@ -45,6 +54,15 @@ A structure isn't wrong just because it's unusual. A borderless table, for examp
 {% include prompt.html id="cv-audit-rules" %}
 
 Approve the guide before anything changes. Formatting decisions are yours to make, but a conflict about a fact, such as a publication's status, needs the author's answer. When the new Word file comes back, open it and look at it as well as reading the change list.
+
+The recorded guide keeps nine questions for the author apart from its formatting rules. It also says it hasn't confirmed it can edit the Word file with its styles intact, and offers a change list you could apply yourself.
+
+<details markdown="1">
+<summary>The recorded reply</summary>
+
+{% include demo.html id="cv-audit-rules-run" %}
+
+</details>
 
 <details markdown="1">
 <summary>Three findings to check yours against</summary>

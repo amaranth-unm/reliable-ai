@@ -402,3 +402,248 @@
     - Only one award lists an amount (“$4,500”). You could list amounts for all, or none.
     - Digital Projects entries have no URLs, which could be added if the projects are public.
     - Teaching entries for 2018–2019 repeat the Experience entry. That cross-listing is common and not an error.
+
+- id: cv-audit-structure-run
+  session: editorial-assistant
+  strategy: 5
+  label: "The Word-structure check"
+  run: 'prompt id="cv-audit-structure"'
+  tool: Claude Sonnet 5.5
+  date: '2026-10-08'
+  note: "Sent next in the same conversation as the first-pass audit, which still had only the text Claude extracted when the file was attached."
+  text: |
+    I can’t inspect the Word structure in this conversation. The file reached me only as converted text, with no path to the original .docx, and I have no tool here that opens a .docx and reads its XML. If the file is in Google Drive, SharePoint, or Dropbox I could try fetching it, but those connectors generally return text rather than styles or XML, so I wouldn’t expect it to answer these questions. I’m not going to guess at hidden structures from the layout.
+
+    ### Checks I cannot do
+
+    I can’t check any of the following:
+
+    - Whether headings use Heading styles or direct formatting.
+    - Local formatting overrides, style names, and style consistency.
+    - Hidden text, comments, and tracked changes.
+    - Proofing language (per run, paragraph, or style).
+    - Whether tables are real Word tables, and whether any cells are merged or empty.
+    - Hyperlink targets as stored in the file, and any bookmarks or fields.
+    - Tab stops, indents, and spacing used for date alignment.
+
+    ### What the converter output suggests
+
+    None of this confirms anything about the Word file. The converter’s output points to places worth checking:
+
+    - **Contact block under the title:** it came out as a one-row, two-cell table. If that is a real table used for layout, it is a maintenance concern rather than a defect, since it can affect reading order for screen readers and résumé parsers. To check, click in that block and see whether Table Design and Layout tabs appear.
+    - **Conferences and Presentations:** the final entries (2022, 2021, 2020) came out as a table, followed by a one-cell empty row, while the earlier entries came out as tab-separated lines. A correction to my first reply: that is three entries in the table plus an empty row, not “the last four entries.” If it is a real table, the empty row is a small defect. It may also be a converter artifact or merged cell. To check, click into the table and look at Layout > Properties, or turn on View > Gridlines.
+    - **Professional Experience:** the heading came out as bold text, while other section titles came out as headings. This may be direct formatting standing in for a Heading style, which would make the section absent from the Navigation Pane and any generated outline. To check, click the heading and look at the style box on the Home tab, or open View > Navigation Pane and see whether the section is listed.
+    - **Publications and Articles and Chapters:** both came out at the same heading level. This may be intentional, or the subheading may have been styled at the wrong level. Check them in the Navigation Pane.
+    - **Tab-separated date columns:** dates and entries are separated by tab characters, and a few lines begin with a tab but no date (the last Service entry and the footer line). If alignment depends on tabs, the lines can drift if tab stops differ between paragraphs. To check, turn on Show/Hide ¶ (Ctrl+Shift+8) and compare the tab arrows and ruler stops across sections.
+    - **Hyperlink:** the converter shows the display text “alexandra-ruiz.example” pointing to `https://alexandra-ruiz.example/archive/2022`. That is the only link it exposed. Right-click it and choose Edit Hyperlink to see the real target. In my first reply I called this a “header.” It sits in the contact block under the title, which may or may not be the page header.
+    - **“[2023 draft note: replace temporary collection link before circulation.]”** is present in the converted text, so it is either visible body text or hidden or otherwise preserved text. To check, turn on Show/Hide ¶ and look for a dotted underline. Also open Review > Show Markup to see whether it is a comment or tracked insertion.
+
+    ### How to verify the rest in Word
+
+    - **Hidden text:** select all (Ctrl+A), open Font, and look at the Hidden box. A filled square means some text is hidden. File > Info > Check for Issues > Inspect Document will also list hidden content.
+    - **Proofing language:** select all and check Review > Language > Set Proofing Language. Mixed settings show nothing selected. Also check Styles pane > Modify > Format > Language.
+    - **Direct formatting vs. styles:** open the Styles pane (Alt+Ctrl+Shift+S) and Home > Styles > Reveal Formatting (Shift+F1) on a few comparable entries, such as two Experience lines or two publications.
+    - **Comments and tracked changes:** use Review > Show Markup, and check that Track Changes is off.
+    - **Headers and footers:** double-click the top and bottom margins of page 1.
+
+    If you paste what the Navigation Pane, Reveal Formatting, or the hyperlink dialog shows, I can help interpret it.
+
+- id: cv-audit-rules-run
+  session: editorial-assistant
+  strategy: 5
+  label: "The proposed style guide"
+  run: 'prompt id="cv-audit-rules"'
+  tool: Claude Sonnet 5.5
+  date: '2026-10-08'
+  note: "Sent third in the same conversation. Nothing was approved or edited afterwards."
+  text: |
+    ## Proposed style guide for the Ruiz CV
+
+    Nothing has been edited. The rules below come from patterns in the extracted text, so rules 5 and 6 depend on structure I couldn’t see and need a check in Word first.
+
+    One correction to my first audit: I said the last Service entry lacked bold “unlike its neighbors.” Only two Service entries use bold, so the inconsistency is within the whole section (rule 7).
+
+    ### Part A: Formatting decisions
+
+    **1. Date and page ranges use an en dash with no spaces. Open-ended ranges use lowercase “present.”**
+
+    - Professional Experience, “2024–Present” → “2024–present” (every other open range uses lowercase).
+    - Professional Experience, “2019-2020” (Public history intern) → “2019–2020”.
+    - Articles and Chapters, 2022 *Journal of Public History and Technology* article, “45-62” → “45–62”.
+    - Only the punctuation or capitalization changes, never the numbers.
+
+    **2. Entries run in reverse chronological order by start date.** This is the pattern in Education, Experience, Publications, Digital Projects, Workshops, Teaching, and Awards.
+
+    - Conferences: the 2024 “Teaching Students to Read a Digital Exhibit” and the 2023 “The Work after Launch” entries sit after the 2023 entry. Each would move up into its year group. Order within a year is your call.
+    - Service: “2023–2025 Peer mentor” would move to between the 2024–present and 2022–present entries.
+    - Only position changes, with no wording changes.
+
+    **3. Your own publications use “Ruiz, Alexandra.”**
+
+    - 2025, “Teaching with Unfinished Collections”: “Ruiz, A.” → “Ruiz, Alexandra.”
+    - Co-authored entries stay as they are.
+
+    **4. Journal titles are italic.**
+
+    - 2024, “Listening at Scale…”: *Public Humanities Methods* shows no italics in the extracted text. Please confirm in Word, and I’d italicize it only if it’s really plain.
+
+    **5. Conference entries use one layout: year, tab, “Title.” Venue.**
+
+    - 2022 (AHA), 2021 (THATCamp), and 2020 (Graduate Colloquium) came out as table rows, plus an empty trailing row. They would become tab-aligned lines like the first six, and the empty row would go.
+    - Do this only if Word confirms it is a real table and not a converter artifact. The contact block at the top is also a table, but I propose no change there because it may be intentional.
+
+    **6. Section titles use the same heading style.**
+
+    - Professional Experience appears as bold text and every other section as a heading. If Word confirms direct formatting, it would take the same heading style as the others.
+    - “Articles and Chapters” sits at the same level as “Publications.” If you intend it as a subsection, it would drop to a second level. This is your choice.
+
+    **7. Bold marks the main named item in each entry.** That is the role, degree, course, workshop, or project everywhere except Service. This one needs your choice:
+
+    - **Option A (my recommendation):** bold the organization or program name in all five Service entries. Two already do (DH Praxis Workshop, Code for Community). Three would gain bold: Digital Collections Advisory Group, Public History Graduate Student Network, and Digital Public History Working Group.
+    - **Option B:** bold the role instead. Two existing entries would lose bold on the program name.
+
+    **8. Quotation marks are curly.**
+
+    - 2021 THATCamp title uses straight quotes and would be converted. I’d search the file for other straight quotes in Word.
+
+    **No change proposed:** the “Venue, City, ST” pattern, the two-letter state abbreviations, the periods in degree abbreviations, and the 2018–2019 teaching entry that repeats the Experience entry.
+
+    ### Part B: Factual questions only you can answer
+
+    These stay untouched until you answer.
+
+    1. **“Small Archives, Shared Stewardship”:** “Forthcoming” in Articles and Chapters, but “in preparation” in Research in Progress. Which status is correct? I won’t change either one.
+    2. **“Virtual Museums and Public Engagement in the Digital Age,” 2023:** listed under Conferences and Invited Workshops with the same venue and city. One event or two? Both entries stay until you confirm.
+    3. **Borderlands Memory Mapping Initiative / Borderlands Memory Atlas:** same project or different ones?
+    4. **Migration Stories Online:** keep, delete, or resolve the “[2023 draft note…]” text, and is there a link to restore?
+    5. **Contact-block link:** is the target ending in “/archive/2022” intended?
+    6. **Cover line “September 2026” and footer “Fictional workshop CV”:** keep as is?
+    7. **Missing details:** the year for the forthcoming article, the page range for the 2023 chapter, and a date for “Member, Digital Public History Working Group.” Locations are also absent for the Humanities Teaching Forum, Digital Stewardship Roundtable, AHA, THATCamp, and Graduate Colloquium entries. I won’t supply any of these.
+    8. **“Desert University Press”:** is this the intended imprint name?
+    9. **Community Partnership Seed Grant:** it’s the only award with a dollar amount. Add amounts to the others, or leave it?
+
+    ### Next steps
+
+    Tell me which rules to apply (all, or by number), and your choice for rule 7. The edits will go into a new Word file, with the original untouched. A change list will give each entry, its section, the before and after text, and the rule number.
+
+    I only have extracted text from your file. I haven’t confirmed that I can open the .docx and edit it in place with its styles preserved. If I can’t, I’ll say so before making anything. Then you could apply the change list in Word yourself, or I could rebuild the document from the text, which would recreate the formatting rather than preserve it.
+
+- id: assignment-student-run
+  session: editorial-assistant
+  strategy: 3
+  label: "The student's reading"
+  run: 'prompt id="assignment-student"'
+  tool: Claude Sonnet 5.5
+  date: '2026-10-08'
+  note: "A fresh incognito conversation at the default settings, with only the workshop copy of the assignment attached. The prompt was sent as written."
+  text: |
+    ## Reading the assignment as a first-year student
+
+    ### What I would do first
+
+    The assignment assumes I’ve finished Part 1, and it says so near the top: “You’ve already completed the AI draft and critique in Part 1.” So my first move is to locate my AI essay and my critique of it, since I’m told to bring them: “Bring a **pencil** (pens are not allowed), your phone for photos, and your AI essay critique.”
+
+    Then, before going to the archive, I’d search the digital catalog: “Search the New Mexico Digital Archive for your topic. Use exact quotes around multi-word terms.” The same section says to “Note the Collection Number and relevant box numbers from the results,” which I need in order to fill out the request form. I’d also check alternate names (“Names change”) in case my first search comes up empty.
+
+    Then I’d go to Zimmerman Library for “at least an hour,” check in at the reference desk, and ask for help.
+
+    ### What I think I must submit
+
+    An essay published on the UNM Campus History website, which the instructions describe like this: “Your finished essay will be published on the UNM Campus History website.”
+
+    Requirements as listed:
+
+    - “**~800-1000 words**”
+    - “**4-5 images** — historical photographs and/or scanned primary sources from CSWR”
+    - “**Informative captions** on every image: not just what it shows, but why it’s significant. Cite where you found it (box number, collection name, or URL).”
+    - “**Subheadings** to organize your main sections”
+    - “**Bibliography** of sources used (CSWR materials + published histories),” with sources specified “exactly” enough “so it can be verified”
+
+    There’s also an **AI-Archive Comparison**, which appears in the grading criteria rather than the requirements list: “An AI-Archive Comparison that’s *specific*: quotes the AI draft and names what was confirmed, contradicted, or simply absent from the archive.”
+
+    The submission mechanism is “submitting a pull request,” per the publishing guide.
+
+    ### How I would judge whether my work is good enough
+
+    The grading section says the project is graded “primarily on **effort and intellectual engagement**, not writing polish or whether you found spectacular archival material.” I’d check myself against the A description: “clear archival evidence throughout; specific sources cited; AI-Archive Comparison quotes the draft directly and names concrete differences; images with substantive captions that explain significance.”
+
+    I’d also run the “weak submission” list as a checklist: could it have been written without visiting the archive? Is the AI comparison generic? Are images missing or uncaptioned? Is it “just a list of facts with no narrative thread”? And for style: “smart magazine, not academic paper.”
+
+    ### Three places I would have to guess
+
+    **1. Where the AI-Archive Comparison goes and how long it is.**
+
+    - *Says:* It’s a grading criterion, and the essay should “fuse” the AI essay and my findings. The “Skills” and “What I’m looking for” sections describe it as a distinct thing (“An AI-Archive Comparison”).
+    - *Inferred:* It might be a section inside the 800-1000 word essay, or a separate piece on the page, or something submitted to the instructor only.
+    - *Question for the instructor:* Does the comparison count toward the word limit, and is it part of the published page?
+
+    **2. What exactly I turn in to the instructor, versus what gets published.**
+
+    - *Says:* The publishing guide explains “how to publish the page,” while “This **assignment guide** explains what the page needs to argue, document, and reflect on for class.” The word “reflect” hints at something beyond the essay.
+    - *Inferred:* Probably the pull request or page link is the submission, but I can’t tell if there’s also a Canvas upload, notes, or a reflection.
+    - *Question for the instructor:* Where and how do I submit for the grade, and is there anything besides the page?
+
+    **3. Deadlines and what counts as enough archival evidence.**
+
+    - *Says:* No due date appears in this document. “At least an hour” is the visit length, and the grading mentions “notes that reflect actual digging through boxes.”
+    - *Inferred:* My notes might be graded, but nothing says I submit them.
+    - *Question for the instructor:* What’s the due date, and are my notes or photos part of what’s evaluated?
+
+    A smaller question I’d also keep in mind: how do I choose my topic, and was it assigned in Part 1? This document refers to “your topic” as if it’s already settled.
+
+- id: assignment-compare-run
+  session: editorial-assistant
+  strategy: 3
+  label: "The comparison"
+  run: 'prompt id="assignment-compare"'
+  tool: Claude Sonnet 5.5
+  date: '2026-10-08'
+  note: "A fresh incognito conversation with three files attached: the workshop copy of the assignment and the two recorded readings on this page. The prompt was sent as written."
+  text: |
+    ### Where student uncertainty meets a design issue
+
+    The student’s three guesses line up with three misalignments the designer found. The designer’s “Part 1 and the linked guide aren’t included” caveat applies to all of them.
+
+    | Student’s practical uncertainty | Design issue behind it |
+    | --- | --- |
+    | Where the AI-Archive Comparison goes and how long it is | The comparison is graded (“An AI-Archive Comparison that’s *specific*”) but is not in the Requirements list |
+    | What gets submitted versus published | The page must “argue, document, and reflect on for class,” but “reflect” has no matching instruction, and submission is handed off to the external guide |
+    | Deadline, and whether notes count | “notes that reflect actual digging through boxes” is named as evidence, but notes are never requested, and no due date appears |
+
+    The first is the strongest connection. The student can’t tell how to meet a criterion because the task never names it as a deliverable.
+
+    ### Where the readings differ
+
+    - **Frame:** The student asks “what do I do and how do I know it’s good enough?” The designer audits purpose, task, and criteria for consistency.
+    - **Skills:** The designer treats source criticism and reading for absence as a gap (“nothing... asks students to do it in the essay”). The student never mentions them.
+    - **Notes:** The student wonders if notes might be graded. The designer says outright that they are never requested.
+    - **“Reflect”:** The student reads it as a hint of “something beyond the essay.” The designer reads it as an instruction with no counterpart.
+    - **Topic and Part 1:** Only the student raises these (“your topic” as if settled). The designer sets them aside as outside the snapshot.
+
+    ### Claim check
+
+    **Supported by the assignment:**
+
+    - All of the student’s requirement quotes (word count, images, captions, subheadings, bibliography) and the grading quote (“primarily on **effort and intellectual engagement**”).
+    - “Bring a **pencil**... and your AI essay critique,” and “Note the Collection Number and relevant box numbers.”
+    - The designer’s “about 10 minutes,” the “curious reader... who knows nothing about its history” audience framing, and the weak-submission examples.
+    - No due date appears, and no relative weighting is given.
+    - The B and C descriptors (“mostly specific,” “thin”) have no examples.
+    - The tip “Think about the story you want to tell as you go” is the only task-side mention of narrative.
+
+    **Not fully supported:**
+
+    1. **Student: the “Skills” section describes the comparison as “a distinct thing.”** The Skills section never names an AI-Archive Comparison. Only “What I’m looking for” does. The Skills section only gestures at it (“What would the AI never know because it was never digitized?”).
+    2. **Student: the catalog numbers are needed “in order to fill out the request form.”** The assignment says to note them and to “fill out” a request form, but never links the two.
+    3. **Student: “reflect” “hints at something beyond the essay.”** The sentence says what “the page needs to argue, document, and reflect on,” so the subject is the page. Both readings treat the word as ambiguous, which is fair, but it may point inside the essay.
+    4. **Designer: the comparison is “No” in the task.** This is overstated. The task says “compare it to what the AI told you” and asks the essay to “fuse” the AI essay and findings. What’s missing is the named deliverable and the quote-the-draft requirement, which appear only in the grading section.
+    5. **Designer: reading for absence is “not requested in any deliverable.”** This is also overstated. The criteria ask the comparison to name what was “simply absent from the archive,” which is related to absence, though not quite the skill as defined. The grading section also acknowledges “sometimes there isn’t much there.”
+    6. **Student: the pull request is the graded submission.** The assignment says the guide covers “submitting a pull request” for the page, not that this is what’s graded.
+
+    ### One clarification to consider
+
+    State, in the Requirements list, where the AI-Archive Comparison appears and whether it counts toward the ~800–1000 words. This clarifies the student’s first uncertainty and the designer’s top priority. It likely also clarifies the second and third items, since the answer shapes what “reflect” means and whether anything beyond the page is submitted.
+
+    ### The decision still open
+
+    The instructor needs to decide whether the comparison is part of the public Campus History page, written for the “curious reader” who “knows nothing about its history,” or a course-only piece read just by the instructor. That choice determines the audience, the word budget, and whether notes or other evidence are submitted. I haven’t resolved it or drafted any wording.

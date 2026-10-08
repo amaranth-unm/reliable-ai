@@ -29,6 +29,13 @@ The exercise concerns the clarity of the instructions. It does not ask AI to wri
 
 {% include prompt.html id="assignment-student" %}
 
+<details markdown="1">
+<summary>A recorded reply</summary>
+
+{% include demo.html id="assignment-student-run" %}
+
+</details>
+
 Treat the response as a possible reading to investigate. Ask actual students to explain the assignment back to you before concluding that the instructions are clear to them.
 
 ## Read as an assignment designer
@@ -37,15 +44,24 @@ Use the same materials in a fresh conversation. TILT's framework asks whether st
 
 {% include prompt.html id="assignment-designer" %}
 
-Here is a recorded reply:
+<details markdown="1">
+<summary>A recorded reply</summary>
 
 {% include demo.html id="assignment-designer-run" %}
 
-It credits what the assignment already explains before listing gaps, and its alignment table finds the same problem as the prepared observations below: the AI-Archive Comparison “appears only in the criteria.” Before acting on any of its points, check the quotations against the assignment.
+</details>
+
+It credits what the assignment already explains before listing gaps. Its alignment table marks the AI-Archive Comparison as missing from the task: “No. It appears only in the criteria.” The comparison below disputes that.
 
 ## Compare the readings
 
 {% include prompt.html id="assignment-compare" %}
+
+Here is a recorded reply, run with the assignment and both recorded readings attached:
+
+{% include demo.html id="assignment-compare-run" %}
+
+It finds claims in both readings that the assignment doesn't support. The designer's “No” is overstated: the task does ask students to “compare it to what the AI told you,” but never names the comparison as something to hand in. It ends with a decision only the instructor can make, which is whether the comparison belongs on the public page.
 
 An apparent agreement between AI roles does not turn a diagnosis into a fact. Return to the instructions and ask whether the quotation supports the concern. The instructor may have explained a detail in class or put it in another document.
 

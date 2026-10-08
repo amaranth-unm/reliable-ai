@@ -225,10 +225,11 @@ already explains as much attention as what may be missing.
 
 A student would ask where to put the comparison, and a designer would ask why
 the grading expects something the instructions never assign. Both lead to the
-same missing sentence. A recorded run of the designer prompt, on the
-[exercise page]({{ site.baseurl }}/examples/assignment-review/), reached the
-same point: its alignment table marks the comparison “No. It appears only in
-the criteria.”
+same missing sentence. Recorded runs of all three prompts are on the
+[exercise page]({{ site.baseurl }}/examples/assignment-review/). The designer's
+reading marks the comparison “No. It appears only in the criteria,” and the
+comparison then calls that overstated: the task does ask students to compare,
+but never names the comparison as something to hand in.
 
 The instructor decides how to fix it, and other course materials or class
 discussion may already cover it. Before you treat an AI reading as evidence of
