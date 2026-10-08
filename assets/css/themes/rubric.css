@@ -200,8 +200,9 @@ CSS VARIABLE OVERRIDES
    print. page-header.css sets it at weight 300 with wide tracking, but only
    400, 500 and 700 of Source Sans 3 are loaded, so it rendered as a thin 400
    at 1.08rem. Medium weight, a size up and normal tracking hold up against
-   hatching. The extra class outranks page-header.css, which loads later. */
-.page-header.page-header--section p {
+   hatching. The selector has to outrank page-header.css, which loads later,
+   and the .page-wrap .page-header p rule further down this file. */
+.page-wrap .page-header.page-header--section p {
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.005em;
