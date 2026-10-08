@@ -140,21 +140,26 @@ filter for everyone.
 
 The spine is fixed. Sessions differ in their steps, not their skeleton.
 
+Items 4 to 6, and a `### The paragraph we'll use` for the session's running
+example if it has one, sit under a single `## Introduction`. The table of
+contents lists `##` headings, so it shows the introduction, the numbered steps
+and the takeaways, and nothing else.
+
 1. **`{% include nav/scrollspy-toc.html %}`** — first line of the body.
 2. **The orientation line**, with `{: .lead}`. Who the page is for and how to
    use it. One sentence.
 3. **A `.rule` callout** carrying the session in four words — "AI reads. You
    write." This is the thing people repeat afterwards. Write it last, once you
    know what the session turned out to be about.
-4. **`## Why <this> is the place to start`** — why this topic and not a more
+4. **`### Why <this> is the place to start`** — why this topic and not a more
    obvious one. This is where you argue that the exercise is worth the hour.
-5. **`## What you're working with`** — three or four tool behaviours the
+5. **`### What you're working with`** — three or four tool behaviours the
    session will demonstrate, each one pointing at the step where it shows up.
    Behaviours only: nothing about how the model works inside, because that is
    not checkable from a browser tab and the whole series rests on the reader
    being able to check. Keep it to about 150 words — it is a map, not a
    lecture, and a long one re-creates the problem the session exists to avoid.
-6. **`## Before you start`** — what to bring, and, as its own bullet, **what
+6. **`### Before you start`** — what to bring, and, as its own bullet, **what
    to leave out**. Unpublished work, student writing with names, anything
    under embargo or IRB. Never skip the second half.
 7. **Numbered steps** — see below.

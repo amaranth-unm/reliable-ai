@@ -28,13 +28,15 @@ This page is the full tutorial, with every prompt and some extra exercises to wo
 **Teach AI how to read your work. You stay the writer and the editor.**
 </div>
 
-## Why editing is the place to start
+## Introduction
+
+### Why editing is the place to start
 
 Many people first use these tools for something they can't check, like a summary of a literature they haven't read or a draft in an unfamiliar genre. It's hard to tell a good answer from a plausible one there.
 
 Editing is different, because **you know what you meant your paragraph to say.** You can hold any comment or proposed edit up against your own text and decide whether it helps. That makes editing a good place to learn what these tools do well: ask for a reading first, and revise once you've seen its reasons.
 
-## What you're working with
+### What you're working with
 
 You don't need to know how a model works inside to judge what it tells you. Four habits of these tools come up in the exercises:
 
@@ -49,13 +51,13 @@ You don't need to know how a model works inside to judge what it tells you. Four
 - **It forgets your preferences.** Each new conversation starts from nothing
   unless you save your rules and bring them along. (Steps 4 to 6)
 
-## Before you start
+### Before you start
 
 - **A laptop**, with an AI assistant open in a browser tab. Claude, ChatGPT, Gemini, or Copilot all work, and a free account is fine.
 - **One paragraph of your own writing**, such as a draft, an abstract, a policy, or a grant blurb. Your own work teaches more than an invented example. No paragraph? Take one from the [practice texts]({{ site.baseurl }}/practice-texts).
 - **One thing to leave out:** other people's unpublished work, student writing with names attached, anything under embargo or an IRB protocol.
 
-## The paragraph we'll use
+### The paragraph we'll use
 
 We begin with the **AI-use policy** from the
 [practice texts]({{ site.baseurl }}/practice-texts). It is short enough to read
