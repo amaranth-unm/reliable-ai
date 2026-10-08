@@ -362,6 +362,32 @@
 .demo-text > :first-child { margin-top: 0; }
 .demo-text > :last-child  { margin-bottom: 0; }
 
+/* Recorded replies keep their own headings and tables. Set them as parts of
+   the reply, not as headings of the page: no h2 rule, no page-scale type. */
+.demo-text h1, .demo-text h2, .demo-text h3,
+.demo-text h4, .demo-text h5, .demo-text h6 {
+  margin: 1.1rem 0 0.4rem;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.demo-text h1, .demo-text h2 { font-size: 1.1rem; }
+
+.demo-text table {
+  width: 100%;
+  margin: 0.6rem 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.demo-text th, .demo-text td {
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+  vertical-align: top;
+}
+
 .demo-note {
   margin: 0;
   padding: 0.6rem 1.2rem 0.9rem;

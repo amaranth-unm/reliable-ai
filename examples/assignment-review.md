@@ -37,6 +37,12 @@ Use the same materials in a fresh conversation. TILT's framework asks whether st
 
 {% include prompt.html id="assignment-designer" %}
 
+Here is a recorded reply:
+
+{% include demo.html id="assignment-designer-run" %}
+
+It credits what the assignment already explains before listing gaps, and its alignment table finds the same problem as the prepared observations below: the AI-Archive Comparison “appears only in the criteria.” Before acting on any of its points, check the quotations against the assignment.
+
 ## Compare the readings
 
 {% include prompt.html id="assignment-compare" %}

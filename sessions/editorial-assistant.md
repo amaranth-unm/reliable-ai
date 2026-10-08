@@ -225,7 +225,10 @@ already explains as much attention as what may be missing.
 
 A student would ask where to put the comparison, and a designer would ask why
 the grading expects something the instructions never assign. Both lead to the
-same missing sentence.
+same missing sentence. A recorded run of the designer prompt, on the
+[exercise page]({{ site.baseurl }}/examples/assignment-review/), reached the
+same point: its alignment table marks the comparison “No. It appears only in
+the criteria.”
 
 The instructor decides how to fix it, and other course materials or class
 discussion may already cover it. Before you treat an AI reading as evidence of

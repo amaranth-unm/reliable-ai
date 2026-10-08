@@ -261,3 +261,144 @@
     the same answer. The present text is trying to be both, which is why "ask
     before submitting" reads as an open door to one reader and a tripwire to
     the other.
+
+- id: assignment-designer-run
+  session: editorial-assistant
+  strategy: 3
+  label: "The designer's reading"
+  run: 'prompt id="assignment-designer"'
+  tool: Claude Sonnet 5.5
+  date: '2026-10-08'
+  note: "A fresh incognito conversation at the default settings, with only the workshop copy of the assignment attached (making-history-campus-history-assignment.txt). The prompt was sent as written."
+  text: |
+    ## Transparent Design Review: Campus History, Part 2
+
+    This review covers only the supplied snapshot (Sept 23, 2026). Part 1 and the linked student publishing guide aren’t included, so anything they might explain is marked as outside the materials, not as a gap.
+
+    ### Purpose
+
+    **Clear.** The assignment names three skills and explains each: structural analysis (“how institutions... shape what knowledge survives and what gets lost”), reading for absence (“What would the AI never know because it was never digitized?”), and source criticism (“who created this document, why, and what can (and can’t) it tell us?”). The “intellectual goal” is stated plainly: “find out what the historical record actually says about your topic and compare it to what the AI told you.” The audience framing, “a curious reader... who knows nothing about its history,” and the real publication venue give the work a purpose beyond the classroom.
+
+    **Partly explained.** The text says what the skills are but not why they matter beyond this course, for instance why comparing AI output to archives is a useful habit. It also doesn’t say how each skill appears in the essay itself. “Source criticism” is a named skill, yet nothing in the task or the requirements asks students to do it in the essay.
+
+    ### Task
+
+    **Clear.** Logistics are concrete and sequenced: what to bring (pencil, phone, AI critique), where to go, how to check in, how to find and request boxes (“about 10 minutes”), and what to photograph versus scan. The requirements are countable: “~800–1000 words,” “4–5 images,” “Informative captions on every image,” “Subheadings,” and a “Bibliography,” with the standard “specify exactly where you found something so it can be verified.” The research tips (“Names change,” “You’re not searching full text”) anticipate real obstacles. The division of labor between this guide (what to argue and document) and the Campus History guide (how to publish) is explicit.
+
+    **Partly explained.**
+
+    - The task says to “reshape your AI essay into a UNM Campus History essay, that fuses both the AI essay and your own findings.” What “fuses” looks like (revising the draft, quoting it, discussing it separately) is not stated.
+    - The publishing section says what the page needs to “argue, document, and reflect on for class,” but “reflect” has no corresponding instruction.
+    - The submission mechanism is deferred to the student guide (“submitting a pull request”). That seems a reasonable handoff, but no deadline appears in this document.
+
+    **Not stated.** No due date, and no instruction on where the AI-Archive Comparison goes or how long it should be.
+
+    ### Criteria
+
+    **Clear.** The A–F descriptors are specific, and the weak-submission list is helpful (“Could have been written without visiting the archive”; a generic comparison like “AI can sometimes be inaccurate”). The priority is stated honestly: “primarily on effort and intellectual engagement, not writing polish or whether you found spectacular archival material.” That reassurance is a real strength, since archives don’t always cooperate.
+
+    **Partly explained.**
+
+    - Evidence of engagement is named (“specific sources cited, real images scanned, notes that reflect actual digging”), but “notes” aren’t requested anywhere in the task or submission.
+    - “A readable story with a point, even if a modest one” is a criterion, but the task only says “Think about the story you want to tell” as a tip.
+    - The B and C descriptors rely on terms like “mostly specific” and “thin” without examples.
+
+    **Not stated.** Relative weighting of components. I’m not inferring any, since none is supplied.
+
+    ### Task–criteria alignment check
+
+    | Graded component | Introduced in task? |
+    | --- | --- |
+    | Archival evidence, specific sources, bibliography | Yes |
+    | Images with substantive captions | Yes (“not just what it shows, but why it’s significant”) |
+    | Readable narrative with a point | Lightly (a tip, plus “Style”) |
+    | **AI-Archive Comparison** | **No.** It appears only in the criteria. |
+    | **Notes** as evidence | **No** |
+    | Source criticism, reading for absence | Named as skills, but not requested in any deliverable |
+
+    ### Three priority clarifications
+
+    1. **Where does the AI-Archive Comparison live, and what is it?** It is central to the A-level criteria (“quotes the draft directly and names concrete differences”) yet is never listed under Requirements or the essay instructions. Is it a section of the published essay, a separate submission, or covered by “reflect on for class”? Does it count toward the 800–1000 words?
+    2. **How should students demonstrate the named skills?** Reading for absence and source criticism are stated purposes, but no deliverable asks for them. A sentence connecting them to the essay or comparison (for example, whether captions or the comparison should address who made a source and what’s missing) would make the purpose visible in the work.
+    3. **What exactly gets submitted, and are notes included?** The criteria cite “notes that reflect actual digging,” but the task never asks for them, and the submission is described only through the external guide. Clarifying the full set of items and the deadline (if not in the guide) would let students see how effort will be recognized.
+
+- id: cv-audit-first-run
+  session: editorial-assistant
+  strategy: 5
+  label: "The first-pass audit"
+  run: 'prompt id="cv-audit-first"'
+  tool: Claude Sonnet 5.5
+  date: '2026-10-08'
+  note: "A fresh incognito conversation at the default settings, with only the Word file attached. Claude converted the file to text when it was attached, and the reply says so before anything else."
+  text: |
+    ## CV audit: Alexandra Ruiz, “alexandra-ruiz-cv-workshop.docx”
+
+    ### What I examined
+
+    I examined **only the extracted text**, as it was converted from the .docx. I did not see the rendered appearance or the underlying Word structure. I could not check:
+
+    - fonts, spacing, tab stops, and italics that the conversion may have dropped or added
+    - whether headings are real Word heading styles
+    - comments, tracked changes, hidden text, headers and footers beyond the page-1 footer line
+    - where the hyperlink actually points, beyond the URL shown in the text
+    - the blank table row after the 2020 conference entry (it may be a layout artifact)
+
+    Anything below about italics, headings, or tables is therefore a question to verify in Word, not a confirmed defect.
+
+    ### Top five findings
+
+    #### 1. Same title listed as both “Forthcoming” and “in preparation” (potential conflict, question for author)
+
+    - **Publications → Articles and Chapters:** “Ruiz, Alexandra. ‘Small Archives, Shared Stewardship.’ *Community Heritage Review*. Forthcoming.”
+    - **Publications → Research in Progress:** “**Small Archives, Shared Stewardship**. Article in preparation on contributor review…”
+
+    These describe the same title at two different stages. “Forthcoming” usually signals acceptance, while “in preparation” does not. A reader or search committee may see this as overstating the status, or as a stale entry. I have not assumed which status is right. The author should confirm it, then either keep one entry or reconcile the two.
+
+    #### 2. Same title appears as a conference paper and an invited workshop (possible duplicate, question)
+
+    - **Conferences and Presentations, 2023:** “Virtual Museums and Public Engagement in the Digital Age.” Digital Humanities Southwest Conference, Albuquerque, NM.
+    - **Invited Workshops, 2023:** “**Virtual Museums and Public Engagement in the Digital Age**. Digital Humanities Southwest Conference, Albuquerque, NM.”
+
+    The title, year, venue, and city are identical. It could be two separate sessions, but as written it reads like one event counted twice. If they are distinct, the entries could say how (paper vs. workshop format). It also echoes the dissertation subtitle, which is fine but worth knowing.
+
+    #### 3. Leftover draft note and other unfinished artifacts (demonstrable)
+
+    - **Digital Projects → Migration Stories Online:** “[2023 draft note: replace temporary collection link before circulation.]” This is internal author text left in a circulated document.
+    - **Header:** the visible text is “alexandra-ruiz.example” but the link target is `…/archive/2022`, so it may be an outdated path. That is a question about the intended destination.
+    - **Footer:** “Alexandra Ruiz · Fictional workshop CV” and **cover line:** “September 2026” (today is October 8, 2026). Both are probably intentional for a workshop file, but both would need updating before real use.
+
+    #### 4. Two names for what may be one project (question for author)
+
+    - **Professional Experience:** “2024–Present **Project coordinator**, Borderlands Memory Mapping Initiative… Coordinate community review of oral history maps”
+    - **Digital Projects:** “2024–present **Borderlands Memory Atlas**. Project coordinator. Community-reviewed maps linking oral histories…”
+
+    The role, start date, and subject are the same, but the project names differ. If they are the same effort, using one name (or saying “Atlas, a product of the Initiative”) avoids reader confusion. If they are separate, nothing is wrong.
+
+    #### 5. Inconsistent formatting among comparable publication entries (demonstrable)
+
+    - **Author name:** “Ruiz, A. ‘Teaching with Unfinished Collections.’” (2025) vs. “Ruiz, Alexandra.” in all other entries.
+    - **Page-range dash:** “(2022): 45-62” uses a hyphen; the 2026 and 2025 entries use en dashes (17–34, 61–78).
+    - **Journal title italics:** *Public Humanities Methods* (2024) appears without italics in the extracted text, while other journal titles are italicized. Please verify in Word.
+    - **Missing details:** the 2023 chapter has no page range, and the forthcoming entry has no year. Neither is necessarily wrong, but peers in the same list include them. I have not supplied any missing facts.
+
+    ### Other findings
+
+    **Demonstrable inconsistencies**
+
+    - **Conferences:** the order breaks reverse-chronological sequence (2026, 2025, 2024, 2023, then 2024, 2023, 2022…). The 2021 entry uses straight quotation marks, while the others use curly ones. The first six entries are tab-separated lines and the last four are in a table, with an empty trailing row.
+    - **Professional Experience:** “2024–Present” (capital P) vs. “2021–present”; “2019-2020” uses a hyphen where its neighbors use en dashes. The section heading is bold text, whereas other sections use heading markup (verify in Word).
+    - **Publications:** “Publications” and its subsection “Articles and Chapters” appear at the same heading level in the extracted text (verify in Word).
+    - **Service and Public Engagement:** “2023–2025 Peer mentor” follows entries starting 2021–2024, so it breaks the pattern of ordering by start date. The final entry, “Member, Digital Public History Working Group,” has no dates and no bold, unlike its neighbors.
+    - **Locations:** Some entries give cities (“El Paso, TX”, “Las Cruces, NM”) while comparable ones don’t (Desert Community Archives and SSU roles, the Teaching and Learning Center workshop, the AHA meeting, THATCamp).
+
+    **Questions for the author**
+
+    - Is “2021–present” for the research assistantship still accurate alongside the 2026 Dissertation Completion Fellowship? This isn’t necessarily a conflict.
+    - No expected completion date is given for the Ph.D., if you want one.
+    - Is “Desert University Press” the intended imprint name, given the school is “University of the Desert”?
+
+    **Optional style preferences**
+
+    - Only one award lists an amount (“$4,500”). You could list amounts for all, or none.
+    - Digital Projects entries have no URLs, which could be added if the projects are public.
+    - Teaching entries for 2018–2019 repeat the Experience entry. That cross-listing is common and not an error.

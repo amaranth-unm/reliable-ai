@@ -26,7 +26,11 @@ Attach the Word file to a fresh conversation.
 
 {% include prompt.html id="cv-audit-first" %}
 
-Check two or three of its findings against the document. Then look at what it says it examined: the page as it appears, the text extracted from the file, or the Word structure underneath. Some tools only read the extracted text, and that can't show a table, a style, or a formatting override, however the reply describes them.
+Here is a recorded reply:
+
+{% include demo.html id="cv-audit-first-run" %}
+
+Start with what it says it examined. This run read only the text Claude extracted from the file, and said so before anything else. That text still showed the table in the conference list and many of the inconsistencies, but not fonts, spacing, or Word's heading styles, so the reply marks anything about those as something to verify in Word. Then check two or three of its findings against the document yourself.
 
 ## Second pass: the Word structure
 
@@ -45,7 +49,7 @@ Approve the guide before anything changes. Formatting decisions are yours to mak
 <details markdown="1">
 <summary>Three findings to check yours against</summary>
 
-These were confirmed in the document when it was built. They are not output from an AI run, and the CV contains more than these three.
+These were confirmed in the document when it was built. They are not output from an AI run, and the CV contains more than these three. The recorded reply above found all three, though from the text alone it could tell only that the talks sit in a table, not that the table has no borders.
 
 **A visible detail.** One date range uses a hyphen, while comparable ranges use en dashes. A formatting fix: make the ranges consistent without changing the dates.
 
