@@ -176,6 +176,34 @@ CSS VARIABLE OVERRIDES
   --page-header-tint-blend: multiply;
 }
 
+/* Section headers: a light fade plus a parchment glow around the type,
+   in place of page-header.css's near-opaque scrim (full strength to 28%,
+   gone by 62%), which washed out the left half of every print. The glow
+   keeps the dark ink legible over hatching while the image shows around
+   the words. The home page's hero keeps the full scrim: its image is a
+   printed page whose own lines of type would run behind the title.
+
+   page-header.css loads after this file, so the fade needs the extra class
+   to win; the shadows are set as variables on the header, which wins
+   wherever it loads. */
+.page-header--section {
+  --page-header-section-title-shadow:
+    0 0 2px var(--parchment-pale), 0 0 10px var(--parchment-pale),
+    0 0 22px var(--parchment-pale), 0 0 34px var(--parchment-pale);
+  --page-header-subtitle-shadow:
+    0 0 2px var(--parchment-pale), 0 0 6px var(--parchment-pale),
+    0 0 12px var(--parchment-pale), 0 0 20px var(--parchment-pale);
+}
+
+.page-header.page-header--section::after {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--parchment) 55%, transparent) 0%,
+    color-mix(in srgb, var(--parchment) 30%, transparent) 30%,
+    transparent 52%
+  );
+}
+
 /* nav.css floats the nav transparently over a hero header and drops it out of
    the sticky flow. This site wants one nav everywhere, so the hero case is
    folded back into the ordinary bar: same bistre, same hairline, still sticky.
