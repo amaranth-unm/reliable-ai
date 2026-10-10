@@ -25,113 +25,64 @@ This session hasn't happened yet. The full materials go up here afterwards, the 
 
 {% include nav/scrollspy-toc.html %}
 
-This page is the full tutorial, with every prompt and some extra exercises to work through at your own pace. You can also [view the presentation slides]({{ site.baseurl }}/presents/editorial-assistant/).
+This page contains all the links from the presentation and supplementary information. You can also [view the presentation slides]({{ site.baseurl }}/presents/transcribing-handwritten-documents/).
 {: .lead}
 
 <div class="rule" markdown="1">
-**Teach AI how to read your work. You stay the writer and the editor.**
+**Use AI for Handwritten Text Recognition.**
 </div>
 
 ## Introduction
 {: .step #introduction}
 
-### Choose the tool that's right for your project
-
-Many people first use these tools for something they can't check, like a summary of a literature they haven't read or a draft in an unfamiliar genre. It's hard to tell a good answer from a plausible one there.
-
-Editing is different, because **you know what you meant your paragraph to say.** You can hold any comment or proposed edit up against your own text and decide whether it helps. That makes editing a good place to learn what these tools do well: ask for a reading first, and revise once you've seen its reasons.
-
-### What you're working with
-
-You don't need to know how a model works inside to judge what it tells you. Four habits of these tools come up in the exercises:
-
-- **It edits smoothly, and settles ambiguities without saying so.** A cleaner
-  sentence can quietly answer a question you meant to leave open. (Step 1)
-- **It answers the question you ask.** An open question like *what am I
-  missing?* brings in broad advice, which is often worth having. Asking it to
-  quote your text gets findings you can check sentence by sentence. (Step 2)
-- **It will read as anyone you name.** A student and a reviewer notice
-  different things, but the same model wrote both readings, so they don't
-  count as two opinions. (Step 3)
-- **It forgets your preferences.** Each new conversation starts from nothing
-  unless you save your rules and bring them along. (Steps 4 to 6)
-
-### Before you start
-
-- **A laptop**, with an AI assistant open in a browser tab. Claude, ChatGPT, Gemini, or Copilot all work, and a free account is fine.
-- **One paragraph of your own writing**, such as a draft, an abstract, a policy, or a grant blurb. Your own work teaches more than an invented example. No paragraph? Take one from the [practice texts]({{ site.baseurl }}/practice-texts).
-
-<div class="reminder" markdown="1">
-Use texts you have permission to share, such as your own writing or the practice texts.
-</div>
-
-### The paragraph we'll use
-
-We begin with the **AI-use policy** from the
-[practice texts]({{ site.baseurl }}/practice-texts). It is short enough to read
-together and familiar enough to judge. For the style-guide exercise, we move
-to a [four-paragraph project report]({{ site.baseurl }}/practice-texts#community-archive),
-where wording choices have to hold across a longer argument.
-
-> **Use of AI Tools.** Students may use generative AI tools in this course
-> where appropriate, but should not use them to complete assignments for them.
-> Any use of AI should be disclosed. Work that is substantially produced by AI
-> will not receive credit and may be referred as an academic integrity
-> violation. Students are responsible for the accuracy of everything they
-> submit. If you are unsure whether a particular use is permitted, ask before
-> submitting. The goal of this policy is to support learning rather than to
-> prohibit technology, and I expect students to use their judgment.
-
-Read it as the person who wrote it and it seems clear. This session is about
-reading it as the students it is addressed to.
-
-**About the replies on this page.** Recorded replies show the tool and date.
-They come from the conversation in which this workshop was developed, so the
-tool already had some context; re-run them in a fresh conversation before
-treating them as typical. […] marks a cut. Examples labeled *prepared* were
-written for the slides rather than recorded. Your own replies will differ, and
-a different reply can be just as good.
-
-## 1. Try a reasonable editing request
-{: .step #step-1}
-
-Paste the syllabus policy, then ask for a conventional edit.
-
-{% include prompt.html id="baseline" %}
-
-Some of what comes back will probably help. Read the reply beside the
-original and pick one change you would accept and one you would want to argue
-with.
-
-- Did “should,” “may,” and “must” keep their different meanings?
-- Did the edit make a sentence clearer, or did it settle a policy question the writer had deliberately left open?
-- Did it explain the changes that alter meaning, or only the small ones?
-- Which questions are still unanswered now that every sentence reads smoothly?
-
-“Preserve my meaning” only helps if a sentence has one meaning to begin with. Where the original is ambiguous,
-the tool either picks a reading or asks which you meant, and a question is the
-better result. Step 2 gets it to name those decisions before it rewrites
-anything.
+This presentation covers the use of Transkribus, an AI-powered webapp for handwritten text recognition. But it also explains when to use a commercial large language model, such as Gemini or Claude, for transcribing handwritten documents.
 
 <div class="keypoint" markdown="1">
-Add one line to any editing request: “If a sentence could mean more than one thing, ask me which I meant before you change it.”
+In the last few years, several strong options have emerged for using AI to transcribe documents.
 </div>
 
-**Prepared example:** “Students may use AI where appropriate, but not to
-complete assignments for them.” The sentence is shorter, but “appropriate”
-still needs examples, and the paragraph still doesn't say how to disclose AI
-use.
+### Choose the tool that's right for your project
 
-Now send the same request with your own paragraph, and look for a choice the
-edit made for you.
+Try Transkribus first because if it has a trained model for your script then this is the most accurate and cost-effective option. You also will likely have more data sovereignty with Transkribus. 
 
-## 2. Teach it to read like you do
-{: .step #step-2}
+<div class="keypoint" markdown="1">
+Transkribus works great when there is already a trained model for your script.
+</div>
 
-Use the same original policy, this time with a specific job. Name the reader,
-focus the concern, and ask for the evidence behind each observation.
+When working with scripts that do not have pre-existing models in Transkribus, then a commercial AI chatbot might end up working very successfully for transcribing handwritten documents.
 
-## State of the Field Report Generated by Claude
+### Examples from the Presentation
+
+<div class="takeaways" markdown="1">
+Example 1: Gothic Secretarial Hand on Transkribus
+
+- **Brief the task.** Name the audience, purpose, and limits. Supply the current text and say what must stay intact.
+- **Ask open questions, then anchor.** Broad questions bring in advice you didn't think to ask for. When a comment is about your text, ask which passage it refers to and which rule makes it a problem; a quotation on its own doesn't prove the criticism.
+</div>
+
+<div class="takeaways" markdown="1">
+Example 2: Gothic Secretarial Hand using Gemini and Claude
+
+- **Brief the task.** Name the audience, purpose, and limits. Supply the current text and say what must stay intact.
+- **Ask open questions, then anchor.** Broad questions bring in advice you didn't think to ask for. When a comment is about your text, ask which passage it refers to and which rule makes it a problem; a quotation on its own doesn't prove the criticism.
+</div>
+
+<div class="takeaways" markdown="1">
+Example 3: A Challenging Classical Japanese Document
+
+- **Brief the task.** Name the audience, purpose, and limits. Supply the current text and say what must stay intact.
+- **Ask open questions, then anchor.** Broad questions bring in advice you didn't think to ask for. When a comment is about your text, ask which passage it refers to and which rule makes it a problem; a quotation on its own doesn't prove the criticism.
+</div>
+
+### Batch Processing
+
+- **Export into a CSV**, text.
+- **Usage Credits**, text.
+
+
+
+## 3. State of the Field Report Generated by Claude
+{: .step #step-1}
 
 *The following report was generated by Claude when prompted to generate a state of the field for HTR in October 2026. Here is the prompt, followed by what Claude generated.*
 
