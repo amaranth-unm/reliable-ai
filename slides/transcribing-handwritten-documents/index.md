@@ -56,16 +56,16 @@ Cover image: Jost Amman, typefounder, 1568. Existing public-domain workshop imag
 
 <header>
 
-Who's working on this
+Existing scholarship on HTR and AI
 {: .deck-topic}
 
-## People already working on this
+## Several scholars are already working on this
 
 </header>
 
 <div class="deck-summary">
 
-- &#9642; For the general Digital Humanities response to AI for transcription, a 2026 monograph by  David Joseph Wrisely and Estelle Guéville, *Medieval Manuscripts and the Computational Humanities*
+- &#9642; For the general Digital Humanities response to AI for transcription, a 2026 monograph by  David Joseph Wrisely and Estelle Guéville, *Medieval Manuscripts and the Computational Humanities*, ebook at [UNM Libraries](https://unm.on.worldcat.org/oclc/1590924317)
 - &#9642; For studies that compare LLMs' transcription accuracy to Transkribus, see Mark Humphries, [generativehistory.substack.com](https://generativehistory.substack.com)
 - &#9642; For examples of full chats when using AI for transcribing handwriting, see Jonathan Seyfried,[jonathanseyfried.net](https://jonathanseyfried.net/htr-episodes)
 
@@ -77,7 +77,7 @@ Who's working on this
 
 **1:00–2:30**
 
-None of this is settled. Point the room at three people actively publishing on it, in three different registers: a forthcoming academic monograph, a Substack that runs head-to-head accuracy comparisons, and a practitioner who posts entire transcription conversations so you can see the back-and-forth, not just the finished text.
+See the 'Sources' section of the workshop webpage for a more extensive list of scholarship.
 
 </aside>
 </section>
@@ -96,10 +96,10 @@ Choosing the right tool
 
 <div class="deck-summary">
 
-- &#9642; **First, the script:** The language, age, rarity, and style of the handwriting.
-- &#9642; **Second, the reproduction quality:** The quality of the scan or photo, and its layout.
-- &#9642; **Third, the volume:** How many documents you need transcribed.
-- &#9642; **Fourth, your resources:** The budget, time, and tech comfort you can bring to it.
+- &#9642; First, the language, age, rarity, and style of the handwriting.
+- &#9642; Second, the quality of the scan or photo, and its layout.
+- &#9642; Third, the number of documents you need transcribed.
+- &#9642; Fourth, the budget, time, and tech comfort you can bring to the project.
 
 </div>
 
@@ -136,7 +136,7 @@ Choosing the right tool
 
 - Choose a single image of a handwritten document with text in horizontal lines
 - Drag the image into the box on the Transkribus home page
-- Watch how it performs, with no setup and no trained model
+- Watch how it performs, with no additional setup required
 
 </div>
 
@@ -168,11 +168,11 @@ Choosing the right tool
 
 <div class="deck-summary">
 
-If you have a document in Precalit Sanskrit or Old Nubian, you're lucky! Someone else has created models for those.
+If you have a document in Precalit Sanskrit or Old Nubian, you're in luck! Someone else has created models for those.
 
 For a Catalan document in late fourteenth-century Gothic Secretarial Hand, you are not lucky.
 
-Almost all Latinate scripts from the nineteenth century will work on Transkribus.
+That said, a lot of scripts have existing models; almost all Latinate scripts from the nineteenth century will work on Transkribus.
 
 </div>
 
@@ -185,7 +185,7 @@ Transkribus can be trained for a variety of [layouts](https://www.transkribus.or
 
 **6:30–8:00**
 
-Coverage on Transkribus is a function of who has already trained a model on that script, not of how hard the script is to read. Rare doesn't mean uncovered — a handful of specialists have built models for scripts you'd assume nobody touched — and common doesn't guarantee coverage either, if the specific hand or period falls between existing models.
+Coverage on Transkribus is a function of who has already trained a model on that script, not of how hard the script is to read. Rare doesn't mean uncovered — a handful of specialists have built models for scripts you'd assume nobody touched — and common doesn't guarantee coverage either, if the specific hand or period falls between existing models. Click on 'layouts' to explain what is meant by that term on Transkribus.
 
 </aside>
 </section>
@@ -226,7 +226,7 @@ Generally, the AI chatbots will also work for Latinate scripts after 1900
 
 **8:00–10:00**
 
-Training is the right call for a standing collection that will keep producing pages in the same hand. For a one-off batch, it's usually faster to point a frontier chatbot at the images directly. The comparison data here is Mark Humphries's, reformatted by Claude rather than copied as a screenshot — treat the reformatting itself as a small example of the LLM-checking habit the next slide covers.
+Training is the right call for a standing collection that will keep producing pages in the same hand. For a one-off batch, it's usually faster to point a frontier chatbot at the images directly. The comparison data here is Mark Humphries's, reformatted by Claude rather than copied as a screenshot.
 
 </aside>
 </section>
@@ -260,7 +260,7 @@ Sometimes the LLM produces quite impressive results, as with this classical Japa
 
 **10:00–11:00**
 
-This is the kind of result that makes the "axe, not scalpel" framing at the end of this session worth remembering both ways: don't expect every run to be this good, but don't assume a hard, unfamiliar script is automatically out of reach either.
+Don't expect every run to be this good, but don't assume a hard, unfamiliar script is automatically out of reach either.
 
 </aside>
 </section>
@@ -289,14 +289,14 @@ Checking the transcription
 
 <div class="deck-response fragment" data-fragment-index="0">
 
-Example using Gemini and Claude
+Current recommendation
 {: .deck-label}
 
 <div markdown="0">
 <dl class="example-lines">
-  <dt>Gemini recommended as the first LLM</dt>
+  <dt>Use Gemini as the first LLM</dt>
   <dd>Gemini currently leads in performance for image recognition.</dd>
-  <dt>Prompt for Gemini</dt>
+  <dt>Prompt Gemini</dt>
   <dd>Upload the image file and specify the year and the script</dd>
   <dt>Then go to Claude</dt>
   <dd>Paste Gemini's output into a prompt for Claude</dd>
@@ -315,7 +315,7 @@ It will take some time to check the end result for each document
 
 **11:00–13:30**
 
-Two models rarely stumble on the same passage, so running the same image through both surfaces the ambiguous words neither one flagged on its own. This only works as a check if you actually read the two transcriptions against each other, not just accept whichever one finishes second.
+Sometimes, this only works as a check if you actually read the two transcriptions against each other, not just accept whichever one finishes second. Other times, I found that the output from Claude was obviously superior with so much of the text that it wasn't worth the time to check to see if Gemini had done better. I also prompted Claude to explain when it overrode Gemini in a significant way.
 
 ### Sample checking prompt
 
@@ -341,7 +341,7 @@ Agentic AI
 <div class="deck-summary">
 
 - Agentic AI means letting an AI application edit files directly on your computer
-- OpenClaw, the first popular agentic AI app, shipped with many security vulnerabilities
+- OpenClaw, the first popular agentic AI app, contained significant security vulnerabilities
 - Today's frontier agentic tools, such as Claude Cowork, are considerably safer
 - The October 21 Reliable AI Brown Bag goes into agentic AI in more detail
 
@@ -382,6 +382,9 @@ Agentic AI
 
 </div>
 
+Two examples of CSV files are available on Jonathan Seyfried's [website](https://jonathanseyfried.net/aca-csv-files)
+{: .deck-question}
+
 <footer class="deck-source" aria-hidden="true"></footer>
 
 <aside class="notes">
@@ -409,11 +412,11 @@ Cautionary notes
 
 Image recognition drains usage credits quickly
 
-There is a substantial time commitment for perfect transcriptions, known as the verification tax
+There is a substantial time commitment for perfect transcriptions, increasingly viewed as a 'verification tax'
 
 Consider the use of AI for transcription as more of an axe than a scalpel
 
-Also, be ready for the AI to surprise you with moments of high accuracy
+At the same time, be ready for the AI to surprise you with moments of high accuracy
 
 </div>
 
@@ -424,7 +427,7 @@ Also, be ready for the AI to surprise you with moments of high accuracy
 
 **17:30–19:00**
 
-Close on both halves at once: this is slower and more expensive than it looks from the demos, and it will still occasionally surprise you in the other direction. Neither caution cancels the other out.
+This will be an iterative process as you figure out which tool to use and how to organize your workflow.
 
 </aside>
 </section>
@@ -446,9 +449,11 @@ More resources for HTR using AI
 [amaranth.unm.edu/reliable-ai]({{ '/' | relative_url }})
 {: .deck-url}
 
-- These slides
-- Citations of current scholarship
+- The presentation slides
+- Links to all the examples covered in the presentation
 - A report on 2026 HTR developments generated by Claude
+- Citations of current scholarship
+
 
 </div>
 
