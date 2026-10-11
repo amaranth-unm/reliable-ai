@@ -43,7 +43,7 @@ In the last few years, several strong options have emerged for using AI to trans
 Try Transkribus first because if it has a trained model for your script then this is the most accurate and cost-effective option. You also will likely have more data sovereignty with Transkribus. 
 
 <div class="keypoint" markdown="1">
-Transkribus works great when there is already a trained model for your script.
+Transkribus works best when there is already a trained model for your script.
 </div>
 
 When working with scripts that do not have pre-existing models in Transkribus, then a commercial AI chatbot might end up working very successfully for transcribing handwritten documents.
@@ -52,31 +52,32 @@ When working with scripts that do not have pre-existing models in Transkribus, t
 {: .step #step-2}
 
 <div class="takeaways" markdown="1">
-Example 1: Gothic Secretarial Hand on Transkribus
+Example 1: Find any image of a handwritten document and drag it to the window on Transkribus
 
-- **Brief the task.** Name the audience, purpose, and limits. Supply the current text and say what must stay intact.
-- **Ask open questions, then anchor.** Broad questions bring in advice you didn't think to ask for. When a comment is about your text, ask which passage it refers to and which rule makes it a problem; a quotation on its own doesn't prove the criticism.
+- **For transcribing documents one at a time, this might be ideal.** [Link to Transkribus](https://www.transkribus.org/)
+- **For less common scripts, training your own model might be worth the time.** Model training on Transkribus works well for large batches of document images that have a lot of consistency.
+- **Transkribus can handle complex layouts.** For example, if you have a large dataset of digitized government documents with consistent labels, Transkribus excels at producing transcriptions in an Excel document with each label as a column.
 </div>
 
 <div class="takeaways" markdown="1">
 Example 2: Gothic Secretarial Hand using Gemini and Claude
 
-- **Brief the task.** Name the audience, purpose, and limits. Supply the current text and say what must stay intact.
-- **Ask open questions, then anchor.** Broad questions bring in advice you didn't think to ask for. When a comment is about your text, ask which passage it refers to and which rule makes it a problem; a quotation on its own doesn't prove the criticism.
+- **Automated transcription accuracy greatly increased when using one LLM to check the work of another.** In this example, which can be viewed on Jonathan Seyfried's [website](https://jonathanseyfried.net/htr-episodes), Claude checked the work of Gemini. Although far from perfect each time and not suitable for critical editions, the transcriptions were good enough to use for research purposes. 
+- **The large language models (LLMs) have been shown to perform better than Transkribus.** [Mark Humprhies](https://generativehistory.substack.com) provides the best resource for understanding the conditions in which LLMs outperform Transkbribus.
 </div>
 
 <div class="takeaways" markdown="1">
 Example 3: A Challenging Classical Japanese Document
 
-- **Brief the task.** Name the audience, purpose, and limits. Supply the current text and say what must stay intact.
-- **Ask open questions, then anchor.** Broad questions bring in advice you didn't think to ask for. When a comment is about your text, ask which passage it refers to and which rule makes it a problem; a quotation on its own doesn't prove the criticism.
+- **The language, classical Japanese, and the multi-directional layout, presents a large transcription challenge.** The [full chat transcript](https://claude.ai/share/50647f1c-3dab-48ee-8d40-714c7ed36d39) and [a report](https://claude.ai/artifact/7yTFsYxL9KxUdtVcRKFDdP#ccdb996d-540e) from Claude are accessible with a free login to Anthropic.
+- **Claude Fable 5.1 generated some transcription.** The transcription carried out by Anthropic's most capable model (as of October 2026) successfully identified many of the characters but also substituted a blank circle when it found the script unreadable. For some difficult-to-read parts of this document the AI refused to guess or confabulate. The LLM correctly identified the material as silk.
 </div>
 
 ## Batch Processing
 {: .step #step-3}
 
-- **Export into a CSV**, text.
-- **Usage Credits**, text.
+- **Batch processing in the LLMs require agentic AI.** [Jonathan Seyfried](https://jonathanseyfried.net/aca-csv-files) has tested this out with Gemini and Claude for digitized documents from the Archive of the Crown of Aragon. The initial testing of this process took place in March 2026 and since then the usage costs have increased dramatically.
+- **Transkribus offers batch processing, but this often requires the purchase of usage credits.** At a price of about $110 per year, Transkribus is much less expensive for batch processing.
 
 
 
