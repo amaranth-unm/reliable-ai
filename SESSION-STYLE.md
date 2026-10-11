@@ -328,6 +328,13 @@ that the site needs a list.
 what to keep, what to watch for. The body text around the prompt is the
 argument; the note is the operating manual. Don't duplicate one in the other.
 
+**Let the screen wrap prompt prose.** In a YAML `text: |` block, write each
+paragraph as one source line, without manual line breaks to fit an editor or
+screen width. Use blank lines between paragraphs and keep line breaks only
+where they carry structure, such as separate list items or placeholder fields.
+Keep each list item on one source line too. Apply this to shortened slide
+prompts as well: displayed and copied text should flow at the reader's width.
+
 **Write prompts to be pasted whole.** Bracketed slots (`[genre: seminar paper
 / abstract]`) with real options in them, not `[your genre here]`. Someone who
 doesn't know the vocabulary of the field should be able to pick one.

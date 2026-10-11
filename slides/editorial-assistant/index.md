@@ -1108,11 +1108,7 @@ Application in Word
     <p class="deck-label">Document-comment prompt, shortened</p>
     <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
   </div>
-  <pre class="prompt-text"><code>Read as a student encountering this text.
-Add comments at confusing passages.
-Explain what is unclear and ask a question.
-Keep all text and formatting unchanged.
-Return a copy with comments.</code></pre>
+  <pre class="prompt-text"><code>Read as a student encountering this text. Add comments at confusing passages. Explain what is unclear and ask a question. Keep all text and formatting unchanged. Return a copy with comments.</code></pre>
 </div>
 
 <div class="deck-response fragment" data-fragment-index="0">
