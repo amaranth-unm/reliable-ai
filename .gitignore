@@ -7,3 +7,6 @@ _config.analytics.yml
 # Artefacts from scripts/optimize-images.sh
 *-backup-20*/
 png_to_jpg_conversions.txt
+
+# Local workshop authoring, rehearsal and verification artifacts
+workshop-drafts/**/_local/

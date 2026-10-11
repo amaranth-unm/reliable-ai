@@ -27,6 +27,13 @@ the source of truth for front matter, the fixed page skeleton, how steps and
 prompts are written, and the voice. `sessions/editorial-assistant.md` is the
 worked example.
 
+Keep all session work in this repo, including presenter notes, drafts and
+local verification. Use `workshop-drafts/<session>/` for private planning and
+its ignored `_local/` subfolder for rehearsal runs, source checks and local
+preview artifacts. Build directly into the repo's ignored `_site/`; avoid
+parallel authoring copies in other project folders. `SESSION-STYLE.md`
+documents the convention.
+
 ## How it's put together
 
 ```

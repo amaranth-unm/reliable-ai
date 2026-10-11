@@ -14,6 +14,10 @@ D03 · 2026-10-11 · Example researcher · REJECT merging the essays as duplicat
 Reason: their distinct moves are useful to compare.
 Change: keep separate notes and record explicit responses in the map.
 
-Open: broaden beyond this English-language series and publisher. Reconsider the route if the interest changes. No further retrieval is claimed.
+D04 · 2026-10-11 · Example researcher · REVISE the S05 connection and access statement in C04.
+Reason: the passages support our thematic comparison, not an established direct response; only selected pages were read.
+Change: idea-map-v2.md labels the relationship; synthesis-v2.md limits its scope; reading-queue-v2.md recommends further reading provisionally.
+
+Open: read the complete S05 introduction and broaden beyond this English-language set and its concentration in one publisher. Reconsider the route if the interest changes. No further retrieval is claimed.
 
 For your live run record the actual decision, reason, date, affected item and version. An agent's proposed decision stays pending until you decide.

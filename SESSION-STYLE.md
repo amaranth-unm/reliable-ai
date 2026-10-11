@@ -8,6 +8,17 @@ for sessions that need them.
 
 Contributor notes only; excluded from the build in `_config.yml`.
 
+## Keep session work in this repository
+
+**All Reliable AI authoring work belongs in the reliable-ai repo.** Edit the
+session, shared data and assets here. Put presenter plans and private drafts
+in `workshop-drafts/<session>/`. Keep local rehearsal transcripts, source
+checks and verification artifacts in that folder's `_local/` directory,
+which is ignored by Git and excluded from the site. Build into `_site/`.
+Avoid maintaining an authoring copy in another project folder; it obscures
+which files are current. Participant downloads are generated from the saved
+example data in this repo.
+
 ## What a session page is for
 
 **Three audiences, one page, no branches.** Someone doing the exercises live,
@@ -305,6 +316,13 @@ the downloadable files and ZIP from the same data. Keep that single source
 so the browser view and download agree. State whether a display contains
 saved examples or live agent activity. A file viewer supplements the folder
 walkthrough; it does not prove an action occurred.
+
+**Record the inputs and coverage behind a research comparison.** Give each
+actual AI step a run ID with its exact instructions, input and output
+versions, source IDs and unfinished work. Preserve the inputs used by an
+earlier version. Separate agent checks from human passage checks; a check
+record should name the passages reviewed and leave remaining coverage open.
+A prepared template must not imply these runs took place.
 
 **Date every demo, and re-run them before you teach the session again.**
 Models drift. A transcript that was true in September and is quietly false in

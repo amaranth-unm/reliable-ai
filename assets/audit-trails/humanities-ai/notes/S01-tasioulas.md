@@ -1,7 +1,7 @@
 # S01 · Tasioulas · prepared reading note
 
 Original: https://www.adalovelaceinstitute.org/blog/role-arts-humanities-thinking-artificial-intelligence-ai/
-Citation and access: [source register](../sources.md). Procedure: reading-protocol.md v2.
+Citation and access: [source register](../sources.md). Procedure: reading-protocol.md v3. This prepared note has no live run ID; record yours in prompts.md.
 
 Argument: humanities help frame AI as a matter of human choice and ethical judgment. The three Ps distinguish pluralism, procedures and participation.
 Approach: philosophical argument with examples.

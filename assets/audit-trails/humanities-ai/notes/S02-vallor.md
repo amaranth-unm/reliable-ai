@@ -1,7 +1,7 @@
 # S02 · Vallor · prepared reading note
 
 Original: https://www.adalovelaceinstitute.org/blog/mobilising-intellectual-resources-arts-humanities/
-Citation and access: [source register](../sources.md). Procedure: reading-protocol.md v2.
+Citation and access: [source register](../sources.md). Procedure: reading-protocol.md v3. This prepared note has no live run ID; record yours in prompts.md.
 
 Argument: historical understanding and a wider imagination can challenge constrained framings of technology.
 Approach: philosophical and historical interpretation with cultural examples.
