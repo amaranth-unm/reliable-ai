@@ -1,7 +1,9 @@
 # Methods note · prepared teaching materials
 
-Prepared 2026-10-11 in Codex. Two original Ada Lovelace Institute essays were accessed through web text during page development. Their reading notes identify locations for the claims used. Linked works were not read. No empirical test or systematic review was performed.
+Prepared and revised 2026-10-11 in Codex. Three original Ada Lovelace Institute essays were read through web text during page development. Notes give passage locations. Linked works were not read; no systematic search or field survey was performed.
 
-The brief, protocol, first draft, checks, decisions and revision were constructed as a teaching example. The first draft contains a deliberate overclaim. The example does not establish how an agent responds to the workshop prompts. There was no separate-agent run or independent specialist review.
+The first overview, map and queue deliberately flatten a theoretical difference. Checks, illustrative decisions and revisions were constructed for teaching. They are not evidence of an agent's performance. No separate-agent run or independent specialist review occurred.
 
-For your live exercise, replace this with what actually happened: search boundaries and queries, sources accessed, tool/model identity as available, instruction and protocol versions, output files, checks completed, human decisions and open work. Keep raw outputs needed to support the record.
+The optional Obsidian demo uses Markdown links in the same folder. The RIS file contains verified citations with source IDs, not article texts or the full audit trail. Citation fields follow Zotero's RIS translator mappings; native app import remains a presenter rehearsal step. Record any actual demonstration separately.
+
+For the live exercise replace this with what happened: search choices, access, tool/model identity as available, instruction and protocol versions, output files, checks completed, human decisions, optional exports and open work. Keep raw replies needed to support the record.

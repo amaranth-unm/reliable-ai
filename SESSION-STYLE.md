@@ -246,6 +246,13 @@ they have a result in front of them to look at.
 reader roles; step 4 harvests rules from your corrections. If a step could be cut without breaking the chain, cut
 it.
 
+**Keep optional tool demos out of the required exercise.** If an app helps
+show a result, label it as a presenter demo inside the step that uses that
+result. Finish the main exercise with accessible files first. Give the
+presenter a prepared example or export so installation, accounts and live
+generation cannot hold up the room. Keep the underlying notes and decisions
+usable without the demo app.
+
 ## Show what came back
 
 **A session page that shows no output is a recipe, not a demonstration.** The

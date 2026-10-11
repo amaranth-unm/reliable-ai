@@ -1,7 +1,7 @@
-# First synthesis · prepared error specimen
+# First overview · prepared error specimen
 
-The following sentence deliberately overstates the evidence so that you can practice checking it. It is not a recorded agent reply.
+This deliberately flattens the articles for a checking exercise. It is not a recorded agent reply or a recommended reading.
 
-Humanities methods improve AI evaluation. Two independent essays demonstrate that historical and ethical analysis produces fairer systems. [S01; S02]
+The three essays offer the same framework: pluralism, procedures and participation. Powell repeats Tasioulas, so read her last. [S01; S02; S03]
 
-Check this wording against the original essays before using it. Preserve this version after revising it.
+The recommendation also appears in reading-queue-v1.md. Preserve these versions after correcting them.

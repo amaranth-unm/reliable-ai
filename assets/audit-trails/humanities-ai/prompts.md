@@ -1,12 +1,12 @@
 # Instructions and run records
 
-Prepared example. The workshop's complete prompts are on the session page. This file is a template for a live run, not a record that they were executed.
+Prepared template. The complete prompts are on the session page. This file does not claim they were executed.
 
-For each run append:
+For each actual run append:
 - Run ID, date and tool/model identity as displayed.
-- Exact prompt and procedure version.
+- Exact prompt and reading-protocol version.
 - Files supplied, access level and relevant prior conversation context.
-- Raw reply or the saved output files.
-- Actions actually observed; retrieval failures and incomplete work.
+- Raw reply or saved output files, including overview, map and queue versions.
+- Actions actually observed, retrieval failures and incomplete work.
 
-Keep researcher decisions in decisions.md. Do not turn the agent's report of a check into a record of a human check.
+Keep your decisions in decisions.md. An agent's report that it checked a passage does not record a human check.

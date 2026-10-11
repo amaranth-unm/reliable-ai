@@ -6,8 +6,8 @@ date: 2026-10-21
 time: "12:00–12:50"
 location: History Commons (MVH 1104)
 kicker: Session 3 · October 21, 2026
-summary: "Explore a research question with an AI agent, then trace its claims through sources, reading notes, checks and your decisions."
-note: "Bring a laptop and a research question, or use the example on this page."
+summary: "Read into a topic with an AI agent, map the articles’ ideas and relationships, and keep a record of what you checked and chose to read next."
+note: "Bring a laptop and a topic to explore, or use the example on this page. No Zotero or Obsidian setup is needed."
 published: false
 thumbnail: "/assets/images/stradanus-press-1600.jpg"
 header-image: "/assets/images/stradanus-press-1600.jpg"
@@ -16,7 +16,7 @@ header-filter: etching
 header-position: center right
 header-opacity: 0.18
 header-title: Audit Trails for AI Agents
-header-subtitle: "An agent can move quickly from a question to a convincing summary. Keep enough evidence to explain how it got there, what you checked and why you changed it."
+header-subtitle: "An agent can help you find your way into a body of writing. Keep the articles, interpretations and reading choices together so you can check and revise the map."
 header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from <i>Nova Reperta</i>, engraved by Joannes Galle. Museum Plantin-Moretus, public domain."
 tags: [research, agents, audit trails]
 workshop_mode: true
@@ -34,39 +34,45 @@ Work down this page during the session or return to it later: the prompts, sourc
 {: .lead}
 
 <div class="rule" markdown="1">
-**Keep the evidence behind the answer.**
+**Keep the route from article to interpretation.**
 </div>
 
 ## Introduction
 {: .step #introduction}
 
-### Why a research sprint is the place to start
+### Why reading into a topic is the place to start
 
-Start with a topic you want to explore, and ask an agent to find sources and
-write a short synthesis. You can get a useful orientation quickly. But reading
-the synthesis alone won't tell you whether it used whole articles or abstracts,
-why it chose those sources, or which claims you have checked.
+Start with a topic you want to understand. Ask an agent to find several
+articles, explain their arguments and suggest where to spend your reading
+time. That can give you an overview quickly. The useful result is a map you
+can question: which ideas belong to which authors, where the articles meet
+or pull apart, and what you want to follow next.
 
-**An audit trail makes those choices available for someone else to follow.**
-Keep the question and search boundaries, the sources actually accessed, the
-reading notes, and the corrections that changed the result. A saved chat can
-help, but a reader should be able to trace a consequential claim without
-working through your entire conversation.
+**Theoretical arguments and ways of framing a problem are part of what you
+are reading for.** A source can matter because it changes your question,
+introduces a distinction or gives you another way to interpret AI. Record
+what kind of work it does and why that matters to your inquiry.
+
+An audit trail keeps those interpretations available for someone else to
+follow. Save the search boundaries, the material actually accessed, the
+notes, and the reasons you changed a summary or a reading recommendation.
+A saved chat can help, but a colleague should be able to follow one important
+connection without reading your whole conversation.
 
 This continues the [editing session's work with a saved style guide]({{ site.baseurl }}/sessions/editorial-assistant#step-5).
 There, you taught the assistant how to read your writing. Here, you give it a
-reading procedure and require records that let you check its use of sources.
+reading procedure and check how it represents other people's arguments.
 
 ### What you're working with
 
-- A tool with search and file access can carry out several steps from one
-  instruction. Check what your tool can do before delegating the task. (Step 2)
-- A source link can lead to metadata, an abstract or a full text. Each gives
-  you a different basis for a claim. (Step 3)
-- Another agent can challenge the first one's summary. Its criticism also
-  needs checking against the original. (Step 4)
-- Files can preserve a correction across conversations, including the reason
-  you accepted or rejected it. (Step 5)
+- A tool with search and file access can gather articles and keep a source
+  register. Check what it can access and save. (Step 2)
+- An agent can compare several texts and recommend a reading order. Ask for
+  the grounds of each connection and recommendation. (Step 3)
+- Another agent can challenge the overview, but its interpretations also need
+  checking against the original articles. (Step 4)
+- Files keep your corrections and decisions available across conversations.
+  The same notes can later feed a visual map or citation manager. (Step 5)
 
 An agent is a way of working: you delegate a bounded task and it chooses
 intermediate actions using the tools available. A browser chat can support
@@ -76,12 +82,12 @@ write files, save its outputs yourself using the same filenames.
 ### Before you start
 
 - **A laptop and an AI assistant**, with web search available. The presenter
-  demonstrates an agent working with a folder and text editor; you can use
-  a browser chat and save the replies into files.
-- **A narrow research question**, or the question below.
-- **A folder for this exercise**, and a text editor that opens `.md` or `.txt`
-  files. Zotero is useful for collecting citations, but you can complete the
-  exercise with the source register provided here.
+  demonstrates a folder and text editor; you can save replies from a browser
+  chat into files.
+- **A topic you want to explore**, or the question below.
+- **A folder for the exercise**, and a text editor that opens `.md` or `.txt`
+  files. Everything you need for the main exercise is plain text. Obsidian
+  and Zotero appear only in optional presenter demos at the end.
 
 <div class="reminder" markdown="1">
 Use sources and research materials you have permission to share, such as the public articles linked below or your own notes.
@@ -89,66 +95,65 @@ Use sources and research materials you have permission to share, such as the pub
 
 ### The question we'll use
 
-> What do humanities methods contribute to evaluating AI, and what evidence
-> supports those contributions?
+> How do arts and humanities perspectives help us think about AI?
 
-Keep this question through the whole exercise. It lets you separate proposals
-about what the humanities could contribute from studies that demonstrate an
-effect. Both can matter, but they support different claims.
+Choose an interest within that topic: ethical concepts, historical framing,
+creative practice, or something from your own field. Keep it in `brief.md`.
+It gives you a reason to prefer one reading route over another. You are
+getting oriented in a body of writing and deciding what deserves closer
+attention.
 
-**About the examples on this page.** The workspace and before-and-after
-synthesis are prepared teaching examples, checked against the linked original
-essays on October 11, 2026. The first synthesis deliberately overstates the
-evidence. They are not transcripts of an agent run or measurements of its
-performance. Your live runs produce a separate record; keep the tool, date,
-exact instructions and replies you actually used.
+**About the examples on this page.** The workspace and comparisons are
+prepared teaching examples, checked against three linked original essays on
+October 11, 2026. The first overview deliberately flattens a difference
+between authors, and its reading recommendation follows that mistake. These
+are not transcripts of an agent run. Keep the tool, date, instructions and
+replies from your own live exercise as a separate record.
 
-## 1. Start with a summary you would want to use
+## 1. Start with an overview you would want to use
 {: .step #step-1}
 
-Send the question as a reasonable first request. Save the reply as
-`baseline.md`, including any citations and the date.
+Send the question as a reasonable first request. Save the complete reply as
+`baseline.md`, including its citations and the date.
 
 {% include prompt.html id="audit-baseline" %}
 
-**Prepared example:** “Humanities methods improve AI evaluation. Two independent
-essays demonstrate that historical and ethical analysis produces fairer
-systems.”
+**Prepared example:** “The three essays offer the same framework: pluralism,
+procedures and participation. Powell repeats Tasioulas, so read her last.”
 
-The sentence sounds useful, and it appears to have sources. Before you carry
-it into a literature review, ask what you would need to check.
+This gives you an apparent overview and an efficient reading order. Before
+you follow it, look at what you would need to check.
 
-- Does “improve” describe a measured result or a proposed contribution?
-- What makes the sources independent?
-- Did the assistant read the articles, or find descriptions of them?
-- Where would you go to verify the sentence?
+- Who actually sets out that framework?
+- Does “repeats” describe the relationship between the texts?
+- Which passages explain the recommendation to read Powell last?
+- Would a different interest change the reading order?
 
-The later steps return to this sentence. Keep your own first reply too:
-choose one consequential claim and see whether the records you make allow
-another person to check it.
+Keep your own first reply too. Choose one connection or recommendation whose
+accuracy would change where you spend your reading time.
 
 <div class="keypoint" markdown="1">
-Save the first synthesis before you improve the instructions. Pick one claim whose wording would matter if you cited it.
+Save the first overview. Pick one interpretation or reading recommendation to follow back to the articles.
 </div>
 
 ## 2. Set the search boundaries and open a workspace
 {: .step #step-2}
 
-Write a brief before the agent searches. Choose a date range, source types and
-languages, then say what makes a source relevant. Keep the question open
-enough that a source can complicate your initial expectation.
+Write a brief before the agent searches. Choose a date range, source types,
+languages and a particular interest within the topic. Say what would make an
+article worth including.
 
 {% include prompt.html id="audit-retrieve" %}
 
-Give the search eight minutes. Find up to five candidates and choose two
-accessible texts to read. A blocked or paywalled source stays in the register
-as a lead; record what you could access and move on. **Availability shapes
-your corpus, so keep the access limitation alongside the source.**
+Give retrieval eight minutes. Find up to five candidates and choose three
+accessible articles for an initial reading. A blocked or paywalled source
+stays in the register as a lead; record what you could access and move on.
+Use the backup set in step 3 if finding readable texts takes over the exercise.
 
-Compare one search choice with another pair. Restricting the search to
-peer-reviewed research may miss useful conceptual essays. Restricting it to
-freely accessible English texts may exclude relevant scholarship. Neither
-choice is automatically wrong; both limit what you can claim afterwards.
+Compare one search choice with another pair. A search for historical framing
+may produce a different starting set from a search for ethical concepts.
+Restricting source types or languages also changes what you can see.
+**Save the choice that shaped the set, as well as the articles it produced.**
 
 ### Give each part of the work a home
 
@@ -165,153 +170,175 @@ humanities-ai/
   notes/
     S01-tasioulas.md
     S02-vallor.md
+    S03-powell.md
   synthesis-v1.md
+  idea-map-v1.md
+  reading-queue-v1.md
   checks.md
   decisions.md
   synthesis-v2.md
+  idea-map-v2.md
+  reading-queue-v2.md
   methods.md
 ```
 
-Put citations in Zotero if you already use it. Keep stable IDs such as `S01`
-in your notes and claim checks so you can follow the source across files.
-Finding a source, saving its citation and reading it are separate events.
+Use stable IDs such as `S01` to follow an article across the source register,
+notes, comparisons and corrections. You can transfer the citations to Zotero
+later; collecting them need not interrupt the reading exercise.
 
 {% include audit-workspace.html %}
 
 The browser view shows the same prepared files as the download. Select a
-stage, then a file. It is a way to read a saved example, not a live display
-of an agent's activity. During the session, open your actual folder beside
-the agent and watch which files it creates.
+stage, then a file. During the session, open your actual folder beside the
+agent and watch which files it creates. The viewer displays saved examples.
 
 <div class="keypoint" markdown="1">
-Ask the agent to record the searches it actually ran, its inclusion decisions and how much of each source it could access.
+Ask the agent to record the searches it actually ran, its selection reasons and how much of each article it could access.
 </div>
 
-## 3. Read two sources with a procedure you can check
+## 3. Compare the articles and choose a reading route
 {: .step #step-3}
 
-Open the original articles before relying on the notes. The backup pair is
-[John Tasioulas's essay](https://www.adalovelaceinstitute.org/blog/role-arts-humanities-thinking-artificial-intelligence-ai/)
-and [Shannon Vallor's response](https://www.adalovelaceinstitute.org/blog/mobilising-intellectual-resources-arts-humanities/).
-Both are accessible on the Ada Lovelace Institute's website. Record that you
-used the backup pair if retrieval brought you here.
+Open the articles before relying on the notes. The backup set is three
+linked essays from one Ada Lovelace Institute series:
 
-Read `reading-protocol.md` and change one rule to suit your discipline. Then
-give the agent the original text, the brief and the procedure.
+- [John Tasioulas: The role of the arts and humanities in thinking about artificial intelligence](https://www.adalovelaceinstitute.org/blog/role-arts-humanities-thinking-artificial-intelligence-ai/).
+- [Shannon Vallor: Mobilising the intellectual resources of the arts and humanities](https://www.adalovelaceinstitute.org/blog/mobilising-intellectual-resources-arts-humanities/).
+- [Alison Powell: Otherwises, and the contribution of the arts and humanities to ethical AI](https://www.adalovelaceinstitute.org/blog/otherwises-contribution-arts-humanities-ethical-ai/).
+
+They let you follow a small conversation with differences inside it. Record
+that you used this backup set. It gives you an entry point into the topic;
+a broader search would need other venues, traditions and positions.
+
+Read `reading-protocol.md` and change one rule to suit your discipline. Give
+the agent the articles, the brief and the procedure. Ask for short orientation
+notes, then read one important passage yourself.
 
 {% include prompt.html id="audit-read" %}
 
-**Prepared note, S01:** The source is a conceptual essay. In the section on
-procedures, Tasioulas argues that the process of making an AI-assisted
-decision matters alongside its outcome. That supports a claim about what
-evaluation should consider; it does not measure whether a humanities
-intervention makes a system fairer.
+### Get an overview that preserves differences
 
-Go to the named section and decide whether the note preserves the author's
-argument. On a web page, use a heading and a short identifying phrase. In a
-PDF, record the printed page and the PDF page if they differ. A quotation
-helps you find the evidence; you still have to judge what it supports.
-
-Read the second note beside the second article. Vallor's opening explicitly
-responds to Tasioulas. **Two source records do not establish two independent
-lines of evidence.** Add that relationship to the register before writing
-the synthesis.
-
-Use the two notes to write a short synthesis of the same question. Save this
-as `synthesis-v1.md`, and preserve `baseline.md` as your initial orientation.
-The sourced draft is the one you give the checker in step 4. Compare it with
-your baseline: which claims changed once you knew what the sources contained?
+Ask the agent to compare the articles from their notes and the original
+texts. Save an overview, an idea map and a reading queue as separate files.
 
 {% include prompt.html id="audit-synthesize" %}
 
+**Prepared comparison:**
+
+| Article | A focus to follow | Relationship to check |
+|---|---|---|
+| S01 · Tasioulas | Choice, plural values and participation | Sets out the three Ps; start at the named section. |
+| S02 · Vallor | Historical framing and technological imagination | Responds to S01; read the opening and the paragraph beginning “The desire to keep an ahistorical frame”. |
+| S03 · Powell | Creative possibilities and situated practices | Responds to both; “Ethics and practice” reframes procedures as practices. |
+
+A useful overview carries the distinctions into its prose. It should help
+you explain what each author adds. Read the comparison beside the articles:
+does it make a useful distinction, or turn a passing example into the
+article's central claim?
+
+### Make the connections explainable
+
+Use `idea-map-v1.md` to connect source IDs with themes and with one another.
+For each connection, name the relationship and its basis. A direct response
+is different from a thematic connection that you infer as a reader.
+
+**Prepared connection:** S03 → S01: reframes “procedures” as “practices”.
+The basis is Powell's “Ethics and practice” section. You can go to that
+passage and decide whether “reframes” captures the move.
+
+Do the same for a connection in your own set. Keep an uncertain relationship
+marked as a question. The map can include an interesting tension without
+turning it into a direct disagreement or claiming one author cited another.
+
+### Ask what deserves your next twenty minutes
+
+Use `reading-queue-v1.md` to recommend an order for *your* inquiry. Each entry
+should give the reading goal, the relevant passage, why it adds something,
+and how much text was available for the recommendation. A rating such as
+“9/10 relevance” hides those decisions.
+
+**Prepared reading routes:**
+
+| Your interest | Spend more time on | Why this is a useful next reading |
+|---|---|---|
+| Ethical concepts | S01, the three Ps section | Follow how the framework separates values, decision processes and participation. |
+| Historical framing | S02, the ahistorical-framing passage | Follow how history changes the questions asked about technology. |
+| Creative practice | S03, “Ethics and practice” | Follow the difference between following a procedure and observing situated practice. |
+
+These recommendations depend on the question you brought. An article can
+be worth reading because it complicates the others or takes your interest in
+a new direction. Ask the agent how the order would change if you changed
+your interest. If it only saw an abstract, keep its recommendation provisional.
+
 ### Keep the procedure in plain text
 
-A short file is enough to specify how to read: distinguish access levels,
-state the source's own argument, identify evidence locations, and separate
-interpretation from what the source says. Bring it into each new conversation
-and check one note against it.
+A short file is enough to specify how to read: state access levels, preserve
+the author's argument, give passage locations, and separate interpretation
+from what the source says. Bring it into each new conversation and check a
+note against it.
 
-A skill packages a reusable procedure, usually with a name, instructions
-about when to use it, and optional templates or scripts. You can turn this
-file into a skill once you know which rules help. Keeping a version of the
-procedure with this project's notes lets a later reader see which rules you
-used, even if your installed skill changes.
-
-Now use the same procedure on one source for your own question. Check whether
-it captures the kind of intervention that matters in your field, rather than
-only extracting passages that support your argument.
+A skill can package this procedure for reuse. Start with the text file and
+revise the instructions when you see what they miss. Keep its version with
+the notes so a later reader can see how you asked the agent to read.
 
 <div class="keypoint" markdown="1">
-Require every note to state what was accessed and give a location for each claim you might carry into the synthesis.
+Ask for the passage and reading goal behind every important connection or recommendation. Check one against the original text.
 </div>
 
-## 4. Check the claim and challenge the checker
+## 4. Check a connection and challenge the checker
 {: .step #step-4}
 
-Give another agent the original sources, reading notes, brief and first
-synthesis. Use a fresh conversation where possible and require it to open
-the originals. Save its reply as `checks.md` with the tool and date.
+Give another agent the original articles, brief, notes, overview, map and
+reading queue. Use a fresh conversation where possible. Save its findings
+in `checks.md` with the tool and date.
 
 {% include prompt.html id="audit-check" %}
 
-### Follow one correction back to the source
+### Follow one correction back to the article
 
-Return to the prepared sentence from step 1. The word “demonstrate” would
-require evidence these essays do not provide. The articles make arguments
-about AI ethics; they do not report a comparative trial of system fairness.
-The source relationship also needs correcting: Vallor directly discusses
-Tasioulas's essay.
+Return to the prepared sentence from step 1. Tasioulas sets out the three Ps.
+Powell's “Ethics and practice” section explicitly nuances that framing by
+recasting procedures as practices. Describing this as repetition misses a
+reason you might want to read her closely.
 
 **Prepared check:**
 
-| Draft wording | Evidence to check | Proposed action |
+| Draft wording | Passage to check | Proposed action |
 |---|---|---|
-| “demonstrate … fairer systems” | The sources' argument and evidence type | Replace the claim of demonstrated effects with a description of proposed contributions. |
-| “Two independent essays” | S02's opening response to S01 | Describe the relationship and limit the claim of corroboration. |
+| “The three essays offer the same framework” | S01's three Ps section; S03's “Ethics and practice” | Attribute the framework to S01 and preserve S03's reframing. |
+| “Powell repeats Tasioulas, so read her last” | S03's distinction between procedures and practices | Change the map connection and explain when S03 is worth closer reading. |
 
-Read the actual passages before accepting either criticism. A checker that
-says “unsupported” without a location or an explanation leaves you with
-another assertion. Ask what evidence would support the stronger wording and
-whether the source contains it. Record an unresolved judgment when you
-cannot decide.
+Read the passages before accepting the criticism. Ask whether the proposed
+correction preserves the authors' arguments and whether its reading
+recommendation fits your interest. An interpretation can be defensible
+without being the only possible reading; record what you remain unsure about.
 
 ### Check a criticism you might reject
 
-**Prepared suggestion from a checker:** “Remove the essays because they
-contain no experiment.”
+**Prepared suggestion from a checker:** “These are linked essays in one
+series. Merge them into one note and drop the later readings as duplicates.”
 
-The brief permits conceptual essays. They help answer what humanities
-methods could contribute, even though they do not establish a measured
-effect. Keep them for that purpose and narrow the synthesis. Rejecting the
-suggestion is a research decision worth saving: it explains why a source
-remained in the corpus after a challenge.
+Their relationship belongs in the register and the map. It also makes them
+useful to read together: the later essays shift the emphasis and develop the
+conversation. You might keep separate notes so those moves remain visible.
+Record why you accept or reject the suggestion.
 
-Run this comparison on the claim you selected from your own first reply.
-Look for a correction you accept and one that needs more work. The checker
-may find an error, overstate its objection, or simply lack context. Give its
-claims the same scrutiny as the first agent's claims.
+Check the records too. Does every cited article have a note? Do access
+statuses match what was read? Can you locate the basis for a map connection?
+Does the queue silently drop an article because it is difficult to access?
 
-### Check the records as well as the argument
-
-Ask whether each cited source has a note, whether the access statuses agree
-with what was read, and whether the synthesis cites the current notes. This
-is a different check from asking whether a passage supports a claim. A
-missing source note can survive an otherwise careful argument review.
-
-Separate agent conversations can reduce the influence of the first draft's
-framing, but they can share assumptions and blind spots. Read at least one
-consequential passage yourself. Agent agreement is a reason to look at the
-evidence, and your decision follows that reading.
+Separate agents can share assumptions. Read at least one important passage
+yourself and judge both the overview and the checker's reading against it.
 
 <div class="keypoint" markdown="1">
-Require a checker to name the claim, locate the evidence and propose an action. Check those three things before recording its finding as a correction.
+Check a proposed correction against the article and your reading goal before treating it as a decision.
 </div>
 
-## 5. Record your decision and hand over the folder
+## 5. Record your decisions and keep the reading route
 {: .step #step-5}
 
-Decide which findings hold up, then add an entry to `decisions.md` before
-revising the synthesis. Keep the first draft intact.
+Decide which findings hold up, then add your reasons to `decisions.md`.
+Preserve the first overview, map and queue when you create revised versions.
 
 {% include prompt.html id="audit-revise" %}
 
@@ -319,66 +346,84 @@ revising the synthesis. Keep the first draft intact.
 
 | Decision | Reason | Consequence |
 |---|---|---|
-| Accept the objection to “demonstrate” | Neither essay measures a fairness improvement | Describe proposed contributions in v2. |
-| Accept the objection to “independent” | S02 explicitly responds to S01 | State the source relationship. |
-| Reject automatic exclusion of conceptual essays | The brief includes arguments about evaluation | Keep both, with their evidence type visible. |
+| Accept the objection to “same framework” | S03 explicitly reframes S01's procedures | Show distinct contributions in the overview and map. |
+| Revise the recommendation to read Powell last | Her discussion fits an interest in creative practice | Name that reading goal and the relevant section in the queue. |
+| Reject merging the essays as duplicates | Their different moves are useful to compare | Keep three notes and record their relationship. |
 
 An agent can prepare this table from your comments. **You supply the
-decision.** If it proposes a disposition you have not made, label it pending
-rather than recording that you accepted it. Include who decided and when in
-your own file.
+decision.** Proposed changes stay pending until you decide; record who decided
+and when.
 
-**Prepared revision:** “These linked conceptual essays propose ways humanities
-can broaden AI evaluation. They do not establish a measured improvement in
-system fairness. Further research is needed to test that effect.”
+**Prepared revision:** “These essays form a conversation about humanities
+and AI. Tasioulas offers a framework that Powell reframes through practice;
+Vallor foregrounds history and imagination. Follow the differences when
+choosing your next reading.”
 
-The revision carries less certainty, but the folder makes its basis easier
-to judge. Open v1 and v2 side by side. You can see which words changed, and
-`checks.md` and `decisions.md` explain why.
+Open both versions beside `checks.md` and `decisions.md`. The record should
+explain changes to your overview, your connections and your reading order.
+Append new corrections to the log and keep the current reading route in the
+latest files. This follows the CHM project's use of process notes alongside
+a separate account of current conclusions and open work.
 
-### Keep the history and the current conclusion separate
+### Give someone else a few minutes
 
-Append corrections to the chronological record. Put the current conclusion
-and open questions in v2 or a short state file. If a later source changes
-your view, add the new finding and update the current conclusion; preserve
-the earlier entry so someone can follow the change.
+Exchange folders. Ask a partner to trace one connection to an article and
+explain one reading recommendation from your records alone. Add the passage,
+link or reason they needed and could not find.
 
-This follows the division used in the CHM research project: source notes,
-argument checks and a methods log preserved the research process, while a
-separate process-state file held the current conclusions and open work.
-For today's small exercise, `decisions.md` and `synthesis-v2.md` do those jobs.
+Keep a short `methods.md` with the actual search choices, sources accessed,
+tool and procedure used, checks completed, human decisions and open work.
+For peer review, consider how this would help a reader assess an AI-assisted
+interpretation. Procedural evidence can make a judgment easier to examine;
+the reviewer still needs to judge the reading and argument.
 
-### Give someone else five minutes
+### Optional closing demo: open the notes in Obsidian
 
-Exchange folders. Ask your partner to trace one revised claim to the original
-source and explain one accepted or rejected correction without asking you
-what happened. Note where they get stuck. That tells you which link or
-decision your records still need.
+The presenter can open the downloaded `humanities-ai` folder as an Obsidian
+vault. Start with `idea-map-v2.md`, follow a link into a source note, and open
+its local graph. The prepared notes also link to a few idea notes in `ideas/`.
+No plugins are needed for this demonstration.
 
-Add a short `methods.md` stating the question, search limits, sources read,
-tool and procedure used, checks completed, human decisions and unresolved
-issues. An exploratory sprint should say how small and selective it was.
-Keep raw replies when useful, but make the consequential evidence easy to find.
+Obsidian's [graph view](https://help.obsidian.md/Plugins/Graph+view) draws
+connections from links between notes. **Keep the relationship in the text
+beside the link.** The graph shows that you connected two notes; their text
+explains whether you mean a direct response, a shared theme or a provisional
+interpretation. Click a connection's source note and show its passage location.
 
-For peer review, consider what this folder adds to an AI-use disclosure. A
-reviewer could follow a claim and assess the correction; they still need to
-judge the source and argument. Treat procedural evidence as a proposed way
-to support that judgment, rather than a universal publication requirement.
+{% include prompt.html id="audit-obsidian" %}
+
+The same Markdown files remain usable in a text editor. Participants do not
+need to install Obsidian during the workshop.
+
+### Optional closing demo: import the citations into Zotero
+
+The presenter can ask the agent to make `library.ris` from the verified source
+register, then demonstrate **File → Import → A file** in Zotero. Compare one
+imported item's author, title, date and URL with the original article. Zotero
+[accepts RIS and other standard formats](https://www.zotero.org/support/kb/importing_standardized_formats).
+
+{% include prompt.html id="audit-zotero" %}
+
+A [prepared three-item RIS file]({{ site.baseurl }}/assets/audit-trails/humanities-ai/library.ris)
+is included in the workspace so the demo can continue if live generation
+fails. It imports citation records into a collection. The separate Markdown
+files keep the reading notes, connections and decisions; this citation export
+does not bundle the article texts or the audit trail.
 
 <div class="keypoint" markdown="1">
-Give a colleague your files and ask them to explain one revision from the records alone. Add what they needed and could not find.
+Keep the reasons behind a revised interpretation or reading choice. A colleague should be able to follow the change from your files.
 </div>
 
 ## What to take with you
 {: .step #takeaways}
 
 <div class="takeaways" markdown="1">
-Use these habits in your next research project:
+Use these habits in your next reading project:
 
-- **Save the research boundaries.** Keep the question, search parameters and inclusion decisions beside the results.
-- **Distinguish finding from reading.** Record what you could access before using a source to support a claim.
-- **Give notes a procedure.** Preserve the author's argument and the locations that let someone check your interpretation.
-- **Check the checker.** Follow consequential criticisms back to the original evidence, including suggestions you reject.
-- **Preserve your decisions.** Keep earlier versions and explain why the current conclusion changed.
-- **Test the handoff.** Another reader should be able to trace a claim and a correction without your narration.
+- **Save the search choices.** Keep your interest and selection boundaries beside the articles.
+- **State what was read.** Distinguish metadata, abstracts and full texts in the notes and recommendations.
+- **Preserve different arguments.** Check what each author adds before combining them into an overview.
+- **Explain the connections.** Name the relationship and the passage behind a link in your map.
+- **Give a reason to read next.** Tie recommendations to your inquiry and keep uncertainty visible.
+- **Keep your corrections.** Save earlier versions and the reasons your interpretation or reading route changed.
 </div>

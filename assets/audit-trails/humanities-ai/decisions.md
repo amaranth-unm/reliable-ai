@@ -1,19 +1,19 @@
 # Decision log · prepared example
 
-All decisions below are illustrative. They are not approvals from the workshop organizer or a record of live participant decisions.
+Illustrative decisions, not approvals or a record of live participant decisions.
 
 D01 · 2026-10-11 · Example researcher · ACCEPT C01.
-Reason: a proposed contribution does not establish a measured improvement.
-Change: remove the claim of demonstrated fairness effects from synthesis-v2.md.
+Reason: S03 explicitly reframes S01's procedures as practices.
+Change: preserve that difference in synthesis-v2.md and idea-map-v2.md.
 
-D02 · 2026-10-11 · Example researcher · ACCEPT C02.
-Reason: S02 responds to S01. The relationship limits corroboration.
-Change: describe the pair as linked conceptual essays.
+D02 · 2026-10-11 · Example researcher · REVISE the reading recommendation in C02.
+Reason: S03 directly serves our creative-practice interest; read it with S01 for comparison.
+Change: reading-queue-v2.md names the goal, section and reason. Different interests can produce different routes.
 
-D03 · 2026-10-11 · Example researcher · REJECT automatic exclusion in C03.
-Reason: conceptual essays answer part of our question and meet the stated inclusion criterion.
-Change: retain both; state what their evidence cannot show.
+D03 · 2026-10-11 · Example researcher · REJECT merging the essays as duplicates in C03.
+Reason: their distinct moves are useful to compare.
+Change: keep separate notes and record explicit responses in the map.
 
-Open: seek evidence from other author networks and venues, including studies of actual evaluation practice. Do not pretend this has already been done.
+Open: broaden beyond this English-language series and publisher. Reconsider the route if the interest changes. No further retrieval is claimed.
 
-For a live run, record your actual decision, reason, date, affected claim and version. An agent's proposed decision stays PENDING until you decide.
+For your live run record the actual decision, reason, date, affected item and version. An agent's proposed decision stays pending until you decide.

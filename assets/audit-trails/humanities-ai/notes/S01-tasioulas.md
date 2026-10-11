@@ -1,10 +1,14 @@
-# S01 reading note · prepared example
+# S01 · Tasioulas · prepared reading note
 
 Original: https://www.adalovelaceinstitute.org/blog/role-arts-humanities-thinking-artificial-intelligence-ai/
-Access and citation: sources.md. Procedure: reading-protocol.md v1.
+Citation and access: [source register](../sources.md). Procedure: reading-protocol.md v2.
 
-Author's argument: AI evaluation should consider values and decision procedures alongside outcomes.
-Evidence type: conceptual argument and illustrative examples.
-Location: “The three Ps – Pluralism, Procedures and Participation,” item 2; paragraph beginning “The COVID-19 pandemic”.
-Limit: this is not a comparative test of a humanities intervention's effect on system fairness.
-Use: describe a proposed contribution to evaluation. Do not cite it as a measured effect.
+Argument: humanities help frame AI as a matter of human choice and ethical judgment. The three Ps distinguish pluralism, procedures and participation.
+Approach: philosophical argument with examples.
+Closer reading: “Choice”; “The three Ps – Pluralism, Procedures and Participation,” especially item 2 on procedures.
+Use: start here for the framework, then compare Powell's reframing.
+Limit: this is one account within our small series, not the field's agreed framework.
+
+Links:
+- [Choice and power](../ideas/choice-and-power.md): our theme connects S01's “Choice” section with S02's critique of inevitability.
+- [Practice and power](../ideas/practice-and-power.md): compare item 2 with [S03](S03-powell.md), “Ethics and practice”. S03 explicitly reframes procedures as practices.
