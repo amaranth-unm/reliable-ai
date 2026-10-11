@@ -1,0 +1,46 @@
+.audit-workspace {
+  margin: 1.5rem 0;
+  padding: 1.1rem;
+  min-width: 0;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+}
+.audit-workspace [hidden] { display: none !important; }
+.audit-workspace-label { font-family: var(--font-heading); font-weight: 600; }
+.audit-stages { display: flex; flex-wrap: wrap; gap: .45rem; margin: .8rem 0; }
+.audit-workspace button {
+  font: inherit;
+  color: var(--text-body);
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: .4rem .65rem;
+  cursor: pointer;
+  text-align: left;
+}
+.audit-workspace button[aria-pressed="true"] {
+  border-color: var(--accent-primary);
+  box-shadow: inset 3px 0 var(--accent-primary);
+  font-weight: 600;
+}
+.audit-workspace button:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 3px; }
+.audit-stage-note, .audit-workspace-foot { font-size: .9rem; color: var(--text-muted); }
+.audit-workspace-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+.audit-files { display: none; }
+.is-enhanced .audit-files { display: flex; flex-wrap: wrap; align-content: start; gap: .4rem; }
+.audit-files button { font-family: var(--font-mono); font-size: .8rem; overflow-wrap: anywhere; }
+.audit-file-panel { min-width: 0; }
+.audit-file-panel summary { font-family: var(--font-mono); font-weight: 600; cursor: pointer; overflow-wrap: anywhere; }
+.audit-file-panel pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 1rem; font-size: .85rem; line-height: 1.55; }
+.audit-file-panel code { padding: 0; background: transparent; color: inherit; }
+.audit-file-download { display: inline-block; font-size: .85rem; margin: .5rem 0; }
+.audit-workspace-foot { margin-top: 1rem; }
+@media (min-width: 900px) {
+  .is-enhanced .audit-workspace-grid { grid-template-columns: minmax(140px, 1fr) minmax(0, 2.6fr); }
+  .is-enhanced .audit-files { display: flex; flex-direction: column; flex-wrap: nowrap; }
+}
+@media print {
+  .audit-workspace .audit-file-panel[hidden] { display: block !important; }
+  .audit-files, .audit-stages, .audit-file-download { display: none !important; }
+}

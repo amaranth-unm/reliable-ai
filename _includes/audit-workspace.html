@@ -1,0 +1,32 @@
+{% assign workspace = site.data.audit_workspace %}
+{::nomarkdown}
+<section class="audit-workspace" id="workspace" aria-label="Prepared research workspace">
+  <p class="audit-workspace-label">{{ workspace.label | escape }}</p>
+  <div class="audit-stages" role="group" aria-label="Choose a research stage">
+    {% for stage in workspace.stages %}
+    <button type="button" data-audit-stage="{{ stage.id }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">{{ stage.label | escape }}</button>
+    {% endfor %}
+  </div>
+  {% for stage in workspace.stages %}
+  <p class="audit-stage-note" data-stage-note="{{ stage.id }}"{% unless forloop.first %} hidden{% endunless %}>{{ stage.note | escape }}</p>
+  {% endfor %}
+  <div class="audit-workspace-grid">
+    <nav class="audit-files" aria-label="Example files">
+      {% for file in workspace.files %}
+      <button type="button" data-audit-file="{{ file.id }}" data-created="{{ file.stage }}" aria-controls="{{ file.id }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">{{ file.path | escape }}</button>
+      {% endfor %}
+    </nav>
+    <div class="audit-file-panels">
+      {% for file in workspace.files %}
+      <details class="audit-file-panel" id="{{ file.id }}" data-file-panel="{{ file.id }}"{% if forloop.first %} open{% endif %}>
+        <summary>{{ file.path | escape }}</summary>
+        <a class="audit-file-download" href="{{ site.baseurl }}/assets/audit-trails/humanities-ai/{{ file.path }}" download>Download this file</a>
+        <pre><code>{{ file.content | escape }}</code></pre>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+  <p class="audit-workspace-foot">Prepared snapshots. Open the downloaded folder to work with the same texts in your own editor.</p>
+</section>
+<script src="{{ site.baseurl }}/assets/js/audit-workspace.js" defer></script>
+{:/nomarkdown}

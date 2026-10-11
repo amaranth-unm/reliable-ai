@@ -28,7 +28,7 @@
   a single image as content.
 {% endcomment %}
 
-{% assign items = include.items | sort: "position" %}
+{% assign items = include.items | where_exp: "item", "item.published != false" | sort: "position" %}
 {% assign heading_level = include.heading-level | default: 3 %}
 {% assign variant = include.variant | default: "mosaic" %}
 {% assign min_width = include.min-width | default: "180px" %}

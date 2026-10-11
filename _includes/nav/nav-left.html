@@ -11,7 +11,7 @@
     - Empty sections are skipped.
 {% endcomment %}
 
-{% assign sorted_pages = site.pages | sort: 'order' %}
+{% assign sorted_pages = site.pages | where_exp: 'p', 'p.published != false' | sort: 'order' %}
 
 {% if site.data.nav-sections.sections %}
   {% for section in site.data.nav-sections.sections %}

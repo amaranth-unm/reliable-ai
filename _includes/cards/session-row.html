@@ -15,7 +15,7 @@
 {% endcomment %}
 
 {% assign limit = include.limit | default: 3 %}
-{% assign rows = include.rows | slice: 0, limit %}
+{% assign rows = include.rows | where_exp: "row", "row.published != false" | slice: 0, limit %}
 
 {::nomarkdown}
 {% if include.rows and rows.size > 0 %}

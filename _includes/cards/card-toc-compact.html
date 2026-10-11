@@ -12,7 +12,7 @@
     - position: sort order
 {% endcomment %}
 
-{% assign rows = include.rows | sort: "position" %}
+{% assign rows = include.rows | where_exp: "row", "row.published != false" | sort: "position" %}
 
 {::nomarkdown}
 {% if include.rows and rows.size > 0 %}

@@ -120,7 +120,7 @@
 [
   {% assign first = true %}
   {% for page in site.pages %}
-    {% if page.geo %}
+    {% if page.geo and page.published != false %}
       {% unless first %},{% endunless %}
       {
         "title": {{ page.title | jsonify }},

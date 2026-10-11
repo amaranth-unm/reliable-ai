@@ -2,8 +2,9 @@
 
 How to write a session page for the Reliable AI brown bag series. Read this
 before starting one. `sessions/editorial-assistant.md` is the worked example
-and every rule below is drawn from it — when the two disagree, the page is
-probably right and this file needs updating.
+for the shared page structure and voice. When its conventions change, update
+this guide. Research-workspace and unlisted-preview notes extend that example
+for sessions that need them.
 
 Contributor notes only; excluded from the build in `_config.yml`.
 
@@ -25,7 +26,8 @@ will be dead by Friday. The page is the artefact; the hour is the occasion.
 ---
 title: AI as Editorial Assistant          # site-wide, appears in cards and <title>
 layout: base
-position: 1                               # order in the session card grid
+position: 1                               # order in the session list
+published: true                           # false keeps a direct-URL preview unlisted
 date: 2026-09-23
 kicker: Session 1 · September 23, 2026    # line above the title in the sessions list
 summary: "Treat AI as an eager but naive editor: …"   # the card blurb
@@ -44,6 +46,13 @@ workshop_mode: true
 different jobs and should not be the same sentence. The summary sells the
 session to someone scanning `sessions/`; the subtitle tells someone who has
 already arrived what the session is arguing.
+
+**`published: false` means an unlisted preview on this site.** `_config.yml`
+sets `unpublished: true` so Jekyll still builds the page. Session lookups,
+navigation components, search and the sitemap omit pages with this flag; the
+page also gets a `noindex, nofollow` robots tag. Missing `published` or
+`published: true` keeps the usual listed behavior. The URL remains accessible,
+so this flag is not access control. Check for manually written links as well.
 
 **`sessions/index.md` lists past sessions as `cards/card-toc.html` rows**,
 under the same next-session bar as the home page, not as a card grid — a series index is a table of contents, and a full-width row with
@@ -110,15 +119,13 @@ ends up on the left.
 
 ## The header carries the argument
 
-**Put the session's thesis in `header-subtitle`, not in the body.** It is the
+**Put the session's thesis in `header-subtitle`.** It is the
 one claim the whole hour turns on, and it belongs where someone landing on the
 page reads it before anything else — above the table of contents, above the
-housekeeping. From the worked example:
+housekeeping. The current worked example keeps it to two direct sentences:
 
-> Everything below is a way of teaching a reader what to look for. None of it
-> is a way of getting something written. That distinction is the whole
-> session, and it's also what makes this work defensible when a journal, a
-> department, or a student asks what the machine did.
+> Use AI as a reader whose comments you can check against your own text. Tell
+> it your editorial rules, then decide which comments are worth acting on.
 
 Three sentences is the ceiling. It renders in `--page-header-ink` — the text
 ink warmed toward the ochre shadow, so it belongs to the printed image it sits
@@ -150,10 +157,11 @@ and the takeaways, and nothing else.
 
 1. **`{% include nav/scrollspy-toc.html %}`** — first line of the body.
 2. **The orientation line**, with `{: .lead}`. Who the page is for and how to
-   use it. One sentence.
-3. **A `.rule` callout** carrying the session in four words — "AI reads. You
-   write." This is the thing people repeat afterwards. Write it last, once you
-   know what the session turned out to be about.
+   use it. One short paragraph; an optional presentation link can go here.
+3. **A `.rule` callout** carrying one actionable instruction. The current
+   example says “Teach AI how to read your work. You stay the writer and the
+   editor.” Keep it short; there is no four-word requirement. Write it last,
+   once you know what the session turned out to be about.
 4. **`### Why <this> is the place to start`** — why this topic and not a more
    obvious one. This is where you argue that the exercise is worth the hour.
 5. **`### What you're working with`** — three or four tool behaviours the
@@ -194,8 +202,8 @@ right and is always checkable.
 ## Steps
 
 ```markdown
-## 3. Turn corrections into rules
-{: .step #step-3}
+## 4. Turn corrections into rules
+{: .step #step-4}
 ```
 
 **Number them and make the heading a verb phrase.** "Start with the bad
@@ -209,7 +217,7 @@ page's main divisions stand apart from the `###` headings inside them, and sets
 any cross-page link point at, so keep the `#step-N` form.
 
 **Sub-steps are plain `###`**, no `.step`. Use them when a step has genuinely
-separate moves — step 3 has five, each one a rule about writing rules.
+separate moves — step 4 separates the moves involved in writing reusable rules.
 
 **Give each step one key point, at most.** It is the step's advice
 compressed into a tip the reader can use in their next conversation: a line
@@ -234,8 +242,8 @@ then send this and nothing else." The explanation goes after the prompt, once
 they have a result in front of them to look at.
 
 **Every step earns its place by producing something the next step uses.** Step
-1 produces the baseline; step 2 beats the baseline; step 3 harvests rules from
-what step 2 corrected. If a step could be cut without breaking the chain, cut
+1 produces the baseline; step 2 gives a reading you can check; step 3 compares
+reader roles; step 4 harvests rules from your corrections. If a step could be cut without breaking the chain, cut
 it.
 
 ## Show what came back
@@ -248,23 +256,48 @@ student reads it — and showed none of it. A reader who wasn't in the room had
 no way to tell whether any of it worked, which is the difference between a
 session that carries weight and one that reads as a prompting exercise.
 
-**Carry one text the whole way down.** Pick a specimen that looks finished —
+**Carry one running example through the main steps.** Pick a specimen that looks finished —
 `editorial-assistant` uses the AI-use policy from the practice texts — and
 show the same paragraph at every turn. The reader is then watching one thing
-change, not collecting techniques.
+change, not collecting techniques. An extension can introduce a second
+text when it needs a different scale or genre: the editorial session explicitly
+moves from the policy to the longer community archive report for its guide
+exercise. Name that change and explain what it lets the reader check.
 
-**Pair every strategy with a `demo.html` block.** Prompts live in
+**Pair each strategy with an output or a concrete comparison.** Recorded
+replies use `demo.html`. Prompts live in
 `_data/prompts.yml`, replies in `_data/demos.yml`, and the two render as
 deliberately different components: a prompt is dark, mono and copyable; a demo
 is paper, prose and read-only, with the tool and date in its header. An entry
 with empty `text` renders as a loud red unfilled slot, so a half-finished
 demonstration cannot ship looking finished.
 
-**Never write a demo's `text` from memory or imagination.** This is the one
+**Never invent a recorded demo's `text`.** This is the one
 rule on this page that has no exceptions. The entire series rests on the claim
 that the reader can check everything, and a plausible invented transcript
 destroys that for every other page too. Trimming a long reply is fine — mark
 the cut with […]. Reordering, tidying the grammar, or merging two runs is not.
+
+**Prepared examples are allowed when clearly labeled.** The current editorial
+session uses “Prepared example,” “Prepared observation” and “Prepared
+illustration” for teaching comparisons and fictional passages. Label them
+where they appear and explain their provenance once near the top. They show a
+comparison or desired form; they do not establish how an agent performed.
+Keep them out of the recorded-reply data in `_data/demos.yml`.
+
+**Match a recorded reply to the instructions actually used.** A revised prompt
+cannot inherit an earlier reply as evidence. The editorial page retains an
+archived baseline with its original request recorded, and its provenance note
+states that some replies came from a conversation with prior context. Save
+that context, the tool and date; distinguish a fresh run from an authoring run.
+
+**A research example can use files as its specimen.** In the audit-trails
+session, `_data/audit_workspace.json` holds labeled prepared file contents.
+`audit-workspace.html` displays them; `scripts/build-audit-workspace.py` writes
+the downloadable files and ZIP from the same data. Keep that single source
+so the browser view and download agree. State whether a display contains
+saved examples or live agent activity. A file viewer supplements the folder
+walkthrough; it does not prove an action occurred.
 
 **Date every demo, and re-run them before you teach the session again.**
 Models drift. A transcript that was true in September and is quietly false in
@@ -368,9 +401,11 @@ dates the page.
 
 ## Before publishing
 
-- Every prompt on the page resolves — a bad `id` renders nothing and fails
-  silently.
+- Every prompt on the page resolves; a bad `id` renders a visible warning.
+  Recorded demo IDs resolve too, and prepared examples are labeled.
 - `position` doesn't collide with an existing session.
+- An unlisted preview builds at its direct URL and has no incoming site links,
+  search entry or sitemap entry. Check both upcoming and past-session listings.
 - The step ids run `#step-1`…`#step-N` with no gaps, and `#takeaways` closes.
 - The header subtitle is three sentences or fewer and reads against the image.
 - The permission reminder is present in **Before you start**.

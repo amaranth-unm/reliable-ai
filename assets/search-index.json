@@ -1,10 +1,14 @@
 ---
 layout: null
+searchable: false
+sitemap: false
 ---
 [
-  {% assign pages_with_titles = site.pages | where_exp: "p", "p.title" %}
+  {% assign pages_with_titles = site.pages | where_exp: "p", "p.title" | where_exp: "p", "p.published != false" | where_exp: "p", "p.searchable != false" %}
+  {% assign first_entry = true %}
   {% for page in pages_with_titles %}
-    {% unless page.url contains '/assets/' or page.url contains '/search-index' or page.searchable == false %}
+    {% unless page.url contains '/assets/' or page.url contains '/search-index' %}
+    {% unless first_entry %},{% endunless %}
     {
       "title": {{ page.title | jsonify }},
       "url": "{{ site.baseurl }}{{ page.url }}",
@@ -12,7 +16,8 @@ layout: null
       "content": {{ page.content | strip_html | truncatewords: 200 | jsonify }},
       "tags": {{ page.tags | default: "" | jsonify }},
       "date": {{ page.date | date: "%Y-%m-%d" | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
+    }
+    {% assign first_entry = false %}
     {% endunless %}
   {% endfor %}
 ]

@@ -11,12 +11,16 @@ theme_css: rubric
 # every page, and a handful of pages doesn't need a search box.
 search: false
 
+# Build unlisted previews; all discovery paths filter published: false.
+unpublished: true
+
 plugins:
   - jekyll-sitemap
 
 exclude:
   - Dockerfile
   - SESSION-STYLE.md
+  - workshop-drafts
   - docker-compose.yaml
   - scripts
   - README.md

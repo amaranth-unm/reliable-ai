@@ -35,7 +35,7 @@ _includes/prompt.html       renders one prompt as a copyable block
 assets/css/prompt.css       prompt blocks, step headings, the .rule callout
 assets/js/prompt-copy.js    the copy buttons
 index.md                    series home
-sessions/                   one page per session; the card grid builds itself
+sessions/                   one page per session; the session lists build themselves
 practice-texts.md           invented paragraphs for people who didn't bring one
 ```
 
@@ -68,8 +68,30 @@ within a session page and make it clear which session an entry belongs to.
 2. Add that session's prompts to `_data/prompts.yml` with a new `session:` value,
    and render each one with `prompt.html` at the point in the page it's taught.
 
-The card grids on the home page and `/sessions` pick the page up automatically —
-nothing to register.
+The home page and `/sessions` pick the page up automatically; nothing to
+register. Add its date and slug to `_data/schedule.yml` for the semester list.
+
+### Unlisted previews
+
+Set `published: false` in a page's front matter to build a preview that is
+accessible at its usual URL and omitted from site listings, navigation,
+search and the sitemap. `_config.yml` keeps `unpublished: true` so GitHub
+Pages builds those files too; no custom plugin is needed. A robots tag asks
+search engines not to index the preview. This is visibility, not access control.
+
+Remove the flag or set `published: true` when the page is ready to be listed.
+Existing pages without the flag retain their normal behavior. Do not add
+manual links to a preview from another page. The schedule shows “Topic TBA”
+when its session points to an unlisted page.
+
+### Audit-trails example files
+
+Edit `_data/audit_workspace.json`, then run
+`python3 scripts/build-audit-workspace.py`. The browser viewer reads that data
+and the script regenerates `assets/audit-trails/humanities-ai/` and its ZIP.
+These are prepared teaching materials, not recorded agent replies. The
+presenter guide is in `workshop-drafts/audit-trails/presenter-guide.md`;
+`workshop-drafts/` is excluded from the public build.
 
 ### Presenting
 

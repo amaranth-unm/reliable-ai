@@ -13,7 +13,7 @@
 {% endcomment %}
 
 {% assign today = site.time | date: "%Y-%m-%d" %}
-{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" %}
+{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where_exp: "p", "p.published != false" %}
 
 {::nomarkdown}
 <ul class="schedule-list">
