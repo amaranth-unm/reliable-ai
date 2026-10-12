@@ -35,7 +35,7 @@ Tips and Recommendations
 
 </div>
 
-<div class="deck-decoration" markdown="0"><img class="deck-art" src="{{ '/assets/images/amman-typefounder-1568.jpg' | relative_url }}" alt="" aria-hidden="true"></div>
+<div class="deck-decoration" markdown="0"><img class="deck-art" src="{{ 'images/amman-typefounder-1568.jpg' | relative_url }}" alt="" aria-hidden="true"></div>
 
 <footer class="deck-source" aria-hidden="true"></footer>
 
@@ -275,7 +275,7 @@ An example using Claude Fable 5.1
 Sometimes the LLM produces quite impressive results, as with this classical Japanese handwriting on a silk handkerchief from the 1940s.
 
 <figure class="deck-figure" markdown="0">
-<img src="{{ '/assets/images/japanese-santa-fe-signatures.jpg' | relative_url }}" alt="Photograph of classical Japanese handwriting on a silk handkerchief from the 1940s.">
+<img src="{{ 'images/japanese-santa-fe-signatures.jpg' | relative_url }}" alt="Photograph of classical Japanese handwriting on a silk handkerchief from the 1940s.">
 <figcaption>Classical Japanese handwriting, silk handkerchief, 1940s</figcaption>
 </figure>
 
@@ -306,6 +306,9 @@ Checking the transcription
 
 <div class="deck-pair">
 
+Current recommendation
+{: .deck-label}
+
 <div markdown="0">
 <dl class="example-lines">
   <dt>Use Gemini as the first LLM</dt>
@@ -317,8 +320,6 @@ Checking the transcription
 </dl>
 </div>
 
-Current recommendation
-{: .deck-label}
 
 <div class="prompt" markdown="0">
   <div class="prompt-head">
@@ -326,10 +327,6 @@ Current recommendation
     <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
   </div>
   <pre class="prompt-text"><code>I am going to paste a transcription of the same image done by another LLM. Please look it over and use it to consider parts of the transcription that were ambiguous or difficult for you. Then make adjustments to your transcription and provide it again in full. Here is the transcription...</code></pre>
-</div>
-
-<div class="deck-response fragment" data-fragment-index="0">
-
 </div>
 </div>
 

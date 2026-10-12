@@ -25,7 +25,7 @@ This session hasn't happened yet. The full materials go up here afterwards, the 
 
 {% include nav/scrollspy-toc.html %}
 
-This page contains all the links from the presentation and supplementary information. You can also [view the presentation slides]({{ site.baseurl }}/presents/transcribing-handwritten-documents/).
+This page contains all the links from the presentation and supplementary information. You can also [view the presentation slides]({{ site.baseurl }}/slides/transcribing-handwritten-documents/).
 {: .lead}
 
 ## Introduction

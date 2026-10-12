@@ -21,7 +21,7 @@ workshop_mode: true
 
 {% include nav/scrollspy-toc.html %}
 
-This page is the full tutorial, with every prompt and some extra exercises to work through at your own pace. You can also [view the presentation slides]({{ site.baseurl }}/presents/editorial-assistant/).
+This page is the full tutorial, with every prompt and some extra exercises to work through at your own pace. You can also [view the presentation slides]({{ site.baseurl }}/slides/editorial-assistant/).
 {: .lead}
 
 <div class="rule" markdown="1">
