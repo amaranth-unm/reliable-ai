@@ -1,0 +1,94 @@
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/active-scholars
+
+For the general Digital Humanities response to AI for transcription, a 2026 monograph by David Joseph Wrisely and Estelle Guéville, *Medieval Manuscripts and the Computational Humanities*
+For studies that compare LLMs' transcription accuracy to Transkribus: Mark Humphries, https://generativehistory.substack.com
+For examples of full chats when using AI for transcribing handwriting, Jonathan Seyfried, https://jonathanseyfried.net/htr-episodes
+
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/choosing-the-tool
+
+Choose the AI-based transcription tool based on project needs according to
+- First, the language, age, rarity, and style of the handwritten script
+- Second, the quality of the reproduction and its layout
+- Third, the number of documents you want transcribed
+- Fourth, the resources you have in budget, time, and tech comfort
+
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/demo-transkribus
+
+Go to https://www.transkribus.org/
+
+Choose a single image of a handwritten document that has text in horizontal lines
+Drag the image file into the box on Transkribus's home page
+See how it performs
+
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/debrief-the-demo
+
+If you have a document in Precalit Sanskrit or Old Nubian, you're lucky! Someone else has created models for those
+For a Catalan document in late fourteenth-century Gothic Secretarial Hand, you are not lucky 
+Almost all Latinate scripts from the nineteenth century will work on Transkribus
+
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/llms
+
+If you have a script that is not yet available on Transkribus, you can train a model on Transkribus
+Training a Transkribus model might not be worth the time, so instead you can try a commercial large language model
+The frontier generative AI chatbots will also work for all Latinate scripts after 1900
+assets\images\humphries-and-leddy-claude-data.png
+
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/japanese-example
+
+Sometimes the LLM produces quite impressive results, as in this image of classical Japanese handwriting on a silk handkerchief from the 1940s
+assets/images/japanese-santa-fe-signatures.jpg
+
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/llm-checking
+
+Gemini currently leads in performance for image recognition
+Upload the image file to Gemini and in the prompt specify the year and the script
+Then paste Gemini's output into a prompt for Claude
+
+Sample LLM checking prompt: I am going to paste a transcription of the same image done by another LLM. Please look it over and use it to consider parts of the transcription that were ambiguous or difficult for you. Then make adjustments to your transcription and provide it again in full. Here is the transcription...
+
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/agents
+
+Agentic AI means that you allow an AI application to edit files on your computer
+The first popular agentic AI app, called OpenClaw, had many security vulnerabilities
+Today, using a frontier model's agentic AI, such as Claude Cowork, is much safer
+The October 21st Reliable AI Brown Bag will go into agentic AI in more detail
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/example-of-aca-batching
+
+With agentic AI, you can have a LLM do transcription in batches instead of you uploading one-by-one
+For document images from the Archive of the Crown of Aragon, this worked with varying levels of success
+Agentic AI can output batch HTR into a CSV file, which then can be opened in Excel or easily uploaded as a database on a website
+
+
+https://amaranth.unm.edu/reliable-ai/presents/handwritten-transcription/#/cautionary-notes
+
+Image recognition drains usage credits quickly
+There is a substantial time commitment for perfect transcriptions, known as the verification tax
+Consider the use of AI for transcription as more of an axe than a scalpel
+Also, be ready for the AI to surprise you with moments of high accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

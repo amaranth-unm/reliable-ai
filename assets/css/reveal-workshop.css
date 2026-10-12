@@ -204,6 +204,42 @@ body.workshop-deck {
   isolation: isolate;
 }
 .reveal .slides section .deck-decoration { display: contents; }
+
+/* A content photograph or chart, as opposed to the full-bleed .deck-art
+   decoration above: capped against the slide's fixed content row instead of
+   bleeding off the edges, with a muted caption underneath. */
+.reveal .slides section .deck-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 0;
+  margin: 0;
+}
+.reveal .slides section .deck-figure img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 300px;
+  margin: 0 auto;
+}
+.reveal .slides section .deck-figure figcaption {
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Variant of .deck-summary that puts the figure beside the text instead of
+   below it: a text column and a fixed-width figure column, side by side. */
+.reveal .slides section .deck-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.reveal .slides section .deck-summary-row .deck-summary-text { flex: 1 1 auto; min-width: 0; }
+.reveal .slides section .deck-summary-row .deck-figure { flex: 0 0 420px; }
 .reveal .slides section.workshop-title h1 { font-size: 75px; max-width: 850px; }
 .reveal .slides section.workshop-title .deck-thesis {
   color: var(--accent-primary);

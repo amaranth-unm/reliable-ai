@@ -2,9 +2,8 @@ title: Reliable AI for Humanists
 tagline: An AI brown bag series from Amaranth
 description: "A brown bag workshop series on getting useful, trustworthy results from generative AI — techniques, habits, and workflows that complement humanities expertise instead of replacing it. Hosted by Amaranth, UNM's digital humanities and public scholarship studio."
 
-url: https://amaranth.unm.edu
-baseurl: /reliable-ai
-repository: amaranth-unm/reliable-ai
+baseurl: /reliable-ai/
+repository: jeseyfried/reliable-ai
 
 theme_css: rubric
 # Site search (the magnifying glass in the nav). Off: the nav already reaches
