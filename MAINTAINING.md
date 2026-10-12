@@ -100,6 +100,16 @@ These are prepared teaching materials, not recorded agent replies. The
 presenter guide is in `workshop-drafts/audit-trails/presenter-guide.md`;
 `workshop-drafts/` is excluded from the public build.
 
+### Understanding Agentic AI example files
+
+Edit `_data/agentic_example.json`, then run
+`python3 scripts/build-agentic-workspace.py`. It generates the fictional
+starter files, ZIP and reference inventory in `assets/agentic-ai/`. The
+unlisted reference guide at `examples/understanding-agentic-ai/` reads the
+same data. Keep prepared examples distinct from observed agent runs. The
+presenter guide is in `workshop-drafts/understanding-agentic-ai/`; save local
+rehearsal and verification work in its ignored `_local/` subfolder.
+
 ### Presenting
 
 The editorial-assistant slide deck is at

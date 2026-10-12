@@ -1,0 +1,16 @@
+.agentic-guide { padding: 2rem 0; }
+.guide-kicker, .guide-item-meta { color: var(--accent-primary); font-weight: 600; }
+.guide-controls { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); gap: .9rem; margin: 2rem 0 1rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); }
+.guide-controls label { display: block; margin-bottom: .3rem; font-weight: 600; }
+.guide-controls input, .guide-controls select, .guide-controls button { font: inherit; width: 100%; max-width: 100%; min-width: 0; padding: .5rem; color: var(--text-body); background: var(--bg-page); border: 1px solid var(--border-light); border-radius: var(--radius-sm); }
+.guide-controls button { width: auto; justify-self: start; cursor: pointer; }
+.guide-controls :focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 3px; }
+.guide-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.guide-item { padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); min-width: 0; }
+.guide-item h2 { margin-top: .5rem; font-size: 1.6rem; }
+.guide-item-meta { margin: 0; }
+.guide-date, .guide-themes, .guide-foot { font-size: .95rem; }
+.guide-date.is-uncertain { border-left: 3px solid var(--accent-primary); padding-left: .65rem; }
+.guide-foot { color: var(--text-muted); margin-top: 1.5rem; }
+.agentic-guide [hidden] { display: none !important; }
+@media (max-width: 650px) { .guide-controls, .guide-items { grid-template-columns: minmax(0, 1fr); } }

@@ -264,6 +264,12 @@ presenter a prepared example or export so installation, accounts and live
 generation cannot hold up the room. Keep the underlying notes and decisions
 usable without the demo app.
 
+**Keep conceptual history inside the introduction.** Use a short sequence of
+selected milestones with primary references, then give readers an action to
+try. Distinguish a concept's history from the origin of a word; do not imply
+a first coinage without evidence. Date current capability comparisons and
+teach observable actions rather than equating an interface with a capability.
+
 ## Show what came back
 
 **A session page that shows no output is a recipe, not a demonstration.** The

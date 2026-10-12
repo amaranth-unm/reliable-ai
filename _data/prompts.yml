@@ -485,3 +485,68 @@
     Do not invent a DOI, journal, date or other missing metadata. Report unresolved fields separately. Use one complete RIS record per article and finish every record with ER. Preserve sources.md and the reading notes.
 
     This export is a set of citation records. It does not package the article texts, Markdown notes, idea map or decision log. State which records you exported so I can compare one after import.
+
+# Understanding agentic AI: prepared materials are not recorded agent replies.
+- id: agentic-baseline
+  session: understanding-agentic-ai
+  step: 1
+  label: Ask for a useful first approach
+  note: "Supply the five practice sources or the combined practice text. Save the reply."
+  text: |
+    I have five short source files for a City Memory research project. Suggest a useful way to organize them for a researcher opening the folder for the first time. Explain what the researcher should be able to find and which decisions I need to make.
+
+- id: agentic-plan
+  session: understanding-agentic-ai
+  step: 2
+  label: Check the available tools and plan the task
+  note: "Give access to the extracted folder or attach its files. Choose an organizing priority."
+  text: |
+    Use the City Memory practice folder and brief.md. My organizing priority is [theme / source type]. Help a new researcher find and open relevant materials.
+
+    First state which tools are actually available in this session for reading files, creating files and checking a rendered page. List the five source filenames you can access; say if you only have the combined practice text. Do not claim local folder access from an attachment alone.
+
+    Propose a short plan for inventory.csv, questions.md, a searchable local index.html and handoff.md in output/. Explain one implementation choice and how you will check completion. Preserve source IDs and uncertain dates. Work from the supplied materials; no web retrieval or software installation is needed.
+
+    Give me the plan before changing files. If a required tool is unavailable, explain the specific limitation and which outputs you can return as text or downloadable files instead.
+
+- id: agentic-build
+  session: understanding-agentic-ai
+  step: 3
+  label: Carry out the bounded task
+  note: "Choose the plan first. The task authorizes creating outputs within the practice folder."
+  text: |
+    Carry out the plan using brief.md and procedure.md. You may read the practice folder and create or revise files in output/. Keep the original source files intact. Choose the intermediate actions and implementation needed to reach the goal.
+
+    Create inventory.csv with one row per source file, stable ID, title, source filename, type, date label and themes. Create questions.md for unresolved dates or interpretations. Make output/index.html searchable and filterable by theme, with links to all five originals, useful summaries and visible date uncertainty. Use a self-contained page that works locally without installing software or using external libraries.
+
+    Check that all five source files are represented and all source links resolve. If a browser tool is available, open the rendered guide and try a search and theme filter. Distinguish checks actually performed from proposed checks. If you only generated code, say the page has not been opened or tested.
+
+    Stop after five minutes of work or when the completion conditions are met. Leave incomplete work in handoff.md. Report the files actually created and one intermediate action that was shaped by a tool result.
+
+- id: agentic-revise
+  session: understanding-agentic-ai
+  step: 4
+  label: Steer a revision with a concrete check
+  note: "Use the existing guide and inventory. Pick a change you can try yourself."
+  text: |
+    Revise the existing guide: add a source-type filter alongside themes, and make uncertain dates easy to notice. Keep the original source files intact and preserve the source IDs and summaries unless a change is needed for this request.
+
+    Try this sequence if you have browser access: select Interviews and confirm only I02 is shown; search for poster and confirm no results with a useful message; clear the search and confirm I02 returns while the Interviews filter stays selected. Also confirm I03 retains the date label c. 1975.
+
+    Use the check results to make focused repairs. Try no more than two repair passes, then stop and record remaining work in handoff.md. State which checks you performed and what changed because of their results. Do not report a browser check if you only reviewed the source code.
+
+- id: agentic-handoff
+  session: understanding-agentic-ai
+  step: 5
+  label: Save enough context to continue
+  note: "Keep the current files. The handoff should describe the actual run."
+  text: |
+    Write output/handoff.md so a fresh conversation can continue this project. Include the goal, instructions to consult, input and output locations, decisions I supplied, work completed, checks actually performed and the next unfinished action. Distinguish a requested feature from an implemented and tested feature. Keep it short and do not invent completed work.
+
+- id: agentic-resume
+  session: understanding-agentic-ai
+  step: 5
+  label: Try the handoff in a fresh conversation
+  note: "Start a new conversation and supply the current folder or its files, including the handoff."
+  text: |
+    Read brief.md, procedure.md and output/handoff.md, then examine the current outputs available to you. Tell me what the project is trying to achieve, what exists, what remains unfinished and which file you would act on next. Point to the saved basis for your account. Do not make changes yet; mark any missing context or files.

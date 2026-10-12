@@ -1,0 +1,36 @@
+---
+title: City Memory · Prepared Research Guide
+layout: base
+published: false
+css: agentic-guide.css
+summary: "A prepared reference for the Understanding Agentic AI workshop, using five fictional source files."
+---
+<div class="agentic-guide">
+  <p class="guide-kicker">Prepared reference · Five fictional source files</p>
+  <h1>City Memory research guide</h1>
+  <p class="lead">Find materials by theme or source type, then open the originals. Dates and interpretations retain their uncertainty.</p>
+  <p>This teaching example was prepared on October 11, 2026. It shows one possible result for the workshop task; it is not a recorded agent run.</p>
+  <p><a href="{{ site.baseurl }}/assets/agentic-ai/reference/inventory.csv">Open the reference inventory</a> · <a href="{{ site.baseurl }}/assets/agentic-ai/reference/questions.md">Read the open questions</a></p>
+  <div class="guide-controls">
+    <div><label for="guide-search">Search the materials</label><input id="guide-search" type="search" placeholder="Try poster or Canal Park"></div>
+    <div><label for="guide-theme">Theme</label><select id="guide-theme"><option value="">All themes</option><option value="Public memory">Public memory</option><option value="Exhibitions">Exhibitions</option><option value="Place">Place</option><option value="Interpretation">Interpretation</option></select></div>
+    <div><label for="guide-type">Source type</label><select id="guide-type"><option value="">All source types</option><option value="Planning notes">Planning notes</option><option value="Interviews">Interviews</option><option value="Photograph labels">Photograph labels</option><option value="Research notes">Research notes</option><option value="Registers">Registers</option></select></div>
+    <button type="button" id="guide-clear">Clear all filters</button>
+  </div>
+  <p id="guide-count" role="status" aria-live="polite">5 of 5 source files shown.</p>
+  <p id="guide-empty" hidden>No materials match these choices. Clear the search or choose another filter.</p>
+  <div class="guide-items">
+    {% for item in site.data.agentic_example.items %}
+    <article class="guide-item" data-themes="{{ item.themes | join: '|' | escape }}" data-type="{{ item.type | escape }}" aria-labelledby="guide-{{ item.id }}">
+      <p class="guide-item-meta">{{ item.id }} · {{ item.type }}</p>
+      <h2 id="guide-{{ item.id }}">{{ item.title }}</h2>
+      <p class="guide-date{% if item.uncertain %} is-uncertain{% endif %}">Date: {{ item.date }}{% if item.uncertain %} <span>(uncertain)</span>{% endif %}</p>
+      <p>{{ item.summary }}</p>
+      <p class="guide-themes">Themes: {{ item.themes | join: '; ' }}</p>
+      <a href="{{ site.baseurl }}/assets/agentic-ai/starter/sources/{{ item.filename }}">Open {{ item.id }} original</a>
+    </article>
+    {% endfor %}
+  </div>
+  <p class="guide-foot">Theme groupings are prepared curatorial choices. A connection in the guide does not establish that different records describe the same event.</p>
+</div>
+<script src="{{ site.baseurl }}/assets/js/agentic-guide.js" defer></script>

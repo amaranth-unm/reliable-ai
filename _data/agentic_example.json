@@ -1,0 +1,75 @@
+{
+  "prepared": "2026-10-11",
+  "items": [
+    {
+      "id": "I01",
+      "filename": "I01-exhibition-note.md",
+      "title": "Neighborhood exhibition plan",
+      "type": "Planning notes",
+      "date": "2026-03-10",
+      "uncertain": false,
+      "themes": [
+        "Public memory",
+        "Exhibitions"
+      ],
+      "summary": "A planning note for a small exhibition about everyday places, with an open curatorial choice between themes and chronology.",
+      "content": "# I01 · Neighborhood exhibition plan\n\nFictional practice material. Date: 2026-03-10. Author: City Memory project team (invented).\n\nWe are planning a small exhibition about how residents remember everyday places. The starting materials include an interview excerpt, a photograph label and a register of printed ephemera. Visitors should be able to move from a theme to the original material.\n\nWe have not chosen whether to organize the exhibition by theme or by date. Chronology may be difficult where dates are approximate or unknown. “Public memory” and “Exhibitions” are useful starting themes; they can be revised.\n"
+    },
+    {
+      "id": "I02",
+      "filename": "I02-interview-excerpt.txt",
+      "title": "Remembering Canal Park",
+      "type": "Interviews",
+      "date": "Date unknown",
+      "uncertain": true,
+      "themes": [
+        "Public memory",
+        "Place"
+      ],
+      "summary": "A fictional speaker remembers Canal Park through the route used to reach it. The interview date is unknown.",
+      "content": "I02 · Remembering Canal Park\n\nFictional practice material. Interview date: unknown. Speaker: Mira (invented).\n\nMira: I remember Canal Park by the route we took, not the year. We passed the bakery and then the footbridge. When the bridge closed, the park felt farther away even though it had not moved.\n\nResearcher's note: This excerpt can help us ask how a route shapes the memory of a place. It does not establish the year of the closure. Keep the speaker's memory distinct from the researcher's interpretation.\n"
+    },
+    {
+      "id": "I03",
+      "filename": "I03-photograph-label.md",
+      "title": "Market Square photograph label",
+      "type": "Photograph labels",
+      "date": "c. 1975",
+      "uncertain": true,
+      "themes": [
+        "Public memory",
+        "Exhibitions"
+      ],
+      "summary": "A tentative label for a photograph of Market Square. Its date and the identification of one building remain uncertain.",
+      "content": "# I03 · Market Square photograph label\n\nFictional practice material. Date label: c. 1975. Photographer: unknown.\n\nThe supplied label describes a photograph of Market Square with a temporary stage. One building is tentatively identified as the former bakery. Neither the date nor that identification has been verified.\n\nNo image is included in this practice folder. Treat this as a label to organize, not as an image you have examined. Preserve “c. 1975” and the tentative identification.\n"
+    },
+    {
+      "id": "I04",
+      "filename": "I04-research-note.md",
+      "title": "Reading the exhibition materials",
+      "type": "Research notes",
+      "date": "2026-03-12",
+      "uncertain": false,
+      "themes": [
+        "Interpretation",
+        "Exhibitions"
+      ],
+      "summary": "An interpretive note comparing an interview, a photograph label and a poster register. It proposes questions rather than settling the chronology.",
+      "content": "# I04 · Reading the exhibition materials\n\nFictional practice material. Date: 2026-03-12. Author: project researcher (invented).\n\nI02 organizes memory through a route, while I03's label tries to locate a scene in time. I05's poster register adds another kind of public account: how an event was announced. These can be grouped for comparison, but the grouping is my interpretation.\n\nCould the exhibition compare remembered routes, labeled scenes and public announcements? Do not turn that question into a conclusion that all three describe the same event. The sources do not establish that connection.\n"
+    },
+    {
+      "id": "I05",
+      "filename": "I05-poster-register.csv",
+      "title": "Market Street poster register",
+      "type": "Registers",
+      "date": "Mixed / uncertain",
+      "uncertain": true,
+      "themes": [
+        "Exhibitions",
+        "Interpretation"
+      ],
+      "summary": "Two fictional poster entries with different levels of date and venue certainty. This CSV is one source file, containing two internal records.",
+      "content": "poster_id,title,date_label,venue,notes\nP01,Evening at Market Square,1976-05-08,Market Square,Fictional practice entry; exact date printed in the invented record\nP02,Neighborhood gathering,1976?,Unknown,Fictional practice entry; question mark belongs to the supplied date label\n"
+    }
+  ]
+}
