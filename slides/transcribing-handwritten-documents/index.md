@@ -2,7 +2,6 @@
 layout: reveal-workshop
 title: Transcribing Handwritten Documents with AI
 summary: "A 45-minute workshop on using AI to transcribe handwritten documents."
-permalink: /presents/transcribing-handwritten-documents/
 tutorial: /sessions/transcribing-handwritten-documents
 ---
 
