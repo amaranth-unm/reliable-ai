@@ -235,7 +235,7 @@ Training is the right call for a standing collection that will keep producing pa
 <!-- 07 -->
 
 <section class="image-slide bleed"
- data-background-image="assets/images/humphries-and-leddy-claude-data.png"
+ data-background-image="images/humphries-and-leddy-claude-data.png"
  data-background-size="contain"
  data-background-color="#0d1412" markdown="1">
 
@@ -248,7 +248,7 @@ Table comparing transcription error rates for Gemini, Claude, and ChatGPT.
 <!-- 08 -->
 
 <section class="image-slide bleed"
- data-background-image="assets/images/japanese-santa-fe-signatures.jpg"
+ data-background-image="images/japanese-santa-fe-signatures.jpg"
  data-background-size="contain"
  data-background-color="#0d1412" markdown="1">
 
