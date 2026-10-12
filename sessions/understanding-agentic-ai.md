@@ -53,12 +53,18 @@ The practical question is how much of a task you want the system to handle.
 A good delegation leaves it room to choose an approach while making the
 result, boundaries and stopping point clear.
 
-### What you're working with
+### What you'll learn to do
 
-- An assistant can propose an approach in text. Keep that reply so you can compare advice with work performed. (Step 1)
-- An agent's tools determine what it can read, create and test in this session. Check those capabilities before delegating. (Step 2)
-- A tool result can change the next action: a missing file, a failed link or a filter that hides the wrong item gives it something to respond to. (Steps 3 and 4)
-- Saved instructions and project state can help a new conversation continue the task. Bring them along and check what it understands. (Step 5)
+- **Prepare a workspace:** locate the source materials, task instructions and place for new files. (Step 1)
+- **Delegate a useful result:** describe what a reader should be able to do, what the agent may change and when it should stop. (Step 2)
+- **Follow the work:** distinguish a proposed action from a tool action and the result it returns. (Step 3)
+- **Steer a revision:** try the artifact, give concrete feedback and decide whether the change helps. (Step 4)
+- **Continue the project:** use saved instructions and current files to pick up the next task in a fresh conversation. (Step 5)
+
+Everyone uses the same small task. You can make these decisions and try the
+presenter's result even if your assistant cannot operate on local files.
+If you already use agents, add one useful check or compare two organizing
+choices after the shared exercise.
 
 ### Before you start
 
@@ -71,6 +77,58 @@ Where your tool cannot open a folder, attach the [combined practice text]({{ sit
 <div class="reminder" markdown="1">
 Use materials you have permission to share, such as your own notes or the fictional practice materials below.
 </div>
+
+### Start with a workspace
+
+Download and extract the [City Memory practice folder]({{ site.baseurl }}/assets/agentic-ai/city-memory-starter.zip). It contains five fictional source files: an exhibition note, an interview excerpt, a photograph label, a research note and a small poster register. There are uncertain dates and different kinds of material to preserve.
+
+A **workspace** is the place where a project keeps its materials,
+instructions and results. Here it is an ordinary folder. The assistant
+needs access to the relevant files, and you still need to check which ones
+it actually read. The `.md` files are plain text; any text editor can open
+them.
+
+```text
+city-memory/
+  sources/       the five original materials
+  brief.md       the result you want and its boundaries
+  procedure.md   directions to reuse across tasks
+  output/        new files the agent will create
+```
+
+The download also includes a README and the combined practice text for
+attachment or pasting. `output/` is created during the exercise. The sources
+supply material to work with; the brief and procedure supply instructions.
+
+**Before prompting:** open one source and `brief.md`. Point to the place
+where new files will go. In a chat without folder access, make the same
+choices about what to attach and where you will save its replies.
+
+The goal is a **local browsable guide to the folder**, with a searchable index,
+links to originals and a short list of unresolved questions. You choose
+whether organizing by theme or by source type better serves a first-time
+reader. The agent can choose how to implement that choice.
+
+**About the examples.** The practice materials and reference guide were
+prepared for teaching on October 11, 2026. They are invented materials, not
+historical records or transcripts of a workshop agent run. The reference
+shows a possible result. Use your own run's actions and outputs to judge
+performance.
+
+### See a workflow across the files
+
+A **workflow** is how a task moves through stages. In this exercise, reading
+the sources produces an inventory; the inventory helps create the guide;
+trying the guide produces feedback for a revision. Each result helps the
+next stage. You can keep the same workspace as the task develops.
+
+The brief names the result and useful checks. The agent chooses some of the
+actions needed to get there and responds to what they return. A workflow
+can also use fixed steps; its length alone does not establish agency.
+
+**Your first choice:** would this audience find materials more easily by
+theme or source type? Start with the supplied brief and change that one
+field. Keep the technical implementation with the agent.
 
 ### How the concept has changed
 
@@ -124,26 +182,12 @@ same report nightly; a system reads a folder and repairs a broken link after
 testing it. Which example shows adaptive action? What additional information
 would you need about the others?
 
-### The folder we'll use
-
-Download and extract the [City Memory practice folder]({{ site.baseurl }}/assets/agentic-ai/city-memory-starter.zip). It contains five fictional source files: an exhibition note, an interview excerpt, a photograph label, a research note and a small poster register. There are uncertain dates and different kinds of material to preserve.
-
-The goal is a **local browsable guide to the folder**, with a searchable index,
-links to originals and a short list of unresolved questions. You choose
-whether organizing by theme or by source type better serves a first-time
-reader. The agent can choose how to implement that choice.
-
-**About the examples.** The practice materials and reference guide were
-prepared for teaching on October 11, 2026. They are invented materials, not
-historical records or transcripts of a workshop agent run. The reference
-shows a possible result. Use your own run's actions and outputs to judge
-performance.
-
 ## 1. Ask for advice and examine the result
 {: .step #step-1}
 
-Give the assistant the five sources, then ask for a sensible first approach.
-Save its reply as `baseline.md`.
+Open the workspace and locate a source, the brief and the place for new
+files. Give the assistant the five sources, then ask for a sensible first
+approach. Save its reply as `baseline.md`.
 
 {% include prompt.html id="agentic-baseline" %}
 
@@ -189,14 +233,17 @@ of cards without specifying every line of code.
 
 | Part | What it contributes in this task |
 |---|---|
+| The model | Produces text and proposes next actions based on the task and available context. |
 | Your task brief | The audience, goal, boundaries and completion conditions. |
 | Tools | Actions such as reading files, writing files or operating a browser. |
 | Working context | The materials and instructions the current conversation can access. |
 | Saved project state | Files describing what exists, what was decided and what remains. |
-| The agent environment | The software that connects the model with tools, context, permissions and stopping rules. Often called a *harness*. |
+| The agent environment | The software that connects the model with tools, context, permissions and stopping rules. |
 
 Your brief guides the work; it does not grant a tool that the environment
-lacks. A saved file only helps when the assistant can read it.
+lacks. A saved file only helps when the assistant can read it. You may see
+*agent harness* used for this surrounding environment; the practical point
+is to recognize which parts your task needs.
 
 <div class="keypoint" markdown="1">
 Delegate a result with clear boundaries and completion conditions. Check that the tools can carry out the proposed plan.

@@ -9,17 +9,42 @@ Participants should be able to explain an agent through its goal, available tool
 
 Compare question-and-answer interaction, a fixed workflow and an adaptive tool process. “Browser chat” is an interface description, not a reliable capability boundary. Avoid saying all browser assistants only return prose or that installing a desktop app guarantees autonomous work. A long response, a written plan or generated code does not establish that tools were used.
 
+## Teach five practical skills
+
+Assume participants know how to ask for a reply but have little experience with an ongoing AI project. Introduce each concept by pointing to something they can use, then have them make a small choice.
+
+| Skill | Concept to introduce | What participants should do |
+|---|---|---|
+| Prepare the workspace | Materials, instructions and results live together; access does not establish that a file was read. | Locate one source, brief.md and the destination for new files. |
+| Delegate a result | An outcome, boundaries and completion conditions give the agent room to choose actions. | Edit the organizing priority in the supplied brief and choose a plan. |
+| Follow the work | A proposed step, tool action and returned result are different. Outputs connect the stages of a workflow. | Name one action actually carried out and the file or result it produced. |
+| Steer and judge | Feedback can change the next action; useful categories still need human judgment. | Predict a filter result, try it and give one specific change request. |
+| Continue and reuse | Saved project state and reusable directions help carry work between conversations when the files are read. | Check a fresh conversation's account of the current files and next task. |
+
+Success means participants can make these choices and explain their purpose. Producing a polished page in a particular app is not the threshold. Use the folder and visible actions to make the vocabulary concrete. Introduce model, tools, workspace and workflow as they appear; leave harness, orchestration and multi-agent architectures for questions.
+
 ## A 60-minute route
 
-- 0–8: working definition and selected history. Show how goals/actions precede LLMs, then why language-model tools and accessible agent environments matter now. Partners classify the three short examples in the introduction.
-- 8–14: give the five practice sources to the assistant and save baseline advice (step 1). Read I03's uncertain date together.
-- 14–22: choose the task goal, boundaries and completion conditions; check tools and choose a plan (step 2).
-- 22–35: let the agent build for at most five minutes, then open its files and guide. Observe one action/tool-result/next-action cycle. Try a search and source link (step 3).
-- 35–47: request the source-type filter; try Interviews, poster, clear-search; watch a focused repair if a check fails (step 4). Do not manufacture a failure in a live run that worked.
+- 0–5: show the ordinary practice folder. Open a source and the brief, point to the output destination and describe the useful result. Participants locate those three parts; explain how outputs will connect the stages.
+- 5–8: selected history and working definition. Use goals/actions before LLMs, language-model tool use and today's accessible task environments as three landmarks. Keep the fuller table for later reading.
+- 8–14: give the five practice sources to the assistant and save baseline advice (step 1). Read I03's uncertain date together and classify advice, a fixed sequence and adaptive action.
+- 14–22: edit one field in the supplied brief, check tools and choose a plan (step 2). Ask participants to name the requested result and one completion check.
+- 22–35: let the agent build for at most five minutes, then open its files and guide. Observe one action/tool-result/next-action cycle. Everyone tries the guide or predicts a search result before you run it (step 3).
+- 35–47: request the source-type filter; predict and try Interviews, poster, clear-search; watch a focused repair if a check fails (step 4). Do not manufacture a failure in a live run that worked.
 - 47–54: write a short handoff and read it in a fresh conversation (step 5). Optional two-minute plain-procedure/skill explanation comes here.
 - 54–60: partners specify one task from their own work and what they will judge. Compare useful work completed with directing/checking effort.
 
-For 50 minutes, use 6 minutes of history, 5 baseline, 7 briefing/tools, 12 build/open, 10 revision, 5 handoff and 5 transfer. Keep at least one build-and-check cycle. If time is short, omit the skills demo and use the prepared guide rather than troubleshooting software.
+For 50 minutes, use 4 minutes of workspace orientation, 2 history, 5 baseline, 7 briefing/tools, 12 build/open, 10 revision, 5 handoff and 5 transfer. Keep at least one build-and-check cycle. If time is short, omit the skills demo and use the prepared guide rather than troubleshooting software.
+
+## One exercise, different levels of participation
+
+Everyone makes the organizing choice, predicts or tries a result and gives feedback. Browser-chat participants can use the combined text, save replies and inspect the presenter's guide. File-agent participants can generate their own outputs. Pair people for choices and checks rather than requiring everyone to install the same environment.
+
+For beginners, supply the brief and procedure; ask them to change one field and one requirement. Have them point to a file after each important stage. They should see that a workspace carries the materials and results forward, while a workflow connects the work done with them.
+
+For experienced participants, keep the same task but invite one additional check, a second organizing approach or a comparison of the files changed during revision. Have them judge whether extra delegation reduced coordination effort. Keep extensions off the room's critical path.
+
+Use quick observations to check understanding: “Which file did it read?”, “What exists now?”, “What will this filter show?” and “What would the next conversation need?” Give participants time to answer before the presenter demonstrates. This keeps a demo participatory even when tools differ.
 
 ## Before teaching
 
