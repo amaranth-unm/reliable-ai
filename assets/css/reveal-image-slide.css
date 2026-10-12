@@ -1,0 +1,459 @@
+/* Image-only slides
+ * ------------------
+ * Pair with reveal-lecture-theme.css. A `<section class="image-slide">`
+ * holds one `<figure class="landscape">` or `<figure class="portrait">`
+ * with an `<img>` and a `<figcaption>`. Landscape puts the caption below
+ * the image; portrait puts it to the right. Both give the image as much
+ * room as the slide allows and hold the caption to a quiet line — legible
+ * to whoever is presenting, not sized to be read from the back row. One
+ * image per slide; a second image gets its own slide.
+ *
+ * `section.image-slide.bleed` is the cold-open form: no figure at all, the
+ * image handed to reveal as a slide background so it fills the whole screen,
+ * with only a licence line on it. Documented in full at the foot of this file.
+ *
+ * `.image-notes` is the exception: a normal content slide (NOT
+ * `.image-slide`) that sets a reduced copy of an image beside a list of
+ * points about it — `<div class="image-notes">` holding an `<img>` and a
+ * `<div class="notes">` with a `<ul>`. Use it after a full-bleed image
+ * slide when the picture is evidence that needs unpacking rather than
+ * decoration. Give the list items a bold lead-in; the dash matches
+ * `ul.source-list` in the main theme. These slides carry no eyebrow and no
+ * headline — the full-bleed image before them has already introduced the
+ * subject, and the space goes to the notes. The note type is sized to be
+ * read by whoever is presenting, not from the back row. To carry more than one image, wrap
+ * them in a `<div class="shots">` — they stack in the image column.
+ * A portrait caption ends with a `<span class="why">` carrying the "Why he
+ * matters" line; it renders as a block with space above it.
+ * `section.image-slide.provoke` is the discussion-deck form: a `figure.pair`
+ * whose question is set large enough to read from the back row, in a
+ * `p.provocation` under the two images. On a normal image slide the caption is
+ * quiet apparatus and the picture is the point; here the question is the point
+ * and the two pictures are the evidence for it. The `figcaption` still carries
+ * identification and credit, still quiet. Only for a deck built on forced
+ * comparisons — see "Discussion decks built on image pairs" in
+ * courses/SLIDE-STYLE.md.
+ * `.recall` is the other exception: a grid of small images the room has
+ * already seen, with no captions, used to ask a class what a week was about
+ * before a recap slide answers. Documented above its rules below.
+ * Each note bullet runs in three beats: a bold lead naming what to look at,
+ * a sentence of elaboration, and a closing question in
+ * `<em class="ask">…</em>` — see "Image slides" in courses/SLIDE-STYLE.md.
+ */
+ .reveal section.image-slide {
+	text-align: center;
+	height: 100%;
+}
+
+.reveal section.image-slide figure {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.2em;
+}
+
+/* Landscape: caption below the image */
+.reveal section.image-slide figure.landscape {
+	flex-direction: column;
+}
+
+/* Portrait: caption to the right of the image */
+.reveal section.image-slide figure.portrait {
+	flex-direction: row;
+}
+
+/* Pair: two images side by side above one shared caption. For showing two
+   faces of one object, or two witnesses of one text, at the same moment.
+   Wrap the two <img> in a .pair-images div. */
+.reveal section.image-slide figure.pair {
+	flex-direction: column;
+}
+
+.reveal section.image-slide figure.pair .pair-images {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 1.4em;
+	width: 100%;
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+.reveal section.image-slide figure.pair .pair-images img {
+	max-height: 100%;
+	max-width: 47%;
+	width: auto;
+	height: auto;
+	flex-shrink: 1;
+}
+
+.reveal section.image-slide figure.pair figcaption {
+	text-align: center;
+	max-width: 92%;
+	flex-shrink: 0;
+}
+
+/* Provocation slide: images the room is asked to choose between, with the
+   question set to be read, not skimmed. The `p.provocation` and the
+   `figcaption` sit inside the figure, which is a flex column, so they take
+   their natural height and the picture takes the rest — give the image
+   `flex: 1 1 auto; min-height: 0` or a single landscape shot keeps its full
+   natural height and pushes the question off the bottom of the 960x700 box.
+   The figure keeps the base `height: 100%`; holding it to a percentage
+   instead starves the pictures, because the question and credit are measured
+   inside it. */
+.reveal section.image-slide.provoke figure.landscape img,
+.reveal section.image-slide.provoke figure.portrait img {
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+.reveal section.image-slide.provoke figure.landscape img,
+.reveal section.image-slide.provoke figure.portrait img,
+.reveal section.image-slide.provoke .pair-images img {
+	max-height: 100%;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+.reveal section.image-slide.provoke .provocation {
+	font-family: 'Fraunces', Georgia, serif;
+	font-style: italic;
+	font-size: 0.6em;
+	line-height: 1.25;
+	color: var(--ts-heading-3);
+	text-align: center;
+	max-width: 88%;
+	margin: 0.7em auto 0 auto;
+	flex-shrink: 0;
+	text-wrap: balance;
+}
+
+.reveal section.image-slide img {
+	display: block;
+	border: 1px solid var(--ts-border);
+	box-shadow: 0 6px 30px rgba(0,0,0,0.45);
+	background: #1a1a1a;
+	object-fit: contain;
+	min-height: 0;
+}
+
+.reveal section.image-slide figure.landscape img {
+	max-width: 100%;
+	max-height: 92%;
+	width: auto;
+	height: auto;
+}
+
+.reveal section.image-slide figure.portrait img {
+	max-height: 100%;
+	max-width: 74%;
+	width: auto;
+	height: auto;
+	flex-shrink: 1;
+}
+
+.reveal section.image-slide figcaption {
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 0.36em;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--ts-heading-3);
+	line-height: 1.4;
+}
+
+.reveal section.image-slide figure.landscape figcaption {
+	text-align: center;
+	max-width: 90%;
+	flex-shrink: 0;
+}
+
+.reveal section.image-slide figure.portrait figcaption {
+	text-align: left;
+	max-width: 26%;
+	flex-shrink: 0;
+	border-left: 1px solid var(--ts-border);
+	padding-left: 1em;
+}
+
+/* Italic titles inside a caption use <i> so they stay inline —
+   <em> is reserved for the block-level note/credit line below. */
+.reveal section.image-slide figcaption i {
+	font-style: italic;
+	text-transform: none;
+	letter-spacing: 0.02em;
+}
+
+.reveal section.image-slide figcaption em i {
+	letter-spacing: 0;
+}
+
+.reveal section.image-slide figcaption em {
+	font-family: 'Fraunces', Georgia, serif;
+	font-style: italic;
+	text-transform: none;
+	letter-spacing: 0;
+	color: var(--ts-text-muted);
+	display: block;
+	margin-top: 0.4em;
+	font-size: 1.15em;
+}
+
+/* The "why this person matters" line at the end of a portrait caption.
+   A block, so it sits off the biography above it with real space rather
+   than a pair of <br> tags, and so the space is the same in every deck.
+   Wrap the whole sentence, not just the <strong> label, or the text after
+   the label gets orphaned onto its own line. */
+.reveal section.image-slide figcaption .why {
+	display: block;
+	margin-top: 0.85em;
+}
+
+/* An image beside notes about it — see the header comment. Lives on an
+   ordinary section, so it has to override reveal's default image border. */
+.reveal .image-notes {
+	display: grid;
+	grid-template-columns: 42% 1fr;
+	gap: 1.3em;
+	align-items: start;
+}
+
+/* kramdown wraps a bare <img> in a <p>; keep it from adding vertical space. */
+.reveal .image-notes > p {
+	margin: 0;
+}
+
+.reveal .image-notes img {
+	display: block;
+	width: 100%;
+	margin: 0;
+	border: 1px solid var(--ts-border);
+	background: none;
+	box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+}
+
+.reveal .image-notes .notes ul {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 0.42em;
+	line-height: 1.4;
+}
+
+.reveal .image-notes .notes li {
+	position: relative;
+	padding-left: 1.15em;
+	margin-bottom: 0.5em;
+	color: var(--ts-text);
+}
+
+.reveal .image-notes .notes li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.62em;
+	width: 0.7em;
+	height: 2px;
+	background: var(--ts-accent);
+}
+
+.reveal .image-notes .notes strong {
+	color: var(--ts-heading-2);
+	font-weight: 600;
+}
+
+/* Inline titles in a note bullet use <i>, as in captions; reveal's reset
+   strips its italic, so restore it. (<em> is taken by .ask.) */
+.reveal .image-notes .notes i {
+	font-style: italic;
+}
+
+/* The question that closes each note bullet. Gold, on its own line, so the
+   three beats of a bullet stay legible at a glance: what to look at (bold),
+   what it means (plain), what to think about (this). Not a question the
+   slide answers — one the session is going to. */
+.reveal .image-notes .notes .ask {
+	display: block;
+	margin-top: 0.3em;
+	color: var(--ts-accent);
+	font-style: italic;
+}
+
+/* Two or more images stacked in the image column of .image-notes. The column
+   had no height limit, so a tall portrait shot stacked under a landscape one
+   ran off the bottom of the fixed 960x700 slide and was clipped, silently and
+   with nothing in the source to warn you. Cap the stack and let each image
+   contain itself inside an equal row, so the pairing works whatever the two
+   aspect ratios are. */
+.reveal .image-notes .shots {
+	display: grid;
+	gap: 0.5em;
+	align-content: start;
+}
+
+/* The cap has to be an explicit length on the IMAGE. `max-height` on the
+   .shots grid plus `grid-auto-rows: minmax(0, 1fr)` looks like it should
+   distribute the space and does nothing: the grid's own height is
+   indefinite, so `1fr` resolves to the content size and the rows never
+   shrink. The slide box is a fixed 960x700 and .image-notes starts about
+   50px down, so two stacked shots plus the gap have roughly 640px to live
+   in — 310 each. */
+.reveal .image-notes .shots img {
+	max-height: 310px;
+	max-width: 100%;
+	width: auto;
+	margin: 0 auto;
+	display: block;
+	object-fit: contain;
+}
+
+/* Recall grid: pictures the room has already seen
+ * ----------------------------------------------
+ * `<div class="recall">` on a normal content slide (NOT an `.image-slide`),
+ * holding two to four `<img>` and a closing `<p class="cite">` naming the
+ * sources in order. This is the one place several images share a slide and
+ * the "one image per slide" rule does not apply, because no image here is
+ * being read for its own content: each is a cue to a week already taught,
+ * and the point is the set. A review deck puts it under a "What did we talk
+ * about?" headline and lets the room answer before the recap slide that
+ * follows does.
+ *
+ * The grid carries no captions, by design — a caption would answer the
+ * question the slide exists to ask. The sources go in one `p.cite` line
+ * underneath, in order, which is also the only attribution these images get
+ * on screen, so keep it.
+ *
+ * Two columns, matching `.cards` in the main theme, so a grid of four sits
+ * directly over the four cards that answer it. The row cap is an explicit
+ * length on the image for the same reason `.shots` needs one: the slide box
+ * is a fixed 960x700, nothing scrolls, and an overflow is clipped silently.
+ * An eyebrow, headline and rule take about 200px, and the `p.cite` another
+ * 35, which leaves two rows of 200 with the gap.
+ */
+.reveal .recall {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.7em;
+	margin-top: 0.8em;
+	align-content: start;
+}
+
+/* kramdown wraps each image in its own <p> — write them a blank line apart in
+   the markdown, or four consecutive lines become one paragraph, one grid item,
+   and the grid silently collapses to a single column. */
+.reveal .recall > p {
+	margin: 0;
+}
+
+/* Each image hugs its own box and centres in its cell, as `.shots` does,
+   rather than filling a uniform cell: a portrait amphora beside a landscape
+   painting in equal cells letterboxes one of them inside its own border, and
+   an empty bordered margin reads as part of the picture. The cap is on the
+   height so the four sit on a common baseline whatever their proportions. */
+.reveal .recall img {
+	display: block;
+	max-height: 200px;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	object-fit: contain;
+	border: 1px solid var(--ts-border);
+	background: none;
+	box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+}
+
+/* Full-bleed: the picture IS the screen
+ * -------------------------------------
+ * `section.image-slide.bleed` drops the figure entirely and hands the image
+ * to reveal as a slide background, which paints the whole viewport and so
+ * escapes the deck's 8% slide margin, the 1px border, the drop shadow and
+ * the caption block that `figure.landscape` reserves space for. Written as:
+ *
+ *   <section class="image-slide bleed"
+ *    data-background-image="images/peterloo-1819.jpg"
+ *    data-background-size="contain"
+ *    data-background-color="#0d1412" markdown="1">
+ *
+ *   An aquatint of a packed open field: cavalry riding into a dense crowd…
+ *   {: .bleed-alt}
+ *
+ *   Richard Carlile, *To Henry Hunt, Esq.*, 1819 · NPG · CC BY 4.0
+ *   {: .credit}
+ *
+ *   </section>
+ *
+ * Use `contain` — the default here — whenever the whole composition is the
+ * evidence, which on a cold open it almost always is: `cover` fills the last
+ * band of screen by cropping, and the thing it crops is the edge of the
+ * picture you were about to argue from. Peterloo's dedication is along the
+ * bottom edge and Lepanto's point is that the galleys run out to both sides,
+ * so both are `contain`. Set `data-background-color` to the deck ground so
+ * the letterbox is invisible.
+ *
+ * `.bleed-alt` carries the image description for screen readers, which a CSS
+ * background cannot: it replaces the <img alt> the figure would have had, so
+ * write it as an alt text and keep it off-screen, not merely invisible.
+ * `.credit` is the licence line — CC BY and CC BY-SA require attribution on
+ * the slide, so it stays even where the caption has gone to the notes slide.
+ */
+/* `padding: 0` undoes reveal's own `padding: 20px 0` on a direct-child
+   section, which otherwise puts the credit's anchor 20px below the screen.
+   Position the credit absolutely against the section rather than with flex:
+   reveal's JS writes `display: block` inline onto the present slide, and an
+   inline style beats any `display: flex` set from here. */
+.reveal section.image-slide.bleed {
+	height: 100%;
+	padding: 0;
+	text-align: left;
+}
+
+.reveal section.image-slide.bleed .bleed-alt {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* The licence line. Bottom-LEFT: reveal's nav arrows sit bottom-right and a
+   credit there collides with them. It carries its own dark plate because
+   `contain` only leaves a clear band on one axis — a picture taller than the
+   slide fills the height and puts the credit back on the image, which for
+   Peterloo means straight across the engraved dedication the notes slide
+   asks the room to read. The plate keeps it legible over anything and reads
+   as chrome rather than as part of the print. */
+.reveal section.image-slide.bleed .credit {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0.7em 1.1em;
+	max-width: 58%;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 0.28em;
+	letter-spacing: 0.1em;
+	line-height: 1.65;
+	text-transform: uppercase;
+	color: var(--ts-text-muted);
+	background: rgba(13, 20, 18, 0.86);
+	border-top-right-radius: 2px;
+}
+
+.reveal section.image-slide.bleed .credit em,
+.reveal section.image-slide.bleed .credit i {
+	font-style: italic;
+	text-transform: none;
+	letter-spacing: 0.02em;
+}

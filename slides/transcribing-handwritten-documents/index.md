@@ -215,7 +215,7 @@ Generally, the AI chatbots will also work for Latinate scripts after 1900
 </div>
 
 <figure class="deck-figure" markdown="0">
-<img src="{{ '/assets/images/humphries-and-leddy-claude-data.png' | relative_url }}" alt="Table comparing transcription error rates for Gemini, Claude, and ChatGPT.">
+<img src="images/humphries-and-leddy-claude-data.png" alt="Table comparing transcription error rates for Gemini, Claude, and ChatGPT.">
 <figcaption>Humphries and Leddy's error-rate comparison, reformatted by Claude</figcaption>
 </figure>
 
@@ -307,19 +307,6 @@ Checking the transcription
 
 <div class="deck-pair">
 
-<div class="prompt" markdown="0">
-  <div class="prompt-head">
-    <p class="deck-label">Prompt for the second LLM</p>
-    <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
-  </div>
-  <pre class="prompt-text"><code>I am going to paste a transcription of the same image done by another LLM. Please look it over and use it to consider parts of the transcription that were ambiguous or difficult for you. Then make adjustments to your transcription and provide it again in full. Here is the transcription...</code></pre>
-</div>
-
-<div class="deck-response fragment" data-fragment-index="0">
-
-Current recommendation
-{: .deck-label}
-
 <div markdown="0">
 <dl class="example-lines">
   <dt>Use Gemini as the first LLM</dt>
@@ -330,6 +317,19 @@ Current recommendation
   <dd>Paste Gemini's output into a prompt for Claude</dd>
 </dl>
 </div>
+
+Current recommendation
+{: .deck-label}
+
+<div class="prompt" markdown="0">
+  <div class="prompt-head">
+    <p class="deck-label">Prompt for the second LLM</p>
+    <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
+  </div>
+  <pre class="prompt-text"><code>I am going to paste a transcription of the same image done by another LLM. Please look it over and use it to consider parts of the transcription that were ambiguous or difficult for you. Then make adjustments to your transcription and provide it again in full. Here is the transcription...</code></pre>
+</div>
+
+<div class="deck-response fragment" data-fragment-index="0">
 
 </div>
 </div>
