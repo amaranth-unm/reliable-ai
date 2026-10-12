@@ -66,6 +66,7 @@ Existing scholarship on HTR and AI
 <div class="deck-summary">
 
 - &#9642; For the general Digital Humanities response to AI for transcription, a 2026 monograph by  David Joseph Wrisely and Estelle Guéville, *Medieval Manuscripts and the Computational Humanities*, ebook at [UNM Libraries](https://unm.on.worldcat.org/oclc/1590924317)
+- &#9642; For a easy-to-understand guide to all the options for Automated Text Recognition (ATR), see the ebook by Michael Schonhardt et al, *Automated Text Recognition : Theory, Platforms, Best-Practices*, available at [UNM Libraries](https://unm.on.worldcat.org/oclc/1612800957)
 - &#9642; For studies that compare LLMs' transcription accuracy to Transkribus, see Mark Humphries, [generativehistory.substack.com](https://generativehistory.substack.com)
 - &#9642; For examples of full chats when using AI for transcribing handwriting, see Jonathan Seyfried,[jonathanseyfried.net](https://jonathanseyfried.net/htr-episodes)
 
@@ -112,7 +113,7 @@ Then choose around 10 document images for a pilot test
 
 **2:30–4:30**
 
-Walk the list in order on purpose: script constraints come first because they decide whether a tool can read the document at all, no matter how much time or budget you throw at it. Everything after that is a tradeoff a project can actually make. A one-off family letter and a thousand-page institutional archive call for different tools even if the handwriting is identical.
+Walk the list in order on purpose: script constraints come first because they decide whether a tool can read the document at all, no matter how much time or budget you throw at it. Everything after that is a tradeoff a project can actually make. A one-off family letter and a thousand-page institutional archive call for different tools even if the handwriting is identical. Also, beware that scholars have observed training data for some scripts as colonially-mediated, for example David Joseph Wrisley noticed that Transkribus had a very colonially-mediated training set for Arabic script.
 
 </aside>
 </section>
@@ -149,7 +150,7 @@ Drag in an image and see what comes back.
 
 **4:30–6:30**
 
-Do this live rather than describing it. Transkribus's home page accepts a dropped image and runs its general model with no account setup, so the room can watch an untrained first pass happen in real time. Pick a document with plain horizontal lines for this first try; harder layouts come later.
+Do this live rather than describing it. Transkribus's home page accepts a dropped image and runs its general model with no account setup, so the room can watch an untrained first pass happen in real time. Pick a document with plain horizontal lines for this first try; harder layouts come later. Transkribus uses PyLaia to interact with a LLM. When doing HTR, PyLaia functions as the eyes and the LLM as the brain.
 
 </aside>
 </section>

@@ -40,13 +40,13 @@ In the last few years, several strong options have emerged for using AI to trans
 ## Choose the tool that's right for your project
 {: .step #step-1}
 
-Try Transkribus first because if it has a trained model for your script then this is the most accurate and cost-effective option. You also will likely have more data sovereignty with Transkribus. 
+Try Transkribus first because if it has a trained model for your script then this is the most accurate and cost-effective option. You also will have more data sovereignty with Transkribus versus commercial LLMs. For an excellent overall guide to options for automated text recognition (ATR), see the 2026 ebook by Michael Schonhardt et al, *Automated Text Recognition : Theory, Platforms, Best-Practices*, available at [UNM Libraries](https://unm.on.worldcat.org/oclc/1612800957).
 
 <div class="keypoint" markdown="1">
 Transkribus works best when there is already a trained model for your script.
 </div>
 
-When working with scripts that do not have pre-existing models in Transkribus, then a commercial AI chatbot might end up working very successfully for transcribing handwritten documents.
+When working with scripts that do not have pre-existing models in Transkribus, then a commercial AI chatbot might end up working very successfully for transcribing handwritten documents. As you evaluate outputs for non-Latinate scripts, beware of the legacy of colonially mediated training data. 
 
 ## Examples from the Presentation
 {: .step #step-2}
