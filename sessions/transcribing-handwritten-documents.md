@@ -31,7 +31,7 @@ This page contains all the links from the presentation and supplementary informa
 ## Introduction
 {: .step #introduction}
 
-This presentation covers the use of Transkribus, an AI-powered webapp for handwritten text recognition. But it also explains when to use a commercial large language model, such as Gemini or Claude, for transcribing handwritten documents.
+This presentation covers the use of [Transkribus](https://www.transkribus.org/), an AI-powered webapp for handwritten text recognition. But it also explains when to use a commercial large language model, such as Gemini or Claude, for transcribing handwritten documents.
 
 <div class="keypoint" markdown="1">
 In the last few years, several strong options have emerged for using AI to transcribe documents.
@@ -40,7 +40,7 @@ In the last few years, several strong options have emerged for using AI to trans
 ## Choose the tool that's right for your project
 {: .step #step-1}
 
-Try Transkribus first because if it has a trained model for your script then this is the most accurate and cost-effective option. You also will have more data sovereignty with Transkribus versus commercial LLMs. For an excellent overall guide to options for automated text recognition (ATR), see the 2026 ebook by Michael Schonhardt et al, *Automated Text Recognition : Theory, Platforms, Best-Practices*, available at [UNM Libraries](https://unm.on.worldcat.org/oclc/1612800957).
+Try Transkribus first because if it has a trained model for your script then this is the most accurate and cost-effective option. You also will have more data sovereignty with Transkribus versus commercial LLMs. For an excellent overall guide to options for automated text recognition (ATR), see the 2026 ebook by Michael Schonhardt et al, *Automated Text Recognition: Theory, Platforms, Best-Practices*, available at [UNM Libraries](https://unm.on.worldcat.org/oclc/1612800957).
 
 <div class="keypoint" markdown="1">
 Transkribus works best when there is already a trained model for your script.
