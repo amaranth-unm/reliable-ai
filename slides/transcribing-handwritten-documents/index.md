@@ -233,6 +233,33 @@ Training is the right call for a standing collection that will keep producing pa
 </section>
 
 <!-- 07 -->
+
+<section class="image-slide bleed"
+ data-background-image="/assets/images/humphries-and-leddy-claude-data.png"
+ data-background-size="contain"
+ data-background-color="#0d1412" markdown="1">
+
+
+Table comparing transcription error rates for Gemini, Claude, and ChatGPT.
+{: .bleed-alt}
+
+</section>
+
+<!-- 08 -->
+
+<section class="image-slide bleed"
+ data-background-image="/assets/images/japanese-santa-fe-signatures.jpg"
+ data-background-size="contain"
+ data-background-color="#0d1412" markdown="1">
+
+
+Table comparing transcription error rates for Gemini, Claude, and ChatGPT.
+{: .bleed-alt}
+
+</section>
+
+
+<!-- 09 -->
 <section id="japanese-example" class="workshop-summary" data-timing="60" aria-label="A striking LLM transcription of classical Japanese handwriting">
 
 <header>
@@ -266,7 +293,7 @@ Don't expect every run to be this good, but don't assume a hard, unfamiliar scri
 </aside>
 </section>
 
-<!-- 08 -->
+<!-- 10 -->
 <section id="llm-checking" class="workshop-example" data-timing="150" aria-label="Using a second model to check the first transcription">
 
 <header>
@@ -327,7 +354,7 @@ I am going to paste a transcription of the same image done by another LLM. Pleas
 </aside>
 </section>
 
-<!-- 09 -->
+<!-- 11 -->
 <section id="agents" class="workshop-summary" data-timing="120" aria-label="What agentic AI means and why it's safer now">
 
 <header>
@@ -363,7 +390,7 @@ Flag this as a change in kind, not just a faster chatbot: once an AI application
 </aside>
 </section>
 
-<!-- 10 -->
+<!-- 12 -->
 <section id="example-of-aca-batching" class="workshop-summary" data-timing="120" aria-label="Batch transcription with agentic AI, Archive of the Crown of Aragon">
 
 <header>
@@ -397,7 +424,7 @@ Two examples of CSV files are available on Jonathan Seyfried's [website](https:/
 </aside>
 </section>
 
-<!-- 11 -->
+<!-- 13 -->
 <section id="cautionary-notes" class="workshop-summary" data-timing="90" aria-label="What to expect before you start transcribing">
 
 <header>
@@ -433,7 +460,7 @@ This will be an iterative process as you figure out which tool to use and how to
 </aside>
 </section>
 
-<!-- 20 -->
+<!-- 14 -->
 <section id="resources" class="workshop-summary" data-timing="60" aria-label="The webpage has more resources">
 
 <header>

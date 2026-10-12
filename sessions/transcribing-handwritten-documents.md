@@ -63,7 +63,7 @@ Example 1: Find any image of a handwritten document and drag it to the window on
 Example 2: Gothic Secretarial Hand using Gemini and Claude
 
 - **Automated transcription accuracy greatly increased when using one LLM to check the work of another.** In this example, which can be viewed on Jonathan Seyfried's [website](https://jonathanseyfried.net/htr-episodes), Claude checked the work of Gemini. Although far from perfect each time and not suitable for critical editions, the transcriptions were good enough to use for research purposes. 
-- **The large language models (LLMs) have been shown to perform better than Transkribus.** [Mark Humphries](https://generativehistory.substack.com) provides the best resource for understanding the conditions in which LLMs outperform Transkbribus.
+- **The large language models (LLMs) have been shown to perform better than Transkribus.** [Mark Humphries](https://generativehistory.substack.com) provides the best resource for understanding the conditions in which LLMs outperform Transkribus.
 </div>
 
 <div class="takeaways" markdown="1">
