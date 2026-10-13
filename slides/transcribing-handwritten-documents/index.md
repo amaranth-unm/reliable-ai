@@ -275,7 +275,7 @@ An example using Claude Fable 5.1
 Sometimes the LLM produces quite impressive results, as with this classical Japanese handwriting on a silk handkerchief from the 1940s.
 
 <figure class="deck-figure" markdown="0">
-<img src="{{ 'images/japanese-santa-fe-signatures.jpg' | relative_url }}" alt="Photograph of classical Japanese handwriting on a silk handkerchief from the 1940s.">
+<img src="images/japanese-santa-fe-signatures.jpg" alt="Photograph of classical Japanese handwriting on a silk handkerchief from the 1940s.">
 <figcaption>Classical Japanese handwriting, silk handkerchief, 1940s</figcaption>
 </figure>
 
@@ -423,7 +423,7 @@ Two examples of CSV files are available on Jonathan Seyfried's [website](https:/
 <!-- 13 -->
 
 <section class="image-slide bleed"
- data-background-image="images/report-5053.png"
+ data-background-image="images/report-2053.png"
  data-background-size="contain"
  data-background-color="#0d1412" markdown="1">
 
