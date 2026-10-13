@@ -57,6 +57,7 @@ Example 1: Find any image of a handwritten document and drag it to the window on
 - **For transcribing documents one at a time, this might be ideal.** [Link to Transkribus](https://www.transkribus.org/)
 - **For less common scripts, training your own model might be worth the time.** Model training on Transkribus works well for large batches of document images that have a lot of consistency.
 - **Transkribus can handle complex layouts.** For example, if you have a large dataset of digitized government documents with consistent labels, Transkribus excels at producing transcriptions in an Excel document with each label as a column.
+- **Nineteenth-century handwritten script usually works nicely on Transkribus.** For an example, try out a page from [William Andrew Mauney's Civil War diary](https://www.digitalnc.org/blog/civil-war-diary-added-to-digitalnc/).
 </div>
 
 <div class="takeaways" markdown="1">
