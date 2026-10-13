@@ -51,4 +51,4 @@ A saved guide can accumulate inconsistencies. This snapshot refers to both `head
 
 The workshop preserves the source guide as a snapshot. The editorial example is a chance to make its boundaries visible and test them on one page.
 
-Return to the [style-guide exercise]({{ site.baseurl }}/sessions/editorial-assistant#step-5) or [presentation]({{ site.baseurl }}/presents/editorial-assistant/#/campus-history-guide).
+Return to the [style-guide exercise]({{ site.baseurl }}/sessions/editorial-assistant/#step-5) or [presentation]({{ site.baseurl }}/sessions/editorial-assistant/slides/#/campus-history-guide).

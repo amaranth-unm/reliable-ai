@@ -12,16 +12,18 @@ header-filter: etching
 header-flip: true
 header-title: AI as Editorial Assistant
 header-subtitle: "Use AI as a reader whose comments you can check against your own text. Tell it your editorial rules, then decide which comments are worth acting on."
+header-caption: "Jost Amman, <i>Der Schrifftgiesser</i> (the typefounder), from <i>Eygentliche Beschreibung aller Stände auff Erden</i>, Frankfurt, 1568. Shown mirrored. Public domain, via Wikimedia Commons."
 tags:
   - editing
   - prompting
   - getting started
 workshop_mode: true
+redirect_from: /sessions/editorial-assistant.html
 ---
 
 {% include nav/scrollspy-toc.html %}
 
-This page is the full tutorial, with every prompt and some extra exercises to work through at your own pace. You can also [view the presentation slides]({{ site.baseurl }}/slides/editorial-assistant/).
+This page is the full tutorial, with every prompt and some extra exercises to work through at your own pace. You can also [view the presentation slides]({{ site.baseurl }}/sessions/editorial-assistant/slides/).
 {: .lead}
 
 <div class="rule" markdown="1">

@@ -1,5 +1,5 @@
-# The semester's meeting dates. `session` is a session page's filename
-# (without extension) in sessions/ — add it once a topic is decided and the
+# The semester's meeting dates. `session` is a session's folder name in
+# sessions/ — add it once a topic is decided and the
 # date picks up that page's title and link automatically. Leave it out and
 # the date renders as "Topic TBA" (see _includes/schedule-list.html).
 #

@@ -8,25 +8,27 @@ location: History Commons (MVH 1104)
 kicker: Session 2 · October 14, 2026
 summary: "Another task where you can check the work, because the page is right in front of you. We try AI on handwritten sources, compare its readings with the originals, and look closely at where it goes wrong."
 note: "Bring a photo or scan of a handwritten document you'd like to read. No laptop? Just show up."
+thumbnail: "/assets/images/weigel-scribe-1698.jpg"
+header-image: "/assets/images/weigel-scribe-1698.jpg"
+header-tier: section
+header-filter: etching
+header-position: center right
+header-title: Transcribing Handwritten Documents
+header-subtitle: "AI can now read many historical hands, and you can check every word it gives you against the page. Choose the tool by the script and the size of the job, and have a second model check the first."
+header-caption: "Christoph Weigel, <i>Der Schreiber</i>, from <i>Abbildung der Gemein-Nützlichen Haupt-Stände</i>, Regensburg, 1698. National Library of Poland (Polona), public domain."
+tags: [transcription, archives, research]
+workshop_mode: true
+redirect_from: /sessions/transcribing-handwritten-documents.html
 ---
-
-<!-- Placeholder until the session happens. date/time/location/summary/note
-     above are what the home page and sessions/index.md read automatically;
-     replace this body with the full write-up afterwards, the way
-     editorial-assistant.md works now. -->
-
-# Transcribing Handwritten Documents
-
-This session hasn't happened yet. The full materials go up here afterwards, the way [AI as Editorial Assistant]({{ site.baseurl }}/sessions/editorial-assistant) did.
-
-**{{ page.date | date: "%A, %B %-d, %Y" }}, {{ page.time }} · {{ page.location }}**
-
-{{ page.note }}
 
 {% include nav/scrollspy-toc.html %}
 
-This page contains all the links from the presentation and supplementary information. You can also [view the presentation slides]({{ site.baseurl }}/slides/transcribing-handwritten-documents/).
+This page contains all the links from the presentation and supplementary information. You can also [view the presentation slides]({{ site.baseurl }}/sessions/transcribing-handwritten-documents/slides/).
 {: .lead}
+
+<div class="rule" markdown="1">
+**Check every transcription against the page in front of you.**
+</div>
 
 ## Introduction
 {: .step #introduction}
@@ -37,7 +39,16 @@ This presentation covers the use of [Transkribus](https://www.transkribus.org/),
 In the last few years, several strong options have emerged for using AI to transcribe documents.
 </div>
 
-## Choose the tool that's right for your project
+### Before you start
+
+- **A photo or scan of a handwritten document** you'd like to read. No document? Use one of the examples in step 2.
+- **A laptop**, if you have one. No laptop? Just show up.
+
+<div class="reminder" markdown="1">
+Use images you have permission to share, such as your own photos or the examples on this page, and check an archive's rules before you upload its images to a commercial AI service.
+</div>
+
+## 1. Choose the tool that's right for your project
 {: .step #step-1}
 
 Try Transkribus first because if it has a trained model for your script then this is the most accurate and cost-effective option. You also will have more data sovereignty with Transkribus versus commercial LLMs. For an excellent overall guide to options for automated text recognition (ATR), see the 2026 ebook by Michael Schonhardt et al, *Automated Text Recognition: Theory, Platforms, Best-Practices*, available at [UNM Libraries](https://unm.on.worldcat.org/oclc/1612800957).
@@ -48,33 +59,29 @@ Transkribus works best when there is already a trained model for your script.
 
 When working with scripts that do not have pre-existing models in Transkribus, then a commercial AI chatbot might end up working very successfully for transcribing handwritten documents. As you evaluate outputs for non-Latinate scripts, beware of the legacy of colonially mediated training data. 
 
-## Examples from the Presentation
+## 2. Try it on three kinds of handwriting
 {: .step #step-2}
 
-<div class="takeaways" markdown="1">
-Example 1: Find any image of a handwritten document and drag it to the window on Transkribus
+### Example 1: Drop an image into Transkribus
+
+Find any image of a handwritten document and drag it to the window on Transkribus.
 
 - **For transcribing documents one at a time, this might be ideal.** [Link to Transkribus](https://www.transkribus.org/)
 - **For less common scripts, training your own model might be worth the time.** Model training on Transkribus works well for large batches of document images that have a lot of consistency.
 - **Transkribus can handle complex layouts.** For example, if you have a large dataset of digitized government documents with consistent labels, Transkribus excels at producing transcriptions in an Excel document with each label as a column.
 - **Nineteenth-century handwritten script usually works nicely on Transkribus.** For an example, try out a page from [William Andrew Mauney's Civil War diary](https://www.digitalnc.org/blog/civil-war-diary-added-to-digitalnc/).
-</div>
 
-<div class="takeaways" markdown="1">
-Example 2: Gothic Secretarial Hand using Gemini and Claude
+### Example 2: Gothic secretarial hand, with Gemini and Claude
 
 - **Automated transcription accuracy greatly increased when using one LLM to check the work of another.** In this example, which can be viewed on Jonathan Seyfried's [website](https://jonathanseyfried.net/htr-episodes), Claude checked the work of Gemini. Although far from perfect each time and not suitable for critical editions, the transcriptions were good enough to use for research purposes. 
 - **The large language models (LLMs) have been shown to perform better than Transkribus.** [Mark Humphries](https://generativehistory.substack.com) provides the best resource for understanding the conditions in which LLMs outperform Transkribus.
-</div>
 
-<div class="takeaways" markdown="1">
-Example 3: A Challenging Classical Japanese Document
+### Example 3: A challenging classical Japanese document
 
 - **The language, classical Japanese, and the multi-directional layout, presents a large transcription challenge.** The [full chat transcript](https://claude.ai/share/50647f1c-3dab-48ee-8d40-714c7ed36d39) and [a report](https://claude.ai/artifact/7yTFsYxL9KxUdtVcRKFDdP#ccdb996d-540e) from Claude are accessible with a free login to Anthropic.
 - **Claude Fable 5.1 generated some transcription.** The transcription carried out by Anthropic's most capable model (as of October 2026) successfully identified many of the characters but also substituted a blank circle when it found the script unreadable. For some difficult-to-read parts of this document the AI refused to guess or confabulate. The LLM correctly identified the material as silk.
-</div>
 
-## Batch Processing
+## 3. Process documents in batches
 {: .step #step-3}
 
 - **Batch processing in the LLMs require agentic AI.** [Jonathan Seyfried](https://jonathanseyfried.net/aca-csv-files) has tested this out with Gemini and Claude for digitized documents from the Archive of the Crown of Aragon. The initial testing of this process took place in March 2026 and since then the usage costs have increased dramatically.
@@ -82,14 +89,12 @@ Example 3: A Challenging Classical Japanese Document
 
 
 
-## State of the Field Report Generated by Claude
+## 4. Read a state-of-the-field report written by Claude
 {: .step #step-4}
 
 *The following report was generated by Claude when prompted to generate a state of the field for HTR in October 2026. Here is the prompt, followed by what Claude generated.*
 
-<div class="takeaways" markdown="1">
-Please give me an approximately five page report on the strengths and weaknesses of different automated handwritten transcription (also known as Handwritten Text Recognition - HTR) tools as of October 2026. I especially would like to know which platforms/applications/LLMs are best a which scripts and languages. You should absolutely include Transkribus and eScriptorium, but also any other prominent HTR tools. In addition, please include evaluations of a selection of LLMs such as Gemini, ChatGPT, and Claude. If anything else has been introduced for HTR in the last year that is not covered in this prompt but should be mentioned, please include that too. Please cite sources that include scholarly journals as well as blogs, substack posts, etc. It is ok to consult Reddit as long as the thread is academic.
-</div>
+{% include prompt.html id="htr-state-of-field" %}
 
 ### Handwritten Text Recognition Tools: State of the Field, October 2026
 
@@ -188,7 +193,7 @@ The best-controlled comparison is [Mark Humphries and Lianne Leddy's](https://ww
   image-width="90%"
   caption="Data from Humphries and Leddy re-formatted by Claude."
   alt-text="Table of data from Humprhies and Leddy."
-  image-path="/assets/images/humphries-and-leddy-claude-data.png"
+  image-path="/sessions/transcribing-handwritten-documents/slides/images/humphries-and-leddy-claude-data.png"
 %}
 
 
@@ -247,7 +252,7 @@ The year's biggest shift is that general LLMs crossed expert-human accuracy on E
 
 No Reddit thread met the bar of academic discussion in my searches; the most substantive practitioner debate is in the comment threads of Humphries's *Generative History* posts and on [Language Hat](https://languagehat.com/ai-and-handwriting-recognition/).
 
-## Best tools by script and language
+### Best tools by script and language
 *Generated by Claude as part of its report of October 10, 2026*
 
 The older, more abbreviated, more non-Latin or more structured the material, the more the advantage shifts from general LLMs back to trained specialist models.
@@ -280,7 +285,7 @@ Choose by testing on your own pages and by what the transcription is for, not by
 6. **For medieval, non-Latin and low-resource scripts, invest in ground truth.** Start from Text Titan II, CATMuS or the kraken 7.1 base models and fine-tune; share the ground truth (HTR-United, Zenodo) so the next project starts further ahead.
 7. **Manage platform risk.** Export PAGE XML or ALTO, keep an open-source fallback, and check archive licences and privacy rules before sending images to commercial APIs.
 
-## Sources
+### Sources
 
 **Scholarly articles, proceedings and preprints**
 *Generated by Claude as part of its report of October 10, 2026*
@@ -318,3 +323,16 @@ Choose by testing on your own pages and by what the transcription is for, not by
 - [Papers of the War Department transcription methodology](https://wardepartmentpapers.org/transcription-methodology/)
 - [Transkribus vs eScriptorium/kraken](https://backend.uni-heidelberg.de/de/dokumente/ocr-technologien-im-vergleich-von-handschriften-und-altdrucken-zu-datenbankenstrukturen-und-htr-0/download), Heidelberg Forum Digital Humanities talk; [eScriptorium for non-Roman scripts](https://texlibris.lib.utexas.edu/?p=12779), UT Austin TexLibris
 - [ICDAR 2026 Multilingual Medieval HTR competition data](https://zenodo.org/records/18270331), Zenodo
+
+## What to take with you
+{: .step #takeaways}
+
+<div class="takeaways" markdown="1">
+Use these on the next handwritten source you need to read, whether it is one letter or a whole collection.
+
+- **Try Transkribus first if your script has a model.** It is the most accurate and cost-effective option there, and your images stay out of commercial chatbots.
+- **Pilot before you commit.** Run around ten representative pages through each tool you are considering, and compare what comes back with the page.
+- **Have a second model check the first.** Paste one model's transcription into another and ask it to revise, then read the two against each other where they differ.
+- **Budget for verification.** Checking takes real time, and image recognition uses up credits quickly.
+- **Treat batch output as a draft.** Batching changes how many pages you can process, not how accurate each one is, so every row still needs checking.
+</div>

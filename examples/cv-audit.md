@@ -79,4 +79,4 @@ Catching every small inconsistency matters less than noticing a conflict like th
 
 </details>
 
-Return to the [style-guide step]({{ site.baseurl }}/sessions/editorial-assistant#step-5) or the [presentation]({{ site.baseurl }}/presents/editorial-assistant/#/cv-formatting).
+Return to the [style-guide step]({{ site.baseurl }}/sessions/editorial-assistant/#step-5) or the [presentation]({{ site.baseurl }}/sessions/editorial-assistant/slides/#/cv-formatting).

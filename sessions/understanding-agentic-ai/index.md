@@ -17,10 +17,11 @@ header-subtitle: "Give AI a task whose result you can examine. Watch how it choo
 header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from <i>Nova Reperta</i>, engraved by Joannes Galle. Museum Plantin-Moretus, public domain."
 tags: [agents, getting started, research]
 workshop_mode: true
+redirect_from: /sessions/understanding-agentic-ai.html
 ---
 
 {% comment %}
-Authoring references: SESSION-STYLE.md and sessions/editorial-assistant.md.
+Authoring references: SESSION-STYLE.md and sessions/editorial-assistant/index.md.
 Separate introductory workshop; no meeting date assigned.
 {% endcomment %}
 

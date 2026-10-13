@@ -1,7 +1,7 @@
 # Session Page Style
 
 How to write a session page for the Reliable AI brown bag series. Read this
-before starting one. `sessions/editorial-assistant.md` is the worked example
+before starting one. `sessions/editorial-assistant/index.md` is the worked example
 for the shared page structure and voice. When its conventions change, update
 this guide. Research-workspace and unlisted-preview notes extend that example
 for sessions that need them.
@@ -81,7 +81,7 @@ blurb, and `note` for a logistics line like what to bring). Announcing a
 session is adding its file with these fields filled in and a short
 placeholder body; nothing on the home page is hand-typed per announcement.
 Once a session is in the past, nothing reads `time` or `location` any more —
-`editorial-assistant.md` doesn't carry them, and a session you're writing up
+`editorial-assistant/index.md` doesn't carry them, and a session you're writing up
 after the fact doesn't need to either.
 
 **`workshop_mode: true` is not decoration.** It loads the bullet-highlighting
@@ -102,8 +102,12 @@ subtitle, which is where a page's argument goes.
 **Header images are early modern prints, and they carry a `header-caption`.**
 The series is about a division of labour between machine and judgment, so the
 images are printing-house images — Stradanus's *Impressio Librorum* on the
-sessions index, Amman's typefounder on session 1, the Aldine device on the
-home page. Source them at 2000px on the long edge, public domain, and credit
+sessions index, Amman's typefounder on session 1, Weigel's scribe on session 2,
+the Aldine device on the home page. Christoph Weigel's *Abbildung der
+Gemein-Nützlichen Haupt-Stände* (1698) is a good well for more: about two
+hundred trades, scanned at full resolution by the National Library of Poland
+and on Commons as `Abbildung Der Gemein-Nutzlichen Haupt-Stande 1698 (…).jpg`.
+Source them at 2000px on the long edge, public domain, and credit
 maker, title, holding institution and licence in `header-caption`. Fetch at
 the command line rather than saving from a browser:
 

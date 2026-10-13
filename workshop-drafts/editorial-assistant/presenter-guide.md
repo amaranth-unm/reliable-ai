@@ -28,26 +28,26 @@ Before teaching, record the demonstrations in the intended tool. Save the source
 
 | Slide | Minutes | Topic |
 |---|---|---|
-| 1 | 0–1 | [AI as editorial assistant](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/title) |
-| 2 | 1–3 | [One paragraph we can all judge](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/shared-paragraph) |
-| 3 | 3–5 | [Before: a general editing request](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/baseline) |
-| 4 | 5–8 | [After: give AI a specific job](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/editorial-brief) |
-| 5 | 8–10 | [Before: an open-ended follow-up](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/vague-follow-up) |
-| 6 | 10–13 | [After: require evidence for the comment](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/check-the-finding) |
-| 7 | 13–16 | [Before: edit the report for clarity](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/standing-rules) |
-| 8 | 16–18 | [After: define what clarity must preserve](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/checkable-rules) |
-| 9 | 18–20 | [A real collection, still being added to](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/campus-history-project) |
-| 10 | 20–22 | [One template, three conventions](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/collection-variations) |
-| 11 | 22–24 | [The guide is a file you can read](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/guide-file) |
-| 12 | 24–27 | [One editorial guide across semesters](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/campus-history-guide) |
-| 13 | 27–29 | [Where the guide actually lives](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/where-the-guide-lives) |
-| 14 | 29–32 | [A CV audit catches several kinds of inconsistency](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/cv-formatting) |
-| 15 | 32–34 | [The assignment as a student reads it](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/student-reader) |
-| 16 | 34–36 | [The assignment as a designer reads it](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/outsider-reader) |
-| 17 | 36–38 | [Compare the questions the two readers raise](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/compare-readers) |
-| 18 | 38–41 | [Reader comments can stay beside the passage](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/word-comments) |
-| 19 | 41–43 | [Five techniques to take with you](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/takeaways) |
-| 20 | 43–44 | [The webpage is the full walkthrough](https://amaranth.unm.edu/reliable-ai/presents/editorial-assistant/#/resources) |
+| 1 | 0–1 | [AI as editorial assistant](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/title) |
+| 2 | 1–3 | [One paragraph we can all judge](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/shared-paragraph) |
+| 3 | 3–5 | [Before: a general editing request](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/baseline) |
+| 4 | 5–8 | [After: give AI a specific job](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/editorial-brief) |
+| 5 | 8–10 | [Before: an open-ended follow-up](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/vague-follow-up) |
+| 6 | 10–13 | [After: require evidence for the comment](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/check-the-finding) |
+| 7 | 13–16 | [Before: edit the report for clarity](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/standing-rules) |
+| 8 | 16–18 | [After: define what clarity must preserve](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/checkable-rules) |
+| 9 | 18–20 | [A real collection, still being added to](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/campus-history-project) |
+| 10 | 20–22 | [One template, three conventions](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/collection-variations) |
+| 11 | 22–24 | [The guide is a file you can read](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/guide-file) |
+| 12 | 24–27 | [One editorial guide across semesters](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/campus-history-guide) |
+| 13 | 27–29 | [Where the guide actually lives](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/where-the-guide-lives) |
+| 14 | 29–32 | [A CV audit catches several kinds of inconsistency](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/cv-formatting) |
+| 15 | 32–34 | [The assignment as a student reads it](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/student-reader) |
+| 16 | 34–36 | [The assignment as a designer reads it](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/outsider-reader) |
+| 17 | 36–38 | [Compare the questions the two readers raise](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/compare-readers) |
+| 18 | 38–41 | [Reader comments can stay beside the passage](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/word-comments) |
+| 19 | 41–43 | [Five techniques to take with you](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/takeaways) |
+| 20 | 43–44 | [The webpage is the full walkthrough](https://amaranth.unm.edu/reliable-ai/sessions/editorial-assistant/slides/#/resources) |
 
 ## 1. AI as editorial assistant
 

@@ -2,14 +2,16 @@
 layout: reveal-workshop
 title: AI as Editorial Assistant
 summary: "A 45-minute walkthrough: briefing AI, saving editorial rules, and comparing reader perspectives."
-permalink: /presents/editorial-assistant/
-tutorial: /sessions/editorial-assistant
+tutorial: /sessions/editorial-assistant/
+redirect_from:
+  - /presents/editorial-assistant/
+  - /slides/editorial-assistant/
 ---
 
 {::options parse_block_html="true" auto_ids="false" /}
 
 <!-- 20 slides, 44 minutes. The matching full tutorial lives
-     at sessions/editorial-assistant.md. Sources and timing are in each note.
+     at sessions/editorial-assistant/index.md. Sources and timing are in each note.
      Response labels distinguish illustrations from saved excerpts; provenance is in the notes. -->
 
 
@@ -150,7 +152,7 @@ Source prompt: `baseline`. Invented source policy: `practice-texts.md#3-a-syllab
 
 
 <!-- 04 -->
-<section id="editorial-brief" class="workshop-example" data-timing="180" aria-label="After: give the reader a specific job">
+<section id="editorial-brief" class="workshop-example" data-timing="180" aria-label="After: give AI a specific job">
 
 <header>
 
@@ -368,7 +370,7 @@ A sentence can become clearer while a claim still needs attention.
 
 <footer class="deck-source">
 
-[Report and guide]({{ site.baseurl }}/practice-texts#community-archive)
+[Report and guide]({{ '/practice-texts#community-archive' | relative_url }})
 
 </footer>
 
@@ -436,7 +438,7 @@ The guide gives reasons to preserve wording and question a claim.
 
 <footer class="deck-source">
 
-[Report and guide]({{ site.baseurl }}/practice-texts#community-archive)
+[Report and guide]({{ '/practice-texts#community-archive' | relative_url }})
 
 </footer>
 
@@ -662,7 +664,7 @@ Rules you can point at, argue with, and change.
 
 <footer class="deck-source">
 
-[Guide and exercise]({{ site.baseurl }}/examples/campus-history-style-guide/)
+[Guide and exercise]({{ '/examples/campus-history-style-guide/' | relative_url }})
 
 </footer>
 
@@ -702,7 +704,7 @@ Set up rules and style guides
 
 <div class="prompt" markdown="0">
   <div class="prompt-head">
-    <p class="deck-label">Prompt with the actual collection guide</p>
+    <p class="deck-label">Prompt · the actual collection guide</p>
     <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
   </div>
   <pre class="prompt-text"><code>Use my Campus History Essay Style Guide on this essay.
@@ -751,7 +753,7 @@ Which decisions should carry into the next semester?
 
 <footer class="deck-source">
 
-[Guide and exercise]({{ site.baseurl }}/examples/campus-history-style-guide/)
+[Guide and exercise]({{ '/examples/campus-history-style-guide/' | relative_url }})
 
 </footer>
 
@@ -771,6 +773,7 @@ Source: https://github.com/amaranth-unm/campus-history/blob/master/ESSAY-STYLE-G
 
 </aside>
 </section>
+
 
 <!-- 13 -->
 <section id="where-the-guide-lives" class="workshop-summary" data-timing="120" aria-label="Where the style guide actually lives">
@@ -819,6 +822,7 @@ The tutorial covers this at greater length under "Where to keep it" and "Keep th
 </aside>
 </section>
 
+
 <!-- 14 -->
 <section id="cv-formatting" class="workshop-example" data-timing="180" aria-label="A CV audit catches several kinds of inconsistency">
 
@@ -835,7 +839,7 @@ Set up rules and style guides
 
 <div class="prompt" markdown="0">
   <div class="prompt-head">
-    <p class="deck-label">Expanded Alexandra Ruiz Word specimen</p>
+    <p class="deck-label">Prompt · expanded Alexandra Ruiz Word specimen</p>
     <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
   </div>
   <pre class="prompt-text"><code>Audit this CV before editing it.
@@ -869,7 +873,7 @@ Which finding is a formatting fix, and which needs a decision?
 
 <footer class="deck-source">
 
-[Exercise]({{ site.baseurl }}/examples/cv-audit/) · [Download Word CV]({{ site.baseurl }}/assets/documents/alexandra-ruiz-cv-workshop.docx)
+[Exercise]({{ '/examples/cv-audit/' | relative_url }}) · [Download Word CV]({{ '/assets/documents/alexandra-ruiz-cv-workshop.docx' | relative_url }})
 
 </footer>
 
@@ -901,7 +905,7 @@ Role-play as different readers
 
 <div class="prompt" markdown="0">
   <div class="prompt-head">
-    <p class="deck-label">Campus History Part 2; shortened student prompt</p>
+    <p class="deck-label">Prompt · Campus History Part 2, shortened</p>
     <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
   </div>
   <pre class="prompt-text"><code>Read this Making History assignment as a first-year student.
@@ -933,7 +937,7 @@ Which question would you want students to ask before starting?
 
 <footer class="deck-source">
 
-[Assignment and prompts]({{ site.baseurl }}/examples/assignment-review/)
+[Assignment and prompts]({{ '/examples/assignment-review/' | relative_url }})
 
 </footer>
 
@@ -967,7 +971,7 @@ Role-play as different readers
 
 <div class="prompt" markdown="0">
   <div class="prompt-head">
-    <p class="deck-label">TILT review; shortened designer prompt</p>
+    <p class="deck-label">Prompt · TILT review, shortened</p>
     <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
   </div>
   <pre class="prompt-text"><code>Use transparent assignment design: purpose, task, and criteria.
@@ -1001,7 +1005,7 @@ Do the instructions and grading criteria describe the same work?
 
 <footer class="deck-source">
 
-[Sources and exercise]({{ site.baseurl }}/examples/assignment-review/)
+[Sources and exercise]({{ '/examples/assignment-review/' | relative_url }})
 
 </footer>
 
@@ -1039,7 +1043,7 @@ Role-play as different readers
 
 <div class="prompt" markdown="0">
   <div class="prompt-head">
-    <p class="deck-label">Comparison prompt, shortened</p>
+    <p class="deck-label">Prompt · comparison, shortened</p>
     <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
   </div>
   <pre class="prompt-text"><code>Compare the student and designer readings. Check each claim against the assignment.
@@ -1073,7 +1077,7 @@ Does their agreement identify evidence, or just repeat an assumption?
 
 <footer class="deck-source">
 
-[Full exercise]({{ site.baseurl }}/examples/assignment-review/)
+[Full exercise]({{ '/examples/assignment-review/' | relative_url }})
 
 </footer>
 
@@ -1105,7 +1109,7 @@ Application in Word
 
 <div class="prompt" markdown="0">
   <div class="prompt-head">
-    <p class="deck-label">Document-comment prompt, shortened</p>
+    <p class="deck-label">Prompt · document comments, shortened</p>
     <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
   </div>
   <pre class="prompt-text"><code>Read as a student encountering this text. Add comments at confusing passages. Explain what is unclear and ask a question. Keep all text and formatting unchanged. Return a copy with comments.</code></pre>
@@ -1151,8 +1155,6 @@ If you can’t add Word comments, return a passage/comment table.
 
 </aside>
 </section>
-
-
 
 
 <!-- 19 -->

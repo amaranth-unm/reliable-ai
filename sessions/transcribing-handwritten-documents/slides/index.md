@@ -1,28 +1,29 @@
 ---
 layout: reveal-workshop
-title: Transcribing Handwritten Documents with AI
+title: Transcribing Handwritten Documents
 summary: "A 45-minute workshop on using AI to transcribe handwritten documents."
-tutorial: /sessions/transcribing-handwritten-documents
+tutorial: /sessions/transcribing-handwritten-documents/
+redirect_from: /slides/transcribing-handwritten-documents/
 ---
 
 {::options parse_block_html="true" auto_ids="false" /}
 
-<!-- 11 slides, 19 minutes so far. The matching full tutorial lives
-     at sessions/transcribing-handwritten-documents.md. Sources and timing are in each note.
+<!-- 15 slides, 20 minutes so far (the three full-screen images are untimed). The matching full tutorial lives
+     at sessions/transcribing-handwritten-documents/index.md. Sources and timing are in each note.
      Response labels distinguish illustrations from saved excerpts; provenance is in the notes. -->
 
 
 <!-- 01 -->
-<section id="title" class="workshop-title" data-timing="60" aria-label="Using AI to Transcribe Handwritten Documents">
+<section id="title" class="workshop-title" data-timing="60" aria-label="Transcribing handwritten documents">
 
 <header>
 
 Amaranth Brown Bag Series
 {: .deck-topic}
 
-# Using AI to Transcribe Handwritten Documents
+# Transcribing handwritten documents
 
-Tips and Recommendations
+Tips and recommendations
 {: .deck-thesis}
 
 </header>
@@ -35,7 +36,7 @@ Tips and Recommendations
 
 </div>
 
-<div class="deck-decoration" markdown="0"><img class="deck-art" src="{{ 'images/amman-typefounder-1568.jpg' | relative_url }}" alt="" aria-hidden="true"></div>
+<div class="deck-decoration" markdown="0"><img class="deck-art" src="{{ '/assets/images/weigel-scribe-1698.jpg' | relative_url }}" alt="" aria-hidden="true"></div>
 
 <footer class="deck-source" aria-hidden="true"></footer>
 
@@ -45,7 +46,7 @@ Tips and Recommendations
 
 Welcome. Summarize the session goals.
 
-Cover image: Jost Amman, typefounder, 1568. Existing public-domain workshop image. The Rubric theme and typography follow the Reliable AI site.
+Cover image: Christoph Weigel, *Der Schreiber* (The Scribe), from *Abbildung der Gemein-Nützlichen Haupt-Stände*, Regensburg, 1698. National Library of Poland (Polona), public domain. The same print heads the session page.
 
 </aside>
 </section>
@@ -64,10 +65,10 @@ Existing scholarship on HTR and AI
 
 <div class="deck-summary">
 
-- &#9642; For the general Digital Humanities response to AI for transcription, a 2026 monograph by  David Joseph Wrisely and Estelle Guéville, *Medieval Manuscripts and the Computational Humanities*, ebook at [UNM Libraries](https://unm.on.worldcat.org/oclc/1590924317)
-- &#9642; For a easy-to-understand guide to all the options for Automated Text Recognition (ATR), see the ebook by Michael Schonhardt et al, *Automated Text Recognition : Theory, Platforms, Best-Practices*, available at [UNM Libraries](https://unm.on.worldcat.org/oclc/1612800957)
-- &#9642; For studies that compare LLMs' transcription accuracy to Transkribus, see Mark Humphries, [generativehistory.substack.com](https://generativehistory.substack.com)
-- &#9642; For examples of full chats when using AI for transcribing handwriting, see Jonathan Seyfried, [jonathanseyfried.net](https://jonathanseyfried.net/htr-episodes)
+- **The field's response.** David Joseph Wrisley and Estelle Guéville, *Medieval Manuscripts and the Computational Humanities* (2026), ebook at [UNM Libraries](https://unm.on.worldcat.org/oclc/1590924317)
+- **A plain guide to every option.** Michael Schonhardt et al., *Automated Text Recognition: Theory, Platforms, Best-Practices*, ebook at [UNM Libraries](https://unm.on.worldcat.org/oclc/1612800957)
+- **LLMs compared with Transkribus.** Mark Humphries, [generativehistory.substack.com](https://generativehistory.substack.com)
+- **Full transcription chats.** Jonathan Seyfried, [jonathanseyfried.net](https://jonathanseyfried.net/htr-episodes)
 
 </div>
 
@@ -96,10 +97,10 @@ Choosing the right tool
 
 <div class="deck-summary">
 
-- &#9642; First, the language, age, rarity, and style of the handwriting.
-- &#9642; Second, the quality of the scan or photo, and its layout.
-- &#9642; Third, the number of documents you need transcribed.
-- &#9642; Fourth, the budget, time, and tech comfort you can bring to the project.
+- First, the language, age, rarity, and style of the handwriting.
+- Second, the quality of the scan or photo, and its layout.
+- Third, the number of documents you need transcribed.
+- Fourth, the budget, time, and tech comfort you can bring to the project.
 
 </div>
 
@@ -198,6 +199,7 @@ Coverage on Transkribus is a function of who has already trained a model on that
 Commercial LLMs
 {: .deck-topic}
 
+## Train a model, or try a commercial LLM
 
 </header>
 
@@ -233,28 +235,36 @@ Training is the right call for a standing collection that will keep producing pa
 
 <!-- 07 -->
 
-<section class="image-slide bleed"
+<section id="error-rates" class="workshop-image" aria-label="Transcription error rates, full screen"
  data-background-image="images/humphries-and-leddy-claude-data.png"
  data-background-size="contain"
- data-background-color="#0d1412" markdown="1">
-
+ data-background-color="#1c1710" markdown="1">
 
 Table comparing transcription error rates for Gemini, Claude, and ChatGPT.
-{: .bleed-alt}
+{: .visually-hidden}
 
+<aside class="notes">
+
+The previous slide's comparison at full size: Mark Humphries and Lianne Leddy's error rates, reformatted by Claude.
+
+</aside>
 </section>
 
 <!-- 08 -->
 
-<section class="image-slide bleed"
+<section id="handkerchief" class="workshop-image" aria-label="Classical Japanese handwriting on a silk handkerchief, full screen"
  data-background-image="images/japanese-santa-fe-signatures.jpg"
  data-background-size="contain"
- data-background-color="#0d1412" markdown="1">
+ data-background-color="#1c1710" markdown="1">
 
+Photograph of classical Japanese handwriting on a silk handkerchief from the 1940s.
+{: .visually-hidden}
 
-Table comparing transcription error rates for Gemini, Claude, and ChatGPT.
-{: .bleed-alt}
+<aside class="notes">
 
+The silk handkerchief from the next slide's example, at full size, before saying what Claude made of it.
+
+</aside>
 </section>
 
 
@@ -306,21 +316,6 @@ Checking the transcription
 
 <div class="deck-pair">
 
-Current recommendation
-{: .deck-label}
-
-<div markdown="0">
-<dl class="example-lines">
-  <dt>Use Gemini as the first LLM</dt>
-  <dd>Gemini currently leads in performance for image recognition.</dd>
-  <dt>Prompt Gemini</dt>
-  <dd>Upload the image file and specify the year and the script</dd>
-  <dt>Then go to Claude</dt>
-  <dd>Paste Gemini's output into a prompt for Claude</dd>
-</dl>
-</div>
-
-
 <div class="prompt" markdown="0">
   <div class="prompt-head">
     <p class="deck-label">Prompt for the second LLM</p>
@@ -328,6 +323,19 @@ Current recommendation
   </div>
   <pre class="prompt-text"><code>I am going to paste a transcription of the same image done by another LLM. Please look it over and use it to consider parts of the transcription that were ambiguous or difficult for you. Then make adjustments to your transcription and provide it again in full. Here is the transcription...</code></pre>
 </div>
+
+<div class="deck-response" markdown="0">
+<p class="deck-label">Current recommendation</p>
+<dl class="example-lines">
+  <dt>Use Gemini as the first LLM</dt>
+  <dd>Gemini currently leads in performance for image recognition.</dd>
+  <dt>Prompt Gemini</dt>
+  <dd>Upload the image file and specify the year and the script.</dd>
+  <dt>Then go to Claude</dt>
+  <dd>Paste Gemini's output into this prompt for Claude.</dd>
+</dl>
+</div>
+
 </div>
 
 It will take some time to check the end result for each document
@@ -373,7 +381,7 @@ Agentic AI
 
 <footer class="deck-source">
 
-[Audit Trails for AI Agents]({{ site.baseurl }}/sessions/audit-trails-for-ai-agents)
+[Upcoming sessions]({{ site.baseurl }}/sessions/)
 
 </footer>
 
@@ -422,15 +430,19 @@ Two examples of CSV files are available on Jonathan Seyfried's [website](https:/
 
 <!-- 13 -->
 
-<section class="image-slide bleed"
+<section id="pipeline-report" class="workshop-image" aria-label="Claude's report on the batch transcription pipeline, full screen"
  data-background-image="images/report-2053.png"
  data-background-size="contain"
- data-background-color="#0d1412" markdown="1">
-
+ data-background-color="#1c1710" markdown="1">
 
 A section from the report generated by Claude about the agentic AI pipeline process.
-{: .bleed-alt}
+{: .visually-hidden}
 
+<aside class="notes">
+
+A section of the report Claude generated about the batch pipeline: what each processed page produces and how the quality flags are assigned.
+
+</aside>
 </section>
 
 <!-- 14-->
@@ -500,7 +512,7 @@ More resources for HTR using AI
 
 <aside class="notes">
 
-**43:00–44:00**
+**19:00–20:00**
 
 Conclusion
 

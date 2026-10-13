@@ -1,7 +1,7 @@
 # Understanding Agentic AI · presenter guide
 
-Authoring references: ../../SESSION-STYLE.md and ../../sessions/editorial-assistant.md.
-Session: ../../sessions/understanding-agentic-ai.md. Separate unlisted workshop draft, with no meeting date assigned. All development and rehearsal files belong in this repo; put local runs in _local/.
+Authoring references: ../../SESSION-STYLE.md and ../../sessions/editorial-assistant/index.md.
+Session: ../../sessions/understanding-agentic-ai/index.md. Separate unlisted workshop draft, with no meeting date assigned. All development and rehearsal files belong in this repo; put local runs in _local/.
 
 ## The hour's purpose
 

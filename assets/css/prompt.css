@@ -114,8 +114,8 @@
   /* Scales with the title, which is clamped against the viewport too. The
      flat --spacing-md this used to carry was set for a 2.3rem title and
      crowds the display size. */
-  padding-top: clamp(1.75rem, 4vw, 2.75rem);
-  padding-bottom: clamp(1.75rem, 4vw, 2.75rem);
+  padding-top: clamp(2rem, 4.5vw, 3.25rem);
+  padding-bottom: clamp(2rem, 4.5vw, 3.25rem);
   /* .section-warm centres its contents at 48rem, the body text measure. This
      is an announcement rather than something you read a page of, so it takes
      the framework's wide measure instead (--home-measure, 64rem, the same one
@@ -126,8 +126,47 @@
   text-align: left;
 }
 
-.next-session > * {
+/* The frame. Full-bleed ink with a red hairline is also what the footer and
+   navbar are, so on its own the band read as more page chrome. A double rule
+   inset from the band's edges (a printer's border, as on a title page or a
+   broadside) marks it as a notice set into the page. The outer rule is the
+   border; the inner one is an inset shadow 4px inside it, under a 4px shadow
+   in the band's own colour that leaves the gap between them. */
+.next-session-frame {
+  --next-session-rule: color-mix(in srgb, var(--ochre-light) 70%, transparent);
+  --next-session-rule-inner: color-mix(in srgb, var(--ochre-light) 38%, transparent);
+  position: relative;
+  padding: clamp(2rem, 4.5vw, 2.85rem) clamp(1.25rem, 4.5vw, 3rem) clamp(1.75rem, 4vw, 2.5rem);
+  border: 1px solid var(--next-session-rule);
+  box-shadow:
+    inset 0 0 0 4px var(--bg-section-warm),
+    inset 0 0 0 5px var(--next-session-rule-inner);
+}
+
+.next-session-frame > * {
   margin: 0;
+}
+
+/* Under 768px the framework pads every .container p and h2 sideways to keep
+   text off the screen edge. The frame's own padding already does that, and
+   the two together squeezed the title onto a third line. */
+.next-session .next-session-frame > * {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Set into the top rule like a fieldset legend, so the label names the frame
+   rather than sitting inside it as one more line. Its background is the
+   band's colour, which breaks both rules behind it; the left edge lines the
+   label's text up with the title below. */
+.next-session .next-session-frame > .next-session-eyebrow {
+  position: absolute;
+  top: 0;
+  left: calc(clamp(1.25rem, 4.5vw, 3rem) - 0.8rem);
+  transform: translateY(-50%);
+  padding: 0 0.8rem;
+  background: var(--bg-section-warm);
+  line-height: 1.6;
 }
 
 .next-session-eyebrow {
@@ -140,7 +179,6 @@
 }
 
 .next-session-title {
-  margin-top: 0.4rem;
   /* Display scale, not heading scale. At the old 2.3rem cap this sat level
      with a body h2 and read as another section head. */
   font-size: clamp(2.2rem, 5.4vw, 3.6rem);

@@ -24,7 +24,7 @@ the path is required — plain `localhost:4000` will 404.
 
 **Read `SESSION-STYLE.md` before starting or editing a session page.** It is
 the source of truth for front matter, the fixed page skeleton, how steps and
-prompts are written, and the voice. `sessions/editorial-assistant.md` is the
+prompts are written, and the voice. `sessions/editorial-assistant/index.md` is the
 worked example.
 
 Keep all session work in this repo, including presenter notes, drafts and
@@ -42,7 +42,9 @@ _includes/prompt.html       renders one prompt as a copyable block
 assets/css/prompt.css       prompt blocks, step headings, the .rule callout
 assets/js/prompt-copy.js    the copy buttons
 index.md                    series home
-sessions/                   one page per session; the session lists build themselves
+sessions/<session>/         one folder per session; the session lists build themselves
+  index.md                   the session page (the full tutorial)
+  slides/index.md            that session's Reveal.js deck, plus its images
 practice-texts.md           invented paragraphs for people who didn't bring one
 ```
 
@@ -69,14 +71,19 @@ within a session page and make it clear which session an entry belongs to.
 
 ### Adding a session
 
-1. Add `sessions/your-session.md` with front matter: `title`, `position`
-   (controls card order), `kicker`, `summary`, `thumbnail`, and
-   `workshop_mode: true`.
+1. Add `sessions/your-session/index.md` with front matter: `title`,
+   `position` (controls card order), `kicker`, `summary`, `thumbnail`, and
+   `workshop_mode: true`. Keep `layout: base`: the session lists only pick up
+   `base` pages under `sessions/`, which is what keeps the slide decks and
+   redirect stubs out of them.
 2. Add that session's prompts to `_data/prompts.yml` with a new `session:` value,
    and render each one with `prompt.html` at the point in the page it's taught.
 
 The home page and `/sessions` pick the page up automatically; nothing to
-register. Add its date and slug to `_data/schedule.yml` for the semester list.
+register. Add its date and folder name to `_data/schedule.yml` for the semester list.
+3. If the session has slides, put the deck at `sessions/your-session/slides/index.md`
+   (`layout: reveal-workshop`, `tutorial: /sessions/your-session/`) with its
+   images in `slides/images/`. The deck is then at `/sessions/your-session/slides/`.
 
 ### Unlisted previews
 
@@ -112,10 +119,14 @@ rehearsal and verification work in its ignored `_local/` subfolder.
 
 ### Presenting
 
-The editorial-assistant slide deck is at
-[`presents/editorial-assistant/`](slides/editorial-assistant/index.md).
-It uses Reveal.js with the site's Rubric colors and typography. Edit its
+Each session's deck lives in its folder, at `sessions/<session>/slides/`
+(for example [`sessions/editorial-assistant/slides/`](sessions/editorial-assistant/slides/index.md)).
+The decks use Reveal.js with the site's Rubric colors and typography. Edit their
 Markdown sections directly; each section includes timing and speaker notes.
+The decks used to live at `/presents/…` and `/slides/…`, and session pages at
+`/sessions/<session>.html`; `redirect_from` in their front matter keeps those
+old links working. Redirects drop the `#/slide-id` part, so link to the new
+URL when pointing at a particular slide.
 
 - **Space / arrow keys:** advance. On demonstration slides, the next advance
   reveals the response and discussion question.

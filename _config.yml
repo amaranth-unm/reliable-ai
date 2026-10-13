@@ -15,6 +15,8 @@ unpublished: true
 
 plugins:
   - jekyll-sitemap
+  # Old URLs from before each session got its own folder (redirect_from).
+  - jekyll-redirect-from
 
 exclude:
   - Dockerfile

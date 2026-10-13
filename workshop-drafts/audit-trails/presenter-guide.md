@@ -1,7 +1,7 @@
 # Audit trails · presenter guide
 
-Authoring references: ../../SESSION-STYLE.md and ../../sessions/editorial-assistant.md.
-Session page: ../../sessions/audit-trails-for-ai-agents.md (published: false).
+Authoring references: ../../SESSION-STYLE.md and ../../sessions/editorial-assistant/index.md.
+Session page: ../../sessions/audit-trails-for-ai-agents/index.md (published: false).
 
 ## Teach from the folder and the long page
 

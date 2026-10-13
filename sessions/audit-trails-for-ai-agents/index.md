@@ -21,10 +21,11 @@ header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from
 tags: [research, agents, audit trails]
 workshop_mode: true
 css: audit-workspace.css
+redirect_from: /sessions/audit-trails-for-ai-agents.html
 ---
 
 {% comment %}
-Authoring conventions: SESSION-STYLE.md; worked example: sessions/editorial-assistant.md.
+Authoring conventions: SESSION-STYLE.md; worked example: sessions/editorial-assistant/index.md.
 Prepared examples below are teaching materials, never recorded agent replies.
 {% endcomment %}
 
@@ -59,7 +60,7 @@ notes, and the reasons you changed a summary or a reading recommendation.
 A saved chat can help, but a colleague should be able to follow one important
 connection without reading your whole conversation.
 
-This continues the [editing session's work with a saved style guide]({{ site.baseurl }}/sessions/editorial-assistant#step-5).
+This continues the [editing session's work with a saved style guide]({{ site.baseurl }}/sessions/editorial-assistant/#step-5).
 There, you taught the assistant how to read your writing. Here, you give it a
 reading procedure and check how it represents other people's arguments.
 

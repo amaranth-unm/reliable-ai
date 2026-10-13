@@ -80,4 +80,4 @@ These observations come from reviewing the assignment for this workshop. They ar
 
 </details>
 
-Return to the [reader-role exercise]({{ site.baseurl }}/sessions/editorial-assistant#step-3) or [presentation]({{ site.baseurl }}/presents/editorial-assistant/#/student-reader).
+Return to the [reader-role exercise]({{ site.baseurl }}/sessions/editorial-assistant/#step-3) or [presentation]({{ site.baseurl }}/sessions/editorial-assistant/slides/#/student-reader).

@@ -5,15 +5,15 @@
     {% include schedule-list.html %}
 
   Reads _data/schedule.yml: a flat list of { date, session }. `session` is a
-  session page's filename (without extension) in sessions/ — when a topic is
-  decided, add its session page and reference it here by filename; until
+  session's folder name in sessions/ — when a topic is decided, add its
+  sessions/<name>/index.md and reference it here by folder name; until
   then, leave `session` out and the date renders as "Topic TBA". Past dates
   are skipped — they're already shown as real sessions, via card-toc.html on
   sessions/index.md and the home page's Past sessions row.
 {% endcomment %}
 
 {% assign today = site.time | date: "%Y-%m-%d" %}
-{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where_exp: "p", "p.published != false" %}
+{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where_exp: "p", "p.published != false" %}
 
 {::nomarkdown}
 <ul class="schedule-list">
@@ -23,7 +23,7 @@
       {% assign matched = nil %}
       {% if entry.session %}
         {% for s in session_pages %}
-          {% assign s_slug = s.path | split: '/' | last | remove: '.md' %}
+          {% assign s_slug = s.path | remove: '/index.md' | split: '/' | last %}
           {% if s_slug == entry.session %}
             {% assign matched = s %}
           {% endif %}
