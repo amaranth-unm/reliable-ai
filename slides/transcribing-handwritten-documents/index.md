@@ -67,7 +67,7 @@ Existing scholarship on HTR and AI
 - &#9642; For the general Digital Humanities response to AI for transcription, a 2026 monograph by  David Joseph Wrisely and Estelle Guéville, *Medieval Manuscripts and the Computational Humanities*, ebook at [UNM Libraries](https://unm.on.worldcat.org/oclc/1590924317)
 - &#9642; For a easy-to-understand guide to all the options for Automated Text Recognition (ATR), see the ebook by Michael Schonhardt et al, *Automated Text Recognition : Theory, Platforms, Best-Practices*, available at [UNM Libraries](https://unm.on.worldcat.org/oclc/1612800957)
 - &#9642; For studies that compare LLMs' transcription accuracy to Transkribus, see Mark Humphries, [generativehistory.substack.com](https://generativehistory.substack.com)
-- &#9642; For examples of full chats when using AI for transcribing handwriting, see Jonathan Seyfried,[jonathanseyfried.net](https://jonathanseyfried.net/htr-episodes)
+- &#9642; For examples of full chats when using AI for transcribing handwriting, see Jonathan Seyfried, [jonathanseyfried.net](https://jonathanseyfried.net/htr-episodes)
 
 </div>
 
