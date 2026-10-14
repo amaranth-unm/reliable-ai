@@ -107,6 +107,19 @@ footer {
   color: var(--text-footer-brand);
 }
 
+/* The brand word links to amaranth.unm.edu. Keep its brand colour rather
+   than taking the footer link colour below. */
+.footer-bottom a.footer-brand,
+.footer-bottom a.footer-brand:visited {
+  color: var(--text-footer-brand);
+  border-bottom: none;
+}
+
+.footer-bottom a.footer-brand:hover {
+  color: var(--text-footer-brand);
+  text-decoration: underline;
+}
+
 /* Tracks the accent by default, but kept on its own token so a theme can give
    it a warmer colour than the brand word without touching anything else. */
 .footer-heart {
