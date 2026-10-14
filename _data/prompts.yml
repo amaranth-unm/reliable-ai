@@ -558,25 +558,3 @@
   note: "This is the request, as sent, that produced the report below. Update the month and year before you send it, and check every source it cites before you rely on it."
   text: |
     Please give me an approximately five page report on the strengths and weaknesses of different automated handwritten transcription (also known as Handwritten Text Recognition - HTR) tools as of October 2026. I especially would like to know which platforms/applications/LLMs are best a which scripts and languages. You should absolutely include Transkribus and eScriptorium, but also any other prominent HTR tools. In addition, please include evaluations of a selection of LLMs such as Gemini, ChatGPT, and Claude. If anything else has been introduced for HTR in the last year that is not covered in this prompt but should be mentioned, please include that too. Please cite sources that include scholarly journals as well as blogs, substack posts, etc. It is ok to consult Reddit as long as the thread is academic.
-
-# Optional supervisor examples; separate from the student's handwriting deck.
-- id: htr-supplement-faithful
-  session: transcribing-handwritten-documents
-  step: 2
-  label: A faithful first pass
-  text: |
-    Transcribe only the final paragraph beginning “As to the whiskers”. Preserve spelling, capitalization, punctuation, abbreviations and line breaks. Mark unreadable words [unclear] and tentative readings [word?]. Number lines L01 onward. Do not modernize or fill gaps. List uncertainties after the draft.
-
-- id: htr-supplement-word
-  session: transcribing-handwritten-documents
-  step: 2
-  label: A follow-up about one word
-  text: |
-    Examine the word at L03, after “silly”, in the original image. Give plausible readings supported by visible letters. Compare the same hand elsewhere on the page if useful. Separate image observations from contextual guesses. Say if the image does not settle the word.
-
-- id: htr-supplement-compare
-  session: transcribing-handwritten-documents
-  step: 2
-  label: Comparison against the image
-  text: |
-    Compare Reading A and Reading B against the original image. List differences, omissions and line-order changes in a table: location, A, B, image evidence and unresolved questions. Also inspect L04, where the readings agree. Keep both drafts unchanged and wait for my decisions.
