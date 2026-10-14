@@ -316,14 +316,6 @@ Checking the transcription
 
 <div class="deck-pair">
 
-<div class="prompt" markdown="0">
-  <div class="prompt-head">
-    <p class="deck-label">Prompt for the second LLM</p>
-    <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
-  </div>
-  <pre class="prompt-text"><code>I am going to paste a transcription of the same image done by another LLM. Please look it over and use it to consider parts of the transcription that were ambiguous or difficult for you. Then make adjustments to your transcription and provide it again in full. Here is the transcription...</code></pre>
-</div>
-
 <div class="deck-response" markdown="0">
 <p class="deck-label">Current recommendation</p>
 <dl class="example-lines">
@@ -334,6 +326,14 @@ Checking the transcription
   <dt>Then go to Claude</dt>
   <dd>Paste Gemini's output into this prompt for Claude.</dd>
 </dl>
+</div>
+
+<div class="prompt" markdown="0">
+  <div class="prompt-head">
+    <p class="deck-label">Prompt for the second LLM</p>
+    <button class="prompt-copy" type="button" data-prompt-copy aria-label="Copy the displayed prompt"><span class="prompt-copy-text">Copy</span></button>
+  </div>
+  <pre class="prompt-text"><code>I am going to paste a transcription of the same image done by another LLM. Please look it over and use it to consider parts of the transcription that were ambiguous or difficult for you. Then make adjustments to your transcription and provide it again in full. Here is the transcription...</code></pre>
 </div>
 
 </div>

@@ -45,7 +45,7 @@ index.md                    series home
 sessions/<session>/         one folder per session; the session lists build themselves
   index.md                   the session page (the full tutorial)
   slides/index.md            that session's Reveal.js deck, plus its images
-practice-texts.md           invented paragraphs for people who didn't bring one
+  (other pages)              session material, e.g. editorial-assistant/practice-texts.md
 ```
 
 ### Prompts
@@ -74,8 +74,8 @@ within a session page and make it clear which session an entry belongs to.
 1. Add `sessions/your-session/index.md` with front matter: `title`,
    `position` (controls card order), `kicker`, `summary`, `thumbnail`, and
    `workshop_mode: true`. Keep `layout: base`: the session lists only pick up
-   `base` pages under `sessions/`, which is what keeps the slide decks and
-   redirect stubs out of them.
+   `base` pages named `index.md` under `sessions/`, which is what keeps the
+   slide decks, redirect stubs and pages like the practice texts out of them.
 2. Add that session's prompts to `_data/prompts.yml` with a new `session:` value,
    and render each one with `prompt.html` at the point in the page it's taught.
 

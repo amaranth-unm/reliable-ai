@@ -18,7 +18,7 @@ We work through a few exercises on screen and talk about what the tool is doing 
 
 - **Lunch.** It's a brown bag series.
 - **A laptop, if you want to follow along**, with Claude, ChatGPT, Gemini or Copilot open in a browser tab. A free account is enough. No laptop is fine; you can watch.
-- **Something of your own to try it on.** Each session's page says what, such as a paragraph of your writing or a photo of a handwritten page. If you don't have anything suitable, use the [practice texts]({{ site.baseurl }}/practice-texts).
+- **Something of your own to try it on.** Each session's page says what, such as a paragraph of your writing or a photo of a handwritten page. If you don't have anything suitable, the session page has examples you can use instead.
 - **Nothing you shouldn't share.** Leave out other people's unpublished work, student writing with names attached, and anything under embargo or an IRB protocol.
 
 {% comment %}
@@ -26,7 +26,7 @@ We work through a few exercises on screen and talk about what the tool is doing 
   repeated here instead of shared through an include.
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
-{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where_exp: "p", "p.published != false" %}
+{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where: "name", "index.md" | where_exp: "p", "p.published != false" %}
 {% assign session_pages = session_pages | sort: "date" %}
 {% assign upcoming_sessions = "" | split: "," %}
 {% assign past_sessions = "" | split: "," %}

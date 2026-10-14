@@ -28,7 +28,7 @@ We start from a simple premise: it's hard to decide how to use AI in research, o
 
 ## Materials
 
-Everything from each session lives on this site: the [session pages]({{ site.baseurl }}/sessions), with every prompt and transcript in the exercise it came from, and the [practice texts]({{ site.baseurl }}/practice-texts). You're welcome to reuse any of it in your own classes or workshops. If you adapt something, we'd love to hear how it went.
+Everything from each session lives on this site: the [session pages]({{ site.baseurl }}/sessions), with every prompt, transcript and practice text alongside the exercise it belongs to. You're welcome to reuse any of it in your own classes or workshops. If you adapt something, we'd love to hear how it went.
 
 ## Getting in touch
 

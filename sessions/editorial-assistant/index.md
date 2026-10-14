@@ -57,7 +57,7 @@ You don't need to know how a model works inside to judge what it tells you. Four
 ### Before you start
 
 - **A laptop**, with an AI assistant open in a browser tab. Claude, ChatGPT, Gemini, or Copilot all work, and a free account is fine.
-- **One paragraph of your own writing**, such as a draft, an abstract, a policy, or a grant blurb. Your own work teaches more than an invented example. No paragraph? Take one from the [practice texts]({{ site.baseurl }}/practice-texts).
+- **One paragraph of your own writing**, such as a draft, an abstract, a policy, or a grant blurb. Your own work teaches more than an invented example. No paragraph? Take one from the [practice texts]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts).
 
 <div class="reminder" markdown="1">
 Use texts you have permission to share, such as your own writing or the practice texts.
@@ -66,9 +66,9 @@ Use texts you have permission to share, such as your own writing or the practice
 ### The paragraph we'll use
 
 We begin with the **AI-use policy** from the
-[practice texts]({{ site.baseurl }}/practice-texts). It is short enough to read
+[practice texts]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts). It is short enough to read
 together and familiar enough to judge. For the style-guide exercise, we move
-to a [four-paragraph project report]({{ site.baseurl }}/practice-texts#community-archive),
+to a [four-paragraph project report]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts#community-archive),
 where wording choices have to hold across a longer argument.
 
 > **Use of AI Tools.** Students may use generative AI tools in this course
@@ -379,7 +379,7 @@ When you make the same correction twice, write it as a rule someone else could c
 
 ### Apply a guide to a longer piece
 
-Open the [community archive report and working style guide]({{ site.baseurl }}/practice-texts#community-archive).
+Open the [community archive report and working style guide]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts#community-archive).
 Its four paragraphs give you several kinds of editorial work: a wordy sentence
 you can simplify, a qualification worth keeping, and a claim about community
 control that needs the author's decision. The report and its details are invented.
@@ -415,7 +415,7 @@ Then pick one local change you agree with and ask for it.
 Compare the proposal with the original. For example, shortening “the
 implementation of a common description template” may preserve the point.
 Replacing “retain control” with “have a voice” changes the claim and needs
-the writer's agreement. The [prepared examples]({{ site.baseurl }}/practice-texts#archive-style-guide)
+the writer's agreement. The [prepared examples]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts#archive-style-guide)
 give you a few comparisons to check once you have made your own.
 
 <div class="keypoint" markdown="1">

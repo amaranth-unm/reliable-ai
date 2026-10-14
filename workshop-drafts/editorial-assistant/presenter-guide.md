@@ -93,7 +93,7 @@ The point is the third line. A prompt that asks only for clarity and concision h
 
 Ask the room which student actions this policy still leaves uncertain, and who ought to be deciding them. Advance to the next slide to make the changed task explicit: ask for a reader diagnosis before requesting an edit. Both slides use the same original policy.
 
-Source prompt: `baseline`. Invented source policy: `practice-texts.md#3-a-syllabus-policy`. Do not pair this prompt with the archived reply to “Edit this.”
+Source prompt: `baseline`. Invented source policy: `sessions/editorial-assistant/practice-texts.md#3-a-syllabus-policy`. Do not pair this prompt with the archived reply to “Edit this.”
 
 
 ## 4. After: give AI a specific job
@@ -187,7 +187,7 @@ Then read the bottom block aloud, both clauses, and let the room sit with them. 
 
 The point is the gap between the two blocks. A request for clarity and concision operates on sentences, and this one improved a sentence. The thing most worth an editor's attention in that paragraph is not a sentence at all; it is a relationship between two claims, and no amount of tightening prose will surface it. The next slide supplies criteria that do.
 
-This is a prepared teaching comparison, not an AI transcript or a claim that every broad prompt misses the issue. Prompt ID: `archive-general-edit`. Full report and guide: `practice-texts.md#community-archive`.
+This is a prepared teaching comparison, not an AI transcript or a claim that every broad prompt misses the issue. Prompt ID: `archive-general-edit`. Full report and guide: `sessions/editorial-assistant/practice-texts.md#community-archive`.
 
 
 ## 8. After: define what clarity must preserve
@@ -210,7 +210,7 @@ Compare with the previous slide. The prompt now supplies criteria that go beyond
 
 The guide changes what counts as a useful edit. Retaining “may reflect” is a positive editorial choice. Replacing “control” with “input” would silently weaken the report's claim; asking the author to define the relationship preserves that choice. The local wording improvement on the previous slide is still acceptable. The gain is clearer criteria, not a demand to find more faults.
 
-The displayed prompt is a shortened version of `archive-style-review`. Both right-hand examples are illustrations prepared for teaching. Full report and five-rule guide: `practice-texts.md#community-archive`. The webpage retains the additional `archive-style-edit` follow-up for making a chosen local edit.
+The displayed prompt is a shortened version of `archive-style-review`. Both right-hand examples are illustrations prepared for teaching. Full report and five-rule guide: `sessions/editorial-assistant/practice-texts.md#community-archive`. The webpage retains the additional `archive-style-edit` follow-up for making a chosen local edit.
 
 
 ## 9. A real collection, still being added to

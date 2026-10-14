@@ -24,7 +24,7 @@
 # An entry with an empty `text` renders as a loud red unfilled slot, so a
 # half-finished demonstration cannot ship looking finished.
 #
-# These recorded examples use the syllabus policy from practice-texts.md.
+# These recorded examples use the syllabus policy from sessions/editorial-assistant/practice-texts.md.
 # The separate community-archive style-guide exercise has prepared teaching
 # examples, labeled as such on the page, rather than recorded replies here.
 #
@@ -168,7 +168,7 @@
   run: 'prompt id="role-confused-student"'
   tool: "Claude Opus 5"
   date: "2026-09-22"
-  note: "The prompt says “assignment”; it was adapted to “syllabus policy” and otherwise sent as written. It asked four questions, as practice-texts.md says it would, and the fourth is the one to read closely."
+  note: "The prompt says “assignment”; it was adapted to “syllabus policy” and otherwise sent as written. It asked four questions, as sessions/editorial-assistant/practice-texts.md says it would, and the fourth is the one to read closely."
   text: |
     **What I think you're asking for:** I can use AI but not too much? I think
     I'm allowed to use it for some things as long as I say I did. But I'm not

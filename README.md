@@ -11,8 +11,6 @@ skill levels welcome.
 - **[Sessions](https://amaranth.unm.edu/reliable-ai/sessions/)**: what's
   coming up, and the full materials from past sessions, with every prompt
   ready to copy.
-- **[Practice texts](https://amaranth.unm.edu/reliable-ai/practice-texts)**:
-  paragraphs to try the exercises on if you'd rather not use your own writing.
 - **[About](https://amaranth.unm.edu/reliable-ai/about)**: who the series is
   for and how the sessions work.
 

@@ -208,7 +208,7 @@
   session: editorial-assistant
   step: 5
   label: Read against a style guide
-  note: "Paste the four-paragraph community-archive report and the working guide from Practice texts. Start with comments so you can choose which edits to accept."
+  note: "Paste the four-paragraph community-archive report and the working guide from the editorial session's practice texts. Start with comments so you can choose which edits to accept."
   text: |
     This is a short project report for community partners and university colleagues. Read it against the style guide below. Do not rewrite it yet.
 

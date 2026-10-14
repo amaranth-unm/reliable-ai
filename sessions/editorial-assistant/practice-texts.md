@@ -9,9 +9,10 @@ header-title: Practice texts
 header-subtitle: "Paragraphs written to be worked on, with the kinds of faults that turn up in real drafts. Use one when you would rather not put your own writing in front of the tool."
 header-caption: "Abraham Bosse, <i>L'Imprimerie en taille-douce</i>: copperplate printers at work, proofs hung up to dry. Etching, Paris, 1642. Bibliothèque nationale de France, public domain."
 summary: "Invented practice texts, including a syllabus policy for reader roles and a four-paragraph project report for editing with a style guide."
+redirect_from: /practice-texts.html
 ---
 
-If you can, bring your own writing. You'll learn more from a paragraph whose problems you already half know. If you'd rather not use your own work, or you forgot to bring some, use one of these.
+These texts go with [AI as Editorial Assistant]({{ site.baseurl }}/sessions/editorial-assistant/). If you can, bring your own writing. You'll learn more from a paragraph whose problems you already half know. If you'd rather not use your own work, or you forgot to bring some, use one of these.
 {: .lead}
 
 These texts are invented. Each one includes problems that turn up in real drafts: a claim that arrives three sentences late, a technical term doing unexplained work, a pronoun with nothing to refer to, a policy that can't be enforced. Part of the exercise is seeing whether the tool notices the same problems you do.

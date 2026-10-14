@@ -45,7 +45,7 @@ These are not AI propaganda sessions. These are not anti-AI communions. We try t
   the page would keep announcing a session until the next push.
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
-{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where_exp: "p", "p.published != false" %}
+{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where: "name", "index.md" | where_exp: "p", "p.published != false" %}
 {% assign session_pages = session_pages | sort: "date" %}
 {% assign upcoming_sessions = "" | split: "," %}
 {% assign past_sessions = "" | split: "," %}
