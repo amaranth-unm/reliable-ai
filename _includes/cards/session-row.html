@@ -7,6 +7,11 @@
   Parameters:
     - rows:  collection of session pages, most recent first (required)
     - limit: how many to show (default: 3)
+    - points: true to list each session's flyer points (front matter `points`)
+      under its summary, as the sessions page does
+    - today: "%Y-%m-%d" string; a session after it gets "Coming soon" in its
+      kicker
+    - wide: true for wider boxes (fewer per row), for boxes that carry points
 
   Row fields used: kicker, title, summary, url. Lighter than card-grid.html —
   no thumbnail, no tags — because this is a teaser row pointing at the full
@@ -19,13 +24,19 @@
 
 {::nomarkdown}
 {% if include.rows and rows.size > 0 %}
-  <div class="session-row">
+  <div class="session-row{% if include.wide %} session-row-wide{% endif %}">
     {% for row in rows %}
       {% capture link_resolved %}{% include helpers/link-path.html link=row.url %}{% endcapture %}
+      {% assign row_date = row.date | date: "%Y-%m-%d" %}
       <a class="session-box" href="{{ link_resolved | strip }}">
-        {% if row.kicker %}<p class="session-box-kicker">{{ row.kicker }}</p>{% endif %}
+        {% if row.kicker %}<p class="session-box-kicker">{{ row.kicker }}{% if include.today and row_date > include.today %} <span aria-hidden="true">·</span> Coming soon{% endif %}</p>{% endif %}
         <h3 class="session-box-title">{{ row.title | default: 'Untitled' }}</h3>
         {% if row.summary %}<p class="session-box-summary">{{ row.summary }}</p>{% endif %}
+        {% if include.points and row.points %}
+          <ul class="session-box-points">
+            {% for point in row.points %}<li><strong>{{ point.title }}</strong> {{ point.text }}</li>{% endfor %}
+          </ul>
+        {% endif %}
       </a>
     {% endfor %}
   </div>
