@@ -26,10 +26,6 @@ redirect_from: /sessions/transcribing-handwritten-documents.html
 This page contains all the links from the presentation and supplementary information. You can also [view the presentation slides]({{ site.baseurl }}/sessions/transcribing-handwritten-documents/slides/).
 {: .lead}
 
-<div class="rule" markdown="1">
-**Check every transcription against the page in front of you.**
-</div>
-
 ## Introduction
 {: .step #introduction}
 
@@ -41,7 +37,7 @@ In the last few years, several strong options have emerged for using AI to trans
 
 ### Before you start
 
-- **A photo or scan of a handwritten document** you'd like to read. No document? Use one of the examples in step 2.
+- **A photo or scan of a handwritten document** you'd like to read. No document? Use one the example in step 2.
 - **A laptop**, if you have one. No laptop? Just show up.
 
 <div class="reminder" markdown="1">
