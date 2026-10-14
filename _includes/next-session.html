@@ -4,8 +4,8 @@
   Usage:
     {% include next-session.html session=next_session %}
 
-  `session` is a page from sessions/ (front matter: title, date, time,
-  location, summary, note). The caller finds it by scanning the sessions
+  `session` is a page from sessions/ (front matter: title, presenter, date,
+  time, location, summary, note). The caller finds it by scanning the sessions
   folder for the soonest future-dated page — see index.md — so announcing a
   session is just adding its file; nothing here is retyped by hand.
 
@@ -29,6 +29,7 @@
   <div class="next-session-frame">
     <p class="next-session-eyebrow">Next session</p>
     {% if session.title %}<h2 class="next-session-title"><a href="{{ link_resolved | strip }}">{{ session.title }}</a></h2>{% endif %}
+    {% if session.presenter %}<p class="next-session-presenter">Presented by {{ session.presenter | join: " and " }}</p>{% endif %}
     <p class="next-session-meta">
       {{ when_date }}{% if session.time %}, {{ session.time }}{% endif %}{% if session.location %} <span aria-hidden="true">·</span> {{ session.location }}{% endif %}
     </p>

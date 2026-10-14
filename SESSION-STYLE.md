@@ -36,6 +36,7 @@ will be dead by Friday. The page is the artefact; the hour is the occasion.
 ```yaml
 ---
 title: AI as Editorial Assistant          # site-wide, appears in cards and <title>
+presenter: Allie Love                     # optional; a name or a list of names
 layout: base
 position: 1                               # order in the session list
 published: true                           # false keeps a direct-URL preview unlisted
@@ -80,6 +81,13 @@ the next session in the full-width bar, later ones as the same cards under
 `title`, `summary` and `points` all have to carry their weight on their own:
 there is no thumbnail to do the work. Keep `summary` to a single sentence that
 says what the session *does*.
+
+**`presenter` names who leads the session.** It is a name, or a list of
+names for a session with more than one presenter. Every place that lists the
+session shows it as “Presented by …”: the cards, the session boxes, the
+next-session bar, the coming-soon page, and a byline under the header on the
+session page itself (`_layouts/base.html`). Leave it out until the presenter
+is confirmed; nothing renders in its place.
 
 **`points` and `flyer` come from the flyer.** `points` is a list of
 `{ title, text }`: the three bold lines and their one-line descriptions, worded

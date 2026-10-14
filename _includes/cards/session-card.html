@@ -14,11 +14,12 @@
     - plain: true leaves out the title link and the page/flyer links, for the
       coming-soon page itself, where they would point back at the same page.
 
-  Reads the same front matter the flyer does: kicker, title, time, location,
-  summary, points (a list of { title, text }, the flyer's three bold lines and
-  their one-line descriptions) and flyer (the flyer image's filename in the
-  session's own folder, linked as "View flyer"). Everything but title is
-  optional, so a session without points still renders as a card.
+  Reads the same front matter the flyer does: kicker, title, presenter (a name,
+  or a list of names), time, location, summary, points (a list of
+  { title, text }, the flyer's three bold lines and their one-line
+  descriptions) and flyer (the flyer image's filename in the session's own
+  folder, linked as "View flyer"). Everything but title is optional, so a
+  session without points still renders as a card.
 {% endcomment %}
 
 {% assign today = include.today %}
@@ -36,6 +37,7 @@
         </header>
         <div class="session-card-body">
           <h3 class="session-card-title">{% unless include.plain %}<a href="{{ link_resolved | strip }}">{% endunless %}{{ row.title | default: 'Untitled' }}{% unless include.plain %}</a>{% endunless %}</h3>
+          {% if row.presenter %}<p class="session-card-presenter">Presented by {{ row.presenter | join: " and " }}</p>{% endif %}
           {% if row.time or row.location %}
             <p class="session-card-meta">{{ row.date | date: "%A" }}{% if row.time %}, {{ row.time }}{% endif %}{% if row.location %} <span aria-hidden="true">·</span> {{ row.location }}{% endif %}</p>
           {% endif %}
@@ -49,8 +51,8 @@
           {% endif %}
           {% unless include.plain %}
           <p class="session-card-links">
-            <a href="{{ link_resolved | strip }}">{% if today and row_date > today %}Session page{% else %}Exercises and materials{% endif %} →</a>
-            {% if row.flyer %}{% assign flyer_path = row.url | append: row.flyer | uri_escape %}{% capture flyer_resolved %}{% include helpers/link-path.html link=flyer_path %}{% endcapture %}<a href="{{ flyer_resolved | strip }}">View flyer</a>{% endif %}
+            <a class="btn-primary" href="{{ link_resolved | strip }}">{% if today and row_date > today %}Session page{% else %}Exercises and materials{% endif %} →</a>
+            {% if row.flyer %}{% assign flyer_path = row.url | append: row.flyer | uri_escape %}{% capture flyer_resolved %}{% include helpers/link-path.html link=flyer_path %}{% endcapture %}<a class="session-card-flyer" href="{{ flyer_resolved | strip }}">View flyer</a>{% endif %}
           </p>
           {% endunless %}
         </div>
