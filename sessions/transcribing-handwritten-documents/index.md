@@ -82,7 +82,7 @@ Find any image of a handwritten document and drag it to the window on Transkribu
 
 ### Example 3: A challenging classical Japanese document
 
-- **The language, classical Japanese, and the multi-directional layout, presents a large transcription challenge.** The [full chat transcript](https://claude.ai/share/50647f1c-3dab-48ee-8d40-714c7ed36d39) and [a report](https://claude.ai/artifact/7yTFsYxL9KxUdtVcRKFDdP#ccdb996d-540e) from Claude are accessible with a login to Anthropic. Alternatively, here is are PDF copies of the [full chat transcript](sessions/transcribing-handwritten-documents/claude-fable-5.1-santa-fe-yosegaki-chat-transcript-sept30.pdf) and the [report](sessions/transcribing-handwritten-documents/claude-fable-5.1-transcription-notes-santa-fe-yosegaki.pdf).
+- **The language, classical Japanese, and the multi-directional layout, presents a large transcription challenge.** The [full chat transcript](https://claude.ai/share/50647f1c-3dab-48ee-8d40-714c7ed36d39) and [a report](https://claude.ai/artifact/7yTFsYxL9KxUdtVcRKFDdP#ccdb996d-540e) from Claude are accessible with a login to Anthropic. Alternatively, here is are PDF copies of the [full chat transcript](claude-fable-5.1-santa-fe-yosegaki-chat-transcript-sept30.pdf) and the [report](claude-fable-5.1-transcription-notes-santa-fe-yosegaki.pdf).
 - **Claude Fable 5.1 generated some transcription.** The transcription carried out by Anthropic's most capable model (as of October 2026) successfully identified many of the characters but also substituted a blank circle when it found the script unreadable. For some difficult-to-read parts of this document the AI refused to guess or confabulate. The LLM correctly identified the material as silk.
 
 ## 3. Process documents in batches
