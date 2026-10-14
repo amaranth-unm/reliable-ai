@@ -85,6 +85,16 @@ register. Add its date and folder name to `_data/schedule.yml` for the semester 
    (`layout: reveal-workshop`, `tutorial: /sessions/your-session/`) with its
    images in `slides/images/`. The deck is then at `/sessions/your-session/slides/`.
 
+### Sessions before they happen
+
+A session with a future `date:` is listed everywhere (home, sessions page,
+schedule, search) with all its front matter, but its own page shows only a
+"Coming soon" notice and that metadata. The body is never written to the built
+page (`_layouts/base.html`, `_includes/session-coming-soon.html`), and the
+search index drops its text. The nightly rebuild swaps in the full page once
+the date arrives, on the day itself. Write the page as usual and leave
+`published` alone. This is different from an unlisted preview below.
+
 ### Unlisted previews
 
 Set `published: false` in a page's front matter to build a preview that is

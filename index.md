@@ -5,7 +5,7 @@ header-image: "/assets/images/aldine-colophon-1521.jpg"
 header-tier: hero
 header-position: center center
 header-filter: botanical
-header-caption: "Festina lente: the closing leaves of the Aldine <i>Terence</i>, Venice, June 1521 — the imprint, and the anchor-and-dolphin mark. John Carter Brown Library."
+header-caption: "Festina lente: the closing leaves of the Aldine <i>Terence</i>, Venice, June 1521, showing the imprint and the anchor-and-dolphin mark. John Carter Brown Library."
 header-eyebrow: Amaranth Brown Bag Series
 header-title: Reliable AI for Humanists
 header-divider: bring lunch and a laptop
@@ -13,7 +13,7 @@ header-subtitle: Hands-on sessions on getting useful, checkable results from gen
 summary: "A brown bag series on using generative AI well in humanities research and teaching. All skill levels welcome."
 ---
 
-A lunchtime series from Amaranth for people at UNM who are curious about generative AI but skeptical if not unconvinced by most of what they have heard about it. Each session takes a routine task or process common in the humanaities and explores how AI can augment or speed up the process in reliable ways.
+A lunchtime series from Amaranth for people at UNM who are curious about generative AI but skeptical if not unconvinced by most of what they have heard about it. Each session takes a routine task or process common in the humanities and explores how AI can augment or speed up the process in reliable ways.
 {: .lead}
 
 There are many reasons to be skeptical about AI. Much of what gets claimed for these tools is overstated, and the failures are the ones that matter most in our work: invented sources, confident misreadings, prose that flattens significant nuance. 
@@ -33,7 +33,7 @@ These are not AI propaganda sessions. These are not anti-AI communions. We try t
 
 {% comment %}
   Next/past sessions are read from the sessions/ folder's own front matter
-  (date, time, location, summary, note) instead of being typed here — add a
+  (date, time, location, summary, note) instead of being typed here. Add a
   session's file and this picks it up. sessions/index.md repeats this same
   lookup for its own next-session bar and past-session list: Liquid's include tag scopes assigned
   variables to the include, so this can't be worked out once and shared across pages.
@@ -62,20 +62,26 @@ These are not AI propaganda sessions. These are not anti-AI communions. We try t
 
 {% if next_session %}
 {% include next-session.html session=next_session %}
+{% assign next_date = next_session.date | date: "%Y-%m-%d" %}
 {% endif %}
 
-## Later this semester
+{% assign later_sessions = upcoming_sessions | slice: 1, 20 %}
+## Coming up
 
-{% include schedule-list.html %}
+{% if later_sessions.size > 0 %}
+{% include cards/session-card.html rows=later_sessions today=today %}
+{% endif %}
+
+{% include schedule-list.html after=next_date tba_only=true %}
 
 {% if recent_sessions.size > 0 %}
 ## Past sessions
 
-{% include cards/session-row.html rows=recent_sessions limit=3 %}
+{% include cards/session-row.html rows=recent_sessions limit=20 %}
 {% endif %}
 
 <p>
-  <a href="{{ site.baseurl }}/sessions/" class="btn-primary">See all sessions →</a>
+  <a href="{{ site.baseurl }}/sessions/" class="btn-primary">Session details and flyers →</a>
 </p>
 
 *Hosted by [Amaranth](https://amaranth.unm.edu), a digital humanities and public scholarship studio at UNM.*

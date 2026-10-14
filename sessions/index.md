@@ -22,44 +22,18 @@ We work through a few exercises on screen and talk about what the tool is doing 
 - **Nothing you shouldn't share.** Leave out other people's unpublished work, student writing with names attached, and anything under embargo or an IRB protocol.
 
 {% comment %}
-  Same next/past lookup as index.md. See the comment there for why it's
-  repeated here instead of shared through an include.
+  Every session, oldest first, as a large card. The home page is the place for
+  "what's next"; this page is the full record. Sessions whose date hasn't
+  passed get an "Upcoming" tag (see cards/session-card.html). Add a session's
+  folder and it appears here.
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
-{% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where: "name", "index.md" | where_exp: "p", "p.published != false" %}
-{% assign session_pages = session_pages | sort: "date" %}
-{% assign upcoming_sessions = "" | split: "," %}
-{% assign past_sessions = "" | split: "," %}
-{% for s in session_pages %}
-  {% assign s_date = s.date | date: "%Y-%m-%d" %}
-  {% if s_date >= today %}
-    {% assign upcoming_sessions = upcoming_sessions | push: s %}
-  {% else %}
-    {% assign past_sessions = past_sessions | push: s %}
-  {% endif %}
-{% endfor %}
-{% assign next_session = upcoming_sessions | first %}
+{% assign all_sessions = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where: "name", "index.md" | where_exp: "p", "p.published != false" | sort: "date" %}
 
-{% if next_session %}
-{% include next-session.html session=next_session %}
-{% endif %}
-
-{% if past_sessions.size > 0 %}
-## Past sessions
+## All sessions
 
 Each session's page keeps the exercises, the prompts and the replies we got, so you can try them again later or catch up on one you missed.
 
-{% include cards/card-toc.html rows=past_sessions %}
-{% endif %}
+{% include cards/session-card.html rows=all_sessions today=today %}
 
-## Later this semester
-
-{% include schedule-list.html %}
-
-Later sessions take the same approach: try the tools on work you already know how to judge. Topics for the TBA dates are still being decided. Some we're considering:
-
-- **Reading and note-taking.** Ask AI about a text you know well, and see what that tells you about asking it about one you don't.
-- **AI in the classroom.** Design assignments that assume students have these tools.
-- **Research assistance and its limits.** Where fabricated citations come from, and habits that catch them.
-
-Have a request? [Tell us](https://amaranth.unm.edu) and we'll add it to the list.
+Have a topic request? [Tell us](https://amaranth.unm.edu) and we'll add it to the list.

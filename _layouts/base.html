@@ -41,7 +41,13 @@
 
     <main id="main">
     <div class="container">
-      {{ content }}
+      {% assign page_day = page.date | date: "%Y-%m-%d" %}
+      {% assign site_today = site.time | date: "%Y-%m-%d" %}
+      {% if page.layout == 'base' and page.path contains 'sessions/' and page.name == 'index.md' and page.date and page_day > site_today %}
+        {% include session-coming-soon.html %}
+      {% else %}
+        {{ content }}
+      {% endif %}
     </div> <!-- /container -->
     </main>
 

@@ -6,14 +6,18 @@ sitemap: false
 [
   {% assign pages_with_titles = site.pages | where_exp: "p", "p.title" | where_exp: "p", "p.published != false" | where_exp: "p", "p.searchable != false" %}
   {% assign first_entry = true %}
+  {% assign search_today = site.time | date: "%Y-%m-%d" %}
   {% for page in pages_with_titles %}
     {% unless page.url contains '/assets/' or page.url contains '/search-index' %}
+    {% assign page_day = page.date | date: "%Y-%m-%d" %}
+    {% assign hide_body = false %}
+    {% if page.path contains 'sessions/' and page.date and page_day > search_today %}{% assign hide_body = true %}{% endif %}
     {% unless first_entry %},{% endunless %}
     {
       "title": {{ page.title | jsonify }},
       "url": "{{ site.baseurl }}{{ page.url }}",
       "summary": {{ page.summary | default: "" | jsonify }},
-      "content": {{ page.content | strip_html | truncatewords: 200 | jsonify }},
+      "content": {% if hide_body %}""{% else %}{{ page.content | strip_html | truncatewords: 200 | jsonify }}{% endif %},
       "tags": {{ page.tags | default: "" | jsonify }},
       "date": {{ page.date | date: "%Y-%m-%d" | jsonify }}
     }

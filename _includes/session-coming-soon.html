@@ -1,0 +1,22 @@
+{% comment %}
+  Coming Soon — what a session's own page shows until the day it meets
+
+  Included by _layouts/base.html in place of the page body whenever a page in
+  sessions/ has a date after today. The body's exercises and prompts are never
+  written to the built page, so they are not public before the session.
+  Everything in front matter (kicker, time, location, summary, points, note,
+  flyer) is shown, the same as on the home and sessions pages. The nightly
+  rebuild (.github/workflows/nightly-rebuild.yml) swaps in the full page once
+  the date arrives.
+{% endcomment %}
+
+{% assign soon_rows = "" | split: "," | push: page %}
+
+<p class="lead">Coming soon. The exercises, prompts and materials for this session will be posted here once it meets on {{ page.date | date: "%B %-d" }}.</p>
+
+{% include cards/session-card.html rows=soon_rows today=site_today plain=true raw=true %}
+
+{% if page.note %}<p class="session-card-note">{{ page.note }}</p>{% endif %}
+{% if page.flyer %}{% assign flyer_path = page.url | append: page.flyer | uri_escape %}{% capture flyer_resolved %}{% include helpers/link-path.html link=flyer_path %}{% endcapture %}<p><a href="{{ flyer_resolved | strip }}">View the flyer</a></p>{% endif %}
+
+<p><a href="{{ site.baseurl }}/sessions/">← All sessions</a></p>

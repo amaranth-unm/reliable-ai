@@ -234,6 +234,24 @@
   line-height: 1.55;
 }
 
+.next-session-points {
+  list-style: none;
+  max-width: 74ch;
+  margin-top: 0.9rem;
+  padding: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.next-session-points li {
+  margin-bottom: 0.4rem;
+}
+
+.next-session-points strong {
+  display: block;
+  color: var(--text-section-warm);
+}
+
 .next-session-note {
   margin-top: 0.7rem;
   font-size: 0.95rem;
@@ -297,6 +315,122 @@
   font-size: 0.88rem;
   line-height: 1.4;
   color: var(--card-text-color);
+}
+
+/* === Session cards ===================================================== */
+/* The sessions page: one large card per session, set like the flyers. A tinted
+   band carries the kicker (the flyer's orange date bar), the title is the big
+   display line, and the flyer's three bold points follow as a list with their
+   one-line descriptions. Colours come from the theme tokens rather than the
+   flyer's own palette so the cards follow whichever theme the site uses. */
+.session-cards {
+  display: grid;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.session-card {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+.session-card-band {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  padding: 0.55rem var(--spacing-md);
+  background: var(--accent-primary);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.session-card-tag {
+  padding: 0.05rem 0.55rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+.session-card-body {
+  padding: var(--spacing-md);
+}
+
+.session-card-body > * {
+  margin-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.session-card-title {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1.1;
+}
+
+.session-card-title a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.session-card-title a:hover {
+  text-decoration: underline;
+}
+
+.session-card-meta {
+  margin-bottom: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.session-card-summary {
+  max-width: 68ch;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.session-card-points {
+  list-style: none;
+  margin: var(--spacing-sm) 0;
+  padding: 0;
+  border-top: 1px solid var(--metadata-border);
+}
+
+.session-card-points li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--metadata-border);
+}
+
+.session-card-points strong {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--card-heading-color);
+}
+
+.session-card-points span {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--card-text-color);
+}
+
+.session-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: 0;
+  font-weight: 600;
 }
 
 /* === Schedule list ===================================================== */

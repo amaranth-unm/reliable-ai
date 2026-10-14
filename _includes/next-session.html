@@ -33,6 +33,11 @@
       {{ when_date }}{% if session.time %}, {{ session.time }}{% endif %}{% if session.location %} <span aria-hidden="true">·</span> {{ session.location }}{% endif %}
     </p>
     {% if session.summary %}<p class="next-session-blurb">{{ session.summary }}</p>{% endif %}
+    {% if session.points %}
+    <ul class="next-session-points">
+      {% for point in session.points %}<li><strong>{{ point.title }}</strong> {{ point.text }}</li>{% endfor %}
+    </ul>
+    {% endif %}
     {% if session.note %}<p class="next-session-note">{{ session.note }}</p>{% endif %}
   </div>
 </div>

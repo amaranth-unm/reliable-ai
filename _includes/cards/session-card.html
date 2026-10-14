@@ -1,0 +1,65 @@
+{% comment %}
+  Session Card — a large announcement card modelled on the session flyers
+
+  Usage:
+    {% include cards/session-card.html rows=all_sessions %}
+
+  Parameters:
+    - rows: session pages, in the order to show them (required)
+    - today: "%Y-%m-%d" string; sessions after it are tagged "Coming soon" and
+      one on it "Today". A session's own page stays a short coming-soon page
+      until its date (see _layouts/base.html), so the link text says so.
+    - raw: true when included from a layout, which isn't run through Markdown,
+      so the nomarkdown guards would print as text.
+    - plain: true leaves out the title link and the page/flyer links, for the
+      coming-soon page itself, where they would point back at the same page.
+
+  Reads the same front matter the flyer does: kicker, title, time, location,
+  summary, points (a list of { title, text }, the flyer's three bold lines and
+  their one-line descriptions) and flyer (the flyer image's filename in the
+  session's own folder, linked as "View flyer"). Everything but title is
+  optional, so a session without points still renders as a card.
+{% endcomment %}
+
+{% assign today = include.today %}
+
+{% unless include.raw %}{::nomarkdown}{% endunless %}
+{% if include.rows and include.rows.size > 0 %}
+  <div class="session-cards">
+    {% for row in include.rows %}
+      {% capture link_resolved %}{% include helpers/link-path.html link=row.url %}{% endcapture %}
+      {% assign row_date = row.date | date: "%Y-%m-%d" %}
+      <article class="session-card">
+        <header class="session-card-band">
+          <span class="session-card-kicker">{% if row.kicker %}{{ row.kicker }}{% else %}{{ row.date | date: "%B %-d, %Y" }}{% endif %}</span>
+          {% if today and row_date > today %}<span class="session-card-tag">Coming soon</span>{% elsif today and row_date == today %}<span class="session-card-tag">Today</span>{% endif %}
+        </header>
+        <div class="session-card-body">
+          <h3 class="session-card-title">{% unless include.plain %}<a href="{{ link_resolved | strip }}">{% endunless %}{{ row.title | default: 'Untitled' }}{% unless include.plain %}</a>{% endunless %}</h3>
+          {% if row.time or row.location %}
+            <p class="session-card-meta">{{ row.date | date: "%A" }}{% if row.time %}, {{ row.time }}{% endif %}{% if row.location %} <span aria-hidden="true">·</span> {{ row.location }}{% endif %}</p>
+          {% endif %}
+          {% if row.summary %}<p class="session-card-summary">{{ row.summary }}</p>{% endif %}
+          {% if row.points %}
+            <ul class="session-card-points">
+              {% for point in row.points %}
+                <li><strong>{{ point.title }}</strong><span>{{ point.text }}</span></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% unless include.plain %}
+          <p class="session-card-links">
+            <a href="{{ link_resolved | strip }}">{% if today and row_date > today %}Session page{% else %}Exercises and materials{% endif %} →</a>
+            {% if row.flyer %}{% assign flyer_path = row.url | append: row.flyer | uri_escape %}{% capture flyer_resolved %}{% include helpers/link-path.html link=flyer_path %}{% endcapture %}<a href="{{ flyer_resolved | strip }}">View flyer</a>{% endif %}
+          </p>
+          {% endunless %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="xanthan-warning">
+    session-card include needs a rows collection.
+  </div>
+{% endif %}
+{% unless include.raw %}{:/nomarkdown}{% endunless %}

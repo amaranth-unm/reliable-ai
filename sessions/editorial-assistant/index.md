@@ -5,6 +5,16 @@ position: 1
 date: 2026-09-23
 kicker: Session 1 · September 23, 2026
 summary: "Use AI as an eager but inexperienced editor: tell it what to look for and who the reader is, then save your rules so you don't have to repeat them."
+points:
+  - title: Teach AI to read like you do
+    text: Treat AI like an eager but naive student who needs guidance about what to look for and what to suggest.
+  - title: Create rules and style guides
+    text: Gain more control over the kind of thinking and suggestions from AI tools.
+  - title: Assign reader roles
+    text: Learn techniques for having AI read as different kinds of readers and improving its focus.
+flyer: "Brown Bag Flyer.jpeg"
+time: "12:00–12:50"
+location: History Commons
 thumbnail: "/assets/images/amman-typefounder-1568.jpg"
 header-image: "/assets/images/amman-typefounder-1568.jpg"
 header-tier: section

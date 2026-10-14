@@ -42,6 +42,12 @@ published: true                           # false keeps a direct-URL preview unl
 date: 2026-09-23
 kicker: Session 1 · September 23, 2026    # line above the title in the sessions list
 summary: "Treat AI as an eager but naive editor: …"   # the card blurb
+time: "12:00–12:50"
+location: History Commons (MVH 1104)
+points:                                   # the flyer's three bold lines
+  - title: Teach AI to read like you do
+    text: Treat AI like an eager but naive student who needs guidance.
+flyer: "Brown Bag Flyer.jpeg"             # flyer image in this folder
 thumbnail: "/assets/images/amman-typefounder-1568.jpg"
 header-image: "/assets/images/amman-typefounder-1568.jpg"
 header-tier: section
@@ -65,24 +71,29 @@ page also gets a `noindex, nofollow` robots tag. Missing `published` or
 `published: true` keeps the usual listed behavior. The URL remains accessible,
 so this flag is not access control. Check for manually written links as well.
 
-**`sessions/index.md` lists past sessions as `cards/card-toc.html` rows**,
-under the same next-session bar as the home page, not as a card grid — a series index is a table of contents, and a full-width row with
-the session number, the title and one sentence reads as one at a glance. The
-row takes `kicker`, `title` and `summary`, so all three have to carry their
-weight on their own: there is no thumbnail to do the work. Keep `summary` to a
-single sentence that says what the session *does*.
+**`sessions/index.md` lists every session as a large card**
+(`cards/session-card.html`), oldest first, past and future together. The cards
+copy the flyer: a date band from `kicker`, the `title`, `time` and `location`,
+the `summary`, and the flyer's three bold lines as `points`. The home page shows
+the next session in the full-width bar, later ones as the same cards under
+"Coming up", and past ones as the compact `session-row` boxes. So `kicker`,
+`title`, `summary` and `points` all have to carry their weight on their own:
+there is no thumbnail to do the work. Keep `summary` to a single sentence that
+says what the session *does*.
 
-**`time` and `location` are optional, and only matter before the session
-happens.** The home page and `sessions/index.md` both scan the sessions
-folder for whichever page has the soonest future `date` and announce it
-automatically — see the lookup in `index.md` — so these two fields are what
-that announcement shows (alongside `summary`, reused as the announcement's
-blurb, and `note` for a logistics line like what to bring). Announcing a
-session is adding its file with these fields filled in and a short
-placeholder body; nothing on the home page is hand-typed per announcement.
-Once a session is in the past, nothing reads `time` or `location` any more —
-`editorial-assistant/index.md` doesn't carry them, and a session you're writing up
-after the fact doesn't need to either.
+**`points` and `flyer` come from the flyer.** `points` is a list of
+`{ title, text }`: the three bold lines and their one-line descriptions, worded
+as on the flyer. `flyer` is the flyer image's filename, kept in the session's
+own folder; the cards link it as "View flyer". Both are optional.
+
+**A session with a future `date` is listed everywhere but not yet published.**
+Its own page shows a "Coming soon" notice with all the front matter, and the
+body stays out of the built page until the date arrives (see MAINTAINING.md).
+Write the page as usual; don't use `published: false` for a dated session.
+`time`, `location` and `note` are shown on every page that lists the session,
+so keep them on past sessions too. The home page and `sessions/index.md` both
+scan the sessions folder, so announcing a session is adding its file with these
+fields filled in; nothing is hand-typed per announcement.
 
 **`workshop_mode: true` is not decoration.** It loads the bullet-highlighting
 script (`_includes/html/html-js.html`), which is what lets you walk the room
@@ -440,6 +451,25 @@ everything here, or the series has no standing to ask them to check anything.
 **Never promise a specific tool's behaviour.** "Claude, ChatGPT, Gemini,
 Copilot, any of them" — the exercises work across tools, and naming versions
 dates the page.
+
+## Slide decks
+
+Decks live at `sessions/<session>/slides/index.md` (`layout: reveal-workshop`,
+`tutorial:` pointing at the session page). The conventions the two current
+decks share:
+
+- **Title slide:** `.deck-topic` reads "Amaranth Brown Bag Series", the `#`
+  title is the session title in sentence case, a one-line `.deck-thesis`, and
+  three bullets in `.deck-summary`.
+- **Slide titles** are sentence-case `##` headings that say what the slide
+  shows. The last two slides are "Points to take with you" and the webpage
+  pointer.
+- **Every slide has `data-timing` and an `<aside class="notes">`.** The comment
+  at the top gives the slide count and total minutes; keep it equal to the
+  sum of the `data-timing` values.
+- **The same voice rules apply**, notes included: no em-dashes, no slogans, no
+  prompts or replies invented for a slide. Label prepared examples as such.
+- **`summary`** is one sentence naming what the deck covers.
 
 ## Before publishing
 

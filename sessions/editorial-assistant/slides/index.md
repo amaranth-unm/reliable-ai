@@ -123,7 +123,7 @@ What this prompt left to the model
   <dt>Never said</dt>
   <dd>Who has to act on this policy, or which decisions it has to settle for them.</dd>
   <dt>So the model decides</dt>
-  <dd>What counts as “appropriate,” and whether disclosure needs a form — the two questions only the author can answer.</dd>
+  <dd>What counts as “appropriate,” and whether disclosure needs a form: the two questions only the author can answer.</dd>
 </dl>
 </div>
 
@@ -139,7 +139,7 @@ Don't ask for subjective decisions.
 
 **3:00–5:00**
 
-Use this as the first half of a before/after prompt comparison. Read the prompt aloud: it is a reasonable editing request that states goals and protects meaning. Then read the right side, which is a reading of the prompt rather than a reply to it — no model output appears on this slide, so there is nothing here to mistake for a transcript.
+Use this as the first half of a before/after prompt comparison. Read the prompt aloud: it is a reasonable editing request that states goals and protects meaning. Then read the right side, which is a reading of the prompt rather than a reply to it. No model output appears on this slide, so there is nothing here to mistake for a transcript.
 
 The point is the third line. A prompt that asks only for clarity and concision has not withheld a decision; it has handed one over. Whatever the model returns, it will have settled what "appropriate" means, because the prompt gave it no way not to. That is the sense in which the request is subjective: not badly worded, but silent on the only questions that matter.
 
@@ -380,9 +380,9 @@ A sentence can become clearer while a claim still needs attention.
 
 Introduce the four-paragraph community archive report: a fictional project explaining its pilot to contributors and university colleagues. The complete passage is on the webpage. Everything the room needs for this slide is on it.
 
-Read the top block first. The original sentence is genuinely bad — a noun phrase doing the work of a verb — and the revision is genuinely better: shorter, same actor, same outcome, nothing added. Say that plainly, because the argument of this slide depends on conceding that the broad prompt did something useful.
+Read the top block first. The original sentence is genuinely bad (a noun phrase doing the work of a verb) and the revision is genuinely better: shorter, same actor, same outcome, nothing added. Say that plainly, because the argument of this slide depends on conceding that the broad prompt did something useful.
 
-Then read the bottom block aloud, both clauses, and let the room sit with them. They are two sentences apart in the same paragraph. The project team makes the final call; the contributors are said to retain control. Those can both be true, but only if someone says how, and the report does not. Do not call it a proved contradiction — the author may well be able to explain it.
+Then read the bottom block aloud, both clauses, and let the room sit with them. They are two sentences apart in the same paragraph. The project team makes the final call; the contributors are said to retain control. Those can both be true, but only if someone says how, and the report does not. Do not call it a proved contradiction. The author may well be able to explain it.
 
 The point is the gap between the two blocks. A request for clarity and concision operates on sentences, and this one improved a sentence. The thing most worth an editor's attention in that paragraph is not a sentence at all; it is a relationship between two claims, and no amount of tightening prose will surface it. The next slide supplies criteria that do.
 
@@ -488,7 +488,7 @@ Open it and pick an essay before we look at twenty.
 
 **18:00–20:00**
 
-Put the site on screen and browse for a minute rather than describing it. Open one essay — Hodgin Hall or the Duck Pond both work — and scroll it. This is the only part of the session that uses a live public collection rather than a prepared specimen, and it is worth the minute because everything in the next three slides is about a problem the room can see for itself.
+Put the site on screen and browse for a minute rather than describing it. Open one essay (Hodgin Hall or the Duck Pond both work) and scroll it. This is the only part of the session that uses a live public collection rather than a prepared specimen, and it is worth the minute because everything in the next three slides is about a problem the room can see for itself.
 
 Say what the project is: students in a Making History course research a campus place in the archives and publish the essay here, and the collection has grown each semester since. Nobody is editing this for a grade. It is a public archive with the students' names on it.
 
@@ -588,7 +588,7 @@ Three student essays from the same collection, built from the same template, eac
 
 Work left to right and let the room name the differences before you do. The first repeats its title under the header and runs its sources together as prose. The second opens on a photograph, so a reader arrives with no idea what the essay argues. The third uses bold text where a heading belongs, which looks right and is invisible to the table of contents, to search, and to a screen reader. Only the third page has a real category in its eyebrow; the other two fall back to the generic site label.
 
-The point to land before advancing: no student did anything wrong. Each made a reasonable local choice in the absence of a stated one. Twenty essays of reasonable local choices is what a collection looks like without a guide — and it is why the fix is a written rule rather than twenty conversations.
+The point to land before advancing: no student did anything wrong. Each made a reasonable local choice in the absence of a stated one. Twenty essays of reasonable local choices is what a collection looks like without a guide. It is why the fix is a written rule rather than twenty conversations.
 
 The pages are invented. The inconsistencies are the real ones the Campus History guide was written to settle.
 
@@ -674,7 +674,7 @@ Rules you can point at, argue with, and change.
 
 This is the real file, open in an editor, with its real line numbers; the trailing ellipses mark lines trimmed to fit this slide, not lines that end there. Nothing here is generated. Someone sat down and wrote it after seeing the pages on the previous slide.
 
-Read the three section headings first, because the shape is the lesson: Allowed Changes, Avoid, Flag Or Ask First. Most people writing a style guide write only the first one. The second is what keeps an assistant from improving a student's argument out from under them, and the third is the one nobody thinks to include — the list of things it must stop and ask about rather than decide.
+Read the three section headings first, because the shape is the lesson: Allowed Changes, Avoid, Flag Or Ask First. Most people writing a style guide write only the first one. The second is what keeps an assistant from improving a student's argument out from under them, and the third is the one nobody thinks to include: the list of things it must stop and ask about rather than decide.
 
 Then point at the writing itself. It is Markdown in a text file: no app, no account, no format anyone has to be taught. And every line is checkable against an actual page. "Normalize heading levels" and "do not add new evidence" can be held up against an essay and answered yes or no, where "make it professional" cannot. That is the whole craft of writing one of these.
 
@@ -763,7 +763,7 @@ Which decisions should carry into the next semester?
 
 This is the actual Campus History Essay Style Guide, not Amaranth's general language guide. The prompt on the left asks it to name the rule behind each change, and the panel on the right is what that produces: three edits, each traceable to a line in the file we just looked at. The edits are illustrative, written for this slide; the rules behind them are real.
 
-Two of the three should look familiar — they are the first and third mockups from the collection slide, now fixed. Say so. The room has seen the problem, the file, and now the change, and that is the whole argument for writing one of these down.
+Two of the three should look familiar. They are the first and third mockups from the collection slide, now fixed. Say so. The room has seen the problem, the file, and now the change, and that is the whole argument for writing one of these down.
 
 Note what the third edit does not do. The guide permits cutting "In conclusion," and in the same breath protects meaningful first person and justified uncertainty. A guide that only standardizes would flatten the collection into one voice; this one spends rules preventing that.
 
@@ -794,7 +794,7 @@ Set up rules and style guides
   <dt>Paste it at the top</dt>
   <dd>A plain text file, pasted into your first message. Works in every tool, on every free tier, and depends on nothing.</dd>
   <dt>Attach the file</dt>
-  <dd>Most tools take a <code>.txt</code> or <code>.md</code> upload. Same guide, less scrolling — but ask it to quote a rule back before you trust that it read one.</dd>
+  <dd>Most tools take a <code>.txt</code> or <code>.md</code> upload. Same guide, less scrolling, but ask it to quote a rule back before you trust that it read one.</dd>
   <dt>Give it a standing place</dt>
   <dd>A Project in Claude, custom instructions or a custom GPT in ChatGPT, a Gem in Gemini: the guide then applies to every conversation inside it.</dd>
 </dl>
@@ -813,9 +813,9 @@ Start with the text file. Upgrade later, or never.
 
 The previous slide showed a prompt that begins "Use my Campus History Essay Style Guide" without saying how the assistant ever sees it. This slide answers that, because it is the first thing anyone following along on a laptop will get stuck on.
 
-Lead with the plain file and mean it. A guide pasted into the first message works in every tool, costs nothing, and survives your changing tools next year — which the other two options do not. The standing place is a convenience for people already paying for one, not a prerequisite for anything in this session.
+Lead with the plain file and mean it. A guide pasted into the first message works in every tool, costs nothing, and survives your changing tools next year, which the other two options do not. The standing place is a convenience for people already paying for one, not a prerequisite for anything in this session.
 
-Two cautions worth saying aloud. Attaching a file is not the same as having it read: ask the assistant to quote one rule back before relying on it. And a Project's memory is a liability as well as a convenience — the limits from the start of the session still apply to what you put in one. Other people's unpublished work, student writing with names attached, and anything under embargo or an IRB protocol do not belong in a standing place any more than in a chat window.
+Two cautions worth saying aloud. Attaching a file is not the same as having it read: ask the assistant to quote one rule back before relying on it. And a Project's memory is a liability as well as a convenience: the limits from the start of the session still apply to what you put in one. Other people's unpublished work, student writing with names attached, and anything under embargo or an IRB protocol do not belong in a standing place any more than in a chat window.
 
 The tutorial covers this at greater length under "Where to keep it" and "Keep the draft in a file."
 
@@ -1158,14 +1158,14 @@ If you can’t add Word comments, return a passage/comment table.
 
 
 <!-- 19 -->
-<section id="takeaways" class="workshop-summary" data-timing="120" aria-label="Five techniques to take with you">
+<section id="takeaways" class="workshop-summary" data-timing="120" aria-label="Points to take with you">
 
 <header>
 
 Take-home techniques
 {: .deck-topic}
 
-## Five techniques to take with you
+## Points to take with you
 
 </header>
 

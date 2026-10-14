@@ -8,18 +8,25 @@
   session's folder name in sessions/ — when a topic is decided, add its
   sessions/<name>/index.md and reference it here by folder name; until
   then, leave `session` out and the date renders as "Topic TBA". Past dates
-  are skipped — they're already shown as real sessions, via card-toc.html on
-  sessions/index.md and the home page's Past sessions row.
+  are skipped — they're already shown as real sessions, via the home page's
+  Past sessions row and the cards on sessions/index.md.
+
+  Optional `tba_only=true` leaves out dates that already have a session page,
+  for pages that show those sessions as cards (the home page's Coming up).
+
+  Optional `after` (a "%Y-%m-%d" string) skips dates up to and including it, so
+  the home page can list what comes after the next session without repeating it.
 {% endcomment %}
 
 {% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign after = include.after | default: "" %}
 {% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where: "name", "index.md" | where_exp: "p", "p.published != false" %}
 
 {::nomarkdown}
 <ul class="schedule-list">
   {% for entry in site.data.schedule %}
     {% assign entry_date = entry.date | date: "%Y-%m-%d" %}
-    {% if entry_date >= today %}
+    {% if entry_date >= today and entry_date > after %}
       {% assign matched = nil %}
       {% if entry.session %}
         {% for s in session_pages %}
@@ -29,6 +36,7 @@
           {% endif %}
         {% endfor %}
       {% endif %}
+      {% unless include.tba_only and matched %}
       <li class="schedule-item">
         <span class="schedule-date">{{ entry.date | date: "%b %-d" }}</span>
         {% if matched %}
@@ -38,6 +46,7 @@
           <span class="schedule-tba">Topic TBA</span>
         {% endif %}
       </li>
+      {% endunless %}
     {% endif %}
   {% endfor %}
 </ul>

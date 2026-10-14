@@ -8,7 +8,14 @@ location: History Commons (MVH 1104)
 kicker: Session 3 · October 21, 2026
 summary: "Read into a topic with an AI agent, map the articles’ ideas and relationships, and keep a record of what you checked and chose to read next."
 note: "Bring a laptop and a topic to explore, or use the example on this page. No Zotero or Obsidian setup is needed."
-published: false
+points:
+  - title: Organize sources, prompts, outputs
+    text: Set up a project workspace that preserves your research materials, AI instructions, and results.
+  - title: Check claims, track corrections
+    text: Use AI agents to review each other's work, verify claims against original sources, and record errors and corrections.
+  - title: Document decisions and revisions
+    text: Keep a concise record of what you accepted, changed, or rejected, and why, so others can follow your research process.
+flyer: "audit-trail-flyer-v2.jpeg"
 thumbnail: "/assets/images/stradanus-press-1600.jpg"
 header-image: "/assets/images/stradanus-press-1600.jpg"
 header-tier: section

@@ -8,6 +8,14 @@ location: History Commons (MVH 1104)
 kicker: Session 2 · October 14, 2026
 summary: "Another task where you can check the work, because the page is right in front of you. We try AI on handwritten sources, compare its readings with the originals, and look closely at where it goes wrong."
 note: "Bring a photo or scan of a handwritten document you'd like to read. No laptop? Just show up."
+points:
+  - title: Survey AI transcription tools
+    text: Learn the differences between AI-based transcription tools, and choose by the script and the image quality.
+  - title: Teach AI to read paleography
+    text: Gain more control over how AI tools process handwriting, and learn how to use one LLM to check the work of another.
+  - title: Understand agentic processing
+    text: Learn techniques for managing LLM usage credits and batching automated transcription.
+flyer: "Session 2 Brown Bag Flyer.jpeg"
 thumbnail: "/assets/images/weigel-scribe-1698.jpg"
 header-image: "/assets/images/weigel-scribe-1698.jpg"
 header-tier: section

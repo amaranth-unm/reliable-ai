@@ -186,7 +186,7 @@ Transkribus can be trained for a variety of [layouts](https://www.transkribus.or
 
 **6:30–8:00**
 
-Coverage on Transkribus is a function of who has already trained a model on that script, not of how hard the script is to read. Rare doesn't mean uncovered — a handful of specialists have built models for scripts you'd assume nobody touched — and common doesn't guarantee coverage either, if the specific hand or period falls between existing models. Click on 'layouts' to explain what is meant by that term on Transkribus.
+Coverage on Transkribus is a function of who has already trained a model on that script, not of how hard the script is to read. Rare doesn't mean uncovered (a handful of specialists have built models for scripts you'd assume nobody touched) and common doesn't guarantee coverage either, if the specific hand or period falls between existing models. Click on 'layouts' to explain what is meant by that term on Transkribus.
 
 </aside>
 </section>
@@ -453,7 +453,7 @@ A section of the report Claude generated about the batch pipeline: what each pro
 Cautionary notes
 {: .deck-topic}
 
-## Keep these points in mind going forward
+## Points to take with you
 
 </header>
 
@@ -489,7 +489,7 @@ This will be an iterative process as you figure out which tool to use and how to
 More resources for HTR using AI
 {: .deck-topic}
 
-## The webpage on the Reliable AI site contains more guidance and information
+## The webpage has the links and more detail
 
 </header>
 
