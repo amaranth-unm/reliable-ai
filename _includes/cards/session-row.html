@@ -13,7 +13,7 @@
       kicker
     - wide: true for wider boxes (fewer per row), for boxes that carry points
 
-  Row fields used: kicker, title, summary, url. Lighter than card-grid.html —
+  Row fields used: kicker, title, presenter, summary, url. Lighter than card-grid.html —
   no thumbnail, no tags — because this is a teaser row pointing at the full
   listing (sessions/index.md, via cards/card-toc.html), not the listing
   itself.
@@ -29,8 +29,9 @@
       {% capture link_resolved %}{% include helpers/link-path.html link=row.url %}{% endcapture %}
       {% assign row_date = row.date | date: "%Y-%m-%d" %}
       <a class="session-box" href="{{ link_resolved | strip }}">
-        {% if row.kicker %}<p class="session-box-kicker">{{ row.kicker }}{% if include.today and row_date > include.today %} <span aria-hidden="true">·</span> Coming soon{% endif %}</p>{% endif %}
+        {% if row.kicker %}<p class="session-box-kicker">{{ row.kicker }}{% if include.today and row_date > include.today %} <span class="session-box-soon">Coming soon</span>{% endif %}</p>{% endif %}
         <h3 class="session-box-title">{{ row.title | default: 'Untitled' }}</h3>
+        {% if row.presenter %}<p class="session-box-presenter">Presented by {{ row.presenter | join: " and " }}</p>{% endif %}
         {% if row.summary %}<p class="session-box-summary">{{ row.summary }}</p>{% endif %}
         {% if include.points and row.points %}
           <ul class="session-box-points">

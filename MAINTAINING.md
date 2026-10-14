@@ -72,6 +72,7 @@ within a session page and make it clear which session an entry belongs to.
 ### Adding a session
 
 1. Add `sessions/your-session/index.md` with front matter: `title`,
+   `presenter` (a name or list of names, shown on every listing),
    `position` (controls card order), `kicker`, `summary`, `thumbnail`, and
    `workshop_mode: true`. Keep `layout: base`: the session lists only pick up
    `base` pages named `index.md` under `sessions/`, which is what keeps the

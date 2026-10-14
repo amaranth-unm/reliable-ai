@@ -17,6 +17,6 @@
 {% include cards/session-card.html rows=soon_rows today=site_today plain=true raw=true %}
 
 {% if page.note %}<p class="session-card-note">{{ page.note }}</p>{% endif %}
-{% if page.flyer %}{% assign flyer_path = page.url | append: page.flyer | uri_escape %}{% capture flyer_resolved %}{% include helpers/link-path.html link=flyer_path %}{% endcapture %}<p><a href="{{ flyer_resolved | strip }}">View the flyer</a></p>{% endif %}
+{% if page.flyer %}{% assign flyer_path = page.url | append: page.flyer | uri_escape %}{% capture flyer_resolved %}{% include helpers/link-path.html link=flyer_path %}{% endcapture %}<p class="session-card-links"><a class="session-card-flyer" href="{{ flyer_resolved | strip }}">View the flyer</a></p>{% endif %}
 
 <p><a href="{{ site.baseurl }}/sessions/">← All sessions</a></p>

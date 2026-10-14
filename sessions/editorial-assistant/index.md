@@ -1,5 +1,6 @@
 ---
 title: AI as Editorial Assistant
+presenter: Fred Gibbs
 layout: base
 position: 1
 date: 2026-09-23

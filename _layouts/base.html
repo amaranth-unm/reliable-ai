@@ -46,6 +46,7 @@
       {% if page.layout == 'base' and page.path contains 'sessions/' and page.name == 'index.md' and page.date and page_day > site_today %}
         {% include session-coming-soon.html %}
       {% else %}
+        {% if page.presenter %}<p class="session-byline">Presented by {{ page.presenter | join: " and " }}</p>{% endif %}
         {{ content }}
       {% endif %}
     </div> <!-- /container -->

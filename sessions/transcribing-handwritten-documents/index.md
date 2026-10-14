@@ -1,5 +1,6 @@
 ---
 title: Transcribing Handwritten Documents
+presenter: Jonathan Seyfried
 layout: base
 position: 2
 date: 2026-10-14
