@@ -1,0 +1,29 @@
+.supplement-index .deck-thesis { margin-bottom: 0; }
+.reveal .slides section .supplement-links { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 65px; align-content: center; }
+.supplement-links a { font-size: 34px; text-decoration-thickness: 1px; text-underline-offset: 7px; }
+.reveal .slides section .source-pair { display: grid; grid-template-columns: 310px minmax(0,1fr); gap: 50px; min-height: 0; }
+.full-manuscript { margin: 0; display: flex; flex-direction: column; gap: 10px; align-items: center; min-height: 0; }
+.full-manuscript img { max-height: 356px; max-width: 100%; width: auto; margin: 0; }
+.full-manuscript figcaption { font-size: 18px; color: var(--text-muted); }
+.passage-view { padding-top: 20px; }
+.manuscript-detail { height: 225px; width: 100%; background-image: url('/reliable-ai/sessions/transcribing-handwritten-documents/supplemental-slides/images/lincoln-to-bedell.jpg'); background-size: 100% auto; background-position: center 68%; background-repeat: no-repeat; }
+.reveal .slides section .source-description { font-size: 25px; margin-top: 24px; line-height: 1.4; }
+.reference-lines { font: 28px/1.42 var(--font-serif); }
+.reveal .slides section .reference-lines p { margin: 0 0 14px; line-height: inherit; }
+.reference-lines span { color: var(--text-muted); font: 18px var(--font-mono); margin-right: 7px; }
+.reveal .slides section .reference-note { font-size: 25px; line-height: 1.3; margin-top: 25px; }
+.word-comparison { min-height: 0; }
+.word-comparison .manuscript-detail { height: 250px; max-width: 950px; margin: 0 auto; background-position: center 68%; }
+.word-readings { display: flex; justify-content: space-evenly; margin-top: 12px; }
+.word-readings p { display: flex; flex-direction: column; gap: 5px; margin-bottom: 0 !important; }
+.reveal .slides section .word-readings .deck-label { margin: 0; }
+.word-readings strong { font: 46px var(--font-serif); }
+.reveal .slides section .teaching-disclosure { font-size: 21px; color: var(--text-muted); margin-top: 10px; }
+.word-comparison .teaching-disclosure { text-align: center; }
+.second-reader-steps ol { margin: 0 0 0 38px; padding: 0; }
+.second-reader-steps li { padding-left: 10px; margin-bottom: 25px; line-height: 1.35; }
+.reading-table { width: 100%; font-size: 25px; line-height: 1.3; border-collapse: collapse; }
+.reading-table th, .reading-table td { padding: 16px 8px; text-align: left; border-bottom: 1px solid var(--metadata-border); }
+.reading-table thead th { font: 20px var(--font-heading); color: var(--text-muted); }
+.reveal .slides section .file-tree { white-space: pre; font: 28px/1.65 var(--font-mono); padding: 20px 0; margin: 0; width: auto; box-shadow: none; }
+.project-file-pair { grid-template-columns: 1.1fr 1fr !important; }
