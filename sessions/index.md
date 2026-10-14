@@ -23,7 +23,8 @@ We work through a few exercises on screen and talk about what the tool is doing 
 
 {% comment %}
   Every session in date order: past sessions as boxes, the next one in the
-  announcement bar (same include as the home page), later ones as boxes. A
+  announcement bar (same include as the home page), later ones as boxes
+  stacked in a single column, so the schedule reads straight down. A
   session on today's date counts as next. Each box carries the flyer's points.
   The lookup is repeated from index.md; see the comment there for why.
 {% endcomment %}
@@ -55,7 +56,7 @@ Each session's page keeps the exercises, the prompts and the replies we got, so 
 {% endif %}
 
 {% if later_sessions.size > 0 %}
-{% include cards/session-row.html rows=later_sessions limit=50 points=true wide=true today=today %}
+{% include cards/session-row.html rows=later_sessions limit=50 points=true wide=true stack=true today=today %}
 {% endif %}
 
 Have a topic request? [Tell us](https://amaranth.unm.edu) and we'll add it to the list.

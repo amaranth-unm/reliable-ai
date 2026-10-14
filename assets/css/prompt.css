@@ -301,6 +301,17 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
 }
 
+/* One box per row (stack=true): the sessions page's upcoming sessions, read
+   as a schedule from top to bottom. The summary keeps a readable measure
+   rather than running the full width of the box. */
+.session-row.session-row-stack {
+  grid-template-columns: 1fr;
+}
+
+.session-row-stack .session-box-summary {
+  max-width: 68ch;
+}
+
 .session-box-points {
   list-style: none;
   margin: 0.7rem 0 0;
