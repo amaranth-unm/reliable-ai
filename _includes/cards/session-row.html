@@ -12,6 +12,8 @@
     - today: "%Y-%m-%d" string; a session after it gets "Coming soon" in its
       kicker
     - wide: true for wider boxes (fewer per row), for boxes that carry points
+    - stack: true for one box per row, full width, as the sessions page sets
+      its upcoming sessions
 
   Row fields used: kicker, title, presenter, summary, url. Lighter than card-grid.html —
   no thumbnail, no tags — because this is a teaser row pointing at the full
@@ -24,7 +26,7 @@
 
 {::nomarkdown}
 {% if include.rows and rows.size > 0 %}
-  <div class="session-row{% if include.wide %} session-row-wide{% endif %}">
+  <div class="session-row{% if include.wide %} session-row-wide{% endif %}{% if include.stack %} session-row-stack{% endif %}">
     {% for row in rows %}
       {% capture link_resolved %}{% include helpers/link-path.html link=row.url %}{% endcapture %}
       {% assign row_date = row.date | date: "%Y-%m-%d" %}
