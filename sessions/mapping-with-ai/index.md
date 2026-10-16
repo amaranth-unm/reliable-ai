@@ -7,9 +7,17 @@ date: 2026-11-11
 time: "12:00–12:50"
 location: History Commons (MVH 1104)
 kicker: Session 4 · November 11, 2026
-# Placeholder. Before the session is announced, add summary (one sentence for
-# the cards), points and flyer (from the flyer), note (what to bring) and
-# header-subtitle (the session's thesis). See SESSION-STYLE.md.
+# Draft summary and points; confirm with the presenter. Before the session is
+# announced, also add flyer, note (what to bring) and header-subtitle (the
+# session's thesis). See SESSION-STYLE.md.
+summary: "Use AI to build three kinds of maps, from a quick pin map of your notes to archival data drawn over a historic map, and check where it puts each place."
+points:
+  - title: "Organize research on a web map"
+    text: "Turn a list of places from your notes into an interactive map, with each pin linking to your sources and observations."
+  - title: "Map an archive's place data"
+    text: "Have AI pull place names from archival records into a spreadsheet, check its coordinates, and build a map interface for browsing them."
+  - title: "Layer data on historic maps"
+    text: "Fit a scanned historic map to real coordinates and draw routes and sites over it to compare the map's world with ours."
 thumbnail: "/assets/images/stradanus-press-1600.jpg"
 header-image: "/assets/images/stradanus-press-1600.jpg"
 header-tier: section
