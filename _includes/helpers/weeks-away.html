@@ -1,0 +1,28 @@
+{% comment %}
+  Weeks Away — how far off a session is, as words: "Today", "Tomorrow",
+  "This week", "Next week", then "In 3 weeks" and so on
+
+  Usage:
+    {% include helpers/weeks-away.html date=row.date today=today %}
+
+  Parameters:
+    - date:  the session's date (required)
+    - today: "%Y-%m-%d" string (required)
+
+  Counts calendar weeks starting Sunday, so a Wednesday session seen on the
+  Thursday before is "Next week", not "This week". The page is static, so the
+  count is as of the last build; the nightly rebuild
+  (.github/workflows/nightly-rebuild.yml) keeps it current. Prints nothing
+  for a date before today.
+
+  Both dates parse to local midnight, so the gap is whole days; the half-day
+  added before dividing absorbs a daylight-saving hour.
+{% endcomment %}
+{%- assign wa_day = include.date | date: "%Y-%m-%d" -%}
+{%- if include.today and wa_day >= include.today -%}
+{%- assign wa_today_s = include.today | date: "%s" | plus: 0 -%}
+{%- assign wa_wday = include.today | date: "%w" | plus: 0 -%}
+{%- assign wa_days = wa_day | date: "%s" | minus: wa_today_s | plus: 43200 | divided_by: 86400 -%}
+{%- assign wa_weeks = wa_days | plus: wa_wday | divided_by: 7 -%}
+{%- if wa_days == 0 -%}Today{%- elsif wa_days == 1 -%}Tomorrow{%- elsif wa_weeks == 0 -%}This week{%- elsif wa_weeks == 1 -%}Next week{%- else -%}In {{ wa_weeks }} weeks{%- endif -%}
+{%- endif -%}

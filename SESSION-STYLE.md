@@ -72,20 +72,25 @@ page also gets a `noindex, nofollow` robots tag. Missing `published` or
 `published: true` keeps the usual listed behavior. The URL remains accessible,
 so this flag is not access control. Check for manually written links as well.
 
-**`sessions/index.md` lists every session as a large card**
-(`cards/session-card.html`), oldest first, past and future together. The cards
-copy the flyer: a date band from `kicker`, the `title`, `time` and `location`,
-the `summary`, and the flyer's three bold lines as `points`. The home page shows
-the next session in the full-width bar, later ones as the same cards under
-"Coming up", and past ones as the compact `session-row` boxes. So `kicker`,
+**The home page sets upcoming sessions as a program**
+(`cards/session-program.html`) under "Upcoming sessions". The next session
+opens out: its `date` and `time`, `title`, `presenter`, `location`, `summary`,
+the flyer's three bold lines as `points`, and the `note`. Later sessions are
+agenda rows: date, `title`, `presenter`, `time` and `summary`. Each is
+labelled with how many weeks away it is. Past sessions are the compact
+`session-row` boxes, oldest first, two to a row. `sessions/index.md` is the
+quick reference: every session as one line (`cards/session-list.html`) with
+its date, `title`, `presenter` and `summary`, linking to its page. A
+session's coming-soon page shows it as a `cards/session-card.html` card. So
+`kicker`,
 `title`, `summary` and `points` all have to carry their weight on their own:
 there is no thumbnail to do the work. Keep `summary` to a single sentence that
 says what the session *does*.
 
 **`presenter` names who leads the session.** It is a name, or a list of
 names for a session with more than one presenter. Every place that lists the
-session shows it as “Presented by …”: the cards, the session boxes, the
-next-session bar, the coming-soon page, and a byline under the header on the
+session names them: the home page program, the past-session boxes, the
+sessions list, the coming-soon card, and a byline under the header on the
 session page itself (`_layouts/base.html`). Leave it out until the presenter
 is confirmed; nothing renders in its place.
 

@@ -22,41 +22,19 @@ We work through a few exercises on screen and talk about what the tool is doing 
 - **Nothing you shouldn't share.** Leave out other people's unpublished work, student writing with names attached, and anything under embargo or an IRB protocol.
 
 {% comment %}
-  Every session in date order: past sessions as boxes, the next one in the
-  announcement bar (same include as the home page), later ones as boxes
-  stacked in a single column, so the schedule reads straight down. A
-  session on today's date counts as next. Each box carries the flyer's points.
-  The lookup is repeated from index.md; see the comment there for why.
+  Every session in date order, past and upcoming together, as one compact
+  line each (cards/session-list.html): a reference list that links to the
+  session pages. The home page is the display, with the next session's
+  points, note and flyer. The lookup is repeated from index.md; see the
+  comment there for why.
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
 {% assign session_pages = site.pages | where_exp: "p", "p.path contains 'sessions/'" | where_exp: "p", "p.path != 'sessions/index.md'" | where: "layout", "base" | where: "name", "index.md" | where_exp: "p", "p.published != false" | sort: "date" %}
-{% assign past_sessions = "" | split: "," %}
-{% assign upcoming_sessions = "" | split: "," %}
-{% for s in session_pages %}
-  {% assign s_date = s.date | date: "%Y-%m-%d" %}
-  {% if s_date >= today %}
-    {% assign upcoming_sessions = upcoming_sessions | push: s %}
-  {% else %}
-    {% assign past_sessions = past_sessions | push: s %}
-  {% endif %}
-{% endfor %}
-{% assign next_session = upcoming_sessions | first %}
-{% assign later_sessions = upcoming_sessions | slice: 1, 50 %}
 
 ## All sessions
 
 Each session's page keeps the exercises, the prompts and the replies we got, so you can try them again later or catch up on one you missed.
 
-{% if past_sessions.size > 0 %}
-{% include cards/session-row.html rows=past_sessions limit=50 points=true wide=true %}
-{% endif %}
-
-{% if next_session %}
-{% include next-session.html session=next_session %}
-{% endif %}
-
-{% if later_sessions.size > 0 %}
-{% include cards/session-row.html rows=later_sessions limit=50 points=true wide=true stack=true today=today %}
-{% endif %}
+{% include cards/session-list.html rows=session_pages today=today %}
 
 Have a topic request? [Tell us](https://amaranth.unm.edu) and we'll add it to the list.
