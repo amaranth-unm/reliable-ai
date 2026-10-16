@@ -1,0 +1,101 @@
+{% comment %}
+  Session Program — the home page's upcoming sessions, set like a printed
+  program rather than a stack of cards
+
+  Usage:
+    {% include cards/session-program.html rows=upcoming_sessions today=today %}
+
+  Parameters:
+    - rows:  upcoming session pages, soonest first (required). The first is
+      the next session; the rest are "Later this semester".
+    - today: "%Y-%m-%d" string, for the weeks-away labels
+      (helpers/weeks-away.html) and the link text
+
+  The next session opens out: a left column with its date set large in red,
+  like the rubricated initial the theme is drawn from, the time and the
+  room; then title, presenter, summary, the flyer's three points side by
+  side, the note and the links. Later
+  sessions are an agenda, one row each: a date column with the weekday and
+  time, then title, presenter and summary, and how many weeks off. Each row is a single link to the session
+  page, which carries the points, so the list stays short however many
+  sessions are announced. Everything but title and date is optional, so a
+  placeholder session still sets as a row.
+
+  A session's own page stays a short coming-soon page until its date (see
+  _layouts/base.html), and for the next session that page would only repeat
+  what the feature already shows. So until the day its title is plain text
+  and the only link is the flyer; on the day the title links to the page and
+  an "Exercises and materials" button appears. Agenda rows always link: their
+  coming-soon pages add the points the rows leave out.
+{% endcomment %}
+
+{% assign today = include.today %}
+{% assign next = include.rows | first %}
+{% assign later = include.rows | slice: 1, 50 %}
+
+{::nomarkdown}
+{% if next %}
+{% capture next_link %}{% include helpers/link-path.html link=next.url %}{% endcapture %}
+{% assign next_date = next.date | date: "%Y-%m-%d" %}
+{% if today and next_date > today %}{% assign next_live = false %}{% else %}{% assign next_live = true %}{% endif %}
+<div class="session-program">
+  <article class="session-feature">
+    <p class="session-feature-date">
+      <span class="session-feature-month">{{ next.date | date: "%B" }}</span>
+      <span class="session-feature-day">{{ next.date | date: "%-d" }}</span>
+      <span class="session-feature-weekday">{{ next.date | date: "%A" }}</span>
+      {% if next.time %}<span class="session-feature-time">{{ next.time }}</span>{% endif %}
+      {% comment %} A parenthetical (the room number) is held on one line, so the narrow column breaks between building and room, not inside "(MVH 1104)". {% endcomment %}
+      {% if next.location %}<span class="session-feature-location">{{ next.location | replace: "(", '<span class="session-feature-room">(' | replace: ")", ")</span>" }}</span>{% endif %}
+    </p>
+    <div class="session-feature-body">
+      <p class="session-when">{% include helpers/weeks-away.html date=next.date today=today %}</p>
+      <h3 class="session-feature-title">{% if next_live %}<a href="{{ next_link | strip }}">{% endif %}{{ next.title | default: 'Untitled' }}{% if next_live %}</a>{% endif %}</h3>
+      {% if next.presenter %}<p class="session-feature-presenter">Presented by {{ next.presenter | join: " and " }}</p>{% endif %}
+      {% if next.summary %}<p class="session-feature-summary">{{ next.summary }}</p>{% endif %}
+      {% if next.points %}
+        <ul class="session-feature-points">
+          {% for point in next.points %}<li><strong>{{ point.title }}</strong><span>{{ point.text }}</span></li>{% endfor %}
+        </ul>
+      {% endif %}
+      {% if next.note %}<p class="session-feature-note">{{ next.note }}</p>{% endif %}
+      {% if next_live or next.flyer %}
+      <p class="session-feature-links">
+        {% if next_live %}<a class="btn-primary" href="{{ next_link | strip }}">Exercises and materials →</a>{% endif %}
+        {% if next.flyer %}{% assign flyer_path = next.url | append: next.flyer | uri_escape %}{% capture flyer_resolved %}{% include helpers/link-path.html link=flyer_path %}{% endcapture %}<a class="session-feature-flyer" href="{{ flyer_resolved | strip }}">View flyer</a>{% endif %}
+      </p>
+      {% endif %}
+    </div>
+  </article>
+
+  {% if later.size > 0 %}
+  <h3 class="session-later-heading">Later this semester</h3>
+  <ul class="session-agenda">
+    {% for row in later %}
+    {% capture link_resolved %}{% include helpers/link-path.html link=row.url %}{% endcapture %}
+    <li>
+      <a class="session-agenda-row" href="{{ link_resolved | strip }}">
+        <span class="session-agenda-date">
+          <span class="session-agenda-month">{{ row.date | date: "%b" }}</span>
+          <span class="session-agenda-day">{{ row.date | date: "%-d" }}</span>
+          <span class="session-agenda-weekday">{{ row.date | date: "%A" }}</span>
+          {% if row.time %}<span class="session-agenda-time">{{ row.time }}</span>{% endif %}
+        </span>
+        <span class="session-agenda-body">
+          <span class="session-agenda-title">{{ row.title | default: 'Untitled' }}</span>
+          {% if row.presenter %}<span class="session-agenda-meta">{{ row.presenter | join: " and " }}</span>{% endif %}
+          {% if row.summary %}<span class="session-agenda-summary">{{ row.summary }}</span>{% endif %}
+        </span>
+        <span class="session-agenda-when session-when">{% include helpers/weeks-away.html date=row.date today=today %}<span class="session-agenda-arrow" aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+{% else %}
+  <div class="xanthan-warning">
+    session-program include needs a rows collection.
+  </div>
+{% endif %}
+{:/nomarkdown}

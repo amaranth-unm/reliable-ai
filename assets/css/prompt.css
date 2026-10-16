@@ -104,181 +104,11 @@
 
 .prompt { scroll-margin-top: 5rem; }
 
-/* === Next session bar ================================================ */
-/* The home page announcement. .section-warm (base.css) already supplies the
-   full-bleed band, the ink background, the vermilion hairlines and the
-   centring; everything here is the stack inside it. Typography.css gives a
-   bare h2 a 3rem top margin, which inside a band would drop the title away
-   from its own eyebrow, so the vertical rhythm is set explicitly. */
-.next-session {
-  /* Scales with the title, which is clamped against the viewport too. The
-     flat --spacing-md this used to carry was set for a 2.3rem title and
-     crowds the display size. */
-  padding-top: clamp(2rem, 4.5vw, 3.25rem);
-  padding-bottom: clamp(2rem, 4.5vw, 3.25rem);
-  /* .section-warm centres its contents at 48rem, the body text measure. This
-     is an announcement rather than something you read a page of, so it takes
-     the framework's wide measure instead (--home-measure, 64rem, the same one
-     .wide-header and .gallery-grid--wide use). The max() keeps a real gutter
-     on narrow screens rather than letting the text reach the edge. */
-  padding-left: max(clamp(1.25rem, 5vw, 3rem), calc(50% - 32rem));
-  padding-right: max(clamp(1.25rem, 5vw, 3rem), calc(50% - 32rem));
-  text-align: left;
-}
-
-/* The frame. Full-bleed ink with a red hairline is also what the footer and
-   navbar are, so on its own the band read as more page chrome. A double rule
-   inset from the band's edges (a printer's border, as on a title page or a
-   broadside) marks it as a notice set into the page. The outer rule is the
-   border; the inner one is an inset shadow 4px inside it, under a 4px shadow
-   in the band's own colour that leaves the gap between them. */
-.next-session-frame {
-  --next-session-rule: color-mix(in srgb, var(--ochre-light) 70%, transparent);
-  --next-session-rule-inner: color-mix(in srgb, var(--ochre-light) 38%, transparent);
-  position: relative;
-  padding: clamp(2rem, 4.5vw, 2.85rem) clamp(1.25rem, 4.5vw, 3rem) clamp(1.75rem, 4vw, 2.5rem);
-  border: 1px solid var(--next-session-rule);
-  box-shadow:
-    inset 0 0 0 4px var(--bg-section-warm),
-    inset 0 0 0 5px var(--next-session-rule-inner);
-}
-
-.next-session-frame > * {
-  margin: 0;
-}
-
-/* Under 768px the framework pads every .container p and h2 sideways to keep
-   text off the screen edge. The frame's own padding already does that, and
-   the two together squeezed the title onto a third line. */
-.next-session .next-session-frame > * {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Set into the top rule like a fieldset legend, so the label names the frame
-   rather than sitting inside it as one more line. Its background is the
-   band's colour, which breaks both rules behind it; the left edge lines the
-   label's text up with the title below. */
-.next-session .next-session-frame > .next-session-eyebrow {
-  position: absolute;
-  top: 0;
-  left: calc(clamp(1.25rem, 4.5vw, 3rem) - 0.8rem);
-  transform: translateY(-50%);
-  padding: 0 0.8rem;
-  background: var(--bg-section-warm);
-  line-height: 1.6;
-}
-
-.next-session-eyebrow {
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-section-warm-heading);
-}
-
-.next-session-title {
-  /* Display scale, not heading scale. At the old 2.3rem cap this sat level
-     with a body h2 and read as another section head. */
-  font-size: clamp(2.2rem, 5.4vw, 3.6rem);
-  line-height: 1.02;
-  /* Garamond is loaded at 400/500/600; the theme's own note is to set it at
-     500-600 and a touch larger, because its thin strokes lose weight at size.
-     Display sizes also want the tracking pulled back in. */
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  /* Hangs the first glyph's sidebearing so the title aligns optically flush
-     with the eyebrow above it, the same trick page-header.css uses on its h1. */
-  text-indent: -0.04em;
-  text-wrap: balance;
-}
-
-/* .section-warm h2 takes the band's heading colour, which is mixed toward the
-   parchment. The title is the loudest thing in the bar, so it takes the full
-   parchment instead. */
-.next-session .next-session-title {
-  color: var(--text-section-warm);
-}
-
-/* The title links to the session page now that one always exists. .section-
-   warm's own `a` rule would otherwise recolour it to the band's link colour,
-   which is a lot quieter than the parchment white the title is set in. */
-.next-session-title a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-.next-session-title a:hover {
-  text-decoration: underline;
-}
-
-.next-session-presenter {
-  margin-top: 0.35rem;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--text-section-warm);
-}
-
-.next-session-meta {
-  margin-top: 0.5rem;
-  font-family: var(--font-body);
-  font-size: 1.02rem;
-  font-weight: 500;
-  color: var(--text-section-warm-link);
-}
-
-.next-session-blurb {
-  margin-top: 0.9rem;
-  /* 46ch was half the old band and read as a narrow column under a wide
-     title. A single paragraph stops being comfortable somewhere around 75-80
-     characters, so this runs to the top of that range rather than filling the
-     band edge to edge. Set slightly larger than body copy so the line holds
-     its own under a 58px title. */
-  max-width: 74ch;
-  font-size: 1.1rem;
-  line-height: 1.55;
-}
-
-.next-session-points {
-  list-style: none;
-  max-width: 74ch;
-  margin-top: 0.9rem;
-  padding: 0;
-  font-size: 0.98rem;
-  line-height: 1.5;
-}
-
-.next-session-points li {
-  margin-bottom: 0.4rem;
-}
-
-.next-session-points strong {
-  display: block;
-  color: var(--text-section-warm);
-}
-
-.next-session-note {
-  margin-top: 0.7rem;
-  font-size: 0.95rem;
-  color: color-mix(in srgb, var(--text-section-warm) 72%, transparent);
-}
-
-@media (max-width: 480px) {
-  .next-session-meta { font-size: 0.95rem; }
-}
-
 /* === Past sessions row ================================================ */
-/* Up to three compact boxes under the next-session bar on the home page. A
-   teaser row, not a card (cards.css): no thumbnail, no tags, just enough to
-   decide whether to click through. auto-fit rather than a flat repeat(3,…):
-   the series has one past session right now, and a fixed three-column grid
-   would strand that one box in a third of the row with two empty columns
-   beside it. This fills one box to the full width, splits two evenly, and
-   only reaches three columns once there are three to show — the home page
-   include already caps it at three (see cards/session-row.html). */
+/* Compact boxes for the home page's past sessions. A teaser row, not a card
+   (cards.css): no thumbnail, no tags, just enough to decide whether to click
+   through. auto-fit by default, so one box fills the row and two split it
+   evenly; the home page sets pairs=true to hold it at two columns (below). */
 .session-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -297,38 +127,18 @@
   transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.session-row-wide {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+/* Two boxes per row (pairs=true): the home page's past sessions, oldest
+   first, so the semester fills in as a 2×2 grid in the order it happened
+   instead of stretching to three narrow columns once there are three. One
+   column on a phone, where two would leave the summaries a few words wide. */
+.session-row.session-row-pairs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-/* One box per row (stack=true): the sessions page's upcoming sessions, read
-   as a schedule from top to bottom. The summary keeps a readable measure
-   rather than running the full width of the box. */
-.session-row.session-row-stack {
-  grid-template-columns: 1fr;
-}
-
-.session-row-stack .session-box-summary {
-  max-width: 68ch;
-}
-
-.session-box-points {
-  list-style: none;
-  margin: 0.7rem 0 0;
-  padding: 0.5rem 0 0;
-  border-top: 1px solid var(--metadata-border);
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: var(--card-text-color);
-}
-
-.session-box-points li {
-  margin-bottom: 0.45rem;
-}
-
-.session-box-points strong {
-  display: block;
-  color: var(--card-heading-color);
+@media (max-width: 600px) {
+  .session-row.session-row-pairs {
+    grid-template-columns: 1fr;
+  }
 }
 
 .session-box:hover {
@@ -343,19 +153,6 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
-}
-
-/* A tag rather than more kicker text, so when a long date wraps, "Coming
-   soon" moves to the next line whole instead of breaking after "Coming". */
-.session-box-soon {
-  display: inline-block;
-  margin-left: 0.35em;
-  padding: 0 0.5em;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  font-size: 0.8em;
-  white-space: nowrap;
-  vertical-align: 0.1em;
 }
 
 .session-box-title {
@@ -379,37 +176,6 @@
   color: var(--card-text-color);
 }
 
-/* The sessions page's boxes (wide=true) are the listing itself, read across
-   the room as well as up close, so the date and title are set at display size
-   rather than as a teaser row's labels. The home page's compact row keeps the
-   sizes above. */
-.session-row-wide .session-box {
-  padding: var(--spacing-md);
-}
-
-.session-row-wide .session-box-kicker {
-  font-size: 1.05rem;
-  letter-spacing: 0.06em;
-  color: var(--accent-primary);
-}
-
-.session-row-wide .session-box-title {
-  margin: 0.4rem 0 0.5rem;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.15;
-}
-
-.session-row-wide .session-box-presenter {
-  margin: -0.1rem 0 0.6rem;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-}
-
-.session-row-wide .session-box-summary {
-  font-size: 0.98rem;
-  line-height: 1.5;
-}
-
 /* === Session cards ===================================================== */
 /* The sessions page: one large card per session, set like the flyers. A tinted
    band carries the kicker (the flyer's orange date bar), the title is the big
@@ -431,17 +197,30 @@
 
 .session-card-band {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
-  gap: var(--spacing-sm);
-  padding: 0.55rem var(--spacing-md);
+  gap: 0.35rem var(--spacing-sm);
+  padding: 0.7rem var(--spacing-md);
   background: var(--accent-primary);
   color: #fff;
   font-family: var(--font-heading);
-  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+}
+
+/* The date and time, set large enough to read as the card's first line
+   rather than a label over it. Mixed case: at this size the flyer band's
+   letterspaced capitals shout. */
+.session-card-when {
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+/* On a phone the time drops below the date as a unit rather than breaking
+   inside the range. */
+.session-card-time {
+  white-space: nowrap;
 }
 
 .session-card-tag {
@@ -449,6 +228,10 @@
   border: 1px solid currentColor;
   border-radius: 999px;
   font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  /* On a phone the date wraps instead, so the pill stays one line. */
+  white-space: nowrap;
 }
 
 .session-card-body {
@@ -457,6 +240,13 @@
 
 .session-card-body > * {
   margin-top: 0;
+}
+
+/* The extra class outranks base.css's under-768px `.container p, h3, ul`
+   side padding, which would otherwise indent the card's contents a second
+   time inside the body's own padding. Padding only: at this weight a
+   margin-top here would also cancel .session-card-links' spacing. */
+.session-card .session-card-body > * {
   padding-left: 0;
   padding-right: 0;
 }
@@ -536,6 +326,29 @@
   color: var(--card-text-color);
 }
 
+/* === Home page section heading ========================================= */
+/* "Upcoming sessions" opens the home page's listing, so it is set a step
+   above a body h2 and above the next session's title under it (2.9rem at
+   most), with a red rule to start the section. Garamond is loaded at
+   400/500/600, so 600 rather than the h2's 700, and the tracking pulled in
+   as on the program's titles. */
+.sessions-heading {
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--accent-primary);
+  font-size: clamp(2.3rem, 5.5vw, 3.3rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+/* Under 768px base.css pads every .container h2 sideways, which would start
+   the rule a gutter to the left of the heading's text. Without it, text, rule
+   and the cards below share one left edge. */
+.container .sessions-heading {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* The card's two actions as buttons: the session page filled (.btn-primary,
    buttons.css) and the flyer outlined in the same red beside it, so the page
    reads as the main action and the flyer as the companion. */
@@ -567,6 +380,571 @@
   background: var(--interactive-subtle-hover);
   color: var(--button-bg);
   transform: translateY(-1px);
+}
+
+/* === Session program ================================================== */
+/* The home page's upcoming sessions (cards/session-program.html), set like a
+   printed program: the next session opens out, later ones are agenda rows.
+   No boxes and no filled bands. Red is the rubric here as everywhere on the
+   site: the date numerals and the weeks-away labels, the things to notice,
+   and nothing else. */
+
+/* Under 768px base.css pads every .container p, h3, ul and li sideways, and
+   typography.css gives each li a margin and a fixed line height. Inside the
+   program those would indent the feature's columns and break up the agenda
+   rules, so this block sets its own. :where() holds these resets at two
+   classes, enough to beat those rules and no more, so the margins set on
+   each element below still apply. */
+.container .session-program :where(p, h3, ul) {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.container .session-program :where(li) {
+  margin: 0;
+  line-height: inherit;
+}
+
+.session-program {
+  margin: var(--spacing-md) 0 var(--spacing-xl);
+}
+
+/* Small capitals in the sans: the weekday and the weeks-away label. */
+.session-when,
+.session-feature-weekday,
+.session-agenda-weekday {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.session-when {
+  color: var(--accent-primary);
+}
+
+/* The month in Garamond capitals, so it reads as one unit with the numeral
+   under it; a sans label at caption size looked like a footnote to it. */
+.session-feature-month,
+.session-agenda-month {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Lining figures of equal width, so "11", "18" and "2" sit the same way
+   under their months from row to row. */
+.session-feature-day,
+.session-agenda-day {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* The feature: a when-and-where column ruled off from the body, the day set
+   as a rubricated initial. The column is centred: Garamond's figures carry
+   their serifs and the 1's flag unevenly, so a flush-left numeral never looks
+   flush with the month above it. */
+.session-feature {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0 var(--spacing-lg);
+}
+
+.session-feature-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-right: var(--spacing-md);
+  border-right: 1px solid var(--metadata-border);
+}
+
+.session-feature-month {
+  font-size: 1.3rem;
+}
+
+.session-feature-day {
+  margin: 0.3rem 0 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 6.5rem;
+  font-weight: 500;
+  line-height: 0.85;
+  color: var(--accent-primary);
+}
+
+.session-feature-weekday {
+  color: var(--text-muted);
+}
+
+.session-feature-time {
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.session-program .session-feature-title {
+  margin: 0.35rem 0 0.2rem;
+  font-size: clamp(2rem, 4.5vw, 2.9rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.session-feature-title a {
+  color: var(--text-body);
+  border-bottom: none;
+}
+
+.session-feature-title a:hover {
+  color: var(--accent-primary);
+}
+
+.session-feature-presenter {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* The room, under the time. Sans rather than the time's mono: at the
+   column's width the mono breaks "History Commons" mid-name. */
+.session-feature-location {
+  margin-top: 0.45rem;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.session-feature-room {
+  white-space: nowrap;
+}
+
+.session-program .session-feature-summary {
+  max-width: 62ch;
+  margin-top: var(--spacing-sm);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* The flyer's three points side by side, each under a heavy rule like a
+   column head in a printed program. */
+.session-program .session-feature-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  list-style: none;
+}
+
+.session-program .session-feature-points li {
+  padding-top: 0.6rem;
+  border-top: 2px solid var(--text-body);
+}
+
+.session-feature-points strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.session-feature-points span {
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.session-program .session-feature-note {
+  margin-top: var(--spacing-sm);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* The session page filled (.btn-primary, buttons.css), the flyer as a plain
+   underlined link beside it: the program has one button, not two. */
+.session-program .session-feature-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm) var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.session-feature-links a.session-feature-flyer {
+  font-weight: 600;
+  border-bottom: 1px solid currentColor;
+}
+
+/* "Later this semester": .sessions-heading a size down, with a hairline
+   where it has a heavy rule, so the agenda reads as part of Upcoming
+   sessions rather than a new section. Smaller than the next session's title
+   (2.9rem at most), larger than the row titles under it (1.55rem). */
+.session-program .session-later-heading {
+  margin-top: var(--spacing-xl);
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--accent-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.6vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.session-agenda {
+  list-style: none;
+}
+
+/* One row per session, the whole row a link: date | title, meta, summary |
+   weeks away. The side padding is only there so the hover wash has an edge. */
+.session-agenda-row {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr auto;
+  gap: 0 var(--spacing-md);
+  align-items: baseline;
+  padding: var(--spacing-md) 0.5rem;
+  border-bottom: 1px solid var(--metadata-border);
+  color: var(--text-body);
+  transition: background-color var(--transition-normal);
+}
+
+.session-agenda-row:hover {
+  background: var(--interactive-subtle);
+  color: var(--text-body);
+}
+
+/* Month, day, weekday and time stacked and centred, as in the feature. */
+.session-agenda-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.session-agenda-month {
+  font-size: 1.05rem;
+}
+
+.session-agenda-day {
+  margin: 0.15rem 0 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 0.95;
+  color: var(--accent-primary);
+}
+
+.session-agenda-weekday {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.session-agenda-time {
+  margin-top: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.session-agenda-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.session-agenda-row:hover .session-agenda-title {
+  color: var(--accent-primary);
+}
+
+.session-agenda-meta {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.session-agenda-summary {
+  display: block;
+  max-width: 60ch;
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.session-agenda-when {
+  align-self: start;
+  padding-top: 0.25rem;
+  white-space: nowrap;
+}
+
+.session-agenda-arrow {
+  display: inline-block;
+  margin-left: 0.3rem;
+  transition: transform var(--transition-normal);
+}
+
+.session-agenda-row:hover .session-agenda-arrow {
+  transform: translateX(3px);
+}
+
+/* On a phone the dates fold into one line above the title, in the feature
+   and in each agenda row, with the weeks-away label between date and title;
+   the feature's points stack. */
+@media (max-width: 720px) {
+  .session-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .session-feature-date {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    text-align: left;
+    gap: 0 0.6rem;
+    margin-bottom: var(--spacing-sm);
+    padding: 0 0 0.6rem;
+    border-right: none;
+    border-bottom: 1px solid var(--metadata-border);
+  }
+
+  .session-feature-day {
+    order: -1;
+    margin: 0;
+    font-size: 3rem;
+  }
+
+  .session-feature-month {
+    font-size: 1rem;
+  }
+
+  /* Its own line under the folded date, rather than wrapping in after the
+     time. */
+  .session-feature-location {
+    flex-basis: 100%;
+    margin-top: 0.15rem;
+  }
+
+  .session-program .session-feature-points {
+    grid-template-columns: 1fr;
+  }
+
+  /* The date folds into one line over the title and the weeks-away label
+     goes between them, in the same order as the feature. */
+  .session-agenda-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem 0;
+  }
+
+  .session-agenda-date {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 0.5rem;
+    text-align: left;
+  }
+
+  .session-agenda-day {
+    order: -1;
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  .session-agenda-month {
+    font-size: 0.95rem;
+  }
+
+  .session-agenda-date {
+    grid-row: 1;
+  }
+
+  .session-agenda-when {
+    grid-row: 2;
+    padding-top: 0.15rem;
+  }
+
+  .session-agenda-body {
+    grid-row: 3;
+  }
+}
+
+/* === Session list ===================================================== */
+/* The sessions page (cards/session-list.html): every session as one line, a
+   table of contents rather than a display. Same rules as the home page's
+   agenda, a size down. Upcoming rows are full ink with red dates and a
+   weeks-away label. Past rows recede (below), so the line between done and
+   to come shows without a heading. */
+.container .session-list {
+  margin: var(--spacing-md) 0 var(--spacing-lg);
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 1px solid var(--text-body);
+  list-style: none;
+}
+
+.container .session-list :where(li) {
+  margin: 0;
+  line-height: inherit;
+}
+
+.session-list-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: 0 var(--spacing-md);
+  align-items: baseline;
+  padding: 0.85rem 0.5rem;
+  border-bottom: 1px solid var(--metadata-border);
+  color: var(--text-body);
+  transition: background-color var(--transition-normal);
+}
+
+.session-list-row:hover {
+  background: var(--interactive-subtle);
+  color: var(--text-body);
+}
+
+.session-list-date {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+
+.session-list-row.is-upcoming .session-list-date {
+  color: var(--accent-primary);
+}
+
+.session-list-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.session-list-row:hover .session-list-title {
+  color: var(--accent-primary);
+}
+
+.session-list-presenter {
+  /* Wraps as a unit, so a long title pushes the whole name to the next line
+     rather than splitting it. */
+  display: inline-block;
+  margin-left: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.session-list-summary {
+  display: block;
+  max-width: 68ch;
+  margin-top: 0.2rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.session-list-when {
+  white-space: nowrap;
+}
+
+/* Past rows: filed away. A parchment wash a step darker than the page,
+   grey date and title, and "Materials" where upcoming rows count weeks. The
+   summary stays at --text-muted rather than going lighter, since anything
+   paler drops under 4.5:1 on the wash. Hovering one brings it back to full
+   ink, a different response from the red wash on upcoming rows, so it reads
+   as reopening something finished. */
+.session-list-row.is-past {
+  background: var(--bg-section-alt-flat);
+}
+
+.session-list-row.is-past .session-list-title {
+  color: var(--text-muted);
+}
+
+.session-list-materials {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.session-list-row.is-past:hover {
+  background: color-mix(in srgb, var(--bg-section-alt-flat) 70%, var(--parchment, #e9dcc8));
+}
+
+.session-list-row.is-past:hover .session-list-date,
+.session-list-row.is-past:hover .session-list-title {
+  color: var(--text-body);
+}
+
+.session-list-row.is-past:hover .session-list-materials {
+  color: var(--accent-primary);
+}
+
+/* The next session: a faint vermilion wash and a red rule down the left
+   edge, the rubric marking where the semester stands. Red-tinted rather than
+   another parchment step, so it can't be read as one more past row. The rule
+   is an inset shadow, so the row's text stays aligned with the others. */
+.session-list-row.is-next {
+  background: color-mix(in srgb, var(--accent-primary) 11%, var(--bg-page));
+  box-shadow: inset 3px 0 0 var(--accent-primary);
+}
+
+.session-list-row.is-next:hover {
+  background: color-mix(in srgb, var(--accent-primary) 16%, var(--bg-page));
+}
+
+/* --text-muted is about 4.4:1 on the wash, just under AA, so the row's
+   summary and presenter are set in full ink, which also lifts it. */
+.session-list-row.is-next .session-list-summary,
+.session-list-row.is-next .session-list-presenter {
+  color: var(--text-body);
+}
+
+/* On a phone the weeks-away label moves over the title, as in the agenda. */
+@media (max-width: 720px) {
+  .session-list-row {
+    grid-template-columns: 3.8rem 1fr;
+  }
+
+  .session-list-date {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .session-list-when {
+    grid-column: 2;
+    grid-row: 1;
+    padding-bottom: 0.15rem;
+  }
+
+  .session-list-body {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* Its own line under the title, rather than wrapping in with the
+     inline margin still showing as an indent. */
+  .session-list-presenter {
+    display: block;
+    margin: 0.1rem 0 0;
+  }
 }
 
 /* === Schedule list ===================================================== */

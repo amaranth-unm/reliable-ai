@@ -32,14 +32,14 @@ Everything runs on free accounts, and we try to showcase a variety of tools and 
 These are not AI propaganda sessions. These are not anti-AI communions. We try to be balanced about what AI tools can do now, how they have changed, and where they are headed. Read more on the [About]({{ site.baseurl }}/about) page.
 
 {% comment %}
-  Next/past sessions are read from the sessions/ folder's own front matter
+  Upcoming/past sessions are read from the sessions/ folder's own front matter
   (date, time, location, summary, note) instead of being typed here. Add a
   session's file and this picks it up. sessions/index.md repeats this same
-  lookup for its own next-session bar and past-session list: Liquid's include tag scopes assigned
+  lookup for its reference list: Liquid's include tag scopes assigned
   variables to the include, so this can't be worked out once and shared across pages.
   Keep the two in sync if the lookup logic changes.
 
-  A session stays "next" through its own date (>=), and moves to past
+  A session stays upcoming through its own date (>=), and moves to past
   sessions the night after, when .github/workflows/nightly-rebuild.yml
   rebuilds the site. site.time is the build time, so without that rebuild
   the page would keep announcing a session until the next push.
@@ -57,31 +57,29 @@ These are not AI propaganda sessions. These are not anti-AI communions. We try t
     {% assign past_sessions = past_sessions | push: s %}
   {% endif %}
 {% endfor %}
-{% assign next_session = upcoming_sessions | first %}
-{% assign recent_sessions = past_sessions | reverse %}
+{% comment %}
+  Upcoming sessions are set as a program (cards/session-program.html): the
+  next one opens out with its points, later ones are agenda rows, each
+  labelled with how many weeks away it is. Past sessions run oldest first,
+  two to a row, so the semester fills in as a grid in the order it happened.
+{% endcomment %}
+## Upcoming sessions
+{: .sessions-heading}
 
-{% if next_session %}
-{% include next-session.html session=next_session %}
-{% assign next_date = next_session.date | date: "%Y-%m-%d" %}
+{% if upcoming_sessions.size > 0 %}
+{% include cards/session-program.html rows=upcoming_sessions today=today %}
 {% endif %}
 
-{% assign later_sessions = upcoming_sessions | slice: 1, 20 %}
-## Coming up
+{% include schedule-list.html tba_only=true %}
 
-{% if later_sessions.size > 0 %}
-{% include cards/session-card.html rows=later_sessions today=today %}
-{% endif %}
-
-{% include schedule-list.html after=next_date tba_only=true %}
-
-{% if recent_sessions.size > 0 %}
+{% if past_sessions.size > 0 %}
 ## Past sessions
 
-{% include cards/session-row.html rows=recent_sessions limit=20 %}
+{% include cards/session-row.html rows=past_sessions limit=20 pairs=true %}
 {% endif %}
 
 <p>
-  <a href="{{ site.baseurl }}/sessions/" class="btn-primary">Session details and flyers →</a>
+  <a href="{{ site.baseurl }}/sessions/" class="btn-primary">All sessions at a glance →</a>
 </p>
 
 *Hosted by [Amaranth](https://amaranth.unm.edu), a digital humanities and public scholarship studio at UNM.*

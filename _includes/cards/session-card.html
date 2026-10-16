@@ -6,20 +6,26 @@
 
   Parameters:
     - rows: session pages, in the order to show them (required)
-    - today: "%Y-%m-%d" string; sessions after it are tagged "Coming soon" and
-      one on it "Today". A session's own page stays a short coming-soon page
-      until its date (see _layouts/base.html), so the link text says so.
+    - today: "%Y-%m-%d" string; a session on or after it is tagged with how
+      far away it is ("Next week", "In 3 weeks"; see helpers/weeks-away.html).
+      A session's own page stays a short coming-soon page until its date (see
+      _layouts/base.html), so the link text says so.
     - raw: true when included from a layout, which isn't run through Markdown,
       so the nomarkdown guards would print as text.
     - plain: true leaves out the title link and the page/flyer links, for the
       coming-soon page itself, where they would point back at the same page.
 
-  Reads the same front matter the flyer does: kicker, title, presenter (a name,
-  or a list of names), time, location, summary, points (a list of
+  The band carries the date and time; the session number (kicker) is left
+  out, since the date already orders the list. Reads the same front matter
+  the flyer does: date, time, title, presenter (a name, or a list of names),
+  location, summary, points (a list of
   { title, text }, the flyer's three bold lines and their one-line
   descriptions) and flyer (the flyer image's filename in the session's own
   folder, linked as "View flyer"). Everything but title is optional, so a
   session without points still renders as a card.
+
+  The coming-soon page is the one caller now; the home page sets its
+  upcoming sessions with cards/session-program.html.
 {% endcomment %}
 
 {% assign today = include.today %}
@@ -32,15 +38,13 @@
       {% assign row_date = row.date | date: "%Y-%m-%d" %}
       <article class="session-card">
         <header class="session-card-band">
-          <span class="session-card-kicker">{% if row.kicker %}{{ row.kicker }}{% else %}{{ row.date | date: "%B %-d, %Y" }}{% endif %}</span>
-          {% if today and row_date > today %}<span class="session-card-tag">Coming soon</span>{% elsif today and row_date == today %}<span class="session-card-tag">Today</span>{% endif %}
+          <span class="session-card-when">{{ row.date | date: "%A, %B %-d, %Y" }}{% if row.time %} <span class="session-card-time">— {{ row.time }}</span>{% endif %}</span>
+          {% if today and row_date >= today %}<span class="session-card-tag">{% include helpers/weeks-away.html date=row.date today=today %}</span>{% endif %}
         </header>
         <div class="session-card-body">
           <h3 class="session-card-title">{% unless include.plain %}<a href="{{ link_resolved | strip }}">{% endunless %}{{ row.title | default: 'Untitled' }}{% unless include.plain %}</a>{% endunless %}</h3>
           {% if row.presenter %}<p class="session-card-presenter">Presented by {{ row.presenter | join: " and " }}</p>{% endif %}
-          {% if row.time or row.location %}
-            <p class="session-card-meta">{{ row.date | date: "%A" }}{% if row.time %}, {{ row.time }}{% endif %}{% if row.location %} <span aria-hidden="true">·</span> {{ row.location }}{% endif %}</p>
-          {% endif %}
+          {% if row.location %}<p class="session-card-meta">{{ row.location }}</p>{% endif %}
           {% if row.summary %}<p class="session-card-summary">{{ row.summary }}</p>{% endif %}
           {% if row.points %}
             <ul class="session-card-points">

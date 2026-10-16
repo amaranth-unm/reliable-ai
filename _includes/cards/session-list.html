@@ -1,0 +1,51 @@
+{% comment %}
+  Session List — every session as one compact line, for quick reference
+
+  Usage:
+    {% include cards/session-list.html rows=session_pages today=today %}
+
+  Parameters:
+    - rows:  session pages, in the order to show them (required)
+    - today: "%Y-%m-%d" string; upcoming sessions get a weeks-away label
+      (helpers/weeks-away.html), the first of them a highlighted row, and
+      past ones "Materials" and a quieter row
+
+  A table of contents, not a display: date, title, presenter and the
+  one-sentence summary, with each row a single link to the session's page.
+  No points, note or flyer; the home page (cards/session-program.html) and
+  the session pages carry those. Row fields used: date, title, presenter,
+  summary, url.
+{% endcomment %}
+
+{% assign today = include.today %}
+{% assign next_found = false %}
+
+{::nomarkdown}
+{% if include.rows and include.rows.size > 0 %}
+<ol class="session-list">
+  {% for row in include.rows %}
+  {% capture link_resolved %}{% include helpers/link-path.html link=row.url %}{% endcapture %}
+  {% capture when %}{% include helpers/weeks-away.html date=row.date today=today %}{% endcapture %}
+  {% assign when = when | strip %}
+  {% assign row_state = "is-past" %}
+  {% if when != "" %}
+    {% if next_found %}{% assign row_state = "is-upcoming" %}{% else %}{% assign row_state = "is-upcoming is-next" %}{% assign next_found = true %}{% endif %}
+  {% endif %}
+  <li>
+    <a class="session-list-row {{ row_state }}" href="{{ link_resolved | strip }}">
+      <time class="session-list-date" datetime="{{ row.date | date: '%Y-%m-%d' }}">{{ row.date | date: "%b %-d" }}</time>
+      <span class="session-list-body">
+        <span class="session-list-title">{{ row.title | default: 'Untitled' }}</span>{% if row.presenter %}<span class="session-list-presenter">{{ row.presenter | join: " and " }}</span>{% endif %}
+        {% if row.summary %}<span class="session-list-summary">{{ row.summary }}</span>{% endif %}
+      </span>
+      {% if when != "" %}<span class="session-list-when session-when">{{ when }}</span>{% else %}<span class="session-list-when session-list-materials">Materials</span>{% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+  <div class="xanthan-warning">
+    session-list include needs a rows collection.
+  </div>
+{% endif %}
+{:/nomarkdown}

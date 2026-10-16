@@ -7,7 +7,7 @@ time: "12:00–12:50"
 location: History Commons (MVH 1104)
 kicker: Session 3 · October 21, 2026
 summary: "Read into a topic with an AI agent, map the articles’ ideas and relationships, and keep a record of what you checked and chose to read next."
-note: "Bring a laptop and a topic to explore, or use the example on this page. No Zotero or Obsidian setup is needed."
+note: "Bring a laptop and a topic to explore, or use the example we provide."
 points:
   - title: Organize sources, prompts, outputs
     text: Set up a project workspace that preserves your research materials, AI instructions, and results.

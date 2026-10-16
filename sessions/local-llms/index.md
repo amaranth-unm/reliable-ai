@@ -7,9 +7,17 @@ date: 2026-12-02
 time: "12:00–12:50"
 location: History Commons (MVH 1104)
 kicker: Session 6 · December 2, 2026
-# Placeholder. Before the session is announced, add summary (one sentence for
-# the cards), points and flyer (from the flyer), note (what to bring) and
-# header-subtitle (the session's thesis). See SESSION-STYLE.md.
+# Draft summary and points; confirm with the presenter. Before the session is
+# announced, also add flyer, note (what to bring) and header-subtitle (the
+# session's thesis). See SESSION-STYLE.md.
+summary: "Run an AI model on your own computer so you can work with unpublished or sensitive material without sending it to anyone's servers, and see what you give up in exchange."
+points:
+  - title: "Run a model on your laptop"
+    text: "Choose a model that fits your computer, install it with Ollama, and use it with no internet connection."
+  - title: "Keep your data on your device"
+    text: "Learn when a local model is the right choice for unpublished research, student work, and IRB-protected material."
+  - title: "Compare local and cloud models"
+    text: "Give a local model and a frontier model the same task to see what you gain in privacy and lose in quality."
 thumbnail: "/assets/images/stradanus-press-1600.jpg"
 header-image: "/assets/images/stradanus-press-1600.jpg"
 header-tier: section
