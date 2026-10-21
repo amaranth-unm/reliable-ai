@@ -102,7 +102,8 @@ your folder yourself. By the end you will have built the whole trail by
 hand, from the first overview and the source register through the reading
 notes, the comparison, the check and your decisions. That is slower than it
 needs to be, but it shows you what each file is for and what goes missing
-when you skip one.
+when you skip one. Most people reach step 4 in the hour. Finish steps 5
+and 6 afterwards from your folder and this page.
 
 In the second half, the presenter runs the same work with an agent. An
 agent works toward a goal over several steps before it reports back,
@@ -292,8 +293,9 @@ Save the first overview and the request that produced it. Pick one interpretatio
 ## 2. Search within limits you set
 {: .step #step-2}
 
-Fill in the bracketed choices with your interest and scope, then send this.
-The assistant records your choices and the searches it says it ran at the
+Replace the bracket with your interest, then send this. Change the scope
+if you want other dates, languages or kinds of writing. The assistant
+records your choices and the searches it says it ran at the
 top of `sources.md`, followed by the register of what it found.
 
 {% include prompt.html id="audit-retrieve" %}
@@ -344,8 +346,9 @@ phrase quoted exactly. Then put today's date on the first line.
 
 ### Get a note on each article
 
-Send this with your edited `reading-protocol.md` and `sources.md`, attached
-or pasted below the prompt. You don't need to read the articles first. In
+Send this in the same conversation, with your edited `reading-protocol.md`
+pasted below the prompt. The assistant already has `sources.md` from step 2;
+if you started a new conversation, paste that in too. You don't need to read the articles first. In
 step 5 you will open one or two passages to check what the assistant said
 about them.
 
@@ -369,8 +372,8 @@ Keep your reading instructions in a file and give it to the assistant with every
 
 ### Get an overview that preserves differences
 
-Send `notes.md`, `sources.md` and the article links with this prompt. Save
-the three files it returns as `synthesis.md`, `idea-map.md` and
+Send this in the same conversation, which already has `sources.md` and
+`notes.md`. Save the three files it returns as `synthesis.md`, `idea-map.md` and
 `reading-queue.md`.
 
 {% include prompt.html id="audit-synthesize" %}
@@ -623,6 +626,7 @@ Use these habits in your next reading project.
 - **Save each result as a file.** Put the tool and date at the top.
 - **Keep a run record.** For every request, note what you asked, what you gave the assistant and what it produced. Read its draft of the record before you keep it.
 - **Give each source a stable ID.** Use it across the source list, notes, map and corrections so you can follow one article through the work.
+- **End with a short methods note.** Say what actually happened: the question and interest, the searches, what was opened, the instructions used, the checks done, your decisions and what is unfinished. Don't call a reading sprint a systematic review.
 - **Keep earlier versions.** Today you saved revisions over the old files. In a longer project, save a revision as a new file (`synthesis-v2.md`) and number each version of your reading instructions, so you can see what changed without relying on the assistant's account and tell which instructions produced which notes.
 </div>
 

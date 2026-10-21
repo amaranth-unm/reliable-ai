@@ -407,11 +407,11 @@
   session: audit-trails-for-ai-agents
   step: 2
   label: Search within your limits and keep a register
-  note: "Fill in the bracketed choices. Stop after five minutes and switch to the backup set if fewer than three sources are ready."
+  note: "Replace the bracket with your interest. Stop after five minutes and switch to the backup set if fewer than three sources are ready."
   text: |
     Reading question: How do arts and humanities perspectives help us think about AI?
 
-    My interest: [ethical concepts / historical framing / creative practice / a question from my field]. Scope: [dates: 2020–2026 / another range]; [languages: English / English and another language]; [source types: scholarly articles, conceptual essays and dialogues / another choice].
+    My interest: [ethical concepts / historical framing / creative practice / a question from my field]. Scope: English-language scholarly articles, conceptual essays and dialogues published 2020–2026.
 
     Search the web for up to five candidate sources within this scope and choose three you can open for an initial orientation. Seek different arguments and approaches. Theoretical work, interpretation and creative practice can be relevant; do not require evidence of measurable impact.
 
@@ -441,7 +441,7 @@
   session: audit-trails-for-ai-agents
   step: 3
   label: Read with your saved instructions
-  note: "Attach or paste your edited reading-protocol.md and sources.md below this prompt. Check that each note says what the assistant could open."
+  note: "Send it in the same conversation and paste your edited reading-protocol.md below it. Check that each note says what the assistant could open."
   text: |
     Read the three selected articles in sources.md using the instructions in reading-protocol.md.
 
@@ -453,9 +453,9 @@
   session: audit-trails-for-ai-agents
   step: 4
   label: Make an overview, an idea map and a reading queue
-  note: "Attach or paste notes.md and sources.md and add the article links. Keep baseline.md to compare with."
+  note: "Send it in the same conversation, which already has sources.md and notes.md. Keep baseline.md to compare with."
   text: |
-    Using only the articles, notes.md and sources.md, help me get oriented in this topic for my interest: [ethical concepts / historical framing / creative practice / a question from my field]. Create three files.
+    Using only the articles, notes.md and sources.md, help me get oriented in this topic for the interest recorded at the top of sources.md. Create three files.
 
     In synthesis.md, compare the arguments, concepts and approaches. Say what each author adds. Preserve differences and qualifications. Use stable source IDs and precise passage locations; label your interpretations and state the limits of this small set.
 
@@ -491,8 +491,6 @@
     Create decisions.md with these decisions, the date and the affected item. Do not turn a proposed or unresolved action into a decision I made.
 
     Then update synthesis.md, idea-map.md and reading-queue.md to reflect only these decisions, showing each complete file. Keep every source ID, passage location, relationship label, access limit and reason tied to my reading interest, and keep open questions visible. At the end of decisions.md, list every change you made to the three files.
-
-    Add a short methods.md with what actually happened: question and interest, search scope and queries, sources accessed, tool/model identity as available, the reading instructions used, completed checks, human decisions and unfinished work. Do not claim a systematic review, field-wide consensus or a check that was not performed.
 
 - id: audit-agent-sprint
   session: audit-trails-for-ai-agents
