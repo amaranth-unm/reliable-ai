@@ -39,8 +39,9 @@ and in any text editor.
 Do these in order. After each one, append its run record to prompts.md before
 starting the next.
 
-1. **Search.** Search within the brief's scope and limits, then write
-   sources.md. If fewer than three sources are open after four searches, fill
+1. **Search.** Search within the brief's scope and limits. Create sources.md
+   after your first search and add to it as you go, so the presenter can
+   watch it fill in. If fewer than three sources are open after four searches, fill
    the gap from the brief's backup set and say so in sources.md.
 2. **Read.** Open each selected source and write its note in notes/. If a page
    won't open or only part of it loads, say exactly what you read. Never write
