@@ -316,12 +316,20 @@ Open each link in `sources.md` and save the article in your `readings`
 folder, named by its source ID: `S01-tasioulas.pdf`, `S02-powell.pdf` and
 so on. From here on, you and the assistant read the same copy.
 
-- If the link opens a PDF, download it. It lands in your Downloads folder;
-  drag it into `readings` and rename it.
-- If the link opens a web page, choose **File → Print** and set the
+- If the link shows a PDF, press **Cmd+S** on a Mac or **Ctrl+S** on
+  Windows, choose the `readings` folder and type the name. If it downloads
+  instead, it lands in your Downloads folder: drag it into `readings` and
+  rename it.
+- If the link opens a web page, press **Cmd+P** or **Ctrl+P** and set the
   destination or printer to **Save as PDF** (in Safari, use the **PDF**
-  menu at the bottom of the print window). Save it straight into
-  `readings`.
+  menu at the bottom of the print window). Save it into `readings` the
+  same way.
+
+One PDF is enough to carry on. If you can't save any, use Lauren
+Goodlad's introduction, which is already a PDF: open the
+[proof PDF](https://criticalai.org/wp-content/uploads/2023/09/CAI112_01Goodlad_1pp-1-1.pdf),
+save it in `readings` as `goodlad.pdf`, and the assistant will add it to
+`sources.md` in step 3.
 
 Saving the articles also checks the register, which is the assistant's
 account of what it found. A link that goes nowhere, or to a different
@@ -348,19 +356,24 @@ phrase quoted exactly. Then put today's date on the first line.
 
 ### Get a note on each article
 
-Send this in the same conversation. Drag the three PDFs from `readings`
-into the message box and paste your edited `reading-protocol.md` below the
-prompt. The assistant already has `sources.md` from step 2; if you started
-a new conversation, add that too. You don't need to read the articles
+Send this in the same conversation. Drag the PDFs from `readings` into the
+message box (one is enough), then drag in your edited `reading-protocol.md`
+or paste its text below the prompt. The assistant already has `sources.md`
+from step 2; if you started a new conversation, add that too. You don't need to read the articles
 first. In step 5 you will open one or two passages in your PDFs to check
 what the assistant said about them.
 
 {% include prompt.html id="audit-read" %}
 
-Save the reply as `notes.md`, with a section for each source ID. Check that
-each section says how much of the article the assistant could open: step 5
-relies on that record. Keep the notes short so there is time to compare and
-check them.
+Save the reply as `notes.md`, with a section for each source ID. Then check
+it against your instructions.
+
+- Does each section say how much of the PDF the assistant read? Step 5
+  relies on that record.
+- Find the rule you changed. Did the notes follow it?
+- Open your PDF at one of the page numbers it gives. Is the passage there?
+
+Keep the notes short so there is time to compare and check them.
 
 Use the source IDs (`S01` to `S03`) everywhere from now on: in the notes,
 the comparison, the checks and your decisions. They let you, or anyone
@@ -453,7 +466,7 @@ give it, the way a colleague opening your folder would.** Where it gets lost,
 a later reader would too.
 
 Send the file-saving prompt from **Before you start** first. Then drag in
-the three PDFs from `readings` and your files: `sources.md`, `notes.md`,
+the PDFs from `readings` and your files: `sources.md`, `notes.md`,
 `synthesis.md`, `idea-map.md`, `reading-queue.md` and `prompts.md`. If your
 assistant limits how many files you can send at once, send them in two
 messages, or paste the text of the `.md` files. Your interest is already in

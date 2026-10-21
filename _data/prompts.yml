@@ -439,13 +439,13 @@
   session: audit-trails-for-ai-agents
   step: 3
   label: Read with your saved instructions
-  note: "Send it in the same conversation with the three PDFs attached and your edited reading-protocol.md pasted below it. Check that each note says how much of its PDF the assistant read."
+  note: "Send it in the same conversation. Attach the PDFs you saved (one is enough) and your edited reading-protocol.md, or paste the protocol below the prompt."
   text: |
-    Read the three attached PDFs, which are the articles in sources.md, using the instructions in reading-protocol.md.
+    Read the attached PDFs and write a note on each one, following my reading instructions in reading-protocol.md. Where my instructions and this message differ, follow my instructions.
 
-    Create notes.md with one section per source ID. In each, state how much of the PDF you could read (all of it, some pages or none), then give the author's central argument, useful concepts and approach, and one or two passages worth closer reading with PDF page numbers. Explain what the article adds to my interest. Separate the author's claim from your interpretation and keep their qualifications. For a dialogue, keep the named speakers.
+    Use only the attached files; don't search the web for the articles. Each PDF's filename starts with its source ID from sources.md. If a PDF isn't in sources.md yet, add it with the next source ID and show me the updated sources.md.
 
-    Note explicit responses or citations to other articles in the set. Mark thematic connections you infer as your interpretation. Don't invent agreement, disagreement or a citation, and don't summarize a whole article from selected passages.
+    Put the notes in notes.md, with one section per source ID. Start each section with how much of the PDF you could read (all of it, some pages or none), and give passage locations as PDF page numbers. If one of my instructions can't be followed with this file, say so in the note rather than guessing.
 
 - id: audit-synthesize
   session: audit-trails-for-ai-agents
