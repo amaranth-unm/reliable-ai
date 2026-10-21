@@ -10,10 +10,10 @@ Scope: English-language work published 2020–2026. Scholarly articles,
 conceptual essays and dialogues. Theory, interpretation and creative practice
 all count; don't require evidence of measurable impact.
 
-Limits: no more than four web searches and five candidates. Choose three
-sources you can open, with different arguments and approaches. If fewer than
-three are ready after four searches, record that in sources.md and fill the
-gap from the backup set below rather than searching further.
+Limits: search the web for three articles you can open, with different
+arguments and approaches, in no more than four searches. If fewer than three
+are ready after four searches, record that in sources.md and fill the gap
+from the backup set below rather than searching further.
 
 Backup set (use only if the search falls short, and say so in sources.md):
 

@@ -13,10 +13,11 @@ start. They set the question, the scope and how to read.
 - `brief.md`: the question, interest, scope and limits. Read it; don't change it.
 - `reading-protocol.md`: how to read each source. Follow it; don't change it.
 - `sources.md`: the source register. At the top, today's date, the tool and
-  every search you ran, worded exactly. Then one entry per candidate: an ID
-  (S01, S02 and so on), a citation confirmed on the page itself, the URL, why
-  it fits the interest, what you could open (metadata, abstract, selected
-  sections or full text) and whether you selected it.
+  every search you ran, worded exactly. Then one entry per article: an ID
+  (S01, S02, S03), a citation confirmed on the page itself, the URL, why it
+  fits the interest and what you could open (metadata, abstract, selected
+  sections or full text). List articles that wouldn't open at the end as
+  leads.
 - `notes/S01-surname.md`: one note per selected source, following
   reading-protocol.md. Start each with the source ID, citation, URL and what
   you could open.

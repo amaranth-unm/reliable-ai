@@ -204,7 +204,7 @@ files in your folder. Some offer a download link, depending on the tool and
 plan; if yours does, download each file and move it into
 `my-reading-trail`. Copying each file out of the reply works everywhere, so
 the steps below use that. This prompt asks the assistant to set files out
-so they are easy to copy, and to draft a run record for each one.
+so they are easy to copy.
 
 {% include prompt.html id="audit-setup-files" %}
 
@@ -257,20 +257,6 @@ today the same way.
   not `baseline.md.txt` or `baseline.rtf`. If the name is wrong, rename the
   file.
 
-Now start the run record. Make a second file, `prompts.md`, and write the
-first entry yourself:
-
-```text
-R01 · [assistant] · [date]
-Asked: the step 1 prompt, copied in full
-Gave it: nothing else
-Produced: baseline.md
-```
-
-From step 2 on, the assistant drafts these entries for you, because the
-setup prompt asked it to. Read each one before you paste it in: it is the
-assistant's account of what it did, and it can be wrong.
-
 Now read the overview before you do anything with it. You don't need to
 know the articles yet to ask useful questions of it.
 
@@ -283,11 +269,11 @@ know the articles yet to ask useful questions of it.
 - Does each citation open, and does it lead to the work it names?
 
 Choose one connection or recommendation whose accuracy would change where
-you spend your reading time, and add it to R01 in `prompts.md` as
-something to check. You will come back to it in step 5.
+you spend your reading time, and write it at the top of `baseline.md`, under
+the date, as something to check. You will come back to it in step 5.
 
 <div class="keypoint" markdown="1">
-Save the first overview and the request that produced it. Pick one interpretation or reading recommendation to follow back to the articles.
+Save the first overview with the assistant's name and the date. Pick one interpretation or reading recommendation to follow back to the articles.
 </div>
 
 ## 2. Search within limits you set
@@ -421,6 +407,21 @@ interest. The difference between the two routes shows you how much the
 recommendation depends on the question you brought. Give every source a next
 action, even if that action is to read more before assessing it.
 
+### Keep a record of what you asked
+
+Before you leave this conversation, ask for the run record: a short entry
+for each request you sent, saying what you asked, what you gave the
+assistant and what it produced. The chat already holds all of this, but a
+colleague can't see your chat, and neither can the new conversation in
+step 5.
+
+{% include prompt.html id="audit-run-record" %}
+
+Save the reply as `prompts.md`. Then check one entry against the chat
+above it: does it give your request as you sent it, and does it say what
+the assistant couldn't open? The record is the assistant's account of its
+own work, and it can be wrong.
+
 <div class="keypoint" markdown="1">
 Ask for the passage and reading goal behind every important connection or recommendation. Check one against the original text.
 </div>
@@ -436,9 +437,10 @@ a later reader would too.
 
 Send the file-saving prompt from **Before you start** first. Then drag your
 files into the message box, or paste their text if your assistant limits
-uploads: `sources.md`, `notes.md`, `synthesis.md`, `idea-map.md` and
-`reading-queue.md`. Add the three article links and your reading
-interest. Save the reply as `checks.md` with the tool and date.
+uploads: `sources.md`, `notes.md`, `synthesis.md`, `idea-map.md`,
+`reading-queue.md` and `prompts.md`. The article links and your interest
+are already in `sources.md`. Save the reply as `checks.md` with the tool
+and date.
 
 {% include prompt.html id="audit-check" %}
 
@@ -502,6 +504,9 @@ updated files.
 - Could a colleague, reading only your folder, explain why your reading
   route changed?
 
+Before you finish, send the run-record prompt from step 4 once more and
+add the new entries to the end of `prompts.md`.
+
 Append new corrections to the log and keep the current reading route in the
 latest files. This follows the CHM project's use of process notes alongside
 a separate account of current conclusions and open work.
@@ -534,8 +539,9 @@ Watch for what changes, and for what doesn't.
 - Each search, page and file the agent opens or writes appears in its
   transcript as it happens. In the browser chat you had only its account of
   what it searched.
-- The run record is written while the work happens. Read one entry against
-  the transcript and the files: does it say what actually happened?
+- The run record is written while the work happens, not reconstructed at
+  the end as you did in the browser. Read one entry against the transcript
+  and the files: does it say what actually happened?
 - The files appear and change in the folder. Open `sources.md` and a note
   while it works and watch the access statuses fill in.
 - The check goes to a separate checker with its own instructions. It
@@ -624,8 +630,8 @@ Use these habits in your next reading project.
 
 - **Give the project one folder.** Keep the sources, reading instructions, notes and outputs together as plain text files.
 - **Save each result as a file.** Put the tool and date at the top.
-- **Keep a run record.** For every request, note what you asked, what you gave the assistant and what it produced. Read its draft of the record before you keep it.
-- **Give each source a stable ID.** Use it across the source list, notes, map and corrections so you can follow one article through the work.
+- **Keep a run record.** At the end of each conversation, ask for an entry per request: what you asked, what you gave the assistant and what it produced. Check one entry against the chat before you keep it.
+- **Give each source a stable ID.** Use it across the source list, notes, map and corrections so you can follow one article through the work. In a longer project, give each source its own note file named by that ID.
 - **End with a short methods note.** Say what actually happened: the question and interest, the searches, what was opened, the instructions used, the checks done, your decisions and what is unfinished. Don't call a reading sprint a systematic review.
 - **Keep earlier versions.** Today you saved revisions over the old files. In a longer project, save a revision as a new file (`synthesis-v2.md`) and number each version of your reading instructions, so you can see what changed without relying on the assistant's account and tell which instructions produced which notes.
 </div>
