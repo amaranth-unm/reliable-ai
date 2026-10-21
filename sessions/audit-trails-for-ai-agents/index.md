@@ -125,9 +125,9 @@ someone read and what you decided.
 ### What you're working with
 
 - A browser chat with web search can find articles and report what it
-  searched and opened. Open two of its links yourself. (Step 2)
-- Given your reading instructions, it can write a short note on each
-  article. Ask it to say how much of each one it could open. (Step 3)
+  searched. You save a PDF of each one in your folder. (Step 2)
+- Given those PDFs and your reading instructions, it can write a short note
+  on each article. Ask it to say how much of each PDF it read. (Step 3)
 - It can compare several texts and recommend a reading order. Ask for the
   passage behind each connection and recommendation. (Step 4)
 - A new conversation sees only the files you give it, which makes it a fair
@@ -148,10 +148,13 @@ presenter's demonstration at the end. Setting up takes about five minutes,
 or ten if you install an editor.
 
 **1. Make a folder for today's work.** On your desktop, create a folder named
-`my-reading-trail`. Every file you save today goes in it.
+`my-reading-trail`. Every file you save today goes in it. Inside it, make a
+second folder named `readings` for the articles.
 
 - Mac: click the desktop, choose **File → New Folder** and type the name.
-- Windows: right-click the desktop, choose **New → Folder** and type the name.
+  Open the folder and do the same for `readings`.
+- Windows: right-click the desktop, choose **New → Folder** and type the
+  name. Open the folder and do the same for `readings`.
 
 **2. Turn on file extensions,** so you can see that a file is called
 `baseline.md` and not `baseline.md.txt`.
@@ -219,7 +222,7 @@ If it says it can't search the web, look for a search or web option near the
 message box and turn it on.
 
 <div class="reminder" markdown="1">
-Use sources and research materials you have permission to share, such as the public articles linked below or your own notes.
+Upload only articles you have permission to share with an AI service, such as open-access articles like the ones linked below. Some library licenses for subscription journals don't allow it, so check before you upload a PDF from one.
 </div>
 
 ### The question we'll use
@@ -291,10 +294,6 @@ then, record that in `sources.md` and use the backup set below. A blocked or
 paywalled source stays in the register as a lead; record what you could
 access and move on.
 
-Open two of the links yourself and check that each one leads to the article
-it names. The register is also an account of what the assistant did, and a
-link that goes nowhere tells you something about the rest of it.
-
 Compare one search choice with a neighbor's. A search for historical
 framing may produce a different starting set from a search for ethical
 concepts, and restricting source types or languages changes what you can
@@ -311,8 +310,25 @@ and a journal introduction.
 Record that you used this backup set, and that two of its three sources come
 from one publisher. A broader search would need other traditions and positions.
 
+### Save a copy of each article
+
+Open each link in `sources.md` and save the article in your `readings`
+folder, named by its source ID: `S01-tasioulas.pdf`, `S02-powell.pdf` and
+so on. From here on, you and the assistant read the same copy.
+
+- If the link opens a PDF, download it. It lands in your Downloads folder;
+  drag it into `readings` and rename it.
+- If the link opens a web page, choose **File → Print** and set the
+  destination or printer to **Save as PDF** (in Safari, use the **PDF**
+  menu at the bottom of the print window). Save it straight into
+  `readings`.
+
+Saving the articles also checks the register, which is the assistant's
+account of what it found. A link that goes nowhere, or to a different
+article, tells you something about the rest of it.
+
 <div class="keypoint" markdown="1">
-Ask the assistant to list the searches it says it ran and how much of each article it could open. Then open two of its links yourself.
+Ask the assistant to list the searches it says it ran. Then save each article yourself, named by its source ID, so you and the assistant read the same copy.
 </div>
 
 ## 3. Read the articles with your own instructions
@@ -332,11 +348,12 @@ phrase quoted exactly. Then put today's date on the first line.
 
 ### Get a note on each article
 
-Send this in the same conversation, with your edited `reading-protocol.md`
-pasted below the prompt. The assistant already has `sources.md` from step 2;
-if you started a new conversation, paste that in too. You don't need to read the articles first. In
-step 5 you will open one or two passages to check what the assistant said
-about them.
+Send this in the same conversation. Drag the three PDFs from `readings`
+into the message box and paste your edited `reading-protocol.md` below the
+prompt. The assistant already has `sources.md` from step 2; if you started
+a new conversation, add that too. You don't need to read the articles
+first. In step 5 you will open one or two passages in your PDFs to check
+what the assistant said about them.
 
 {% include prompt.html id="audit-read" %}
 
@@ -435,20 +452,20 @@ and a different assistant works too. **A new conversation sees only what you
 give it, the way a colleague opening your folder would.** Where it gets lost,
 a later reader would too.
 
-Send the file-saving prompt from **Before you start** first. Then drag your
-files into the message box, or paste their text if your assistant limits
-uploads: `sources.md`, `notes.md`, `synthesis.md`, `idea-map.md`,
-`reading-queue.md` and `prompts.md`. The article links and your interest
-are already in `sources.md`. Save the reply as `checks.md` with the tool
-and date.
+Send the file-saving prompt from **Before you start** first. Then drag in
+the three PDFs from `readings` and your files: `sources.md`, `notes.md`,
+`synthesis.md`, `idea-map.md`, `reading-queue.md` and `prompts.md`. If your
+assistant limits how many files you can send at once, send them in two
+messages, or paste the text of the `.md` files. Your interest is already in
+`sources.md`. Save the reply as `checks.md` with the tool and date.
 
 {% include prompt.html id="audit-check" %}
 
 ### Follow one finding back to the article
 
 Pick the finding in `checks.md` that matters most to your reading route,
-ideally the connection you noted in step 1. Open the passage it names and
-read it yourself.
+ideally the connection you noted in step 1. Open your PDF at the page it
+names and read the passage yourself.
 
 - Does the passage say what the checker says it says?
 - Does the proposed correction keep each author's argument distinct?
@@ -628,7 +645,7 @@ Use these habits in your next reading project.
 <div class="takeaways" markdown="1">
 ### Keep the trail in files
 
-- **Give the project one folder.** Keep the sources, reading instructions, notes and outputs together as plain text files.
+- **Give the project one folder.** Keep the article PDFs, reading instructions, notes and outputs together.
 - **Save each result as a file.** Put the tool and date at the top.
 - **Keep a run record.** At the end of each conversation, ask for an entry per request: what you asked, what you gave the assistant and what it produced. Check one entry against the chat before you keep it.
 - **Give each source a stable ID.** Use it across the source list, notes, map and corrections so you can follow one article through the work. In a longer project, give each source its own note file named by that ID.
