@@ -1037,6 +1037,15 @@
   margin-top: 0.6rem;
 }
 
+/* A session can split its takeaways into several boxes, each headed by an h3. */
+.takeaways + .takeaways {
+  margin-top: 1.25rem;
+}
+
+.takeaways > h3:first-child {
+  margin-top: 0;
+}
+
 /* A quiet note, for things worth keeping in mind rather than warnings. */
 .reminder {
   padding: 0.7rem 1.1rem;

@@ -20,6 +20,16 @@ bundle exec jekyll serve
 Then <http://localhost:4000/reliable-ai/>. The `baseurl` in `_config.yml` means
 the path is required — plain `localhost:4000` will 404.
 
+To see a future session's page in full while writing it, instead of its
+"Coming soon" notice, put `preview_future_sessions: true` in `_config.local.yml`
+(git-ignored, so it's never pushed) and serve with both configs:
+
+```bash
+bundle exec jekyll serve --config _config.yml,_config.local.yml
+```
+
+GitHub Pages builds in production and ignores the flag even if it is pushed.
+
 ## Writing a session
 
 **Read `SESSION-STYLE.md` before starting or editing a session page.** It is
@@ -109,14 +119,27 @@ Existing pages without the flag retain their normal behavior. Do not add
 manual links to a preview from another page. The schedule shows “Topic TBA”
 when its session points to an unlisted page.
 
-### Audit-trails example files
+### Audit-trails demo folder and example files
 
-Edit `_data/audit_workspace.json`, then run
-`python3 scripts/build-audit-workspace.py`. The browser viewer reads that data
-and the script regenerates `assets/audit-trails/humanities-ai/` and its ZIP.
-These are prepared teaching materials, not recorded agent replies. The
-presenter guide is in `workshop-drafts/audit-trails/presenter-guide.md`;
-`workshop-drafts/` is excluded from the public build.
+The step 7 demonstration starts from `workshop-drafts/audit-trails/demo-folder/`:
+`CLAUDE.md` (the stages and rules), `brief.md`, `reading-protocol.md`, an
+empty `prompts.md`, and in `.claude/` the `source-checker` subagent and the
+permission settings (web search and edits allowed, Bash denied). Before the
+session, copy it to the Desktop, open the copy in VS Code, start Claude Code
+there and paste the `audit-agent-sprint` prompt. A run fills the copy, so make
+a fresh one after rehearsing:
+
+```bash
+rm -rf ~/Desktop/humanities-ai
+cp -R workshop-drafts/audit-trails/demo-folder ~/Desktop/humanities-ai
+```
+
+`assets/audit-trails/humanities-ai/` holds a prepared version of the same
+workspace. The page links only its `library.ris`, as a Zotero fallback. To
+change it, edit `_data/audit_workspace.json` and run
+`python3 scripts/build-audit-workspace.py`, which also regenerates its ZIP and
+the data for the `audit-workspace.html` viewer (no longer on the page).
+These are prepared teaching materials, not recorded agent replies.
 
 ### Understanding Agentic AI example files
 

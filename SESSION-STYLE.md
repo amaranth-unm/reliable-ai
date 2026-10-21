@@ -308,6 +308,16 @@ student reads it — and showed none of it. A reader who wasn't in the room had
 no way to tell whether any of it worked, which is the difference between a
 session that carries weight and one that reads as a prompting exercise.
 
+**Match the evidence to the kind of session.** That rule comes from a
+session that teaches one bounded skill. There, the reader can't judge the
+technique without seeing it work, so carry a running example and recorded
+output through the steps, as described below. A session about a process,
+like `audit-trails-for-ai-agents`, works differently: each participant's own
+output is the specimen. Give them questions to ask of it at every step, and
+show the larger process in a live demonstration. Leave out finished examples
+the page can't explain. A complete folder of someone else's files shows the
+results of decisions, not how they were made.
+
 **Carry one running example through the main steps.** Pick a specimen that looks finished —
 `editorial-assistant` uses the AI-use policy from the practice texts — and
 show the same paragraph at every turn. The reader is then watching one thing
@@ -343,13 +353,13 @@ archived baseline with its original request recorded, and its provenance note
 states that some replies came from a conversation with prior context. Save
 that context, the tool and date; distinguish a fresh run from an authoring run.
 
-**A research example can use files as its specimen.** In the audit-trails
-session, `_data/audit_workspace.json` holds labeled prepared file contents.
-`audit-workspace.html` displays them; `scripts/build-audit-workspace.py` writes
-the downloadable files and ZIP from the same data. Keep that single source
-so the browser view and download agree. State whether a display contains
-saved examples or live agent activity. A file viewer supplements the folder
-walkthrough; it does not prove an action occurred.
+**Keep prepared demo files off the page unless the page explains them.** In
+the audit-trails session, `_data/audit_workspace.json` holds labeled prepared
+file contents, and `scripts/build-audit-workspace.py` writes them and a ZIP to
+`assets/audit-trails/` for the presenter's step 7 demonstration. The page
+shows only the folder layout and why each file exists. `audit-workspace.html`
+can still display the files, but a viewer of finished files does not show
+how they came to be, and it does not prove an action occurred.
 
 **Record the inputs and coverage behind a research comparison.** Give each
 actual AI step a run ID with its exact instructions, input and output

@@ -27,13 +27,12 @@ header-subtitle: "An agent can help you find your way into a body of writing. Ke
 header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from <i>Nova Reperta</i>, engraved by Joannes Galle. Museum Plantin-Moretus, public domain."
 tags: [research, agents, audit trails]
 workshop_mode: true
-css: audit-workspace.css
 redirect_from: /sessions/audit-trails-for-ai-agents.html
 ---
 
 {% comment %}
 Authoring conventions: SESSION-STYLE.md; worked example: sessions/editorial-assistant/index.md.
-Prepared examples below are teaching materials, never recorded agent replies.
+The presenter's demo files in assets/audit-trails/ are prepared teaching materials, never a recorded agent run.
 {% endcomment %}
 
 {% include nav/scrollspy-toc.html %}
@@ -41,61 +40,182 @@ Prepared examples below are teaching materials, never recorded agent replies.
 Work down this page during the session or return to it later: the prompts, source links and example files stay together so you can repeat the exercise.
 {: .lead}
 
-<div class="rule" markdown="1">
-**Keep the route from article to interpretation.**
-</div>
 
 ## Introduction
 {: .step #introduction}
 
+### Why historians keep an audit trail
+
+Historians have always had to show their work. A footnote lets a skeptical
+reader walk back from a claim to the archive box, page or passage behind
+it, and historical argument depends on the assumption that readers could
+check (even if few of them ever do). We expect to be able to say where
+everything came from, how we arrived at our interpretations, what we
+verified carefully and what we took on trust, and how someone else could
+retrace our steps and test the conclusions against their own reading.
+
+**None of these expectations change when an AI agent assists with research. But imagine you have to peer review AI-assisted work. What would you want to see to trust it was used carefully?**
+
+Imagine AI as a very capable but very new and naive research assistant. You simply don't know if you can trust it, so you want to see the thinking process that led to conclusions. In real life, that would be face to face conversations.
+
+In the AI-assistant world, the answer to building trust is to keep the trail as you go, in files rather than in the scroll of a chat window: the searches you asked for, the material the agent
+could actually open, your notes, and your reasons for changing a summary or
+a reading recommendation. A saved chat can help, of course, but no
+colleague wants to read your entire conversation to check one claim.
+
+Reproducibility works differently here, too. Send the same request twice
+and the reply will usually come back worded differently, so the goal is not
+identical output. The goal is that someone else can run the same searches,
+open the same articles, read the same passages and decide for themselves
+whether your interpretation holds up.
+
 ### Why reading into a topic is the place to start
 
-Start with a topic you want to understand. Ask an agent to find several
-articles, explain their arguments and suggest where to spend your reading
-time. That can give you an overview quickly. The useful result is a map you
-can question: which ideas belong to which authors, where the articles meet
-or pull apart, and what you want to follow next.
+Getting oriented in an unfamiliar body of writing is one of the most
+tempting jobs to hand to an agent, and one of the riskiest. Ask it to find
+several articles on a topic, explain their arguments and suggest where to
+spend your reading time, and you will have a tidy overview in a few
+minutes. What you want from that overview, though, is something closer to
+a map you can argue with: which ideas belong to which authors, where the
+articles agree or pull apart, and what seems worth following up. **This is
+also where an audit trail matters most.** When you don't yet know the
+articles well, you are in no position to notice when a summary quietly
+blurs two authors' positions, which is one of the first things you will
+check for in this session.
 
-**Theoretical arguments and ways of framing a problem are part of what you
-are reading for.** A source can matter because it changes your question,
-introduces a distinction or gives you another way to interpret AI. Record
-what kind of work it does and why that matters to your inquiry.
+Nor are you reading only for facts. Theoretical arguments and ways of
+framing a problem matter just as much; a source can be valuable because it
+changes your question, introduces a useful distinction or offers another
+way to think about AI altogether. Part of what the trail records, then, is
+what kind of work each source does for your inquiry, and why you think so.
 
-An audit trail keeps those interpretations available for someone else to
-follow. Save the search boundaries, the material actually accessed, the
-notes, and the reasons you changed a summary or a reading recommendation.
-A saved chat can help, but a colleague should be able to follow one important
-connection without reading your whole conversation.
+This session picks up where the [editing session's work with a saved style guide]({{ site.baseurl }}/sessions/editorial-assistant/#step-5)
+left off. There you taught an assistant how to read your own writing; here
+you give it a reading procedure and check how well it represents other
+people's arguments.
 
-This continues the [editing session's work with a saved style guide]({{ site.baseurl }}/sessions/editorial-assistant/#step-5).
-There, you taught the assistant how to read your writing. Here, you give it a
-reading procedure and check how it represents other people's arguments.
+### How this session works
+
+The session has two halves. In the first, you work in an ordinary browser
+chat: you send a prompt, copy each file out of the reply and save it in
+your folder yourself. By the end you will have built the whole trail by
+hand, from the first overview and the source register through the reading
+notes, the comparison, the check and your decisions. That is slower than it
+needs to be, but it shows you what each file is for and what goes missing
+when you skip one.
+
+In the second half, the presenter runs the same work with an agent. An
+agent works toward a goal over several steps before it reports back,
+**choosing some of those steps itself** and changing course based on what
+they return. Asked for three accessible articles, it might run a search,
+find that one result is paywalled, search again and save notes on the three
+it could open. The demonstration uses Claude Code, which works in a folder
+on the presenter's computer and writes the files and its own run record as
+it goes.
+
+A browser chat with web search turned on already does some of this: it
+searches and opens pages you don't see. **Its account of that work is a
+claim to check.** “I searched three databases and read five articles”
+describes steps you mostly did not watch, so treat it the way you treat its
+summary of an article. Both halves of the session build a record that lets
+you check it: the searches it ran, what it could open, which passages
+someone read and what you decided.
 
 ### What you're working with
 
-- A tool with search and file access can gather articles and keep a source
-  register. Check what it can access and save. (Step 2)
-- An agent can compare several texts and recommend a reading order. Ask for
-  the grounds of each connection and recommendation. (Step 3)
-- Another agent can challenge the overview, but its interpretations also need
-  checking against the original articles. (Step 4)
-- Files keep your corrections and decisions available across conversations.
-  The same notes can later feed a visual map or citation manager. (Step 5)
-
-An agent is a way of working: you delegate a bounded task and it chooses
-intermediate actions using the tools available. A browser chat can support
-that workflow too. Watch what it does and saves. If your assistant cannot
-write files, save its outputs yourself using the same filenames.
+- A browser chat with web search can find articles and report what it
+  searched and opened. Open two of its links yourself. (Step 2)
+- Given your reading instructions, it can write a short note on each
+  article. Ask it to say how much of each one it could open. (Step 3)
+- It can compare several texts and recommend a reading order. Ask for the
+  passage behind each connection and recommendation. (Step 4)
+- A new conversation sees only the files you give it, which makes it a fair
+  test of your trail. (Step 5)
+- An agent working in a folder writes the files and its own run record. Its
+  account still needs the same checks. (Step 7)
 
 ### Before you start
 
-- **A laptop and an AI assistant**, with web search available. The presenter
-  demonstrates a folder and text editor; you can save replies from a browser
-  chat into files.
-- **A topic you want to explore**, or the question below.
-- **A folder for the exercise**, and a text editor that opens `.md` or `.txt`
-  files. Everything you need for the main exercise is plain text. Obsidian
-  and Zotero appear only in optional presenter demos at the end.
+- **A laptop** with a web browser.
+- **An account with an AI assistant**, such as Claude, ChatGPT, Gemini or
+  Copilot. Sign in before you start.
+- **A topic you want to explore**, or use the question below.
+
+The only thing worth installing is a code editor (setup step 3), and even
+that is optional. The agent, Obsidian and Zotero appear only in the
+presenter's demonstration at the end. Setting up takes about five minutes,
+or ten if you install an editor.
+
+**1. Make a folder for today's work.** On your desktop, create a folder named
+`my-reading-trail`. Every file you save today goes in it.
+
+- Mac: click the desktop, choose **File → New Folder** and type the name.
+- Windows: right-click the desktop, choose **New → Folder** and type the name.
+
+**2. Turn on file extensions,** so you can see that a file is called
+`baseline.md` and not `baseline.md.txt`.
+
+- Mac: in Finder, choose **Finder → Settings → Advanced** (**Preferences** on
+  older systems) and tick **Show all filename extensions**.
+- Windows 11: in File Explorer, choose **View → Show → File name extensions**.
+  On Windows 10, open the **View** tab and tick **File name extensions**.
+
+**3. Open a text editor, ideally one that shows the whole folder.** TextEdit
+on a Mac or Notepad on Windows is enough for today. A code editor is better:
+it lists every file in the folder in a sidebar, so you can watch the trail
+grow, and it saves each file under exactly the name you type. It is also
+the kind of tool you will want for any longer project kept in plain text.
+Avoid Word and Google Docs: they save files in their own formats, and this
+exercise uses plain text.
+
+- **A code editor (recommended).** [Visual Studio Code](https://code.visualstudio.com/)
+  is free. [Sublime Text](https://www.sublimetext.com/) is smaller and
+  quicker to install, but now and then it asks you to buy a license. Install
+  one, then open `my-reading-trail` as a folder with **File → Open Folder**
+  (in Sublime on a Mac, **File → Open** and choose the folder). If VS Code
+  asks whether you trust the authors of the files in this folder, choose
+  **Yes**: they are your files.
+- **TextEdit** on a Mac: choose **File → New**, then **Format → Make Plain
+  Text**.
+- **Notepad** on Windows: open it from the Start menu.
+
+If your laptop won't let you install software, use TextEdit or Notepad and
+keep the folder open beside it.
+
+The files you save today end in `.md`, for Markdown: plain text with a few
+marks for structure. A line starting with `#` is a heading, `**words**` are
+bold and a line starting with `-` is a list item. Any text editor can open
+it, and AI assistants read and write it easily. You don't need to learn the
+marks, because the assistant writes them. In an editor they show up exactly
+as typed, which is what you want. VS Code can also show the formatted
+version: press **Cmd+Shift+V** on a Mac or **Ctrl+Shift+V** on Windows.
+
+**4. Open your AI assistant** in a browser tab and start a new conversation.
+Put the browser on one half of the screen and your folder and editor on the
+other.
+
+- Mac: hold the pointer over the green button at the top left of a window and
+  choose the left or right half.
+- Windows: press the Windows key and the left or right arrow.
+
+**5. Tell the assistant how you will save files.** A browser chat can't put
+files in your folder. Some offer a download link, depending on the tool and
+plan; if yours does, download each file and move it into
+`my-reading-trail`. Copying each file out of the reply works everywhere, so
+the steps below use that. This prompt asks the assistant to set files out
+so they are easy to copy, and to draft a run record for each one.
+
+{% include prompt.html id="audit-setup-files" %}
+
+If your assistant can already work in a folder on your computer, give it
+access to `my-reading-trail` only and skip this prompt.
+
+**6. Check that it can search the web.**
+
+{% include prompt.html id="audit-setup-search" %}
+
+If it says it can't search the web, look for a search or web option near the
+message box and turn it on.
 
 <div class="reminder" markdown="1">
 Use sources and research materials you have permission to share, such as the public articles linked below or your own notes.
@@ -106,338 +226,365 @@ Use sources and research materials you have permission to share, such as the pub
 > How do arts and humanities perspectives help us think about AI?
 
 Choose an interest within that topic: ethical concepts, historical framing,
-creative practice, or something from your own field. Keep it in `brief.md`.
-It gives you a reason to prefer one reading route over another. You are
-getting oriented in a body of writing and deciding what deserves closer
-attention.
+creative practice, or something from your own field. You will give it to
+the assistant when it searches in step 2, and it decides which reading route
+suits you in step 4. You are getting oriented in a body of writing and
+deciding what deserves closer attention.
 
-**About the examples on this page.** The workspace and comparisons are
-prepared teaching examples using five sources, checked during authoring on
-October 11, 2026. Four source bodies and selected passages from the fifth
-were read; the files state that coverage. The first overview deliberately
-flattens a difference between authors, and its reading recommendation follows that mistake. These
-are not transcripts of an agent run. Keep the tool, date, instructions and
-replies from your own live exercise as a separate record.
 
 ## 1. Start with an overview you would want to use
 {: .step #step-1}
 
-Send the question as a reasonable first request. Save the complete reply as
-`baseline.md`, including its citations and the date.
+Send the question as a reasonable first request, the way you might on any
+other day.
 
 {% include prompt.html id="audit-baseline" %}
 
-**Prepared example:** “The three essays offer the same framework: pluralism,
-procedures and participation. Powell repeats Tasioulas, so read her last.”
+Save the complete reply, citations included. You will save every result
+today the same way.
 
-This gives you an apparent overview and an efficient reading order. Before
-you follow it, look at what you would need to check.
+- Click the copy button under the reply, usually two overlapping squares.
+  When the assistant shows a file in its own box, use that box's copy button.
+- In your editor, start a new file. Type the assistant's name and today's
+  date on the first line, then paste the reply below it.
+- Save it in `my-reading-trail` as `baseline.md`. In a code editor, choose
+  **File → Save** and type the name; the file appears in the sidebar. In
+  TextEdit, if it asks which extension to use, choose **Use .md**. In
+  Notepad, choose **File → Save as**, set **Save as type** to **All files**
+  and type `baseline.md`.
+- Check the name in the sidebar or the folder. You should see `baseline.md`,
+  not `baseline.md.txt` or `baseline.rtf`. If the name is wrong, rename the
+  file.
 
-- Who actually sets out that framework?
-- Does “repeats” describe the relationship between the texts?
-- Which passages explain the recommendation to read Powell last?
-- Would a different interest change the reading order?
+Now start the run record. Make a second file, `prompts.md`, and write the
+first entry yourself:
 
-Keep your own first reply too. Choose one connection or recommendation whose
-accuracy would change where you spend your reading time.
+```text
+R01 · [assistant] · [date]
+Asked: the step 1 prompt, copied in full
+Gave it: nothing else
+Produced: baseline.md
+```
+
+From step 2 on, the assistant drafts these entries for you, because the
+setup prompt asked it to. Read each one before you paste it in: it is the
+assistant's account of what it did, and it can be wrong.
+
+Now read the overview before you do anything with it. You don't need to
+know the articles yet to ask useful questions of it.
+
+- Which ideas does it give to which author? Does any idea float free of an
+  author?
+- Where does it say two articles agree, repeat or respond to each other?
+  What would you need to read to know whether that is true?
+- Why does it recommend the reading order it gives? Would a different
+  interest change it?
+- Does each citation open, and does it lead to the work it names?
+
+Choose one connection or recommendation whose accuracy would change where
+you spend your reading time, and add it to R01 in `prompts.md` as
+something to check. You will come back to it in step 5.
 
 <div class="keypoint" markdown="1">
-Save the first overview. Pick one interpretation or reading recommendation to follow back to the articles.
+Save the first overview and the request that produced it. Pick one interpretation or reading recommendation to follow back to the articles.
 </div>
 
-## 2. Set the search boundaries and open a workspace
+## 2. Search within limits you set
 {: .step #step-2}
 
-Write a brief before the agent searches. Choose a date range, source types,
-languages and a particular interest within the topic. Say what would make an
-article worth including.
+Fill in the bracketed choices with your interest and scope, then send this.
+The assistant records your choices and the searches it says it ran at the
+top of `sources.md`, followed by the register of what it found.
 
 {% include prompt.html id="audit-retrieve" %}
 
-Give retrieval eight minutes. Find up to eight candidates and choose five
-accessible sources for an initial orientation. If fewer are ready, record
-that and use the backup set. A blocked or paywalled source stays in the register as a lead; record what you could access and move on.
-The backup set is linked in step 3.
+Give the search five minutes. If fewer than three sources are ready by
+then, record that in `sources.md` and use the backup set below. A blocked or
+paywalled source stays in the register as a lead; record what you could
+access and move on.
 
-Compare one search choice with another pair. A search for historical framing
-may produce a different starting set from a search for ethical concepts.
-Restricting source types or languages also changes what you can see.
-**Save the choice that shaped the set, as well as the articles it produced.**
+Open two of the links yourself and check that each one leads to the article
+it names. The register is also an account of what the assistant did, and a
+link that goes nowhere tells you something about the rest of it.
 
-### Give each part of the work a home
+Compare one search choice with a neighbor's. A search for historical
+framing may produce a different starting set from a search for ethical
+concepts, and restricting source types or languages changes what you can
+see. **Save the choices that shaped the set, as well as the articles it
+produced.**
 
-Download the [example workspace]({{ site.baseurl }}/assets/audit-trails/example-workspace.zip)
-and open it in a text editor. The files are small enough to read together.
-
-```text
-humanities-ai/
-  baseline.md
-  brief.md
-  sources.md
-  reading-protocol.md
-  prompts.md
-  notes/
-    S01-tasioulas.md
-    S02-vallor.md
-    S03-powell.md
-    S04-chander-squirrel-nation.md
-    S05-goodlad.md
-  synthesis-v1.md
-  idea-map-v1.md
-  reading-queue-v1.md
-  checks.md
-  decisions.md
-  synthesis-v2.md
-  idea-map-v2.md
-  reading-queue-v2.md
-  methods.md
-```
-
-### Keep a short record of each AI step
-
-In `prompts.md`, give each actual step a run ID and save its exact prompt,
-input files and source IDs, procedure version, output filenames and unfinished
-work. For example, a comparison uses five notes and produces three v1 files;
-a check uses those versions and records the passages it actually reviewed.
-If both steps happen in one conversation, record the shared context.
-
-With five sources, a later reader needs to see whether all five entered the
-comparison, whether a revision used updated notes, and which connections
-received a passage check. **A file called “checked” does not say what was checked.**
-The prepared run index is a template; fill it with what actually happened.
-
-Use stable IDs such as `S01` to follow an article across the source register,
-notes, comparisons and corrections. You can transfer the citations to Zotero
-later; collecting them need not interrupt the reading exercise.
-
-{% include audit-workspace.html %}
-
-The browser view shows the same prepared files as the download. Select a
-stage, then a file. During the session, open your actual folder beside the
-agent and watch which files it creates. The viewer displays saved examples.
-
-<div class="keypoint" markdown="1">
-Ask the agent to record the searches it actually ran, its selection reasons and how much of each article it could access.
-</div>
-
-## 3. Compare the articles and choose a reading route
-{: .step #step-3}
-
-Open the sources before relying on the notes. The five-source backup set
-combines three linked essays, a related dialogue and a journal introduction:
+If the search stalls, use these three instead: two essays from one series
+and a journal introduction.
 
 - [John Tasioulas: The role of the arts and humanities in thinking about artificial intelligence](https://www.adalovelaceinstitute.org/blog/role-arts-humanities-thinking-artificial-intelligence-ai/).
-- [Shannon Vallor: Mobilising the intellectual resources of the arts and humanities](https://www.adalovelaceinstitute.org/blog/mobilising-intellectual-resources-arts-humanities/).
 - [Alison Powell: Otherwises, and the contribution of the arts and humanities to ethical AI](https://www.adalovelaceinstitute.org/blog/otherwises-contribution-arts-humanities-ethical-ai/).
-- [Sarah Devi Chander and Squirrel Nation: Who gets to write the future?](https://www.adalovelaceinstitute.org/blog/who-write-future/), a dialogue linked from Powell's essay.
 - [Lauren M. E. Goodlad: Editor's Introduction: Humanities in the Loop](https://doi.org/10.1215/2834703X-10734016), with an accessible [project-hosted proof PDF](https://criticalai.org/wp-content/uploads/2023/09/CAI112_01Goodlad_1pp-1-1.pdf).
 
-The set gives you both an explicit conversation and connections you can
-propose across forms and venues. Record that you used it. Four sources come
-from one publisher; a broader search would need other traditions and positions.
-The prepared Goodlad note uses selected passages on proof PDF pages 1 and 6,
-so its recommendation remains provisional.
+Record that you used this backup set, and that two of its three sources come
+from one publisher. A broader search would need other traditions and positions.
 
-Read `reading-protocol.md` and change one rule to suit your discipline. Give
-the agent the articles, the brief and the procedure. Ask for short orientation
-notes for all five, then read one or two important passages yourself. Keep
-the notes brief so comparison and checking fit the hour. Record the passages
-you checked and leave the rest as open work.
+<div class="keypoint" markdown="1">
+Ask the assistant to list the searches it says it ran and how much of each article it could open. Then open two of its links yourself.
+</div>
+
+## 3. Read the articles with your own instructions
+{: .step #step-3}
+
+### Write your reading instructions
+
+Make a new file in `my-reading-trail` called `reading-protocol.md` and copy
+these rules into it. They tell the assistant how to read, and you can bring
+the same file into any later conversation.
+
+{% include prompt.html id="audit-reading-protocol" %}
+
+Change one rule to fit how your field reads. A historian might ask for the
+kind of evidence each author uses. A literary scholar might want the key
+phrase quoted exactly. Then put today's date on the first line.
+
+### Get a note on each article
+
+Send this with your edited `reading-protocol.md` and `sources.md`, attached
+or pasted below the prompt. You don't need to read the articles first. In
+step 5 you will open one or two passages to check what the assistant said
+about them.
 
 {% include prompt.html id="audit-read" %}
 
+Save the reply as `notes.md`, with a section for each source ID. Check that
+each section says how much of the article the assistant could open: step 5
+relies on that record. Keep the notes short so there is time to compare and
+check them.
+
+Use the source IDs (`S01` to `S03`) everywhere from now on: in the notes,
+the comparison, the checks and your decisions. They let you, or anyone
+reading your folder later, follow one article through the whole trail.
+
+<div class="keypoint" markdown="1">
+Keep your reading instructions in a file and give it to the assistant with every reading request.
+</div>
+
+## 4. Compare the articles and choose a reading route
+{: .step #step-4}
+
 ### Get an overview that preserves differences
 
-Ask the agent to compare the articles from their notes and the original
-texts. Save an overview, an idea map and a reading queue as separate files.
+Send `notes.md`, `sources.md` and the article links with this prompt. Save
+the three files it returns as `synthesis.md`, `idea-map.md` and
+`reading-queue.md`.
 
 {% include prompt.html id="audit-synthesize" %}
 
-**Prepared comparison:**
+A useful overview carries the distinctions into its prose. Read
+`synthesis.md` with these questions:
 
-| Article | A focus to follow | Relationship to check |
-|---|---|---|
-| S01 · Tasioulas | Choice, plural values and participation | Sets out the three Ps; start at the named section. |
-| S02 · Vallor | Historical framing and technological imagination | Responds to S01; read the opening and the paragraph beginning “The desire to keep an ahistorical frame”. |
-| S03 · Powell | Creative possibilities and situated practices | Responds to both; “Ethics and practice” reframes procedures as practices. |
-| S04 · Chander and Squirrel Nation | Racial justice, lived experience and creative practice in policymaking | S03 links here. Preserve the dialogue's named speakers; compare their participation questions with S01. |
-| S05 · Goodlad | Interdisciplinary critical AI and public accountability | Compare the selected proof passages with S04 as our interpretation; a direct response is not established. |
-
-A useful overview carries the distinctions into its prose. It should help
-you explain what each author adds. Read the comparison beside the articles:
-does it make a useful distinction, or turn a passing example into the
-article's central claim?
+- From the overview alone, could you say what each author adds? If two
+  authors blur together, which sentence did it?
+- Does it give each article's central claim, or promote a passing example
+  to the center?
+- Are its interpretations labeled as interpretations?
 
 ### Make the connections explainable
 
-Use `idea-map-v1.md` to connect source IDs with themes and with one another.
-For each connection, name the relationship and its basis. A direct response
-is different from a thematic connection that you infer as a reader.
+Open `idea-map.md`. Every connection should name its relationship and
+its basis. For each one, ask:
 
-**Prepared connection:** S03 → S01: reframes “procedures” as “practices”.
-The basis is Powell's “Ethics and practice” section. You can go to that
-passage and decide whether “reframes” captures the move.
+- Is this an explicit response or citation you could find in the text, or a
+  theme the assistant inferred?
+- Does it point to a passage? Could you go there and decide whether the
+  label fits?
+- Does it claim more agreement or disagreement than the articles may
+  support?
 
-Compare S03's direct hyperlink to S04 with a proposed S05–S04 connection
-through public accountability. The first is an observable citation; the
-second is our thematic reading. Neither establishes that the authors agree
-on everything.
-
-Do the same for a connection in your own set. Keep an uncertain relationship
-marked as a question. The map can include an interesting tension without
-turning it into a direct disagreement or claiming one author cited another.
+Pick the connection you find most interesting and keep it marked as a
+question until you have read its passage. The map can hold an interesting
+tension without turning it into a direct disagreement or claiming one author
+cited another.
 
 ### Ask what deserves your next twenty minutes
 
-Use `reading-queue-v1.md` to recommend an order for *your* inquiry. Each entry
-should give the reading goal, the relevant passage, why it adds something,
-and how much text was available for the recommendation. A rating such as
-“9/10 relevance” hides those decisions.
+Open `reading-queue.md`. Each entry should give a reading goal, the
+passage to start with, why it adds something and how much text the
+recommendation rests on. A rating such as “9/10 relevance” hides those
+decisions.
 
-**Prepared reading routes:**
+- Does each recommendation follow from your interest, or would it be the
+  same for anyone?
+- Is any article dropped or pushed to the end because it was hard to open?
+- Which recommendations rest only on an abstract or selected passages?
 
-| Your interest | Spend more time on | Why this is a useful next reading |
-|---|---|---|
-| Ethical concepts | S01, the three Ps section | Follow how the framework separates values, decision processes and participation. |
-| Historical framing | S02, the ahistorical-framing passage | Follow how history changes the questions asked about technology. |
-| Creative practice | S03, “Ethics and practice”, then S04's dialogue | Compare situated practice with questions about whose lived experience enters policymaking. |
-| Racial justice and policymaking | S04, Sarah's participation turn | Question who sets the terms of participation. |
-| Interdisciplinary research | S05, proof PDF pages 1 and 6, then the full introduction | Explore a wider critical AI project; this route is provisional because only selected passages were read. |
-
-These recommendations depend on the question you brought. An article can
-be worth reading because it complicates the others or takes your interest in
-a new direction. Ask the agent how the order would change if you changed
-your interest. If it only saw an abstract or selected passages, keep its
-recommendation provisional. Give every selected source a next action, even if that action
-is to read more before assessing it.
-
-### Keep the procedure in plain text
-
-A short file is enough to specify how to read: state access levels, preserve
-the author's argument, give passage locations, and separate interpretation
-from what the source says. Bring it into each new conversation and check a
-note against it.
-
-A skill can package this procedure for reuse. Start with the text file and
-revise the instructions when you see what they miss. Keep its version with
-the notes so a later reader can see how you asked the agent to read.
+Then ask the assistant how the order would change if you changed your
+interest. The difference between the two routes shows you how much the
+recommendation depends on the question you brought. Give every source a next
+action, even if that action is to read more before assessing it.
 
 <div class="keypoint" markdown="1">
 Ask for the passage and reading goal behind every important connection or recommendation. Check one against the original text.
 </div>
 
-## 4. Check a connection and challenge the checker
-{: .step #step-4}
+## 5. Check a connection in a new conversation
+{: .step #step-5}
 
-Give another agent the original articles, brief, notes, overview, map and
-reading queue. Use a fresh conversation where possible. Save its findings
-in `checks.md` with the tool and date.
+Start a new conversation for the check. In a browser chat, that means the
+**New chat** button. The new conversation does not remember the first one,
+and a different assistant works too. **A new conversation sees only what you
+give it, the way a colleague opening your folder would.** Where it gets lost,
+a later reader would too.
+
+Send the file-saving prompt from **Before you start** first. Then drag your
+files into the message box, or paste their text if your assistant limits
+uploads: `sources.md`, `notes.md`, `synthesis.md`, `idea-map.md` and
+`reading-queue.md`. Add the three article links and your reading
+interest. Save the reply as `checks.md` with the tool and date.
 
 {% include prompt.html id="audit-check" %}
 
-### Follow one correction back to the article
+### Follow one finding back to the article
 
-Return to the prepared sentence from step 1. Tasioulas sets out the three Ps.
-Powell's “Ethics and practice” section explicitly nuances that framing by
-recasting procedures as practices. Describing this as repetition misses a
-reason you might want to read her closely.
+Pick the finding in `checks.md` that matters most to your reading route,
+ideally the connection you noted in step 1. Open the passage it names and
+read it yourself.
 
-**Prepared check:**
+- Does the passage say what the checker says it says?
+- Does the proposed correction keep each author's argument distinct?
+- Does the corrected reading recommendation still fit your interest?
 
-| Draft wording | Passage to check | Proposed action |
-|---|---|---|
-| “The three essays offer the same framework” | S01's three Ps section; S03's “Ethics and practice” | Attribute the framework to S01 and preserve S03's reframing. |
-| “Powell repeats Tasioulas, so read her last” | S03's distinction between procedures and practices | Change the map connection and explain when S03 is worth closer reading. |
+An interpretation can be defensible without being the only possible reading;
+record what you remain unsure about.
 
-Read the passages before accepting the criticism. Ask whether the proposed
-correction preserves the authors' arguments and whether its reading
-recommendation fits your interest. An interpretation can be defensible
-without being the only possible reading; record what you remain unsure about.
+### Look for a criticism you might reject
 
-### Check a second kind of error
+A checker can be wrong too. Look for a suggestion that would make your trail
+tidier but lose something, such as merging two articles because they belong
+to one series, or dropping a source because it was hard to open. Ask what
+the change would erase, and record why you accept or reject it.
 
-The prepared first map says Goodlad directly responds to Tasioulas. Its queue
-also claims the complete introduction was read. The saved access record says
-selected passages, and those passages do not establish that direct response.
+### Check the records
 
-Compare `idea-map-v1.md` and `reading-queue-v1.md` with S05's note and the
-original proof. Keep a useful thematic comparison if you can explain it,
-label it as your interpretation, and correct the access claim. Save this
-finding as C04. Full-paper reading remains open.
+- Does every article in `sources.md` have a section in `notes.md`?
+- Do the access statuses match what the assistant could actually open?
+- Can you find the basis for each connection in the map?
+- Do the entries in `prompts.md` match what you sent and saved?
 
-### Check a criticism you might reject
-
-**Prepared suggestion from a checker:** “These are linked essays in one
-series. Merge them into one note and drop the later readings as duplicates.”
-
-Their relationship belongs in the register and the map. It also makes them
-useful to read together: the later essays shift the emphasis and develop the
-conversation. You might keep separate notes so those moves remain visible.
-Record why you accept or reject the suggestion.
-
-Check the records too. Does every cited article have a note? Do access
-statuses match what was read? Can you locate the basis for a map connection?
-Does the queue silently drop an article because it is difficult to access?
-
-Separate agents can share assumptions. Read at least one important passage
-yourself and judge both the overview and the checker's reading against it.
+Separate conversations, even with different assistants, can share
+assumptions. Read at least one important passage yourself and judge both
+the overview and the checker's reading against it.
 
 <div class="keypoint" markdown="1">
 Check a proposed correction against the article and your reading goal before treating it as a decision.
 </div>
 
-## 5. Record your decisions and keep the reading route
-{: .step #step-5}
+## 6. Record your decisions and keep the reading route
+{: .step #step-6}
 
-Decide which findings hold up, then add your reasons to `decisions.md`.
-Preserve the first overview, map and queue when you create revised versions.
+Decide which findings hold up, write your decisions into the prompt below
+and send it in the checking conversation. Save `decisions.md`, then save
+the updated overview, map and queue over the old files. `decisions.md`
+records what changed and why.
 
 {% include prompt.html id="audit-revise" %}
 
-**Prepared decision record:**
+For each finding, write accept, revise, reject or unresolved into the
+prompt, with a reason. The assistant can lay your decisions out as a table.
+**You supply the decision.** Proposed changes stay pending until you decide;
+record who decided and when.
 
-| Decision | Reason | Consequence |
-|---|---|---|
-| Accept the objection to “same framework” | S03 explicitly reframes S01's procedures | Show distinct contributions in the overview and map. |
-| Revise the recommendation to read Powell last | Her discussion fits an interest in creative practice | Name that reading goal and the relevant section in the queue. |
-| Reject merging the essays as duplicates | Their different moves are useful to compare | Keep separate notes and record their relationship. |
-| Revise S05's direct-response and access claims | The selected passages support our comparison; the whole paper was not read | Label the map link and keep the next reading provisional. |
+Then read the list of changes in `decisions.md` against `checks.md` and the
+updated files.
 
-An agent can prepare this table from your comments. **You supply the
-decision.** Proposed changes stay pending until you decide; record who decided
-and when.
+- Can you trace each change to one of your decisions?
+- Did anything change that you didn't decide? With the old files gone, you
+  are relying on the assistant's list of changes, which is one reason a
+  longer project keeps earlier versions.
+- Could a colleague, reading only your folder, explain why your reading
+  route changed?
 
-**Prepared revision:** “The five sources offer several routes into humanities
-and AI. Tasioulas sets out an ethical framework; Vallor foregrounds history
-and imagination; Powell reframes procedures through situated practice.
-The dialogue brings racial justice and lived experience into policymaking.
-Goodlad's selected passages frame a wider interdisciplinary critical AI project.”
-
-Open both versions beside `checks.md` and `decisions.md`. The record should
-explain changes to your overview, your connections and your reading order.
 Append new corrections to the log and keep the current reading route in the
 latest files. This follows the CHM project's use of process notes alongside
 a separate account of current conclusions and open work.
 
-### Give someone else a few minutes
+<div class="keypoint" markdown="1">
+Keep the reasons behind a revised interpretation or reading choice. A colleague should be able to follow the change from your files.
+</div>
 
-Exchange folders. Ask a partner to trace one connection to an article,
-explain one reading recommendation and identify which passages were checked
-from your records alone. Add the passage,
-link or reason they needed and could not find.
+## 7. Watch an agent keep the same trail
+{: .step #step-7}
 
-Keep a short `methods.md` with the actual search choices, sources accessed,
-tool and procedure used, checks completed, human decisions and open work.
-For peer review, consider how this would help a reader assess an AI-assisted
-interpretation. Procedural evidence can make a judgment easier to examine;
-the reviewer still needs to judge the reading and argument.
+**Presenter demonstration.** Watch this one; you don't need to install
+anything.
 
-### Optional closing demo: open the notes in Obsidian
+The presenter runs the same reading sprint in Claude Code, an agent that
+works in a folder on the computer. Instead of a reply for you to copy, it
+searches, opens pages and writes `sources.md`, a note per article and the
+comparison files into the folder, adding to the run record as it goes. A
+`CLAUDE.md` file in the folder holds the standing instructions (the stages,
+the rules for each file and the format of the run record), and the agent
+reads it at the start of every session, so nobody pastes the instructions
+into each conversation. Other agents that work in a folder use a similar
+file. The prompt is short because the instructions are already in the
+folder, next to the brief and the reading protocol.
 
-The presenter can open the downloaded `humanities-ai` folder as an Obsidian
-vault. Start with `idea-map-v2.md`, follow a link into a source note, and open
-its local graph. The prepared notes also link to a few idea notes in `ideas/`.
-No plugins are needed for this demonstration.
+{% include prompt.html id="audit-agent-sprint" %}
+
+Watch for what changes, and for what doesn't.
+
+- Each search, page and file the agent opens or writes appears in its
+  transcript as it happens. In the browser chat you had only its account of
+  what it searched.
+- The run record is written while the work happens. Read one entry against
+  the transcript and the files: does it say what actually happened?
+- The files appear and change in the folder. Open `sources.md` and a note
+  while it works and watch the access statuses fill in.
+- The check goes to a separate checker with its own instructions. It
+  starts with only the files in the folder, not the first agent's account
+  of its work: the same test you ran with a new chat in step 5.
+
+**A visible record of actions does not make the notes accurate.** The
+transcript shows that the agent opened a page; it doesn't show that its note
+represents the argument fairly. Steps 4 to 6 still apply: follow one
+connection to its passage, and record the decision yourself.
+
+### The workspace it builds
+
+The folder starts with the standing instructions, the brief, the reading
+protocol, an empty run record and the checker's instructions. By the end of
+the sprint the agent has added the rest:
+
+```text
+humanities-ai/
+  CLAUDE.md               standing instructions
+  brief.md                question, interest and limits
+  reading-protocol.md     how to read each source
+  prompts.md              run record, one entry per stage
+  .claude/agents/
+    source-checker.md     the checker's instructions
+  sources.md
+  notes/
+    S01-author.md … S03-author.md
+  synthesis.md
+  idea-map.md
+  reading-queue.md
+  ideas/                  one note per shared concept
+  checks.md
+  library.ris
+```
+
+It keeps more than you did by hand: one note per article, a separate file
+for each stage, the checker's findings and a citation file. There is no
+`decisions.md`: the checker's corrections stay pending, because the
+decisions are yours, as they were in step 6.
+
+With three sources, a later reader needs to see whether all three entered the
+comparison, which connections the checker followed to a passage and which
+sources it couldn't open. The run record answers those questions only if it
+is specific. **A file called “checked” does not say what was checked.**
+
+### Optional: open the notes in Obsidian
+
+The presenter can open the agent's `humanities-ai` folder as an Obsidian
+vault. Start with `idea-map.md`, follow a link into a source note, and open
+its local graph. The idea notes in `ideas/` link back to the sources that use
+each concept. No plugins are needed for this demonstration.
 
 Obsidian's [graph view](https://help.obsidian.md/Plugins/Graph+view) draws
 connections from links between notes. **Keep the relationship in the text
@@ -445,41 +592,61 @@ beside the link.** The graph shows that you connected two notes; their text
 explains whether you mean a direct response, a shared theme or a provisional
 interpretation. Click a connection's source note and show its passage location.
 
-{% include prompt.html id="audit-obsidian" %}
+The same Markdown files remain usable in a text editor.
 
-The same Markdown files remain usable in a text editor. Participants do not
-need to install Obsidian during the workshop.
+### Optional: import the citations into Zotero
 
-### Optional closing demo: import the citations into Zotero
-
-The presenter can ask the agent to make `library.ris` from the verified source
-register, then demonstrate **File → Import → A file** in Zotero. Compare one
-imported item's author, title, date and URL with the original article. Zotero
-[accepts RIS and other standard formats](https://www.zotero.org/support/kb/importing_standardized_formats).
-
-{% include prompt.html id="audit-zotero" %}
+The sprint's last stage writes `library.ris` from the source register. The
+presenter can then demonstrate **File → Import → A file** in Zotero. Compare
+one imported item's author, title, date and URL with the original article.
+Zotero [accepts RIS and other standard formats](https://www.zotero.org/support/kb/importing_standardized_formats).
 
 A [prepared five-item RIS file]({{ site.baseurl }}/assets/audit-trails/humanities-ai/library.ris)
-is included in the workspace so the demo can continue if live generation
-fails. It imports citation records into a collection. The separate Markdown
-files keep the reading notes, connections and decisions; this citation export
-does not bundle the article texts or the audit trail.
+is a fallback if the live run doesn't get that far. It imports citation
+records into a collection. The separate Markdown files keep the reading
+notes, connections and decisions; this citation export does not bundle the
+article texts or the audit trail.
 
 <div class="keypoint" markdown="1">
-Keep the reasons behind a revised interpretation or reading choice. A colleague should be able to follow the change from your files.
+Put standing instructions in a file the agent reads at the start of each session. Read its run record against the files and links it left.
 </div>
 
 ## What to take with you
 {: .step #takeaways}
 
-<div class="takeaways" markdown="1">
-Use these habits in your next reading project:
+Use these habits in your next reading project.
 
-- **Save the search choices.** Keep your interest and selection boundaries beside the articles.
-- **State what was read.** Distinguish metadata, abstracts, selected passages and full texts; record check coverage separately.
-- **Record each AI step.** Save the instructions, inputs, output versions and unfinished work behind your comparisons.
-- **Preserve different arguments.** Check what each author adds before combining them into an overview.
-- **Explain the connections.** Name the relationship and the passage behind a link in your map.
-- **Give a reason to read next.** Tie recommendations to your inquiry and keep uncertainty visible.
-- **Keep your corrections.** Save earlier versions and the reasons your interpretation or reading route changed.
+<div class="takeaways" markdown="1">
+### Keep the trail in files
+
+- **Give the project one folder.** Keep the sources, reading instructions, notes and outputs together as plain text files.
+- **Save each result as a file.** Put the tool and date at the top.
+- **Keep a run record.** For every request, note what you asked, what you gave the assistant and what it produced. Read its draft of the record before you keep it.
+- **Give each source a stable ID.** Use it across the source list, notes, map and corrections so you can follow one article through the work.
+- **Keep earlier versions.** Today you saved revisions over the old files. In a longer project, save a revision as a new file (`synthesis-v2.md`) and number each version of your reading instructions, so you can see what changed without relying on the assistant's account and tell which instructions produced which notes.
+</div>
+
+<div class="takeaways" markdown="1">
+### Give the AI instructions
+
+- **Record the search choices.** Save your interest, scope and the searches it says it ran before any summary.
+- **Keep reading instructions in a file.** Adapt them to your field, date them and bring them into every new conversation.
+- **Ask for the passage behind each claim.** Every connection and reading recommendation should point to a place in an article and to your interest.
+</div>
+
+<div class="takeaways" markdown="1">
+### Check the work
+
+- **Treat the AI's report as a claim.** Compare what it says it searched, read and saved with the files and links it left.
+- **Match claims to what was read.** An abstract or a few selected passages cannot support a claim about a whole article. Note which passages a person checked.
+- **Follow one connection back to the article.** Read the passage yourself, check that the overview keeps each author's argument distinct, and test a checker's corrections the same way.
+- **Record your decisions.** Save what you accepted, changed or rejected and why, so someone else can follow how your reading route changed.
+</div>
+
+<div class="takeaways" markdown="1">
+### What an agent adds
+
+- **Standing instructions in the folder.** A file such as `CLAUDE.md` gives every session the same reading rules without pasting them in.
+- **Actions you can see.** Its searches, pages and file writes appear as they happen. Read the run record against them.
+- **The same checks.** A record of actions shows what the agent opened, not whether it read fairly.
 </div>

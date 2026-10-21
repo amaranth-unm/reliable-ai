@@ -1,6 +1,8 @@
 _site
 .DS_Store
 .claude
+# ...except the step 7 demo kit, whose settings and checker subagent live there
+!workshop-drafts/audit-trails/demo-folder/.claude
 _config.local.yml
 _config.analytics.yml
 

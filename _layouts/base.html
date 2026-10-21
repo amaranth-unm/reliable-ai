@@ -43,7 +43,10 @@
     <div class="container">
       {% assign page_day = page.date | date: "%Y-%m-%d" %}
       {% assign site_today = site.time | date: "%Y-%m-%d" %}
-      {% if page.layout == 'base' and page.path contains 'sessions/' and page.name == 'index.md' and page.date and page_day > site_today %}
+      {% comment %} preview_future_sessions (set in the git-ignored _config.local.yml) shows future sessions in full on a local build. GitHub Pages builds in production, where it is ignored. {% endcomment %}
+      {% assign preview_future = false %}
+      {% if site.preview_future_sessions and jekyll.environment != "production" %}{% assign preview_future = true %}{% endif %}
+      {% if page.layout == 'base' and page.path contains 'sessions/' and page.name == 'index.md' and page.date and page_day > site_today and preview_future == false %}
         {% include session-coming-soon.html %}
       {% else %}
         {% if page.presenter %}<p class="session-byline">Presented by {{ page.presenter | join: " and " }}</p>{% endif %}
