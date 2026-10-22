@@ -14,13 +14,16 @@ start. They set the question, the scope and how to read.
 - `reading-protocol.md`: how to read each source. Follow it; don't change it.
 - `sources.md`: the source register. At the top, today's date, the tool and
   every search you ran, worded exactly. Then one entry per article: an ID
-  (S01, S02, S03), a citation confirmed on the page itself, the URL, why it
-  fits the interest and what you could open (metadata, abstract, selected
-  sections or full text). List articles that wouldn't open at the end as
+  (S01, S02, S03), a citation confirmed on the PDF itself, the article's URL,
+  the PDF link, the saved filename, why it fits the interest and how much of
+  the PDF you read. List articles whose PDF wouldn't download at the end as
   leads.
-- `notes/S01-surname.md`: one note per selected source, following
-  reading-protocol.md. Start each with the source ID, citation, URL and what
-  you could open.
+- `readings/`: the PDF of each selected article, named by its ID, such as
+  `S01-surname.pdf`. Three PDFs, no web pages. This is the copy you read and
+  the checker checks.
+- `notes/`: one note per PDF, with the same name: `readings/S01-surname.pdf`
+  gets `notes/S01-surname.md`. Follow reading-protocol.md. Start each note
+  with the source ID, citation, URL, the PDF it reads and which pages you read.
 - `synthesis.md`: the overview.
 - `idea-map.md`: the connections.
 - `reading-queue.md`: what to read next and why.
@@ -39,17 +42,24 @@ and in any text editor.
 Do these in order. After each one, append its run record to prompts.md before
 starting the next.
 
-1. **Search.** Search within the brief's scope and limits. Create sources.md
-   after your first search and add to it as you go, so the presenter can
-   watch it fill in. If fewer than three sources are open after four searches, fill
-   the gap from the brief's backup set and say so in sources.md.
-2. **Read.** Open each selected source and write its note in notes/. If a page
-   won't open or only part of it loads, say exactly what you read. Never write
-   a note from memory or from a search snippet. Your web fetch tool returns a
-   processed extract of a page, not the page itself, and can cut long pages
-   short. Ask it for the headings and short exact quotations you need for
-   passage locations, and record access as what it returned (for example,
-   "extract via web fetch, covering sections 1 to 3"), not as full text.
+1. **Search and save.** Search within the brief's scope and limits for three
+   articles with a PDF you can download. Create sources.md after your first
+   search and add to it as you go, so the presenter can watch it fill in.
+   Save each article's PDF in readings/ as soon as you choose it, with one
+   `curl` command per file, for example
+   `curl -L -f -o readings/S01-goodlad.pdf <pdf-url>`, then open it with your
+   Read tool to confirm it is the article. An article is selected only once
+   its PDF is saved. If the download fails, or the file is a login, paywall
+   or bot-check page instead of the article, delete it with
+   `rm readings/<file>`, list the article as a lead in sources.md and choose
+   another. If fewer than three PDFs are saved after four searches, fill the
+   gap from the brief's backup set (all direct PDF links) and say so in
+   sources.md. Stop at three.
+2. **Read.** Read each PDF in readings/ with your Read tool, page by page, and
+   write its note in notes/ under the same name, citing PDF page numbers.
+   Read the whole PDF where you can; if you read only some pages, say which.
+   Write each note from its PDF, never from memory, a search snippet or the
+   article's web page.
 3. **Compare.** Using only the notes and the sources, write synthesis.md,
    idea-map.md, reading-queue.md and the notes in ideas/.
    - Synthesis: compare the arguments, concepts and approaches. Say what each
@@ -81,7 +91,7 @@ Then stop and report.
 Append one entry per stage to prompts.md, numbered R01 to R05:
 
 ```text
-## R01 · Search · <today's date>
+## R01 · Search and save · <today's date>
 Request: <for R01, the presenter's prompt word for word; after that, the stage name>
 Inputs: <files and URLs used>
 Actions: <searches run, pages opened, pages that failed>

@@ -598,7 +598,9 @@ humanities-ai/
   .claude/agents/
     source-checker.md     the checker's instructions
   sources.md
-  notes/
+  readings/               the PDF of each article
+    S01-author.pdf … S03-author.pdf
+  notes/                  one note per PDF, same name
     S01-author.md … S03-author.md
   synthesis.md
   idea-map.md
@@ -608,8 +610,8 @@ humanities-ai/
   library.ris
 ```
 
-It keeps more than you did by hand: one note per article, a separate file
-for each stage, the checker's findings and a citation file. There is no
+It keeps more than you did by hand: the PDF of each article, one note per
+PDF, a separate file for each stage, the checker's findings and a citation file. There is no
 `decisions.md`: the checker's corrections stay pending, because the
 decisions are yours, as they were in step 6.
 

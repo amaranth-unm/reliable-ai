@@ -5,10 +5,9 @@
       "WebSearch",
       "WebFetch",
       "Read(./**)",
-      "Edit(./**)"
-    ],
-    "deny": [
-      "Bash"
+      "Edit(./**)",
+      "Bash(curl *)",
+      "Bash(rm readings/*)"
     ]
   }
 }

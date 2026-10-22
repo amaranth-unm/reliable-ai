@@ -124,7 +124,13 @@ when its session points to an unlisted page.
 The step 7 demonstration starts from `workshop-drafts/audit-trails/demo-folder/`:
 `CLAUDE.md` (the stages and rules), `brief.md`, `reading-protocol.md`, an
 empty `prompts.md`, and in `.claude/` the `source-checker` subagent and the
-permission settings (web search and edits allowed, Bash denied). Before the
+permission settings (web search, edits in the folder, `curl` downloads and
+deleting a bad download from `readings/` allowed; any other shell command
+asks first). The brief's backup set is three direct PDF links, so even a
+run whose search finds nothing should end with three PDFs in `readings/` and
+a matching note for each in `notes/`. Accept Claude Code's trust
+prompt for the Desktop copy once before the session, or those settings are
+ignored. Before the
 session, copy it to the Desktop, open the copy in VS Code, start Claude Code
 there and paste the `audit-agent-sprint` prompt. A run fills the copy, so make
 a fresh one after rehearsing:

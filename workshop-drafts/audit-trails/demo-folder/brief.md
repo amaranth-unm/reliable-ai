@@ -10,22 +10,23 @@ Scope: English-language work published 2020–2026. Scholarly articles,
 conceptual essays and dialogues. Theory, interpretation and creative practice
 all count; don't require evidence of measurable impact.
 
-Limits: search the web for three articles you can open, with different
-arguments and approaches, in no more than four searches. If fewer than three
-are ready after four searches, record that in sources.md and fill the gap
-from the backup set below rather than searching further.
+Limits: search the web for three open-access articles with a PDF you can
+download, with different arguments and approaches, in no more than four
+searches. If fewer than three PDFs are saved after four searches, record that
+in sources.md and fill the gap from the backup set below rather than
+searching further.
 
-Backup set (use only if the search falls short, and say so in sources.md):
+Backup set (use only if the search falls short, and say so in sources.md).
+Each link is the PDF itself:
 
-- John Tasioulas, "The role of the arts and humanities in thinking about
-  artificial intelligence (AI)," Ada Lovelace Institute:
-  https://www.adalovelaceinstitute.org/blog/role-arts-humanities-thinking-artificial-intelligence-ai/
-- Alison Powell, "Otherwises, and the contribution of the arts and humanities
-  to ethical AI," Ada Lovelace Institute:
-  https://www.adalovelaceinstitute.org/blog/otherwises-contribution-arts-humanities-ethical-ai/
 - Lauren M. E. Goodlad, "Editor's Introduction: Humanities in the Loop,"
-  Critical AI: https://doi.org/10.1215/2834703X-10734016 (author's proof:
-  https://criticalai.org/wp-content/uploads/2023/09/CAI112_01Goodlad_1pp-1-1.pdf)
+  Critical AI (2023), https://doi.org/10.1215/2834703X-10734016. Author's
+  proof PDF:
+  https://criticalai.org/wp-content/uploads/2023/09/CAI112_01Goodlad_1pp-1-1.pdf
+- Alayt Issak, "Artistic Autonomy in AI Art," arXiv:2111.04437 (2021). PDF:
+  https://arxiv.org/pdf/2111.04437
+- Włodzisław Duch, "Artificial intelligence and the limits of the
+  humanities," arXiv:2310.19425 (2023). PDF: https://arxiv.org/pdf/2310.19425
 
 Deliverables: a source register, one note per source, an overview, a map of
 connections, a reasoned reading queue, a check of those three files and a
