@@ -149,15 +149,36 @@ These are prepared teaching materials, not recorded agent replies.
 
 ### Understanding Agentic AI example files
 
-Edit `_data/agentic_example.json`, then run
-`python3 scripts/build-agentic-workspace.py`. It generates the fictional
-starter files, ZIP and reference inventory in `assets/agentic-ai/`. The
-unlisted reference guide at `examples/understanding-agentic-ai/` reads the
-same data. Keep prepared examples distinct from observed agent runs. The
-presenter guide is in `workshop-drafts/understanding-agentic-ai/`; save local
-rehearsal and verification work in its ignored `_local/` subfolder.
+The session is a live literature-review demonstration. Its starter folder
+(standing instructions, brief, two skills and two helper agents for Claude
+Code) lives in `workshop-drafts/understanding-agentic-ai/lit-review/`. Edit
+the files there, then run `python3 scripts/build-agentic-workspace.py`. It
+writes `assets/agentic-ai/lit-review-starter.zip` and flat, readable copies
+of the instruction files in `assets/agentic-ai/files/` (Jekyll skips the
+hidden `.claude` folder, so the page links these copies). The starter folder
+contains no articles and no recorded agent output. If you change the backup
+set in `brief.md`, update the list in step 3 of the session page too. The
+presenter guide is in the same draft folder; save rehearsal runs in its
+ignored `_local/` subfolder.
 
-### Presenting
+### Mapping with AI practice kit
+
+The session at `sessions/mapping-with-ai/` uses two prepared interfaces:
+fictional correspondence for research exploration and a small, sourced WWI
+memorial photograph collection for public browsing. Edit the collections in
+`_data/mapping_examples.json`, and the source texts, map template, styles,
+script, and provenance README in `workshop-drafts/mapping-with-ai/`. Run
+`python3 scripts/build-mapping-workspace.py` to regenerate both standalone
+HTML maps, JSON exports, and the participant ZIP in `assets/mapping-with-ai/`.
+The presenter guide in the draft folder gives a 50-minute run of show.
+
+The HTML maps embed the data; editing a neighboring JSON file does not update
+them. Leaflet, background tiles, and photographs require internet access;
+the collection lists remain usable without them. Keep the fictional-text
+labels, photo credits, source links, and approximate-location notes visible.
+Exact monument coordinates have not been independently verified.
+
+### Presenting the sessions
 
 Each session's deck lives in its folder, at `sessions/<session>/slides/`
 (for example [`sessions/editorial-assistant/slides/`](sessions/editorial-assistant/slides/index.md)).

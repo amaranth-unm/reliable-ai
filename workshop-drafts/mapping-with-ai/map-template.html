@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__ · Reliable AI</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>__STYLE__</style>
+</head>
+<body>
+<a class="skip" href="#results">Skip to collection</a>
+<header><p class="eyebrow">Amaranth · Reliable AI for Humanists · Prepared example</p><h1>__TITLE__</h1><p id="description"></p><details><summary>About this collection and its locations</summary><p id="provenance"></p><p>The list and its source text are stored in this file. Map backgrounds, photographs, and the map library load from the internet. No source material is sent to an AI service by this page.</p></details></header>
+<section class="toolbar" aria-label="Collection controls">
+<label>Search the collection<input id="search" type="search" placeholder="Place, passage, or description"></label>
+<label id="category-label">Relationship<select id="category"><option value="">All</option></select></label>
+<label>Location<select id="located"><option value="">All records</option><option value="yes">Located only</option><option value="no">Unlocated only</option></select></label>
+<button id="reset" type="button">Reset</button><button id="download" type="button">Download data</button>
+</section>
+<p id="count" role="status" aria-live="polite"></p>
+<main><section class="map-panel" aria-label="Map view"><div id="map" aria-label="Interactive map of collection locations"></div><p id="map-status" role="status">Loading the map. All records are also available in the collection list.</p><p class="map-note">Points show supplied reference locations. No routes or historical boundaries are implied.</p></section><section id="results" tabindex="-1" aria-label="Collection records"></section></main>
+<footer>A teaching example for Mapping with AI. Map software: <a href="https://leafletjs.com/">Leaflet</a>. Background: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>. <span id="photo-footer"></span></footer>
+<script id="collection-data" type="application/json">__DATA__</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>__SCRIPT__</script>
+</body></html>

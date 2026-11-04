@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Places in correspondence · Reliable AI</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>:root{--paper:#f5f0e6;--ink:#292b27;--muted:#575b52;--accent:#943f32;--line:#d6cdbf}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font:17px/1.55 system-ui,sans-serif}header{padding:24px 32px 18px;max-width:1150px}h1{font:normal clamp(2rem,4vw,3.3rem)/1.12 Georgia,serif;margin:8px 0 12px}p{margin:8px 0}a{color:#80382c;text-underline-offset:3px}.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:var(--accent)}details{font-size:.9rem;color:var(--muted);max-width:900px}summary{cursor:pointer}.toolbar{display:flex;flex-wrap:wrap;align-items:end;gap:12px;padding:16px 32px;border-block:1px solid var(--line);background:#ebe4d8}label{display:grid;gap:4px;font-size:.8rem;font-weight:650}input,select,button{font:inherit;border:1px solid #8d8e81;border-radius:5px;padding:10px 12px;background:#fffdf7;color:var(--ink);min-height:44px}input{min-width:260px}button{cursor:pointer;font-size:.85rem}button:hover{background:#e9dfd0}a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #276d8e;outline-offset:3px}#count{padding:10px 32px;margin:0;font-size:.88rem;color:var(--muted)}main{display:grid;grid-template-columns:minmax(310px,430px) minmax(0,1fr);gap:20px;padding:0 32px 28px;align-items:start}.map-panel{grid-column:2;grid-row:1;position:sticky;top:15px}#map{height:550px;border:1px solid var(--line);border-radius:8px;background:#e2e4d9;z-index:0}#map-status,.map-note{font-size:.78rem;color:var(--muted)}#results{grid-column:1;grid-row:1;min-width:0}.record{padding:20px;margin-bottom:16px;border:1px solid var(--line);border-radius:8px;background:#fffcf5;scroll-margin-top:15px}.record h2{font:normal 1.45rem/1.2 Georgia,serif;margin:8px 0}.badge{font-size:.72rem;display:inline-block;background:#e9e5d9;padding:3px 8px;border-radius:12px;margin:0 5px 5px 0}.unknown{background:#f4dfc3}blockquote{margin:12px 0;padding-left:14px;border-left:3px solid var(--accent);font-family:Georgia,serif}.meta{font-size:.8rem;color:var(--muted)}figure{margin:16px 0}figure img{width:100%;height:auto;display:block;border-radius:4px}figcaption{font-size:.75rem;color:var(--muted);margin-top:5px}.empty{padding:25px;border:1px dashed var(--accent)}footer{border-top:1px solid var(--line);padding:18px 32px;font-size:.78rem;color:var(--muted)}.pin{background:var(--accent);color:white;border:2px solid white;border-radius:50%;display:grid!important;place-items:center;font:bold 13px system-ui;box-shadow:0 2px 6px #0005}.leaflet-popup-content{max-height:310px;overflow:auto;font:14px/1.5 system-ui}.leaflet-popup-content h3{font:normal 20px Georgia}.leaflet-popup-content blockquote{margin:10px 0}.skip{position:absolute;left:10px;top:-100px;background:white;padding:10px;z-index:9999}.skip:focus{top:10px}@media(max-width:760px){header{padding:20px}.toolbar{padding:15px 20px;gap:10px}.toolbar label{flex:1;min-width:140px}.toolbar label:first-child{flex-basis:100%}input{min-width:0;width:100%}main{display:flex;flex-direction:column;padding:0 20px 20px}.map-panel{position:static;width:100%;order:0}#map{height:300px}#results{width:100%;order:1}#count{padding:10px 20px}footer{padding:18px 20px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#results">Skip to collection</a>
+<header><p class="eyebrow">Amaranth · Reliable AI for Humanists · Prepared example</p><h1>Places in correspondence</h1><p id="description"></p><details><summary>About this collection and its locations</summary><p id="provenance"></p><p>The list and its source text are stored in this file. Map backgrounds, photographs, and the map library load from the internet. No source material is sent to an AI service by this page.</p></details></header>
+<section class="toolbar" aria-label="Collection controls">
+<label>Search the collection<input id="search" type="search" placeholder="Place, passage, or description"></label>
+<label id="category-label">Relationship<select id="category"><option value="">All</option></select></label>
+<label>Location<select id="located"><option value="">All records</option><option value="yes">Located only</option><option value="no">Unlocated only</option></select></label>
+<button id="reset" type="button">Reset</button><button id="download" type="button">Download data</button>
+</section>
+<p id="count" role="status" aria-live="polite"></p>
+<main><section class="map-panel" aria-label="Map view"><div id="map" aria-label="Interactive map of collection locations"></div><p id="map-status" role="status">Loading the map. All records are also available in the collection list.</p><p class="map-note">Points show supplied reference locations. No routes or historical boundaries are implied.</p></section><section id="results" tabindex="-1" aria-label="Collection records"></section></main>
+<footer>A teaching example for Mapping with AI. Map software: <a href="https://leafletjs.com/">Leaflet</a>. Background: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>. <span id="photo-footer"></span></footer>
+<script id="collection-data" type="application/json">{
+  "title": "Places in correspondence",
+  "kind": "research",
+  "description": "Explore movement, plans, and geographic attention in three fictional letters.",
+  "provenance": "Prepared teaching example: all letters and their dates are fictional. Relationships are editorial readings, not recorded AI output. City points are GeoNames coordinates rounded to two decimals, checked 29 October 2026.",
+  "records": [
+    {
+      "id": "R1",
+      "source_id": "L1",
+      "date": "12 June 1920",
+      "wording": "Albuquerque, New Mexico",
+      "quote": "I am writing from Albuquerque, New Mexico.",
+      "title": "Albuquerque, New Mexico",
+      "category": "Writing location",
+      "lat": 35.08,
+      "lon": -106.65,
+      "location_note": "City point from GeoNames 5454711, rounded to two decimals (about 1 km). Not a historical address."
+    },
+    {
+      "id": "R2",
+      "source_id": "L1",
+      "date": "12 June 1920",
+      "wording": "Santa Fe, New Mexico",
+      "quote": "Yesterday I returned from Santa Fe, New Mexico, where I spent two days looking at buildings.",
+      "title": "Santa Fe, New Mexico",
+      "category": "Completed travel",
+      "lat": 35.69,
+      "lon": -105.94,
+      "location_note": "City point from GeoNames 5490263, rounded to two decimals (about 1 km). Not a historical address. Travel is reported in the fictional letter; no route is established."
+    },
+    {
+      "id": "R3",
+      "source_id": "L1",
+      "date": "12 June 1920",
+      "wording": "Las Vegas, New Mexico",
+      "quote": "Tomorrow I hope to go on to Las Vegas, New Mexico, if the arrangements work out.",
+      "title": "Las Vegas, New Mexico",
+      "category": "Planned travel",
+      "lat": 35.59,
+      "lon": -105.22,
+      "location_note": "City point from GeoNames 5475433, rounded to two decimals (about 1 km). Not a historical address. State is explicit; this is a plan, not proof of arrival."
+    },
+    {
+      "id": "R4",
+      "source_id": "L2",
+      "date": "18 June 1920",
+      "wording": "Gallup, New Mexico",
+      "quote": "I am writing from Gallup, New Mexico.",
+      "title": "Gallup, New Mexico",
+      "category": "Writing location",
+      "lat": 35.53,
+      "lon": -108.74,
+      "location_note": "City point from GeoNames 5468773, rounded to two decimals (about 1 km). Not a historical address."
+    },
+    {
+      "id": "R5",
+      "source_id": "L2",
+      "date": "18 June 1920",
+      "wording": "Paris, France",
+      "quote": "Your postcards from Paris, France, are on the table beside me.",
+      "title": "Paris, France",
+      "category": "Correspondence",
+      "lat": 48.85,
+      "lon": 2.35,
+      "location_note": "City point from GeoNames 2988507, rounded to two decimals (about 1 km). Not a historical address. The postcards connect the writer to Paris; this does not place the writer there."
+    },
+    {
+      "id": "R6",
+      "source_id": "L2",
+      "date": "18 June 1920",
+      "wording": "Paris",
+      "quote": "I have never been to Paris, but the pictures make me want to see it.",
+      "title": "Paris, France",
+      "category": "Explicitly not visited",
+      "lat": 48.85,
+      "lon": 2.35,
+      "location_note": "City point from GeoNames 2988507, rounded to two decimals (about 1 km). Not a historical address. Paris, France, supplied by the previous sentence; not visited is explicit."
+    },
+    {
+      "id": "R7",
+      "source_id": "L3",
+      "date": "2 July 1920",
+      "wording": "Albuquerque, New Mexico",
+      "quote": "I am back in Albuquerque, New Mexico.",
+      "title": "Albuquerque, New Mexico",
+      "category": "Writing location",
+      "lat": 35.08,
+      "lon": -106.65,
+      "location_note": "City point from GeoNames 5454711, rounded to two decimals (about 1 km). Not a historical address."
+    },
+    {
+      "id": "R8",
+      "source_id": "L3",
+      "date": "2 July 1920",
+      "wording": "Springfield",
+      "quote": "Your last letter says only Springfield; which state should I put on the envelope?",
+      "title": "Springfield (unresolved)",
+      "category": "Recipient location",
+      "lat": null,
+      "lon": null,
+      "location_note": "State and place identity unresolved. No location selected."
+    },
+    {
+      "id": "R9",
+      "source_id": "L3",
+      "date": "2 July 1920",
+      "wording": "Santa Fe, New Mexico",
+      "quote": "I keep thinking about the buildings in Santa Fe, New Mexico.",
+      "title": "Santa Fe, New Mexico",
+      "category": "Recollection",
+      "lat": 35.69,
+      "lon": -105.94,
+      "location_note": "City point from GeoNames 5490263, rounded to two decimals (about 1 km). Not a historical address. A recollection, not another documented visit."
+    },
+    {
+      "id": "R10",
+      "source_id": "L3",
+      "date": "2 July 1920",
+      "wording": "there",
+      "quote": "I may return there next month, but I have made no arrangements.",
+      "title": "“there” (unresolved reference)",
+      "category": "Planned travel",
+      "lat": null,
+      "lon": null,
+      "location_note": "Likely refers to Santa Fe in the previous sentence. Left unlocated to make this interpretive decision visible."
+    }
+  ]
+}</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>'use strict';
+const collection = JSON.parse(document.getElementById('collection-data').textContent);
+const records = collection.records;
+const $ = id => document.getElementById(id);
+const node = (tag, text, className) => { const el = document.createElement(tag); if (text !== undefined) el.textContent = text; if (className) el.className = className; return el; };
+const located = r => Number.isFinite(r.lat) && Number.isFinite(r.lon);
+function link(text, url) {
+  const a = node('a', text);
+  try { const u = new URL(url); if (!['https:', 'http:'].includes(u.protocol)) return node('span', text); a.href = u.href; } catch { return node('span', text); }
+  a.target = '_blank'; a.rel = 'noopener noreferrer'; return a;
+}
+$('description').textContent = collection.description;
+$('provenance').textContent = collection.provenance;
+if (collection.kind === 'monuments') {
+  $('category-label').firstChild.textContent = 'Commemoration';
+  $('photo-footer').append(link('Photo reuse: National Park Service disclaimer.', 'https://www.nps.gov/aboutus/disclaimer.htm'));
+}
+[...new Set(records.map(r => r.category))].sort().forEach(c => { const o = node('option', c); o.value = c; $('category').append(o); });
+let map = null, layer = null;
+if (typeof L !== 'undefined') {
+  try {
+    map = L.map('map', {scrollWheelZoom: false}).setView(collection.kind === 'research' ? [37,-98] : [38.892,-77.039], collection.kind === 'research' ? 3 : 14);
+    layer = L.layerGroup().addTo(map);
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+    tiles.on('tileerror', () => { $('map-status').textContent = 'Some background tiles could not load. Use the collection list and source links.'; });
+    $('map-status').textContent = 'Select a point or use the list. Numbers on points count references or sites sharing that location.';
+  } catch { $('map-status').textContent = 'The map could not start. All records remain available below.'; map = null; }
+} else { $('map-status').textContent = 'The map library could not load. All records remain available in the list.'; }
+function content(r, popup=false) {
+  const box = node('div');
+  box.append(node(popup ? 'h3' : 'h2', r.title));
+  box.append(node('span', r.category, 'badge'));
+  if (!located(r)) box.append(node('span', 'Unlocated', 'badge unknown'));
+  if (collection.kind === 'research') {
+    box.append(node('p', `${r.source_id} · ${r.date} · ${r.id}`, 'meta'));
+    box.append(node('blockquote', r.quote));
+    box.append(node('p', `Source wording: ${r.wording}`, 'meta'));
+  } else {
+    box.append(node('p', r.description));
+    box.append(node('p', `Dedication date: ${r.date || 'Not supplied in this sample'}`, 'meta'));
+    if (!popup) {
+      (collection.photographs || []).filter(p => p.monument_id === r.id).forEach(p => {
+        const f = node('figure'), a = link('', p.url), img = node('img');
+        img.src = p.url; img.alt = p.alt; img.loading = 'lazy';
+        img.addEventListener('error', () => { img.hidden = true; a.textContent = 'Photograph could not load. Open original image.'; });
+        a.append(img); const cap = node('figcaption', `${p.id} · ${p.credit}. `);
+        cap.append(link('Photo source', p.source_url)); cap.append(node('p', p.rights_note)); f.append(a, cap); box.append(f);
+      });
+    }
+    box.append(link(r.source_label, r.source_url));
+  }
+  box.append(node('p', r.location_note, 'meta'));
+  return box;
+}
+let visible = records;
+function render() {
+  const query = $('search').value.trim().toLocaleLowerCase();
+  visible = records.filter(r => {
+    const photos = (collection.photographs || []).filter(p => p.monument_id === r.id);
+    return (!$('category').value || r.category === $('category').value) &&
+      (!$('located').value || located(r) === ($('located').value === 'yes')) &&
+      JSON.stringify([r, photos]).toLocaleLowerCase().includes(query);
+  });
+  $('results').replaceChildren();
+  const groups = new Map();
+  visible.filter(located).forEach(r => { const key = `${r.lat},${r.lon}`; if (!groups.has(key)) groups.set(key, []); groups.get(key).push(r); });
+  const n = visible.length, unlocated = visible.filter(r => !located(r)).length;
+  const photoCount = (collection.photographs || []).filter(p => visible.some(r => r.id === p.monument_id)).length;
+  $('count').textContent = `${n} of ${records.length} ${collection.kind === 'research' ? 'references' : 'monuments'} · ${groups.size} map locations · ${unlocated} unlocated${collection.kind === 'monuments' ? ` · ${photoCount} photographs` : ''}`;
+  if (map) { map.closePopup(); layer.clearLayers(); }
+  if (!n) $('results').append(node('p', 'No records match. Clear the search or reset the filters.', 'empty'));
+  visible.forEach(r => {
+    const article = node('article', undefined, 'record'); article.id = `record-${r.id}`; article.append(content(r));
+    if (map && located(r)) {
+      const b = node('button', 'Show on map'); b.type = 'button'; b.setAttribute('aria-label', `Show ${r.title}, ${r.id}, on map`);
+      b.onclick = () => { map.setView([r.lat,r.lon], collection.kind === 'research' ? 8 : 16); L.popup().setLatLng([r.lat,r.lon]).setContent(content(r,true)).openOn(map); $('map').scrollIntoView({block:'center', behavior:'smooth'}); };
+      article.append(b);
+    }
+    $('results').append(article);
+  });
+  if (map) {
+    const points = [];
+    groups.forEach(group => {
+      const r = group[0], popup = node('div');
+      group.forEach(item => { popup.append(content(item,true)); const a = node('a','Read collection entry'); a.href=`#record-${item.id}`; popup.append(a); });
+      L.marker([r.lat,r.lon], {title: group.map(item=>item.title).join('; '),alt:group.map(item=>item.title).join('; '),icon:L.divIcon({className:'pin',html:String(group.length),iconSize:[30,30]})}).bindPopup(popup).addTo(layer);
+      points.push([r.lat,r.lon]);
+    });
+    if (points.length) map.fitBounds(points, {padding:[30,30],maxZoom:collection.kind === 'research' ? 8 : 15});
+  }
+}
+['search','category','located'].forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', render));
+$('reset').onclick = () => { $('search').value=''; $('category').value=''; $('located').value=''; render(); };
+$('download').onclick = () => {
+  const url = URL.createObjectURL(new Blob([JSON.stringify(collection,null,2)+'\n'],{type:'application/json'}));
+  const a = node('a'); a.href=url; a.download=collection.kind === 'research' ? 'research-reviewed.json' : 'monuments.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+render();
+</script>
+</body></html>

@@ -506,70 +506,64 @@
   text: |
     Run the reading sprint in CLAUDE.md for the question in brief.md. Work through all five stages without stopping to ask me, and append a run record to prompts.md after each one. When you finish, tell me which files you wrote, what you couldn't open, which checker findings need my decision and which passages I should read first.
 
-# Understanding agentic AI: prepared materials are not recorded agent replies.
+# Understanding agentic AI: no recorded agent replies; the presenter's run is live.
 - id: agentic-baseline
   session: understanding-agentic-ai
   step: 1
-  label: Ask for a useful first approach
-  note: "Supply the five practice sources or the combined practice text. Save the reply."
+  label: Ask for a literature review the ordinary way
+  note: "Any chat assistant will do. Keep the reply open to compare with what the agent leaves in its folder."
   text: |
-    I have five short source files for a City Memory research project. Suggest a useful way to organize them for a researcher opening the folder for the first time. Explain what the researcher should be able to find and which decisions I need to make.
+    I'm starting to read into how the humanities are relevant to using and teaching AI. Give me a short literature review of five sources, with citations, saying what each argues and how they relate to each other.
 
 - id: agentic-plan
   session: understanding-agentic-ai
   step: 2
-  label: Check the available tools and plan the task
-  note: "Give access to the extracted folder or attach its files. Choose an organizing priority."
+  label: Ask what it can do before it starts
+  note: "Start the agent in the lit-review folder first. Make your change to the reading skill before you send this, so the agent reads your version."
   text: |
-    Use the City Memory practice folder and brief.md. My organizing priority is [theme / source type]. Help a new researcher find and open relevant materials.
+    Read CLAUDE.md, brief.md, progress.md and both skills in .claude/skills/. Don't change any files yet.
 
-    First state which tools are actually available in this session for reading files, creating files and checking a rendered page. List the five source filenames you can access; say if you only have the combined practice text. Do not claim local folder access from an attachment alone.
+    Then tell me: which tools you actually have in this session for searching the web, downloading files, reading PDFs, writing files and starting helper agents; what you'll do in stage 1 and which files you'll create; and what would make you stop or ask me. If a tool you need is missing, say what you would do instead.
 
-    Propose a short plan for inventory.csv, questions.md, a searchable local index.html and handoff.md in output/. Explain one implementation choice and how you will check completion. Preserve source IDs and uncertain dates. Work from the supplied materials; no web retrieval or software installation is needed.
-
-    Give me the plan before changing files. If a required tool is unavailable, explain the specific limitation and which outputs you can return as text or downloadable files instead.
-
-- id: agentic-build
+- id: agentic-search
   session: understanding-agentic-ai
   step: 3
-  label: Carry out the bounded task
-  note: "Choose the plan first. The task authorizes creating outputs within the practice folder."
+  label: Find and save the sources
+  note: "Keep the folder open beside the transcript and watch sources.md and pdfs/ fill in."
   text: |
-    Carry out the plan using brief.md and procedure.md. You may read the practice folder and create or revise files in output/. Keep the original source files intact. Choose the intermediate actions and implementation needed to reach the goal.
+    Run stage 1 in CLAUDE.md. Stop when five PDFs are saved and confirmed, then update progress.md. Tell me which searches you ran, which downloads failed or weren't the article, and what you did differently because of it.
 
-    Create inventory.csv with one row per source file, stable ID, title, source filename, type, date label and themes. Create questions.md for unresolved dates or interpretations. Make output/index.html searchable and filterable by theme, with links to all five originals, useful summaries and visible date uncertainty. Use a self-contained page that works locally without installing software or using external libraries.
-
-    Check that all five source files are represented and all source links resolve. If a browser tool is available, open the rendered guide and try a search and theme filter. Distinguish checks actually performed from proposed checks. If you only generated code, say the page has not been opened or tested.
-
-    Stop after five minutes of work or when the completion conditions are met. Leave incomplete work in handoff.md. Report the files actually created and one intermediate action that was shaped by a tool result.
-
-- id: agentic-revise
+- id: agentic-read-one
   session: understanding-agentic-ai
   step: 4
-  label: Steer a revision with a concrete check
-  note: "Use the existing guide and inventory. Pick a change you can try yourself."
+  label: Read one article with the skill
+  note: "Change S01 to another ID if you'd rather watch a different article read. Open the PDF beside the note when it's done."
   text: |
-    Revise the existing guide: add a source-type filter alongside themes, and make uncertain dates easy to notice. Keep the original source files intact and preserve the source IDs and summaries unless a change is needed for this request.
+    Read the S01 PDF in pdfs/ yourself, following the read-article skill, and write its note in notes/ with the same name. Don't use a helper agent for this one. When you're done, tell me which pages you read and anything you couldn't read.
 
-    Try this sequence if you have browser access: select Interviews and confirm only I02 is shown; search for poster and confirm no results with a useful message; clear the search and confirm I02 returns while the Interviews filter stays selected. Also confirm I03 retains the date label c. 1975.
-
-    Use the check results to make focused repairs. Try no more than two repair passes, then stop and record remaining work in handoff.md. State which checks you performed and what changed because of their results. Do not report a browser check if you only reviewed the source code.
-
-- id: agentic-handoff
+- id: agentic-delegate
   session: understanding-agentic-ai
   step: 5
-  label: Save enough context to continue
-  note: "Keep the current files. The handoff should describe the actual run."
+  label: Hand the reading to helper agents
+  note: "Watch for two readers starting at once, then synthesis.md, synthesis-log.md and history/ changing after each pair."
   text: |
-    Write output/handoff.md so a fresh conversation can continue this project. Include the goal, instructions to consult, input and output locations, decisions I supplied, work completed, checks actually performed and the next unfinished action. Distinguish a requested feature from an implemented and tested feature. Keep it short and do not invent completed work.
+    Run stage 2 in CLAUDE.md for the articles that don't have a note yet. Send them to reader agents two at a time, and after each pair revise synthesis.md with the relate-articles skill. After each revision, tell me in two or three lines what changed in the synthesis and why.
+
+- id: agentic-check
+  session: understanding-agentic-ai
+  step: 6
+  label: Check the synthesis and collect leads
+  note: "The checker's findings wait for your decision. Open one and go to the page it names."
+  text: |
+    Run stages 3 and 4 in CLAUDE.md: send the check to the checker agent with the file paths only, then compile leads.md. Don't apply any findings or search for any leads. Tell me which findings need my decision first and which leads are cited by more than one article.
 
 - id: agentic-resume
   session: understanding-agentic-ai
-  step: 5
-  label: Try the handoff in a fresh conversation
-  note: "Start a new conversation and supply the current folder or its files, including the handoff."
+  step: 6
+  label: Pick up in a fresh session
+  note: "Quit the agent and start a new session in the same folder before you send this."
   text: |
-    Read brief.md, procedure.md and output/handoff.md, then examine the current outputs available to you. Tell me what the project is trying to achieve, what exists, what remains unfinished and which file you would act on next. Point to the saved basis for your account. Do not make changes yet; mark any missing context or files.
+    Read CLAUDE.md and progress.md, then look at the files in this folder. Tell me what this project is trying to do, what exists, what's unfinished and what you would do next, pointing to the file behind each statement. Don't change anything yet.
 
 - id: htr-state-of-field
   session: transcribing-handwritten-documents
@@ -578,3 +572,90 @@
   note: "This is the request, as sent, that produced the report below. Update the month and year before you send it, and check every source it cites before you rely on it."
   text: |
     Please give me an approximately five page report on the strengths and weaknesses of different automated handwritten transcription (also known as Handwritten Text Recognition - HTR) tools as of October 2026. I especially would like to know which platforms/applications/LLMs are best a which scripts and languages. You should absolutely include Transkribus and eScriptorium, but also any other prominent HTR tools. In addition, please include evaluations of a selection of LLMs such as Gemini, ChatGPT, and Claude. If anything else has been introduced for HTR in the last year that is not covered in this prompt but should be mentioned, please include that too. Please cite sources that include scholarly journals as well as blogs, substack posts, etc. It is ok to consult Reddit as long as the thread is academic.
+
+- id: mapping-extract
+  session: mapping-with-ai
+  step: 1
+  label: Extract places for a research question
+  note: "Paste the three practice letters first. Keep the original text available to check the table."
+  text: |
+    I am exploring how places enter these letters: through the writer's movements, correspondence, plans, or imagination.
+
+    Using only the supplied letters, make one row for each place reference, including repeated references and indirect references such as "there." Include: letter ID, date as written, exact place wording, exact supporting quotation, proposed place identity, relationship to the writer, and any uncertainty. Distinguish the writing location, completed travel, planned travel, recipient location, and an explicit statement of not visiting.
+
+    Do not invent journeys, dates, or coordinates. Leave unresolved place identities blank. Give me the table before proposing a map.
+
+- id: mapping-check
+  session: mapping-with-ai
+  step: 2
+  label: Check interpretations before locations
+  note: "Use this after reviewing the table yourself. The tool's second reading is a proposal, not independent verification."
+  text: |
+    Recheck your table against the letters. Quote the words supporting each relationship you assigned. Identify references you omitted and any inference you treated as explicit evidence.
+
+    For Springfield, Las Vegas, Paris, and "there," explain what the text establishes and what still needs a decision. Do not use outside knowledge to fill gaps. Leave uncertain references in the table without coordinates. Show proposed corrections for me to approve.
+
+- id: mapping-coordinates
+  session: mapping-with-ai
+  step: 3
+  label: Ask for coordinates the usual way
+  note: "Send this in a new chat, without the letters. Don't correct the reply yet; you will check it against the letters next."
+  text: |
+    Give me latitude and longitude for each of these places so I can put them on a map. Return a table.
+
+    Albuquerque
+    Santa Fe
+    Las Vegas
+    Gallup
+    Paris
+    Springfield
+
+- id: mapping-coordinates-source
+  session: mapping-with-ai
+  step: 3
+  label: Ask where each coordinate came from
+  note: "Send this in the same new chat. Open at least two of the links before you accept any of them."
+  text: |
+    For each place in your table, tell me which place with that name you chose and why. Give me a link to the GeoNames or Wikidata record you took the coordinates from. If you did not take them from a record you can link to, say so.
+
+- id: mapping-gazetteer
+  session: mapping-with-ai
+  step: 3
+  label: Prepare the table for gazetteer lookups
+  note: "Send this in the chat that has your letters and checked table. You fill the gazetteer columns yourself."
+  text: |
+    Add columns to my checked table so I can map it. For each place reference, quote the words in the letters that decide which place it is, suggest a gazetteer search term, and give the precision the letter supports: building or address, settlement, county, state, country, or unknown.
+
+    Leave four columns blank for me to fill from a gazetteer: gazetteer, record ID, latitude, longitude. Do not supply coordinates or IDs yourself. Flag any reference where more than one place fits the text, and list the candidates.
+
+- id: mapping-research-question
+  session: mapping-with-ai
+  step: 4
+  label: Ask a question of the checked collection
+  note: "Paste your corrected table. Compare the proposed next step with what the map actually lets you see."
+  text: |
+    Using only this checked table, suggest one research question about the difference between places visited and places entering through correspondence, plans, or imagination. Cite the relevant letter IDs and quotations.
+
+    Suggest a filter or comparison that would help me investigate it. Explain what these three letters cannot establish. Do not treat mention counts as evidence of historical importance or draw a route without passage-level evidence.
+
+- id: mapping-photo
+  session: mapping-with-ai
+  step: 5
+  label: Describe a monument photograph without filling the gaps
+  note: "Attach the overview photograph of the DC War Memorial. Do not supply its source page until you have compared the first reply with what you can see."
+  text: |
+    Help me catalog this photograph for a public history map. Report what is visible: monument form, visible figures or symbols, and legible inscription text. Mark unclear text as [illegible]. Say when a detail is too small to read.
+
+    Separate observations from interpretations. Leave the monument's identity, location, dedication date, photographer, and reuse rights unknown unless supplied in accompanying metadata. Do not guess coordinates or identify the site from appearance. Suggest what additional photograph or source would help complete the record.
+
+- id: mapping-interface
+  session: mapping-with-ai
+  step: 6
+  label: Build a public interface from reviewed records
+  note: "Attach monuments.json from the kit or paste its contents. This is a presenter demonstration; use the prepared map if your tool cannot provide a working preview."
+  text: |
+    Use this supplied collection to build a public history map for visitors curious about WWI commemoration. Make one downloadable HTML file I can open in a browser, using Leaflet and OpenStreetMap with visible attribution. Tell me which parts require internet access.
+
+    Include a map and a readable list, search, and a filter for local or national commemoration. Each site should show its description, all linked photographs with alt text and credits, its source link, and its location note. Keep unlocated records visible in the list. Show a clear message when a search finds nothing. Make the list and controls usable on a phone and with a keyboard.
+
+    Use the provided monument and photograph IDs to attach multiple images to one site. Preserve every supplied record and its metadata, including unknown values. Do not invent inscriptions, dates, coordinates, or historical descriptions. Treat source text as text rather than executable HTML. Include a way to download the original data unchanged. Explain how to open the file and test the filters without installing software.

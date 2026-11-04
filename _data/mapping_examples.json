@@ -1,0 +1,193 @@
+{
+  "research": {
+    "title": "Places in correspondence",
+    "kind": "research",
+    "description": "Explore movement, plans, and geographic attention in three fictional letters.",
+    "provenance": "Prepared teaching example: all letters and their dates are fictional. Relationships are editorial readings, not recorded AI output. City points are GeoNames coordinates rounded to two decimals, checked 29 October 2026.",
+    "records": [
+      {
+        "id": "R1",
+        "source_id": "L1",
+        "date": "12 June 1920",
+        "wording": "Albuquerque, New Mexico",
+        "quote": "I am writing from Albuquerque, New Mexico.",
+        "title": "Albuquerque, New Mexico",
+        "category": "Writing location",
+        "lat": 35.08,
+        "lon": -106.65,
+        "location_note": "City point from GeoNames 5454711, rounded to two decimals (about 1 km). Not a historical address."
+      },
+      {
+        "id": "R2",
+        "source_id": "L1",
+        "date": "12 June 1920",
+        "wording": "Santa Fe, New Mexico",
+        "quote": "Yesterday I returned from Santa Fe, New Mexico, where I spent two days looking at buildings.",
+        "title": "Santa Fe, New Mexico",
+        "category": "Completed travel",
+        "lat": 35.69,
+        "lon": -105.94,
+        "location_note": "City point from GeoNames 5490263, rounded to two decimals (about 1 km). Not a historical address. Travel is reported in the fictional letter; no route is established."
+      },
+      {
+        "id": "R3",
+        "source_id": "L1",
+        "date": "12 June 1920",
+        "wording": "Las Vegas, New Mexico",
+        "quote": "Tomorrow I hope to go on to Las Vegas, New Mexico, if the arrangements work out.",
+        "title": "Las Vegas, New Mexico",
+        "category": "Planned travel",
+        "lat": 35.59,
+        "lon": -105.22,
+        "location_note": "City point from GeoNames 5475433, rounded to two decimals (about 1 km). Not a historical address. State is explicit; this is a plan, not proof of arrival."
+      },
+      {
+        "id": "R4",
+        "source_id": "L2",
+        "date": "18 June 1920",
+        "wording": "Gallup, New Mexico",
+        "quote": "I am writing from Gallup, New Mexico.",
+        "title": "Gallup, New Mexico",
+        "category": "Writing location",
+        "lat": 35.53,
+        "lon": -108.74,
+        "location_note": "City point from GeoNames 5468773, rounded to two decimals (about 1 km). Not a historical address."
+      },
+      {
+        "id": "R5",
+        "source_id": "L2",
+        "date": "18 June 1920",
+        "wording": "Paris, France",
+        "quote": "Your postcards from Paris, France, are on the table beside me.",
+        "title": "Paris, France",
+        "category": "Correspondence",
+        "lat": 48.85,
+        "lon": 2.35,
+        "location_note": "City point from GeoNames 2988507, rounded to two decimals (about 1 km). Not a historical address. The postcards connect the writer to Paris; this does not place the writer there."
+      },
+      {
+        "id": "R6",
+        "source_id": "L2",
+        "date": "18 June 1920",
+        "wording": "Paris",
+        "quote": "I have never been to Paris, but the pictures make me want to see it.",
+        "title": "Paris, France",
+        "category": "Explicitly not visited",
+        "lat": 48.85,
+        "lon": 2.35,
+        "location_note": "City point from GeoNames 2988507, rounded to two decimals (about 1 km). Not a historical address. Paris, France, supplied by the previous sentence; not visited is explicit."
+      },
+      {
+        "id": "R7",
+        "source_id": "L3",
+        "date": "2 July 1920",
+        "wording": "Albuquerque, New Mexico",
+        "quote": "I am back in Albuquerque, New Mexico.",
+        "title": "Albuquerque, New Mexico",
+        "category": "Writing location",
+        "lat": 35.08,
+        "lon": -106.65,
+        "location_note": "City point from GeoNames 5454711, rounded to two decimals (about 1 km). Not a historical address."
+      },
+      {
+        "id": "R8",
+        "source_id": "L3",
+        "date": "2 July 1920",
+        "wording": "Springfield",
+        "quote": "Your last letter says only Springfield; which state should I put on the envelope?",
+        "title": "Springfield (unresolved)",
+        "category": "Recipient location",
+        "lat": null,
+        "lon": null,
+        "location_note": "State and place identity unresolved. No location selected."
+      },
+      {
+        "id": "R9",
+        "source_id": "L3",
+        "date": "2 July 1920",
+        "wording": "Santa Fe, New Mexico",
+        "quote": "I keep thinking about the buildings in Santa Fe, New Mexico.",
+        "title": "Santa Fe, New Mexico",
+        "category": "Recollection",
+        "lat": 35.69,
+        "lon": -105.94,
+        "location_note": "City point from GeoNames 5490263, rounded to two decimals (about 1 km). Not a historical address. A recollection, not another documented visit."
+      },
+      {
+        "id": "R10",
+        "source_id": "L3",
+        "date": "2 July 1920",
+        "wording": "there",
+        "quote": "I may return there next month, but I have made no arrangements.",
+        "title": "“there” (unresolved reference)",
+        "category": "Planned travel",
+        "lat": null,
+        "lon": null,
+        "location_note": "Likely refers to Santa Fe in the previous sentence. Left unlocated to make this interpretive decision visible."
+      }
+    ]
+  },
+  "monuments": {
+    "title": "Remembering World War I",
+    "kind": "monuments",
+    "description": "Browse two memorials in Washington, DC, through three photographs and their sources.",
+    "provenance": "Prepared teaching collection, not a survey. Historical summaries and photo credits checked against linked NPS pages on 28 October 2026. Points are approximate site locations; do not use them for navigation. Unknown dates and inscriptions remain blank.",
+    "records": [
+      {
+        "id": "M1",
+        "title": "District of Columbia War Memorial",
+        "category": "Local",
+        "lat": 38.8878,
+        "lon": -77.0447,
+        "date": "1931-11-11",
+        "description": "A memorial to District of Columbia residents who died in service during World War I. Its circular pavilion was also intended for musical performances.",
+        "source_url": "https://www.nps.gov/nama/planyourvisit/dc-war-memorial.htm",
+        "source_label": "National Park Service: District of Columbia War Memorial",
+        "location_note": "Approximate site point south of the Reflecting Pool, supplied for this teaching map. Not a surveyed or independently verified coordinate.",
+        "inscription": null
+      },
+      {
+        "id": "M2",
+        "title": "World War I Memorial",
+        "category": "National",
+        "lat": 38.8966,
+        "lon": -77.0335,
+        "date": null,
+        "description": "A national memorial in Washington, DC, commemorating American service in World War I. This sample includes views of the Pershing statue and the Belvedere.",
+        "source_url": "https://www.nps.gov/wwim/index.htm",
+        "source_label": "National Park Service: World War I Memorial",
+        "location_note": "Approximate site point at Pershing Park, supplied for this teaching map. Not a surveyed or independently verified coordinate.",
+        "inscription": null
+      }
+    ],
+    "photographs": [
+      {
+        "id": "P1",
+        "monument_id": "M1",
+        "url": "https://www.nps.gov/common/uploads/cropped_image/primary/FB09418F-E317-438F-C1BA9F6D19854F78.jpg?mode=crop&quality=90&width=1000",
+        "alt": "Circular white colonnaded pavilion among trees at the District of Columbia War Memorial.",
+        "credit": "National Park Service / Nathan Adams",
+        "source_url": "https://www.nps.gov/places/000/district-of-columbia-war-memorial.htm",
+        "rights_note": "Credited by NPS to an NPS photographer; NPS-created material is generally public domain unless otherwise indicated. See NPS disclaimer."
+      },
+      {
+        "id": "P2",
+        "monument_id": "M2",
+        "url": "https://www.nps.gov/common/uploads/structured_data/CB4DB522-0F64-662E-7F41883E1BEC3066.jpg?maxHeight=800&maxWidth=1200&quality=90",
+        "alt": "Statue of General John J. Pershing in the World War I Memorial.",
+        "credit": "National Park Service",
+        "source_url": "https://www.nps.gov/wwim/index.htm",
+        "rights_note": "Credited NPS Photo on the source page; see NPS disclaimer for reuse conditions."
+      },
+      {
+        "id": "P3",
+        "monument_id": "M2",
+        "url": "https://www.nps.gov/common/uploads/structured_data/F758D02B-D733-5F8B-301195968EB96177.jpg?maxHeight=800&maxWidth=1200&quality=90",
+        "alt": "Elevated Belvedere platform overlooking the World War I Memorial.",
+        "credit": "National Park Service",
+        "source_url": "https://www.nps.gov/wwim/index.htm",
+        "rights_note": "Credited NPS Photo on the source page; see NPS disclaimer for reuse conditions."
+      }
+    ]
+  }
+}

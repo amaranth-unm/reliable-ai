@@ -1,0 +1,63 @@
+{
+  "title": "Remembering World War I",
+  "kind": "monuments",
+  "description": "Browse two memorials in Washington, DC, through three photographs and their sources.",
+  "provenance": "Prepared teaching collection, not a survey. Historical summaries and photo credits checked against linked NPS pages on 28 October 2026. Points are approximate site locations; do not use them for navigation. Unknown dates and inscriptions remain blank.",
+  "records": [
+    {
+      "id": "M1",
+      "title": "District of Columbia War Memorial",
+      "category": "Local",
+      "lat": 38.8878,
+      "lon": -77.0447,
+      "date": "1931-11-11",
+      "description": "A memorial to District of Columbia residents who died in service during World War I. Its circular pavilion was also intended for musical performances.",
+      "source_url": "https://www.nps.gov/nama/planyourvisit/dc-war-memorial.htm",
+      "source_label": "National Park Service: District of Columbia War Memorial",
+      "location_note": "Approximate site point south of the Reflecting Pool, supplied for this teaching map. Not a surveyed or independently verified coordinate.",
+      "inscription": null
+    },
+    {
+      "id": "M2",
+      "title": "World War I Memorial",
+      "category": "National",
+      "lat": 38.8966,
+      "lon": -77.0335,
+      "date": null,
+      "description": "A national memorial in Washington, DC, commemorating American service in World War I. This sample includes views of the Pershing statue and the Belvedere.",
+      "source_url": "https://www.nps.gov/wwim/index.htm",
+      "source_label": "National Park Service: World War I Memorial",
+      "location_note": "Approximate site point at Pershing Park, supplied for this teaching map. Not a surveyed or independently verified coordinate.",
+      "inscription": null
+    }
+  ],
+  "photographs": [
+    {
+      "id": "P1",
+      "monument_id": "M1",
+      "url": "https://www.nps.gov/common/uploads/cropped_image/primary/FB09418F-E317-438F-C1BA9F6D19854F78.jpg?mode=crop&quality=90&width=1000",
+      "alt": "Circular white colonnaded pavilion among trees at the District of Columbia War Memorial.",
+      "credit": "National Park Service / Nathan Adams",
+      "source_url": "https://www.nps.gov/places/000/district-of-columbia-war-memorial.htm",
+      "rights_note": "Credited by NPS to an NPS photographer; NPS-created material is generally public domain unless otherwise indicated. See NPS disclaimer."
+    },
+    {
+      "id": "P2",
+      "monument_id": "M2",
+      "url": "https://www.nps.gov/common/uploads/structured_data/CB4DB522-0F64-662E-7F41883E1BEC3066.jpg?maxHeight=800&maxWidth=1200&quality=90",
+      "alt": "Statue of General John J. Pershing in the World War I Memorial.",
+      "credit": "National Park Service",
+      "source_url": "https://www.nps.gov/wwim/index.htm",
+      "rights_note": "Credited NPS Photo on the source page; see NPS disclaimer for reuse conditions."
+    },
+    {
+      "id": "P3",
+      "monument_id": "M2",
+      "url": "https://www.nps.gov/common/uploads/structured_data/F758D02B-D733-5F8B-301195968EB96177.jpg?maxHeight=800&maxWidth=1200&quality=90",
+      "alt": "Elevated Belvedere platform overlooking the World War I Memorial.",
+      "credit": "National Park Service",
+      "source_url": "https://www.nps.gov/wwim/index.htm",
+      "rights_note": "Credited NPS Photo on the source page; see NPS disclaimer for reuse conditions."
+    }
+  ]
+}
