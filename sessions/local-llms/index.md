@@ -6,7 +6,7 @@ position: 7
 date: 2026-12-02
 time: "12:00–12:50"
 location: History Commons (MVH 1104)
-kicker: Session 6 · December 2, 2026
+kicker: Session 7 · December 2, 2026
 # Draft summary and points; confirm with the presenter. Before the session is
 # announced, also add flyer, note (what to bring) and header-subtitle (the
 # session's thesis). See SESSION-STYLE.md.

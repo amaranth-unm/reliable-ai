@@ -9,7 +9,7 @@ The session is a piece of problem solving. An AI review is quick to get and slow
 
 It is a stand-alone workshop. The audit trail session covers recording and verification as a practice; here verification is the motivation for each design choice, and the emphasis is on how the agent works.
 
-Most of the room watches. Participants who already use an agent build the same folder alongside. Everyone can send the baseline prompt in a chat and answer the "What's left to check" questions from the presenter's screen.
+Most of the room watches. Participants who already use an agent build the same folder alongside. Everyone can send the baseline prompt in a chat and answer the "Remaining tax liability" questions from the presenter's screen.
 
 ## Reveal the folder gradually
 
@@ -28,16 +28,22 @@ Start in an empty lit-review folder. Each step adds one or two files, and the pa
 - 52–58: step 6. Workflow file, fresh session, the whole folder and the download. Partner question about their own work.
 - 58–60: takeaways table.
 
-Steps 1 and 4 take the most live time. While the agent works, talk through the "What's left to check" list for that step.
+Steps 1 and 4 take the most live time. While the agent works, talk through the "Remaining tax liability" box for that step.
 
 ## Before teaching
 
-- Participants are pointed to Obsidian for reading the folder (Open folder as vault). It adds a hidden .obsidian settings folder to lit-review; that's harmless, and the agent should ignore it. Run the agent yourself in VS Code's terminal so the room sees the folder, the open file and the transcript in one window.
+- Participants are pointed to Obsidian for reading the folder (Open folder as vault). It adds a hidden .obsidian settings folder to lit-review; that's harmless, and the agent should ignore it. Run the agent yourself in the Claude desktop app's Code tab, with Obsidian open beside it, so the room sees the transcript and the folder filling in. The page tells participants to use the desktop apps, not a terminal.
 
+- In the invitation, ask anyone who wants to follow along to install Obsidian (or have VS Code) beforehand, and, if they will run an agent, to check that the Claude Code tab or the ChatGPT desktop app opens a folder on their plan. Don't wait for installs in the room. The page cues Obsidian twice: opening the folder as a vault in step 1, and a note beside its PDF in step 2. Some managed university laptops block installs; those participants watch the presenter's screen.
 - Rehearse at least once in an empty folder in _local/rehearsal/, with the prompts from the page in order. Time each step and keep the transcript and the finished folder.
-- Check that Claude Code is signed in, that web search and curl downloads work on the venue network, and that the backup PDFs in the brief open.
+- Check that Claude Code is signed in, that web search and PDF downloads work on the venue network, and that the backup PDFs in the brief open.
 - Grant permissions in advance where you can, so approval prompts don't interrupt the room. Keep the session inside the lit-review folder.
 - Platform notes, to recheck before teaching: Claude Code reads CLAUDE.md at the start of every session; its general-purpose helper agents (subagents) start with only the prompt the lead gives them and can run in parallel; subagents can't start their own subagents. The instruction files are plain files in a visible folder, so other agents can use them, at the cost of Claude Code's automatic skill loading and per-helper tool limits. Mention that packaging in step 6 only.
+- Plans and apps, checked 2026-11-05 (recheck before teaching):
+  - Claude: the desktop app's Code tab is Claude Code, so CLAUDE.md and helper agents work as the page describes. It needs a paid plan (Pro or above); the pricing page marks Claude Code "No" for Free. Cowork was merged into the main Claude conversation from September 16, 2026 (https://claude.com/blog/cowork-is-now-claude), so participants may not see a Cowork option. On paid plans the merged Claude can also work in a local folder, but Cowork's help page never mentioned CLAUDE.md (it used its own folder instructions), so send participants to the Code tab, where step 6 behaves as described.
+  - ChatGPT: the desktop app opens a local folder and runs Codex. Free and Go include "Limited Codex access"; OpenAI gives no number. Codex reads AGENTS.md, not CLAUDE.md, so in step 6 ChatGPT users ask for AGENTS.md (the prompt's note says so). Codex runs helper agents in parallel by default. Its web search uses a cached index by default; check before teaching whether it asks for approval before downloading PDFs.
+  - Free accounts: Claude Free can do the baseline exercise but not the folder steps. ChatGPT Free can try the folder steps but may hit its limit partway through.
+  - Sources: https://claude.com/pricing, https://support.claude.com/en/articles/13345190-get-started-with-cowork, https://code.claude.com/docs/en/desktop, https://learn.chatgpt.com/docs/pricing, https://learn.chatgpt.com/docs/app, https://learn.chatgpt.com/docs/agent-configuration/agents-md, https://learn.chatgpt.com/codex/agent-configuration/subagents, https://learn.chatgpt.com/codex/web-search
 
 ## If the live run stalls
 

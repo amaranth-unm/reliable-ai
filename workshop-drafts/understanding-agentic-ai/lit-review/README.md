@@ -13,7 +13,8 @@ finds and writes those when it runs.
 - `progress.md`: where the project stands.
 
 To run it, start your agent in this folder and ask it to run stage 1 in
-CLAUDE.md, then stage 2, then stage 3.
+CLAUDE.md, then stage 2, then stage 3. Stage 4 waits until you have decided
+which of the checker's findings to accept.
 
 The agent adds `sources.md`, `pdfs/`, `notes/`, `synthesis.md`,
 `synthesis-log.md`, `history/` and `checks.md`.

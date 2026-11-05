@@ -1,5 +1,5 @@
 MAPPING WITH AI — PRACTICE KIT
-Reliable AI for Humanists · Amaranth · University of New Mexico
+Reliable AI · Amaranth · University of New Mexico
 Prepared 28 October 2026
 
 START HERE

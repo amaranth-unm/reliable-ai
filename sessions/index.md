@@ -8,7 +8,7 @@ header-position: center right
 header-title: Sessions
 header-subtitle: "A printing house around 1600: people at work, a boy watching, a man in a fur robe talking it over with the pressman. The sessions run the same way: watch, work along on your own laptop, or stop us to ask about anything, as often as you like."
 header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from <i>Nova Reperta</i>, engraved by Joannes Galle. Museum Plantin-Moretus, public domain." 
-summary: "Every session in the Reliable AI for Humanists brown bag series, with the full materials from each."
+summary: "Every session in the Reliable AI brown bag series, with the full materials from each."
 ---
 
 We work through a few exercises on screen and talk about what the tool is doing as we go. Follow along on your own laptop or just watch. Ask questions constantly or never say a word. Skeptics, critics, the curious and the enthusiastic all have a place here, and we're hoping to learn from each other.
@@ -17,7 +17,7 @@ We work through a few exercises on screen and talk about what the tool is doing 
 ## What to bring
 
 - **Lunch.** It's a brown bag series.
-- **A laptop, if you want to follow along**, with Claude, ChatGPT, Gemini or Copilot open in a browser tab. A free account is enough. No laptop is fine; you can watch.
+- **A laptop, if you want to follow along**, with Claude, ChatGPT, Gemini or Copilot open in a browser tab. A free account is enough for most sessions; each session's page says if it isn't. No laptop is fine; you can watch.
 - **Something of your own to try it on.** Each session's page says what, such as a paragraph of your writing or a photo of a handwritten page. If you don't have anything suitable, the session page has examples you can use instead.
 - **Nothing you shouldn't share.** Leave out other people's unpublished work, student writing with names attached, and anything under embargo or an IRB protocol.
 

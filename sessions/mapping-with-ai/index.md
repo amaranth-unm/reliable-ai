@@ -6,7 +6,7 @@ position: 5
 date: 2026-11-11
 time: "12:00–12:50"
 location: History Commons (MVH 1104)
-kicker: Session 4 · November 11, 2026
+kicker: Session 5 · November 11, 2026
 summary: "Explore places in research texts and turn photographs of WWI monuments into a public map, using AI to organize the material and help build the interface."
 points:
   - title: Explore the geography of a text

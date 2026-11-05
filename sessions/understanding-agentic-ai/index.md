@@ -1,11 +1,21 @@
 ---
 title: Understanding Agentic AI
+presenter: Fred Gibbs
 layout: base
 position: 4
-kicker: Workshop draft
+date: 2026-11-05
+time: "9:30–10:30"
+location: SUB Lobo A/B
+kicker: Session 4 · November 5, 2026
 summary: "Build a small literature review with an AI agent, one step at a time, so that what it produces takes less time to check."
+points:
+  - title: Pay down the verification tax
+    text: See why a fast AI literature review is slow to check, and split the work into steps whose results are quick to check.
+  - title: Give an agent a folder and standing instructions
+    text: Keep the brief, sources, notes and synthesis as files, with instructions the agent reads at the start of every session.
+  - title: Have one agent check another
+    text: Give each PDF to a helper that sees nothing else, then have a separate checker test the synthesis against the PDFs.
 note: "Bring a laptop. The presenter runs the agent; if you already use one, you can build the same review alongside."
-published: false
 thumbnail: "/assets/images/stradanus-press-1600.jpg"
 header-image: "/assets/images/stradanus-press-1600.jpg"
 header-tier: section
@@ -55,15 +65,20 @@ way you will see what makes a system agentic, and how to direct one.
 
 - **A laptop** to follow the page and open the files the agent writes.
 - **A way to read the folder.** [Obsidian](https://obsidian.md/) is free on
-  Mac and Windows. Choose **Open folder as vault** and pick your
-  `lit-review` folder. It shows files as the agent writes them, displays the
-  notes formatted and can open a PDF beside a note, which helps when you
-  check an idea against its page. A code editor such as
+  Mac and Windows; install it before the session. It shows files as the
+  agent writes them, displays the notes formatted and can open a PDF beside
+  a note, which helps when you check an idea against its page. Step 1 says
+  when to open the folder in it. A code editor such as
   [Visual Studio Code](https://code.visualstudio.com/) works too.
 - **An AI chat assistant** such as Claude, ChatGPT, Gemini or Copilot, for
   the first exercise.
-- **An agent that works in a folder, if you already use one**, such as
-  Claude Code or Codex. You don't need one: the presenter runs every step.
+- **An agent that works in a folder, if you want to follow along.** The
+  Claude desktop app (its **Code** tab) and the ChatGPT desktop app can each
+  open a folder on your computer and work in it, with no terminal. Claude's
+  needs a paid plan. ChatGPT's free plan includes limited use, which a long
+  session may use up. You don't need either: the presenter runs every step,
+  and the first exercise works in any chat assistant. For other tools, see
+  [Which agent should I use?](#which-agent)
 
 If you would rather not write the files as you go, step 6 has a
 [download of the starting folder](#step-6): every file you write during the
@@ -84,7 +99,9 @@ was carried out.
 
 A browser window does not tell you how agentic a system is. A chat
 interface can front a system with tools, and a desktop agent can be used for
-a single reply. Look at how the work proceeds.
+a single reply. Look at how the work proceeds. This session needs one thing
+more: an agent that reads and writes files in a folder on your computer, so
+that every result stays where you can open it and check it.
 
 | Way of working | What to look for | When it helps |
 |---|---|---|
@@ -122,6 +139,39 @@ built around language models, and its scope varies across researchers and
 products. In current tools it is partly a practical question of which
 decisions and permissions you hand over. None of these uses establishes
 human-like intentions or understanding.
+
+</details>
+
+<details class="more" id="which-agent" markdown="1">
+<summary>Which agent should I use?</summary>
+
+No tool is best for every project, and what each one offers changes from
+month to month. Rather than choosing a brand, ask what the work needs. For
+the review in this session:
+
+| Question | Why it matters here |
+|---|---|
+| Can it read and write files in a folder you choose on your own computer? | The sources, notes and synthesis stay where you can open and check them, not inside a conversation. Every step depends on this. |
+| Does it read a standing instructions file when a session starts? | A new session can pick up the work from the files (step 6). Claude reads `CLAUDE.md`; ChatGPT reads `AGENTS.md`. |
+| Can it start helper agents that see only what you give them? | The reading helpers in step 4 and the checker in step 5. |
+| Does it show what it did? | You see the searches it ran, the files it opened and changed, and so what you need to check. |
+| Does your plan include it, and may you give it these files? | Folder agents usually need a paid plan, and some institutions limit which services may receive research materials. |
+
+Checked on November 5, 2026:
+
+- **Claude desktop app, Code tab:** does all five on a paid plan. The
+  presenter uses it.
+- **Claude desktop app, main conversation:** on paid plans it can also work
+  in a folder. Not tested with this session.
+- **ChatGPT desktop app:** opens a folder and can start helper agents.
+  Free plans include limited use. Not tested with this session.
+- **Others,** such as Gemini and Copilot, offer similar tools. Check them
+  against the same questions.
+
+A chat assistant without folder access can do some of this work if you
+upload the PDFs and paste the instructions. It is still choosing actions and
+using tools. But the files live in the conversation, and you carry them from
+one session to the next yourself.
 
 </details>
 
@@ -185,8 +235,13 @@ seen this conversation. The same idea applies to anything the agent will
 need to refer back to later; step 3 gives each point in the synthesis an ID
 too.
 
-Start your agent in the folder. In Claude Code, open a terminal in
-`lit-review` and type `claude`. Then send this.
+If you have Obsidian, open `lit-review` now with **Open folder as vault**
+and keep it beside the agent. You'll see `sources.md` and the PDFs appear as
+the agent works.
+
+Start your agent in the folder. In the Claude desktop app, open the
+**Code** tab and choose `lit-review` as the project folder. In the ChatGPT
+desktop app, open the `lit-review` folder. Then send this.
 
 {% include prompt.html id="agentic-search" %}
 
@@ -246,6 +301,10 @@ lit-review/
     reading.md
   notes/         S01-surname.md, S02-surname.md
 ```
+
+In Obsidian, open a note, then drag its PDF from the file list onto the
+right edge of the note. The note and the pages it cites are now side by
+side, which makes the first check below a matter of scrolling.
 
 <div class="tax" markdown="1">
 You'd ask the same of anyone's notes, your own included. One idea per note may be enough for getting oriented; a review you'll publish deserves more.

@@ -1,4 +1,4 @@
-# Maintaining the Reliable AI for Humanists site
+# Maintaining the Reliable AI site
 
 Notes for whoever edits the site. Workshop participants don't need any of
 this; the [README](README.md) sends them to the site.

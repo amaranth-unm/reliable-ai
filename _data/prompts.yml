@@ -550,9 +550,9 @@
   text: |
     Read brief.md. Search within its scope and limits for four sources, and record each search in sources.md as you run it, worded exactly.
 
-    For each source you choose, download the PDF into pdfs/ with curl, named by ID and first author's surname (S01-goodlad.pdf), then open it and confirm the title and author on the first page. If the download fails, or the file is a login or paywall page, delete it, list the article at the end of sources.md as a lead and choose another. If you have fewer than four after five searches, use the backup set in the brief and say so.
+    For each source you choose, download the PDF into pdfs/, named by ID and first author's surname (S01-goodlad.pdf), then open it and confirm the title and author on the first page. If the download fails, or the file is a login or paywall page, delete it, list the article at the end of sources.md as a lead and choose another. If you have fewer than four after five searches, use the backup set in the brief and say so.
 
-    In sources.md, give each source its ID, the citation as printed on the PDF, the URL, the saved filename and why it fits the brief. Stop at four. Tell me what you searched, what failed and what you did about it.
+    In sources.md, give each source its ID, the citation as printed on the PDF, its publication date, the URL, the saved filename and why it fits the brief. Stop at four. Tell me what you searched, what failed and what you did about it.
 
 - id: agentic-reading
   session: understanding-agentic-ai
@@ -603,7 +603,7 @@
 
     Sections:
 
-    - Where they overlap: the specific claim at stake, the sources and pages, and whether the authors make the connection themselves (one cites or responds to another) or you drew it. Write yours as "Read alongside …".
+    - Where they overlap: the specific claim at stake, the sources and pages, and whether the authors make the connection themselves (one cites or responds to another) or you drew it. Write yours as "Read alongside …". Join sources only where their own sentences address the same question; passages on different questions are not an overlap.
     - Where they differ: each position, with pages. Say whether it is a real disagreement or a difference of emphasis or audience.
     - What only one offers: for each source, what no other source in the set offers. Check every other note before calling something unique.
     - For using AI and for teaching AI: what the set offers each.
@@ -613,7 +613,7 @@
 
     1. Copy the current synthesis.md to history/synthesis-vN.md, where N is its version.
     2. Revise it, changing any point the new notes affect.
-    3. Append an entry to synthesis-log.md: the new version, the notes added, and the point IDs added, changed, and weakened or removed, with reasons.
+    3. Append an entry to synthesis-log.md: the new version, the notes added, and the point IDs added, changed, and weakened or removed, with reasons. A point counts as changed if you altered or dropped any of its wording, sources or qualifications.
 
     Rules:
 
@@ -673,7 +673,7 @@
   session: understanding-agentic-ai
   step: 6
   label: Write the workflow down
-  note: "Claude Code reads CLAUDE.md at the start of every session. If your agent reads another file (Codex reads AGENTS.md), use that name."
+  note: "Claude reads CLAUDE.md at the start of every session. In ChatGPT, ask for AGENTS.md instead: Codex reads that file, not CLAUDE.md."
   text: |
     Write CLAUDE.md: standing instructions that would let a new session continue this review without this conversation. Include the files to read first, the stages we ran in order, when to use a separate helper agent, the file names and what not to change. Then write progress.md: what exists, what's unfinished and the next action. Describe only what we actually did.
 

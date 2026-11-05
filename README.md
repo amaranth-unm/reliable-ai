@@ -1,4 +1,4 @@
-# Reliable AI for Humanists
+# Reliable AI
 
 A brown bag workshop series from [Amaranth](https://amaranth.unm.edu), the
 digital humanities and public scholarship studio at the University of New
