@@ -2,7 +2,7 @@
    See SESSION-STYLE.md, "Type hierarchy". Five levels:
    1 section heading (h2 band), 2 subheading (h3), both set by the theme;
    3 box title: the top line of every framed box (prompt and reply titles,
-     Key point, Remaining tax liability, the "more" summary), one style for
+     Key point, Next checks, the "more" summary), one style for
      all, with colour telling the boxes apart;
    4 body text; 5 small text: notes, reminders and text inside a box.
    Monospace is only for literal text a reader copies or types. */
@@ -1090,7 +1090,7 @@ details.more > summary {
 }
 
 .tax::before {
-  content: "Remaining tax liability";
+  content: "Next checks";
   display: block;
   margin: 0 0 0.75rem;
   padding-bottom: 0.5rem;

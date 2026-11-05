@@ -9,7 +9,7 @@ The session is a piece of problem solving. An AI review is quick to get and slow
 
 It is a stand-alone workshop. The audit trail session covers recording and verification as a practice; here verification is the motivation for each design choice, and the emphasis is on how the agent works.
 
-Most of the room watches. Participants who already use an agent build the same folder alongside. Everyone can send the baseline prompt in a chat and answer the "Remaining tax liability" questions from the presenter's screen.
+Most of the room watches. Participants who already use an agent build the same folder alongside. Everyone can send the baseline prompt in a chat and answer the "Next checks" questions from the presenter's screen.
 
 ## Reveal the folder gradually
 
@@ -28,7 +28,7 @@ Start in an empty lit-review folder. Each step adds one or two files, and the pa
 - 52–58: step 6. Workflow file, fresh session, the whole folder and the download. Partner question about their own work.
 - 58–60: takeaways table.
 
-Steps 1 and 4 take the most live time. While the agent works, talk through the "Remaining tax liability" box for that step.
+Steps 1 and 4 take the most live time. While the agent works, talk through the "Next checks" box for that step.
 
 ## Before teaching
 
