@@ -235,13 +235,32 @@ seen this conversation. The same idea applies to anything the agent will
 need to refer back to later; step 3 gives each point in the synthesis an ID
 too.
 
-If you have Obsidian, open `lit-review` now with **Open folder as vault**
-and keep it beside the agent. You'll see `sources.md` and the PDFs appear as
-the agent works.
+If you have Obsidian, open `lit-review` as a vault now and keep it beside
+the agent. You'll see `sources.md` and the PDFs appear as the agent works.
+
+1. If the left sidebar is hidden, click the sidebar button at the top left
+   of the window to show it.
+2. Click the vault name at the bottom of the sidebar, then **Manage
+   vaults…**.
+3. Next to **Open folder as vault**, click **Open**.
+4. Choose the `lit-review` folder and click **Open**.
+
+The first time you start Obsidian, it opens straight to the screen in
+step 3.
 
 Start your agent in the folder. In the Claude desktop app, open the
-**Code** tab and choose `lit-review` as the project folder. In the ChatGPT
-desktop app, open the `lit-review` folder. Then send this.
+**Code** tab and use the row of controls under the prompt box:
+
+1. Click the first control, the environment selector, and choose
+   **Local**, so Claude works on files on your computer.
+2. Click the project folder control next to it and choose `lit-review`. If
+   there's no folder control, open the environment selector, choose **New
+   environment**, select the **Local** tab, add `lit-review` and click
+   **Create environment**.
+3. In the mode selector, choose **Manual**. Claude then asks before it
+   saves a file or runs a command, so you see each action as it happens.
+
+In the ChatGPT desktop app, open the `lit-review` folder. Then send this.
 
 {% include prompt.html id="agentic-search" %}
 
@@ -372,8 +391,9 @@ instructions ask the agent to do the same: save the old version, revise and
 log what changed. **When the synthesis changes, you check the change, not
 the whole synthesis again.**
 
-This time each article goes to a separate helper agent. A helper starts
-fresh with one PDF and the reading instructions. It hasn't seen the other
+This time each article goes to a separate helper agent. You don't open
+anything: the agent you're working with starts each helper itself, and the
+helper begins with only one PDF and the reading instructions. It hasn't seen the other
 notes or the synthesis, so it can't bend a new article to fit the picture
 so far, and two helpers can run at once.
 
@@ -443,7 +463,7 @@ would overwrite each other, and the order of revisions is what the log
 records.
 
 <div class="keypoint" markdown="1">
-Add a separate helper when it solves a problem you can name, such as a check that doesn't rely on the agent's account of its own work. Check its findings against the page before you accept them.
+Have the agent start a new helper, one that begins with only the files you name, when that solves a problem you can name, such as a check that doesn't rely on the agent's account of its own work. Check the helper's findings against the page before you accept them.
 </div>
 
 ## 6. Write the workflow down and pick up later
