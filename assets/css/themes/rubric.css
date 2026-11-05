@@ -503,13 +503,13 @@ main > .container {
   margin-bottom: var(--flow);
 }
 
-.container > :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) {
+.container > :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note, .tax) {
   margin-bottom: var(--flow-framed);
 }
 
 /* Prose above a framed block leaves only --flow, so top it up to match the
    space below. Framed after framed already has the full gap. */
-.container > :is(p:not(.lead), ul, ol) + :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) {
+.container > :is(p:not(.lead), ul, ol) + :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note, .tax) {
   margin-top: calc(var(--flow-framed) - var(--flow));
 }
 
@@ -547,7 +547,7 @@ main > .container {
 
 /* A heading after a framed block or the lede would otherwise inherit their
    larger bottom margin on top of its own. */
-.container > :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note) + :is(h2, h3, h4) {
+.container > :is(.rule, .keypoint, .takeaways, .reminder, .prompt, .demo, .next-session, blockquote, table, details, .highlight, pre, .evidence-note, .tax) + :is(h2, h3, h4) {
   margin-top: calc(var(--space-above) - (var(--flow-framed) - var(--flow)));
 }
 

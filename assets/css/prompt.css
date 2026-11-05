@@ -1,3 +1,29 @@
+/* === Type hierarchy for session pages ================================
+   See SESSION-STYLE.md, "Type hierarchy". Five levels:
+   1 section heading (h2 band), 2 subheading (h3), both set by the theme;
+   3 box title: the top line of every framed box (prompt and reply titles,
+     Key point, Remaining tax liability, the "more" summary), one style for
+     all, with colour telling the boxes apart;
+   4 body text; 5 small text: notes, reminders and text inside a box.
+   Monospace is only for literal text a reader copies or types. */
+:root {
+  --type-box-title: 1rem;
+  --type-small: 0.95rem;
+}
+
+.prompt-label,
+.demo-label,
+.keypoint::before,
+.tax::before,
+details.more > summary {
+  font-family: var(--font-body);
+  font-size: var(--type-box-title);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* === Prompt blocks =================================================== */
 /* A prompt is a thing people copy, not a thing they read past, so it gets a
    handle (the label), an action (copy), and the plain-text look of the box
@@ -23,11 +49,6 @@
 }
 
 .prompt-label {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--text-kicker, var(--accent-primary));
 }
 
@@ -80,7 +101,7 @@
 .prompt-note {
   margin: 0;
   padding: 0.7rem 1.15rem;
-  font-size: 0.92rem;
+  font-size: var(--type-small);
   line-height: 1.5;
   color: var(--text-muted);
   background: var(--bg-editorial-note, transparent);
@@ -1012,12 +1033,7 @@
 .keypoint::before {
   content: "Key point";
   display: block;
-  margin-bottom: 0.15rem;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  margin-bottom: 0.25rem;
   color: var(--accent-primary);
 }
 
@@ -1052,13 +1068,107 @@
   border-left: 3px solid var(--info);
   border-radius: 0 var(--radius-sm, 4px) var(--radius-sm, 4px) 0;
   background: var(--bg-editorial-note);
-  font-size: 0.98rem;
+  font-size: var(--type-small);
   line-height: 1.5;
 }
 
-:is(.keypoint, .takeaways, .reminder) > :last-child {
+/* The checks a step leaves for the reader, styled as a receipt: dashed
+   edge, ledger label. Used in understanding-agentic-ai, whose thread is the
+   "verification tax". Open with one line saying the reader sets how much to
+   check, then the list. Markup:
+   <div class="tax" markdown="1">Line.
+
+   - check
+   </div> */
+.tax {
+  padding: 0.85rem 1.25rem 1rem;
+  border: 1px dashed var(--info);
+  border-radius: var(--radius-sm, 4px);
+  background: var(--bg-card);
+  font-size: var(--type-small);
+  line-height: 1.5;
+}
+
+.tax::before {
+  content: "Remaining tax liability";
+  display: block;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-section-alt, var(--border-light));
+  color: var(--info);
+}
+
+.tax > p:first-of-type { font-style: italic; }
+
+.tax li + li { margin-top: 0.35rem; }
+
+.tax > :last-child { margin-bottom: 0; }
+
+/* Background a reader can open or skip, kept out of the main flow.
+   Framed like .takeaways so it reads as a box even when closed. Markup:
+   <details class="more" markdown="1"><summary>Title</summary> … </details> */
+details.more {
+  border: 1px solid var(--border-section-alt, var(--border-light));
+  border-left: 3px solid var(--info);
+  border-radius: 0 var(--radius-sm, 4px) var(--radius-sm, 4px) 0;
+  background: var(--bg-section-alt-flat, var(--bg-card));
+}
+
+details.more > summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.75rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+details.more > summary::-webkit-details-marker { display: none; }
+
+details.more > summary::before {
+  content: "▸";
+  flex: none;
+  color: var(--info);
+  transition: transform 0.15s ease;
+}
+
+details.more[open] > summary::before { transform: rotate(90deg); }
+
+details.more > summary::after {
+  content: "Show";
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--info);
+}
+
+details.more[open] > summary::after { content: "Hide"; }
+
+details.more > summary:hover { background: var(--bg-accent); }
+
+details.more > summary:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: -2px;
+}
+
+details.more > :not(summary) {
+  margin-left: 1.1rem;
+  margin-right: 1.1rem;
+}
+
+details.more[open] > summary {
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-section-alt, var(--border-light));
+}
+
+:is(.keypoint, .takeaways, .reminder, details.more) > :last-child {
   margin-bottom: 0;
 }
+
+details.more[open] > :last-child { margin-bottom: 1rem; }
 
 @media (max-width: 480px) {
   .prompt-text { font-size: 0.85rem; padding: 0.85rem 0.9rem; }
@@ -1099,11 +1209,6 @@
 }
 
 .demo-label {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--text-muted);
 }
 
@@ -1116,7 +1221,7 @@
 
 .demo-text {
   padding: 0.9rem 1.2rem;
-  font-size: 0.95rem;
+  font-size: var(--type-small);
   line-height: 1.55;
 }
 

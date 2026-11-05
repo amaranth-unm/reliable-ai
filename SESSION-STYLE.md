@@ -276,6 +276,14 @@ do, so it came out. A key point can sum up advice spread across a step, so it
 often sits at the end of the step or of the subsection where the advice
 lands. Keep it to two sentences.
 
+**Two optional boxes.** `<details class="more" markdown="1">` with a
+`<summary>` holds background a reader can open or skip, such as a concept's
+history; it stays visibly framed when closed. `<div class="tax" markdown="1">`
+is the receipt-style "Remaining tax liability" box that ends each step of
+`understanding-agentic-ai` with the checks left to the reader. Open it with
+one line saying how much to check is the reader's call, so the list reads as
+ordinary diligence rather than a verdict on the tool.
+
 **Open each step with the move, not with context.** "Paste your paragraph,
 then send this and nothing else." The explanation goes after the prompt, once
 they have a result in front of them to look at.
@@ -297,6 +305,27 @@ selected milestones with primary references, then give readers an action to
 try. Distinguish a concept's history from the origin of a word; do not imply
 a first coinage without evidence. Date current capability comparisons and
 teach observable actions rather than equating an interface with a capability.
+
+## Type hierarchy
+
+Five levels, and each element on a session page belongs to exactly one:
+
+1. **Section heading**: the `##` step bands.
+2. **Subheading**: `###` inside a step.
+3. **Box title**: the top line of every framed box: prompt and reply
+   titles, “Key point”, “Remaining tax liability” and a `details.more`
+   summary. One style for all (body sans, bold capitals, `--type-box-title`
+   in `assets/css/prompt.css`). Colour tells the boxes apart; size doesn't.
+4. **Body text.**
+5. **Small text** (`--type-small`): notes under prompts, reminders and the
+   text inside a box.
+
+Typefaces follow the job. The heading serif sets headings and the page's
+argument (the `.rule` callout and key point text); the body sans sets reading
+text and labels; monospace is only for literal text someone copies or types
+(prompts, filenames, folder trees). A new component takes an existing level
+rather than a new size. If something looks too small or too large, change
+the level's token, not the one element.
 
 ## Show what came back
 

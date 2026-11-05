@@ -149,17 +149,17 @@ These are prepared teaching materials, not recorded agent replies.
 
 ### Understanding Agentic AI example files
 
-The session is a live literature-review demonstration. Its starter folder
-(standing instructions, brief, two skills and two helper agents for Claude
-Code) lives in `workshop-drafts/understanding-agentic-ai/lit-review/`. Edit
-the files there, then run `python3 scripts/build-agentic-workspace.py`. It
-writes `assets/agentic-ai/lit-review-starter.zip` and flat, readable copies
-of the instruction files in `assets/agentic-ai/files/` (Jekyll skips the
-hidden `.claude` folder, so the page links these copies). The starter folder
-contains no articles and no recorded agent output. If you change the backup
-set in `brief.md`, update the list in step 3 of the session page too. The
-presenter guide is in the same draft folder; save rehearsal runs in its
-ignored `_local/` subfolder.
+The session builds a literature-review folder live, one file at a time. The
+brief and the three instruction files are the "Save as …" entries in
+`_data/prompts.yml` (those with a `file` key), shown on the page as copyable
+blocks. The prepared `CLAUDE.md`, `progress.md` and `README.md` are in
+`workshop-drafts/understanding-agentic-ai/lit-review/`. After editing either,
+run `python3 scripts/build-agentic-workspace.py`. It writes
+`assets/agentic-ai/lit-review-starting-folder.zip`, the download in step 6, and
+`assets/agentic-ai/CLAUDE.txt`, a plain-text copy the page links (the
+github-pages gem would render a `.md` copy as a page). The download contains
+no articles and no recorded agent output. The presenter guide is in the same
+draft folder; save rehearsal runs in its ignored `_local/` subfolder.
 
 ### Mapping with AI practice kit
 

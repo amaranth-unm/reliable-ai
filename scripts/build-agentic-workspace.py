@@ -1,50 +1,47 @@
 #!/usr/bin/env python3
-"""Package the Understanding Agentic AI starter folder.
+"""Package the starting folder for the Understanding Agentic AI session:
+the files a participant writes, with none of the agent's outputs.
 
-Source: workshop-drafts/understanding-agentic-ai/lit-review/ (edit files there).
+The brief and the instruction files are the "Save as …" entries in
+_data/prompts.yml (those with a `file` key), so the page and the download
+always match. CLAUDE.md, progress.md and README.md come from
+workshop-drafts/understanding-agentic-ai/lit-review/.
+
 Writes:
-  assets/agentic-ai/lit-review-starter.zip   the participant download
-  assets/agentic-ai/files/                   plain-text copies linked from the page.
-      Jekyll skips the hidden .claude folder, and the github-pages gem renders any
-      .md file as a page (consuming its front matter), so each copy is a .txt file
-      whose first line names the original.
+  assets/agentic-ai/lit-review-starting-folder.zip   the participant download
+  assets/agentic-ai/CLAUDE.txt                    the prepared CLAUDE.md, as plain
+      text (the github-pages gem would render a .md copy as a page)
 """
 from pathlib import Path
 import shutil
 import zipfile
 
+import yaml
+
 root = Path(__file__).resolve().parents[1]
-src = root / 'workshop-drafts/understanding-agentic-ai/lit-review'
+drafts = root / 'workshop-drafts/understanding-agentic-ai/lit-review'
 out = root / 'assets/agentic-ai'
 stamp = (2026, 11, 4, 0, 0, 0)
 
-files = sorted(p for p in src.rglob('*') if p.is_file() and p.name != '.DS_Store')
-if not files:
-    raise SystemExit(f'No files in {src}')
+prompts = yaml.safe_load((root / '_data/prompts.yml').read_text())
+files = {
+    p['file']: p['text']
+    for p in prompts
+    if p.get('session') == 'understanding-agentic-ai' and p.get('file')
+}
+for name in ('CLAUDE.md', 'progress.md', 'README.md'):
+    files[name] = (drafts / name).read_text()
 
-out.mkdir(parents=True, exist_ok=True)
-with zipfile.ZipFile(out / 'lit-review-starter.zip', 'w', zipfile.ZIP_DEFLATED) as z:
-    for path in files:
-        info = zipfile.ZipInfo('lit-review/' + path.relative_to(src).as_posix(), stamp)
+if out.exists():
+    shutil.rmtree(out)
+out.mkdir(parents=True)
+
+with zipfile.ZipFile(out / 'lit-review-starting-folder.zip', 'w', zipfile.ZIP_DEFLATED) as z:
+    for name in sorted(files):
+        info = zipfile.ZipInfo('lit-review/' + name, stamp)
         info.compress_type = zipfile.ZIP_DEFLATED
         info.external_attr = 0o644 << 16
-        z.writestr(info, path.read_bytes())
+        z.writestr(info, files[name])
 
-readable = {
-    'CLAUDE.md': 'CLAUDE.txt',
-    'brief.md': 'brief.txt',
-    '.claude/skills/read-article/SKILL.md': 'read-article-skill.txt',
-    '.claude/skills/relate-articles/SKILL.md': 'relate-articles-skill.txt',
-    '.claude/agents/reader.md': 'reader-agent.txt',
-    '.claude/agents/checker.md': 'checker-agent.txt',
-}
-copies = out / 'files'
-if copies.exists():
-    shutil.rmtree(copies)
-copies.mkdir()
-for source, name in readable.items():
-    header = f'File: lit-review/{source}\n\n'
-    (copies / name).write_text(header + (src / source).read_text(), encoding='utf-8')
-
-print(f'Zipped {len(files)} files to {out / "lit-review-starter.zip"}; '
-      f'copied {len(readable)} readable files to {copies}.')
+(out / 'CLAUDE.txt').write_text(files['CLAUDE.md'], encoding='utf-8')
+print(f'Wrote {len(files)} files to {out / "lit-review-starting-folder.zip"} and CLAUDE.txt.')
