@@ -42,6 +42,13 @@ with zipfile.ZipFile(out / 'lit-review-starting-folder.zip', 'w', zipfile.ZIP_DE
         info.compress_type = zipfile.ZIP_DEFLATED
         info.external_attr = 0o644 << 16
         z.writestr(info, files[name])
+    # Sample PDFs from the brief's backup set, so nobody depends on a
+    # download working in the room.
+    for pdf in sorted((drafts / 'sample-pdfs').glob('*.pdf')):
+        info = zipfile.ZipInfo('lit-review/sample-pdfs/' + pdf.name, stamp)
+        info.compress_type = zipfile.ZIP_DEFLATED
+        info.external_attr = 0o644 << 16
+        z.writestr(info, pdf.read_bytes())
 
 (out / 'CLAUDE.txt').write_text(files['CLAUDE.md'], encoding='utf-8')
 print(f'Wrote {len(files)} files to {out / "lit-review-starting-folder.zip"} and CLAUDE.txt.')
