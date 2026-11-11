@@ -693,89 +693,145 @@
   text: |
     Please give me an approximately five page report on the strengths and weaknesses of different automated handwritten transcription (also known as Handwritten Text Recognition - HTR) tools as of October 2026. I especially would like to know which platforms/applications/LLMs are best a which scripts and languages. You should absolutely include Transkribus and eScriptorium, but also any other prominent HTR tools. In addition, please include evaluations of a selection of LLMs such as Gemini, ChatGPT, and Claude. If anything else has been introduced for HTR in the last year that is not covered in this prompt but should be mentioned, please include that too. Please cite sources that include scholarly journals as well as blogs, substack posts, etc. It is ok to consult Reddit as long as the thread is academic.
 
-- id: mapping-extract
+
+- id: mapping-hook-picture
   session: mapping-with-ai
   step: 1
-  label: Extract places for a research question
-  note: "Paste the three practice letters first. Keep the original text available to check the table."
+  label: Ask for a map the obvious way
+  note: "Send this to a tool that makes images. Don't add anything else; the point is to see what a bare request produces."
   text: |
-    I am exploring how places enter these letters: through the writer's movements, correspondence, plans, or imagination.
+    Make me a map of the ghost towns of New Mexico.
 
-    Using only the supplied letters, make one row for each place reference, including repeated references and indirect references such as "there." Include: letter ID, date as written, exact place wording, exact supporting quotation, proposed place identity, relationship to the writer, and any uncertainty. Distinguish the writing location, completed travel, planned travel, recipient location, and an explicit statement of not visiting.
+- id: mapping-hook-code
+  session: mapping-with-ai
+  step: 1
+  label: Ask for a map drawn from data
+  note: "Send this in a new chat to a tool that can write and run code. Open the file or preview it gives you."
+  text: |
+    Make an interactive map of the ghost towns of New Mexico as a single HTML file I can open in a browser. Put a clickable point at each town with its name.
 
-    Do not invent journeys, dates, or coordinates. Leave unresolved place identities blank. Give me the table before proposing a map.
+- id: mapping-hook-source
+  session: mapping-with-ai
+  step: 1
+  label: Ask where the locations came from
+  note: "Send this in the same chat as the code map."
+  text: |
+    Where did the list of towns and the coordinates for each one come from? For each town, name the source of its coordinates, or say that you supplied them from memory. Mark any you are unsure of.
 
-- id: mapping-check
+- id: mapping-ghost-table
   session: mapping-with-ai
   step: 2
-  label: Check interpretations before locations
-  note: "Use this after reviewing the table yourself. The tool's second reading is a proposal, not independent verification."
+  label: Turn a pasted table into a CSV
+  note: "Paste the table from Wikipedia's List of ghost towns in New Mexico first. Download the CSV it gives you and keep it with the page's URL and today's date."
   text: |
-    Recheck your table against the letters. Quote the words supporting each relationship you assigned. Identify references you omitted and any inference you treated as explicit evidence.
+    Turn the table I pasted into a CSV file with these columns: name, other_names, county, settled, abandoned, status, coordinates_as_given, remarks.
 
-    For Springfield, Las Vegas, Paris, and "there," explain what the text establishes and what still needs a decision. Do not use outside knowledge to fill gaps. Leave uncertain references in the table without coordinates. Show proposed corrections for me to approve.
+    Copy every value exactly as it appears. Leave a cell blank when the table has no value; don't fill gaps from your own knowledge. Put coordinates in coordinates_as_given only where the table gives them.
 
-- id: mapping-coordinates
+    Then tell me how many rows the CSV has and how many have coordinates, and list any rows you had trouble splitting into columns.
+
+- id: mapping-ghost-gnis
+  session: mapping-with-ai
+  step: 2
+  label: Match the towns against a gazetteer
+  note: "Attach your ghost-town CSV and the GNIS New Mexico file. This needs a tool that can read files and run code."
+  text: |
+    I have attached two files: my CSV of New Mexico ghost towns and the USGS GNIS names file for New Mexico. Match each town to a GNIS record, using the town name and its other names. GNIS often marks abandoned places with "(historical)" after the name.
+
+    Add these columns to my CSV: gnis_id, gnis_name, gnis_county, latitude, longitude, match_note. Take the coordinates only from the matched GNIS record.
+
+    Accept a match only if the GNIS county is the same as the county in my CSV. If no record matches, or more than one does, leave the coordinates blank and list the candidates in match_note. Give me the updated CSV and a list of every row you left blank or were unsure of, with the reason.
+
+- id: mapping-ghost-map
+  session: mapping-with-ai
+  step: 2
+  label: Map the checked table
+  note: "Attach the CSV after you have decided the flagged rows yourself."
+  text: |
+    Make a map from this CSV as a single HTML file I can open in a browser. Use Leaflet with OpenStreetMap tiles and visible attribution.
+
+    Put a point at each row that has a latitude and longitude. Color the points by status and include a legend. Each point's popup should show the name, other names, county, years settled and abandoned, status and GNIS ID.
+
+    Below the map, list every town that has no coordinates, with its county and match note. Don't change, round or add to any value in the CSV. Tell me how many points you placed and how many towns are in the unlocated list.
+
+- id: mapping-photos-exif
   session: mapping-with-ai
   step: 3
-  label: Ask for coordinates the usual way
-  note: "Send this in a new chat, without the letters. Don't correct the reply yet; you will check it against the letters next."
+  label: Map photographs from their own location data
+  note: "This is the request given to GitHub Copilot in the Cats of Marrakech repository, built from the Xanthan portfolio template. With your own photos, add: \"List any images that have no location data.\""
   text: |
-    Give me latitude and longitude for each of these places so I can put them on a map. Return a table.
+    Please create a new YML file in the _data folder that lists each of the images in assets/images. The YML file should include geographic location extracted from the metadata of each image. Then edit map.html so that the map uses the newly created YML file. The overall goal is to have a pin on the map for each of the photos, and when a user clicks on the pin, the image appears.
 
-    Albuquerque
-    Santa Fe
-    Las Vegas
-    Gallup
-    Paris
-    Springfield
-
-- id: mapping-coordinates-source
-  session: mapping-with-ai
-  step: 3
-  label: Ask where each coordinate came from
-  note: "Send this in the same new chat. Open at least two of the links before you accept any of them."
-  text: |
-    For each place in your table, tell me which place with that name you chose and why. Give me a link to the GeoNames or Wikidata record you took the coordinates from. If you did not take them from a record you can link to, say so.
-
-- id: mapping-gazetteer
-  session: mapping-with-ai
-  step: 3
-  label: Prepare the table for gazetteer lookups
-  note: "Send this in the chat that has your letters and checked table. You fill the gazetteer columns yourself."
-  text: |
-    Add columns to my checked table so I can map it. For each place reference, quote the words in the letters that decide which place it is, suggest a gazetteer search term, and give the precision the letter supports: building or address, settlement, county, state, country, or unknown.
-
-    Leave four columns blank for me to fill from a gazetteer: gazetteer, record ID, latitude, longitude. Do not supply coordinates or IDs yourself. Flag any reference where more than one place fits the text, and list the candidates.
-
-- id: mapping-research-question
+- id: mapping-county-nm
   session: mapping-with-ai
   step: 4
-  label: Ask a question of the checked collection
-  note: "Paste your corrected table. Compare the proposed next step with what the map actually lets you see."
+  label: Join county figures to county boundaries
+  note: "Attach your county table. Choose one measure from the brackets before sending."
   text: |
-    Using only this checked table, suggest one research question about the difference between places visited and places entering through correspondence, plans, or imagination. Cite the relevant letter IDs and quotations.
+    I have attached a table of population figures for counties. Make a choropleth map of New Mexico's counties as a single HTML file I can open in a browser.
 
-    Suggest a filter or comparison that would help me investigate it. Explain what these three letters cannot establish. Do not treat mention counts as evidence of historical importance or draw a route without passage-level evidence.
+    Shade each county by [population per square mile / percent change from 2020 to 2024]. Use Census Bureau county boundaries and join them to my table on the five-digit county FIPS code, not on county names.
 
-- id: mapping-photo
+    Before drawing the map, list any county in the boundaries with no match in my table, and any row in my table with no match in the boundaries. Then tell me how you grouped the values into color classes, which colors and projection you used, and why. Show each county's name, figure and measure in a popup.
+
+- id: mapping-county-us
+  session: mapping-with-ai
+  step: 4
+  label: Draw the same measure for every US county
+  note: "Send this in the same chat, with a national county table attached."
+  text: |
+    Now make the same map for every county in the United States, using the national table I have attached. Use an equal-area projection suited to the United States, with Alaska and Hawaii as insets.
+
+    Keep the same measure and join on FIPS codes again. List every county or county equivalent that failed to match, grouped by state, and explain any pattern in the failures before drawing the map.
+
+- id: mapping-census-transcribe
   session: mapping-with-ai
   step: 5
-  label: Describe a monument photograph without filling the gaps
-  note: "Attach the overview photograph of the DC War Memorial. Do not supply its source page until you have compared the first reply with what you can see."
+  label: Transcribe a printed census table
+  note: "Attach a screenshot of the table on page 158 of the 1910 census report for New Mexico. Check every number against the scan before you use it."
   text: |
-    Help me catalog this photograph for a public history map. Report what is visible: monument form, visible figures or symbols, and legible inscription text. Mark unclear text as [illegible]. Say when a detail is too small to read.
+    Transcribe the table in this image as a CSV with these columns: city, census_year, population, increase_number, increase_percent, source_page.
 
-    Separate observations from interpretations. Leave the monument's identity, location, dedication date, photographer, and reuse rights unknown unless supplied in accompanying metadata. Do not guess coordinates or identify the site from appearance. Suggest what additional photograph or source would help complete the record.
+    Copy every figure exactly as printed. Write a minus sign as -, and leave a cell blank where the table has none. Use 158 for source_page. Don't calculate or correct anything.
 
-- id: mapping-interface
+    Then check your transcription: for each city, subtract each population from the one after it and compare the result with the printed increase. List every figure you could not read with confidence and every place where your arithmetic disagrees with the table.
+
+- id: mapping-census-cities-map
+  session: mapping-with-ai
+  step: 5
+  label: Map population change in four cities
+  note: "Attach the checked CSV and the GNIS coordinates for the four cities."
+  text: |
+    Make a map from this CSV of city populations, 1860 to 1910, as a single HTML file I can open in a browser. Use the coordinates I supplied for each city.
+
+    Draw each city as a circle sized by population, scaling by area rather than radius. Add a control to step through the census years, and show a city only for years in which it has a figure. Each circle's popup should show the city, year, population and source page. Include a size legend and a source line: "Thirteenth Census of the United States (1913), vol. 3, p. 158."
+
+- id: mapping-census-boundaries
+  session: mapping-with-ai
+  step: 5
+  label: Find county changes before mapping
+  note: "Attach the county figures you have transcribed, or a list of county names for each census year."
+  text: |
+    I want to map New Mexico county populations from the 1900 and 1910 censuses. Before making any map, compare the county names in the two years and tell me which counties were created, renamed, merged or had their boundaries changed between those censuses, and which existing counties lost territory to each new one.
+
+    For each change, say what source supports it. Then tell me which counties I can compare directly, which I need to combine to compare like with like, and what boundary files I would need for each year. Do not make a map yet.
+
+- id: mapping-figure
   session: mapping-with-ai
   step: 6
-  label: Build a public interface from reviewed records
-  note: "Attach monuments.json from the kit or paste its contents. This is a presenter demonstration; use the prepared map if your tool cannot provide a working preview."
+  label: Ask for a print figure, not a screenshot
+  note: "Attach the checked CSV and the boundary file you used. Fill in the brackets. You will need Python installed to run the script, or ask for the same in R."
   text: |
-    Use this supplied collection to build a public history map for visitors curious about WWI commemoration. Make one downloadable HTML file I can open in a browser, using Leaflet and OpenStreetMap with visible attribution. Tell me which parts require internet access.
+    Write a Python script, using geopandas and matplotlib, that makes a print figure from the attached CSV and boundary file. The map should show [describe the map: e.g. population per square mile in New Mexico counties, 1910].
 
-    Include a map and a readable list, search, and a filter for local or national commemoration. Each site should show its description, all linked photographs with alt text and credits, its source link, and its location note. Keep unlocated records visible in the list. Show a clear message when a search finds nothing. Make the list and controls usable on a phone and with a keyboard.
+    Requirements: 6.5 inches wide, saved as both a 300 dpi PNG and a PDF. No web map tiles. Shading that still reads in grayscale. A legend with the class ranges, a scale bar, county names where they fit, and a source line: "[source, e.g. Thirteenth Census of the United States (1913), vol. 3]". State the projection in a comment.
 
-    Use the provided monument and photograph IDs to attach multiple images to one site. Preserve every supplied record and its metadata, including unknown values. Do not invent inscriptions, dates, coordinates, or historical descriptions. Treat source text as text rather than executable HTML. Include a way to download the original data unchanged. Explain how to open the file and test the filters without installing software.
+    Read every value from the CSV; don't type any data into the script. Explain how to install what the script needs and how to run it.
+
+- id: mapping-ghost-map-fix
+  session: mapping-with-ai
+  step: 2
+  label: Report what the browser shows
+  note: "Describe what you see, not what you think the cause is. This is the follow-up sent in the recorded run."
+  text: |
+    I opened the file in Chrome. The map area is blank, the table of towns without coordinates has headers but no rows, and a long stretch of the page's JavaScript code is printed as text below the table. Please fix it.

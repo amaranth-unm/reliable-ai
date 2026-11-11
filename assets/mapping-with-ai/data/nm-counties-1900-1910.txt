@@ -1,0 +1,5 @@
+Counties in the 1900 census:
+Bernalillo, Chaves, Colfax, Dona Ana, Eddy, Grant, Guadalupe, Lincoln, Mora, Otero, Rio Arriba, San Juan, San Miguel, Santa Fe, Sierra, Socorro, Taos, Union, Valencia
+
+Counties in the 1910 census:
+Bernalillo, Chaves, Colfax, Curry, Dona Ana, Eddy, Grant, Guadalupe, Lincoln, Luna, McKinley, Mora, Otero, Quay, Rio Arriba, Roosevelt, Sandoval, San Juan, San Miguel, Santa Fe, Sierra, Socorro, Taos, Torrance, Union, Valencia

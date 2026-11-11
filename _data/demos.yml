@@ -671,3 +671,429 @@
     > Before studying his ideas, you must understand the world he lived in. Machiavelli was a product of the tumultuous Renaissance Italian city-states (Florence, Milan, Rome).
 
     Rome was the seat of the Papal States, not a city-state in the sense Florence and Milan were. The standard five-power system of the Peace of Lodi (1454) is Florence, Milan, Venice, Naples, and the Papacy. Venice and Naples matter here: Venice is the republic Machiavelli measures Rome against throughout the Discourses, and the Neapolitan succession is what brought Charles VIII over the Alps in 1494.
+
+# ---------------------------------------------------------------- mapping-with-ai
+# Unfilled until recorded. Run each prompt in a clean chat, paste the reply
+# (trim with […]), and fill tool and date. For maps, save a screenshot to
+# sessions/mapping-with-ai/images/ and swap the demo include for a figure.
+- id: mapping-hook-code
+  session: mapping-with-ai
+  label: "The map that came back"
+  run: "mapping-hook-code in a new chat. Replace this include with a screenshot of the map."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Fresh session with file tools only: no web access and no code execution. The screenshot below is the file it wrote, opened in Chrome."
+  text: |
+    I made the map as a single HTML file:
+
+    **[…]**
+
+    I haven't opened it in a browser to test it, so please let me know if anything doesn't display or click right.
+
+    **What it does:**
+    - It shows 40 ghost towns, each as a labeled point on an OpenStreetMap base map. Examples include Shakespeare, Mogollon, Kelly, White Oaks, Elizabethtown, Dawson, Lake Valley, Glenrio and Golden.
+    - Clicking a point opens a popup with the county, a one-line history and a link to open that spot in Google Maps.
+    - A sidebar lists the towns alphabetically. Clicking a name zooms to that town, and a filter box narrows the list by town or county.
+
+    **Things to know:**
+    - **The locations are approximate.** I typed in the town list and coordinates from memory, not from a source like the USGS place-name database. Most should be close, but some of the more obscure ones could be a few miles off. Those include Jicarilla, Rosedale, Catskill, Van Houten, Hermanas, Colmor and Old Hachita. Don't use them to navigate to remote sites.
+    - **The list isn't complete.** New Mexico has hundreds of abandoned settlements. I also included a few places that still have some residents but are usually called ghost towns, such as Madrid, Mogollon and Chloride.
+    - **It needs an internet connection.** The map library and map tiles load online when you open the file.
+
+    If you have a list or dataset you trust, I can rebuild the map from it with exact coordinates.
+
+- id: mapping-hook-source
+  session: mapping-with-ai
+  label: "Where the locations came from"
+  run: "mapping-hook-source in the same chat as the code map."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Same session as the map. The table lists all 40 towns; rows after Colmor are cut."
+  text: |
+    All of it came from my memory. I didn't look anything up, use a database, or check any coordinates while building the map, so no town has a citable source. The town list, counties, one-line notes and coordinates were all typed in from what I recall. Below is how confident I am in each set of coordinates.
+
+    **Confidence levels:**
+    - **Fairly sure:** a well-known site whose position I recall well. Probably within a mile or two.
+    - **Unsure:** I know roughly where the town is, but the point could be off by several miles.
+    - **Very unsure:** a rough guess at the area, possibly 5–15+ miles off.
+
+    | Town | Coordinates from | Confidence |
+    |---|---|---|
+    | Ancho | Memory | Fairly sure |
+    | Bland | Memory | Unsure |
+    | Cabezon | Memory | Unsure |
+    | Carthage | Memory | Unsure |
+    | Catskill | Memory | **Very unsure** |
+    | Chloride | Memory | Fairly sure |
+    | Claunch | Memory | Fairly sure |
+    | Colmor | Memory | **Very unsure** (the county is also uncertain) |
+    | […] | | |
+
+    **Some caveats:**
+    - Even "fairly sure" only reflects how well I remember the place, not a check against a source. Any of these could be wrong.
+    - The counties and history notes are also from memory and haven't been checked.
+    - Choosing which towns to include was my judgment too. Several places on the list still have some residents, such as Madrid, Mogollon, Chloride and Kingston.
+
+    **How to get verified coordinates:** the USGS Geographic Names Information System (GNIS) has an official coordinate for nearly every named place in New Mexico, including historical and abandoned ones. If you download its New Mexico file, or give me another list you trust, I can rebuild the map from that data. Each popup could then cite its source, and towns that don't match could be flagged.
+
+- id: mapping-ghost-table
+  session: mapping-with-ai
+  label: "The CSV summary"
+  run: "mapping-ghost-table with the pasted Wikipedia table. Paste the reply's row counts and any rows it flagged."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "The table was copied from Wikipedia on 11 November 2026 and pasted above the prompt."
+  text: |
+    I wrote the CSV to […].
+
+    **Counts**
+    - **66 rows**, plus the header row.
+    - **3 rows have coordinates:** Arkansas Junction, Baldy Town and Bland.
+
+    **One decision for you to check:** I treated a `-` in the table as "no value" and left those cells blank, the same as cells that were already empty. If you'd rather keep the dashes as literal values, I can put them back.
+
+    **Rows that were hard to split**
+    None of the rows were actually ambiguous. Every line had the expected 8 tab-separated fields. These rows still have something you might trip over:
+
+    - **Arkansas Junction and Bland:** The coordinates are copied exactly as pasted. That means the same point appears three times in different formats, and the string contains invisible zero-width characters (U+FEFF) around the ` / ` separators. You may want to clean these before using them as data.
+    - **Baldy Town:** Its coordinates use a different format from the other two (`36° 37′ 26.32″ N, 105° 10′ 18.97″ W`).
+    - **Pinos Altos (High Pines):** "(High Pines)" was in the name column, not the other-names column, so I left it in `name`.
+    - **Kelly:** The settled column was `-`, so I left it blank, even though the remarks say it was "Founded in 1866". I didn't fill it in.
+    - **Santa Barbara, San Marcial and Santa Rita:** The settled and abandoned cells each hold two years, like "1851, 1853". I kept each pair as one quoted value.
+    - **Glenrio:** The county cell includes "(partially in Deaf Smith County, Texas)". I kept that in `county`.
+    - **Jicarilla and White Oaks:** The other-names cell was empty rather than `-`. White Oaks also has no remarks. Both end up blank either way.
+
+    I kept the original spelling and capitalisation everywhere, such as "Abandoned Site" vs "Abandoned site" and "early 1900s" vs "Early 1900s".
+
+- id: mapping-ghost-gnis
+  session: mapping-with-ai
+  label: "The rows it flagged"
+  run: "mapping-ghost-gnis with the CSV and the GNIS New Mexico file. Paste the list of flagged rows."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Same session. This session could not run code, so we attached GNIS's 1,601 New Mexico Populated Place records rather than the full state file. We checked all 46 matches against GNIS afterwards: every ID, name, county and coordinate agrees."
+  text: |
+    I matched 46 of the 66 towns to a GNIS record in the same county and left 20 blank. The updated file is […]. Your original CSV is unchanged.
+
+    I had no way to run a script here, so I did the matching by reading all 1,602 GNIS records in chunks and comparing names by eye. It's worth spot-checking a few rows.
+
+    **Matching rules I used**
+    - A record matched if its name equalled the town name or one of its other names, with or without a trailing "(historical)".
+    - The record's county also had to equal your county exactly.
+    - Coordinates come only from the matched record's decimal latitude and longitude.
+
+    Seven matches were on the "(historical)" form: Blackdom, Bonanza City, Dawson, Hagan, La Belle, Paraje and Santa Rita.
+
+    **Blank rows that had candidates**
+    | Row | Reason |
+    |---|---|
+    | Bramlett (Hidalgo) | The only Bramlett record (899550) is listed under Socorro County, so I rejected it. Its coordinates (31.33, −108.84) look like they're in the Hidalgo bootheel, so GNIS may have the county wrong. You might want to accept it by hand. |
+    | Clairmont (Catron) | No exact name. GNIS has **Claremont** (898996) in Catron. It's probably the same place, but the spelling differs, so I didn't accept it. |
+    | Gran Quivira (Socorro) | The only record (918196) is in Torrance County, so I rejected it. |
+    | San José (Sierra) | There's no Sierra record. There are four "San Jose" records (no accent), all in other counties: 899897 Eddy, 910633 San Miguel, 920836 Bernalillo, 928803 Rio Arriba. |
+    | Glenrio (Quay…) | There's no record named Glenrio or Rock Island. Your county cell isn't a plain county name either. |
+
+    **Blank rows with no record of that name at all:** Alamocita, Aleman, Anaconda, Baldy Town, Canta Recio, Carpenter, El Ojo Del Padre, Gobernador, Mowry City, Pittsburg, Road Fork, San Albino, San Ygnacio de la Alamosa, Vinegaroon and Zapata. I checked their other names too.
+
+    **Matched, but I'm unsure about these**
+    - **Santa Barbara:** Matched through its other name, Hatch (920610). That record is the present-day village, not the 1850s site.
+    - **Elephant Butte:** The record (898770) is probably the modern city rather than the historic site.
+    - **Pinos Altos (High Pines):** I matched on "Pinos Altos" and ignored the "(High Pines)" in your name cell. I rejected a second Pinos Altos in San Miguel County.
+
+    **Matched, with a same-named record rejected for county:** Lake Valley (another in San Juan), Paraje (another in Cibola), Tejon (a "Tejon (historical)" in Sandoval) and Shakespeare (its other name Mexican Springs matches a record in McKinley). Each one's `match_note` gives the details.
+
+    **Coordinates compared:** Two rows have both your coordinates and GNIS coordinates. They differ by about 300 m for Arkansas Junction and about 200 m for Bland. Baldy Town has your coordinates but no GNIS match.
+
+- id: mapping-ghost-map
+  session: mapping-with-ai
+  label: "The ghost-town map"
+  run: "mapping-ghost-map with the checked CSV. Replace this include with a screenshot of the map."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Same session, sent with the CSV as the previous step returned it; the flagged rows were left blank."
+  text: |
+    I made the map as a single HTML file: […]
+
+    **Counts**
+    - **46 points placed:** every row that has both a latitude and a longitude.
+    - **20 towns in the list without coordinates.** The table under the map shows each one's name, county and match note.
+
+    I haven't opened it in a browser, so I haven't seen it render. I also wrote the Leaflet integrity hashes from memory. If the map area stays blank, delete the two `integrity="..."` attributes in the `<head>` and reload.
+
+    **How values are kept unchanged:** The CSV is pasted into the HTML word for word and read when the page opens. Popups and the table show the original text as it is. Latitude and longitude are only turned into numbers to position the points; they aren't displayed or rounded.
+
+    **Things to know**
+    - **Two status spellings share a color.** The CSV has both "Abandoned site" and "Abandoned Site", and I gave them the same color. The legend shows both spellings, and each popup shows the row's own spelling.
+    - **Many points have no status.** 20 of the 46 have an empty status, so they're gray and labelled "No status in table" in the legend. The colored groups are Historic site (8), Abandoned site / Abandoned Site (7), Barren site (6), Neglected site (3) and Semi-abandoned site (2).
+    - **Empty fields:** Where a popup or table field is empty, it shows "not given" in gray italics. That's a page label, not a value from the CSV.
+    - **Map tiles:** These are OpenStreetMap's standard tiles, with the attribution in the bottom corner. If you open the file directly from disk and the tiles don't load, run `python3 -m http.server` in that folder and open it at `http://localhost:8000/nm_ghost_towns_map.html`. OpenStreetMap sometimes refuses tile requests from pages opened straight from a file.
+
+- id: mapping-county-nm
+  session: mapping-with-ai
+  label: "The New Mexico county map"
+  run: "mapping-county-nm with a county table. Paste the unmatched list and the classification explanation, and add a screenshot."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Sent with New Mexico's 34 rows from the Census Bureau's Vintage 2024 county estimates file, choosing percent change from 2020 to 2024. The popup section is cut."
+  text: |
+    I've made the map, but I haven't opened it in a browser, and I couldn't download the Census boundaries from here because I can only read and write files. So the page fetches them itself each time it opens. That means it needs an internet connection, and the matching below hasn't been run against the live boundary data yet.
+
+    The file is […]
+
+    ## Matching your table to the boundaries
+    The page gets New Mexico's counties (state code 35) from the Census Bureau's TIGERweb service. It joins them to your table on a five-digit code made from your `STATE` and `COUNTY` columns. Those are kept as text, so leading zeros aren't lost (35 + 001 → `35001`). It prints both lists of unmatched records above the map before it draws the map.
+
+    - **Your table:** 33 county rows. I left out the statewide row (`SUMLEV 040`, code 35000) because it isn't a county.
+    - **What I expect:** no mismatches either way. Your 33 codes are the same as the 33 current New Mexico county codes, including Cibola (35006) and Los Alamos (35028), which were created later than the others. The lists on the page come from the live data, so if anything doesn't match, that's what they will show.
+    - **One risk:** I took the two TIGERweb web addresses from memory and haven't tested them. If both fail, the page shows an error instead of a map. Let me know and I'll change it to load a boundary file saved on your computer.
+
+    ## Values used
+    Percent change = (`POPESTIMATE2024` − `POPESTIMATE2020`) / `POPESTIMATE2020`. Both columns are July 1 estimates, so it compares the same point in each year. I didn't use `ESTIMATESBASE2020`, which is the April 1 starting figure. County values run from −5.02% (McKinley) to +6.17% (Torrance). The state overall grew 0.55%.
+
+    ## Color classes
+    There are six classes, each 2 percentage points wide, with 0% as a boundary between classes:
+
+    | Class | Counties |
+    |---|---|
+    | Loss of 4% or more | 2 (Hidalgo, McKinley) |
+    | Loss of 2% to under 4% | 10 |
+    | Loss of under 2% | 10 |
+    | Gain of 0% to under 2% | 5 |
+    | Gain of 2% to under 4% | 1 (Otero) |
+    | Gain of 4% or more | 5 (Catron, Doña Ana, Sandoval, Torrance, Valencia) |
+
+    **Why this grouping:** what matters most here is whether a county grew or shrank, so zero has to be a dividing line. Even 2-point steps on both sides are easy to read and compare, unlike quantile or natural-breaks boundaries such as "−1.37 to −0.47". The classes don't hold equal numbers of counties, which is accurate: most counties lost population. The legend shows how many counties fall in each class.
+
+    ## Colors
+    I used ColorBrewer's 6-class red–blue diverging scheme, from `#b2182b` to `#2166ac`. Red means loss and blue means gain, and the colors get lighter toward zero. I chose it because the data runs in two directions from a meaningful midpoint, and this scheme stays readable for people with color blindness and in grayscale. Gray is kept for any county without data.
+
+    ## Projection
+    I used an Albers equal-area conic with standard parallels at 32.5°N and 36.5°N, centered on 106°W, which fits New Mexico closely. On a choropleth, the area of each county shapes how much attention it gets. An equal-area projection keeps those areas true, which Web Mercator (the usual web-map projection) doesn't.
+
+    […]
+
+- id: mapping-county-us
+  session: mapping-with-ai
+  label: "The national county map"
+  run: "mapping-county-us in the same chat. Paste the unmatched list, and add a screenshot."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Same session, sent with all 3,195 rows of the estimates file, trimmed to the columns used. The colors and popup sections are cut."
+  text: |
+    I've built the national map, but I couldn't run it or reach the Census Bureau from here, so neither the map nor the matching has been tested yet. The page fetches the county boundaries itself, checks the match, and shows the lists of failures grouped by state before it draws the map.
+
+    **One change from the New Mexico version:** the page doesn't contain your data. When it opens, it asks you to pick or drag in `us-county-population-2020-2024.csv`. Copying all 3,144 rows into the page by hand could have introduced typos you'd never notice, and browsers won't let a page open a file next to it on its own. If you'd rather have everything in one file, I can do that, but I'd need a way to copy the data automatically.
+
+    The file is […]
+
+    ## Matching failures I expect
+    I read the whole table. It has 3,144 county rows for the 50 states and DC, plus 51 state-total rows, which I left out. The codes are all current:
+    - Connecticut uses its nine planning regions (09110–09190).
+    - Alaska has Chugach (02063) and Copper River (02066).
+    - The renamed counties are there: Kusilvak (02158) and Oglala Lakota (46102).
+    - Bedford city, Virginia (absorbed into Bedford County in 2013) is gone, as it should be.
+
+    So I expect:
+    - **Table rows with no boundary match:** none.
+    - **Boundaries with no table match:** probably all in Puerto Rico (78 municipios) and possibly the island areas: American Samoa 5, Guam 1, Northern Mariana Islands 4, U.S. Virgin Islands 3. That depends on what the Census service includes, which I couldn't check. These aren't errors: the Census Bureau's national county file covers only the 50 states and DC. They also fall outside this kind of U.S. map, so they wouldn't be drawn anyway.
+
+    The page explains the common causes itself when it sees them. The most likely one is Connecticut, if old boundaries meet new codes or the reverse. Others it recognises are past Alaska, South Dakota, Virginia and Florida code changes, and missing territories. Anything else gets flagged as unexplained, to check for typos or lost leading zeros.
+
+    ## Measure
+    Same as before: percent change from `POPESTIMATE2020` to `POPESTIMATE2024`, both July 1 estimates.
+
+    ## Color classes
+    There are eight classes split evenly around zero, with breaks at −10, −5, −2, 0, 2, 5 and 10%. The values run much wider than in New Mexico, from about −20% (Garza County, TX) to over +30% (Kaufman County, TX). Most counties sit within a few points of zero, so the classes are narrow near zero and wider at the ends. That shows detail where most counties are without hiding the extremes. Zero is still a dividing line, so gain versus loss reads at a glance. I avoided equal-count (quantile) classes for the same reason as before: their breaks would be odd numbers that are hard to read. The legend shows how many counties fall in each class, and the range and median.
+
+    […]
+
+    ## Projection
+    I used the standard U.S. Albers equal-area projection, with Alaska and Hawaii in their own boxes. An equal-area projection keeps county sizes true within each part of the map. One trade-off: **Alaska is shown at about 35% of the main map's scale**, so its boroughs look smaller than they really are. The note on the page says so.
+
+    […]
+
+    ## Risks
+    - I took the Census service addresses from memory and haven't tested them. If both fail, the page lets you load a county boundary file from your computer instead.
+    - The boundaries are simplified to about 500 m. Very small areas, such as some of Virginia's independent cities, may show up as tiny slivers, and an extremely small one could disappear.
+
+- id: mapping-census-transcribe
+  session: mapping-with-ai
+  label: "The transcription and its checks"
+  run: "mapping-census-transcribe with a screenshot of page 158. Paste the CSV and the list of doubtful figures."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Sent with a 150 dpi crop of page 158, the image shown above."
+  text: |
+    I read the image from your working directory (the attachment hadn't come through in the message itself).
+
+    ```csv
+    city,census_year,population,increase_number,increase_percent,source_page
+    Albuquerque,1910,"11,020","4,782",76.7,158
+    Albuquerque,1900,"6,238","2,453",64.8,158
+    Albuquerque,1890,"3,785",,,158
+    Raton,1910,"4,539",999,28.2,158
+    Raton,1900,"3,540",,,158
+    Roswell,1910,"6,172","4,123",201.2,158
+    Roswell,1900,"2,049",,,158
+    Santa Fe,1910,"5,072",-531,-9.5,158
+    Santa Fe,1900,"5,603",-582,-9.4,158
+    Santa Fe,1890,"6,185",-450,-6.8,158
+    Santa Fe,1880,"6,635","1,870",39.2,158
+    Santa Fe,1870,"4,765",130,2.8,158
+    Santa Fe,1860,"4,635",,,158
+    ```
+
+    The figures keep their printed commas, so cells that contain a comma are quoted. The oldest year for each city has blank increase cells, as in the table.
+
+    **Arithmetic check:** For each city I subtracted each population from the one after it. All 9 printed increases match exactly:
+
+    | City | Calculation | Printed |
+    |---|---|---|
+    | Albuquerque | 11,020 − 6,238 = 4,782 | 4,782 ✓ |
+    | | 6,238 − 3,785 = 2,453 | 2,453 ✓ |
+    | Raton | 4,539 − 3,540 = 999 | 999 ✓ |
+    | Roswell | 6,172 − 2,049 = 4,123 | 4,123 ✓ |
+    | Santa Fe | 5,072 − 5,603 = −531 | −531 ✓ |
+    | | 5,603 − 6,185 = −582 | −582 ✓ |
+    | | 6,185 − 6,635 = −450 | −450 ✓ |
+    | | 6,635 − 4,765 = 1,870 | 1,870 ✓ |
+    | | 4,765 − 4,635 = 130 | 130 ✓ |
+
+    I also checked the percentages, which you didn't ask for. Each one matches its increase divided by the earlier population, rounded to one decimal.
+
+    **Figures I couldn't read with confidence:**
+    - **Albuquerque 1910, 76.7 percent:** This is the one real doubt. The second digit could be a 6 or a 0, so the cell could read "70.7". I entered 76.7 because 4,782 ÷ 6,238 = 76.7%. That means I used the arithmetic to settle it, so check this cell against the original.
+    - **Santa Fe 1890–1860 (6,185 / 6,635 / 4,765 / 4,635) and the −9.4 and 39.2 percentages:** The print is small and the 6s, 8s, 5s and 3s are hard to tell apart. I read each one from the image without using arithmetic. All of them fit the printed increases, which supports the readings, but they're still the least clear part of the scan.
+
+- id: mapping-census-cities-map
+  session: mapping-with-ai
+  label: "The city population map"
+  run: "mapping-census-cities-map with the checked CSV. Replace this include with a screenshot."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Same session, sent with the checked transcription and GNIS coordinates for the four cities."
+  text: |
+    I've made the map as a single HTML file, but I haven't opened it in a browser, so I haven't seen it running yet.
+
+    **File:** […]
+
+    **What it does:**
+    - **Data:** Both of your CSVs are copied into the file unchanged and read when the page opens, so they're easy to compare against your originals. Each city is placed at its latitude and longitude from your coordinates file.
+    - **Circles:** Circle area is proportional to population, so the radius is proportional to the square root of the population. The largest figure, Albuquerque in 1910 (11,020), gets a 40px radius. Circles are pixel-based, so they stay the same size when you zoom.
+    - **Year control:** It's in the top right, with a slider, clickable year labels and Earlier/Later buttons. The map opens on 1910. A city appears only in years where it has a row, so 1860–1880 show Santa Fe alone, 1890 adds Albuquerque, and 1900–1910 show all four.
+    - **Popups:** Each shows the city, year, population exactly as printed (e.g. "11,020") and source page. Hovering a circle also shows the city name.
+    - **Legend:** Nested circles for 10,000, 5,000 and 1,000, drawn on the same scale as the map, in the bottom left.
+    - **Source line:** "Thirteenth Census of the United States (1913), vol. 3, p. 158." appears word for word in the bottom right.
+
+    **Things to know:**
+    - **Needs internet:** The page loads the Leaflet mapping library and OpenStreetMap base tiles online. With no connection you'll get a blank map. If you need it to work offline, I can redraw it as a self-contained SVG with no base map.
+    - **Base map shows today's places:** The background shows present-day roads and boundaries, not the territory as it was in 1860–1910.
+    - **Albuquerque's 1910 percent:** The 76.7 I flagged last time isn't on the map, since the popups don't include the increase columns.
+
+- id: mapping-census-boundaries
+  session: mapping-with-ai
+  label: "The county changes it found"
+  run: "mapping-census-boundaries with the 1900 and 1910 county lists."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Run with no tools at all. We supplied the county lists: 19 counties in 1900 and 26 in 1910, compiled from the report. Sections 3 and 4, on combining counties and boundary files, are cut."
+  text: |
+    I haven't checked any sources in this session. I had no web access, so everything below comes from my own knowledge of New Mexico county history. Where I name a source, I'm saying where to confirm the point, not that I've confirmed it. The main source to check against is the **Newberry Library's Atlas of Historical County Boundaries (AHCB), New Mexico**, which has a dated record of every county creation and boundary change with the session law that caused it.
+
+    ## 1. Comparing the two lists
+
+    The 1910 list has **7 names that aren't in your 1900 list:** Curry, Luna, McKinley, Quay, Roosevelt, Sandoval, Torrance. Every 1900 name still appears in 1910, so no county disappears or merges between the two lists.
+
+    **Check your 1900 data first.** I believe McKinley County was created in **February 1899**, so it should already appear in the 1900 census. If your 1900 table really has no McKinley row, it's either a transcription gap or McKinley's people were counted under a parent county. Fix this before mapping.
+
+    ## 2. Changes between the censuses (as I recall them)
+
+    | County | Created | Took territory from | How sure I am |
+    |---|---|---|---|
+    | McKinley | 1899 (before 1900, see above) | Mainly western Bernalillo; possibly part of Valencia | Date: sure. Valencia's share: not sure |
+    | Luna | 1901 | Grant, Doña Ana | Sure |
+    | Sandoval | 1903 | Northern Bernalillo | Sure about Bernalillo; there may have been small adjustments with neighbours |
+    | Torrance | 1903 | Several central counties, probably Valencia, Socorro, Lincoln, Santa Fe and San Miguel | The exact list of parents needs checking |
+    | Quay | 1903 | Mainly Guadalupe; possibly a strip of Union or San Miguel | Guadalupe: sure. Others: not sure |
+    | Roosevelt | 1903 | Chaves, Guadalupe | Fairly sure |
+    | Curry | 1909 | Quay, Roosevelt | Fairly sure |
+
+    **A rename that was later undone:** I believe Guadalupe was renamed **Leonard Wood County** in 1903 and got its old name back in 1905, with boundary changes along the way. The name is the same in both censuses, but the territory isn't. It also lost land to Quay and Roosevelt.
+
+    **Smaller adjustments:** The territorial legislature also moved lines between existing counties in these years, for example around Bernalillo and Santa Fe and in the southeast. I can't list them reliably from memory. The AHCB chronology is the place to get the full list.
+
+    **Second source for each change:** The 1910 census report (*Thirteenth Census, Vol. III, Population*, New Mexico county table) prints 1900 figures next to 1910 ones. Its footnotes say when a county lost territory to form another (for example "part taken to form Luna in 1901"). That gives you an independent check on the AHCB from the Census Bureau's own records.
+
+    […]
+
+    Before I build anything, I'd check the list of parents for Torrance, Quay and McKinley, and the Guadalupe/Leonard Wood changes, against the AHCB. Those details decide whether Groups B and C stay separate. If you can download the AHCB New Mexico chronology or the NHGIS files, I can do that check from them.
+
+- id: mapping-figure
+  session: mapping-with-ai
+  label: "The figure"
+  run: "mapping-figure with a checked CSV and boundary file. Replace this include with the PNG it produced."
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "The session could not run code. We ran the script as written, with the pip instructions it gave; it worked first time and produced the figure below."
+  text: |
+    I've written the script to […]. I put it in its own folder, apart from the attached data files. **I haven't run it, because I can't run commands in this session.** So I haven't seen the PNG or PDF yet.
+
+    ## Install
+
+    Conda is the most reliable way to get geopandas and its GDAL and PROJ libraries:
+
+    ```bash
+    conda create -n nmmap -c conda-forge python=3.12 geopandas matplotlib
+    conda activate nmmap
+    ```
+
+    Or with pip in a virtual environment (current geopandas comes with pyogrio, shapely and pyproj as prebuilt packages):
+
+    ```bash
+    python -m venv .venv && source .venv/bin/activate
+    pip install "geopandas>=0.14" "matplotlib>=3.6"
+    ```
+
+    ## Run
+
+    From the folder with the CSV and the zip (leave the zip packed):
+
+    ```bash
+    python map_script/nm_pop_change_map.py \
+      --csv nm-county-population-2020-2024.csv \
+      --boundaries cb_2023_us_county_500k.zip \
+      --out nm_pop_change_2020_2024
+    ```
+
+    This writes `nm_pop_change_2020_2024.png` (1950 px wide, 300 dpi) and `nm_pop_change_2020_2024.pdf`. It also prints a table of every county's populations, percent change and class, so you can check them against the CSV, plus a list of counties it didn't label.
+
+    ## Choices I made
+
+    - **Starting value for 2020:** the CSV has both `ESTIMATESBASE2020` (April 1, 2020) and `POPESTIMATE2020` (July 1, 2020). I used the April base, which is how the Census Bureau reports change since 2020, and the subtitle says so. To switch, change `BASE_COL` and `SUBTITLE` near the top of the script.
+    - **Projection:** Albers equal-area conic on NAD83, fitted to New Mexico. A comment in the script gives the details. I picked an equal-area projection because a shaded map compares county areas.
+    - **Grayscale:** six classes on the YlGnBu color scale, which gets steadily darker, so the order holds in grayscale. Lighter means more loss, darker means more growth. The class breaks are −4, −2, 0, 2 and 4%. The two end classes run to the data's own minimum and maximum, rounded outward so the stated range includes them.
+    - **County names:** a name is drawn only if its whole text fits inside the county with a small margin. The script tries 6.5 pt, then two lines, then 5.5 pt. Los Alamos will probably be left unlabeled, and the console will list it.
+    - **Join check:** the script matches counties between the two files by their 5-digit FIPS codes. If any county is in one file but not the other, it stops and lists them.
+    - **No typed data:** all populations and county names come from the CSV. The only numbers in the script are design settings: class breaks, sizes and projection settings.
+    - **Layout:** the legend and scale bar (km and miles) sit in a column to the right of the map. The figure is exactly 6.5 in wide, and its height follows the shape of the state (about 6 in). I didn't crop it automatically when saving, because that would change the width. The PDF keeps its text as editable text.
+
+    From reading the CSV, the values run from about −5.4% (McKinley) to +6.2% (Torrance). That puts 23 counties below zero and 10 above.
+
+    When you run it, check that none of the labels in the PNG are crowded. If some are, you can raise `LABEL_CLEARANCE_IN`.
+
+- id: mapping-ghost-map-fix
+  session: mapping-with-ai
+  label: "After reporting what the browser showed"
+  run: "the follow-up describing the broken page"
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Same session, after the follow-up above."
+  text: |
+    I've fixed it. All three symptoms came from one mistake I made: a comment in the page's JavaScript (line 136) contained the literal text `</script>`. A browser treats that text as the end of the script, wherever it appears. Here's what that caused:
+
+    - **Blank map and empty table:** The script was cut off partway through, so none of it ran.
+    - **Code printed on the page:** Everything after that point was shown as ordinary page text.
+
+    I reworded the comment so it no longer contains that tag; nothing else changed. I also checked the rest of the script and the embedded CSV, and neither contains `</script` anywhere else. Your data and the map logic are exactly as before.
+
+    I haven't opened the file in a browser to confirm the fix, so please reload it in Chrome. You should see 46 points and 20 rows in the table below the map. If the map is still blank, the next most likely cause is the integrity hashes I wrote from memory. Delete the two `integrity="..."` attributes in the `<head>` and reload. Chrome's console (View → Developer → JavaScript Console) will show an "integrity" error if that's the problem.

@@ -19,6 +19,14 @@ Avoid maintaining an authoring copy in another project folder; it obscures
 which files are current. Participant downloads are generated from the saved
 example data in this repo.
 
+**Every file a prompt attaches is downloadable from the page.** When a prompt
+says "I have attached…", link the exact file the recorded run was sent, at
+that prompt, and list all of them in one table near the top with a ZIP. Host
+small files in `assets/<session>/`; link large public files (over about 10 MB)
+directly at their source, never only to a landing page the reader has to
+search. Say which files came out of an earlier prompt, and give each file's
+source and license in a README inside the ZIP.
+
 ## What a session page is for
 
 **Three audiences, one page, no branches.** Someone doing the exercises live,

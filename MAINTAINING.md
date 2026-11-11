@@ -161,22 +161,33 @@ github-pages gem would render a `.md` copy as a page). The download contains
 no articles and no recorded agent output. The presenter guide is in the same
 draft folder; save rehearsal runs in its ignored `_local/` subfolder.
 
-### Mapping with AI practice kit
+### Mapping with AI
 
-The session at `sessions/mapping-with-ai/` uses two prepared interfaces:
-fictional correspondence for research exploration and a small, sourced WWI
-memorial photograph collection for public browsing. Edit the collections in
-`_data/mapping_examples.json`, and the source texts, map template, styles,
-script, and provenance README in `workshop-drafts/mapping-with-ai/`. Run
-`python3 scripts/build-mapping-workspace.py` to regenerate both standalone
-HTML maps, JSON exports, and the participant ZIP in `assets/mapping-with-ai/`.
-The presenter guide in the draft folder gives a 50-minute run of show.
+The session at `sessions/mapping-with-ai/` is a standalone demonstration
+page with no slides or presenter guide. Its sources are public: Wikipedia's
+New Mexico ghost-town list, GNIS, the Cats of Marrakech photographs, current
+Census Bureau county figures and the 1910 census report for New Mexico. The
+four scans in `sessions/mapping-with-ai/images/` are cropped from that report
+(IPUMS copy of Volume 3, chapter 2, PDF pages 2, 3, 5 and 6).
 
-The HTML maps embed the data; editing a neighboring JSON file does not update
-them. Leaflet, background tiles, and photographs require internet access;
-the collection lists remain usable without them. Keep the fictional-text
-labels, photo credits, source links, and approximate-location notes visible.
-Exact monument coordinates have not been independently verified.
+Recorded outputs go in `_data/demos.yml` under the `mapping-*` ids, which
+show as red unfilled slots until recorded. Map screenshots (`run-*.jpg`) sit
+in the images folder beside the demo they belong to. The 11 November 2026
+runs were fresh headless Claude Code sessions with file tools only; the exact
+messages sent, replies, generated files and the runner script are in
+`workshop-drafts/mapping-with-ai/_local/runs-2026-11-11/` (ignored by Git).
+The step 1 picture (`run-hook-picture.jpg`) came from Gemini on 11 November 2026 and is shown as a figure, not a demo slot.
+
+The files attached to the prompts are in `assets/mapping-with-ai/data/`,
+with a `README.txt` giving each one's source. The page links each file at
+its prompt and lists them all in "Data for this session". After changing
+any of them, run `python3 scripts/build-mapping-data.py` to rebuild
+`assets/mapping-with-ai/mapping-with-ai-data.zip`. The county boundary file
+(12 MB) is linked at the Census Bureau rather than hosted.
+
+The earlier version's practice kit (`_data/mapping_examples.json`,
+`workshop-drafts/mapping-with-ai/`, `scripts/build-mapping-workspace.py` and
+`assets/mapping-with-ai/`) is no longer linked from the page.
 
 ### Presenting the sessions
 

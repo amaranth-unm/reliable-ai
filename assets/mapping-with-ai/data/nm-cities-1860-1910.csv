@@ -1,0 +1,14 @@
+city,census_year,population,increase_number,increase_percent,source_page
+Albuquerque,1910,"11,020","4,782",76.7,158
+Albuquerque,1900,"6,238","2,453",64.8,158
+Albuquerque,1890,"3,785",,,158
+Raton,1910,"4,539",999,28.2,158
+Raton,1900,"3,540",,,158
+Roswell,1910,"6,172","4,123",201.2,158
+Roswell,1900,"2,049",,,158
+Santa Fe,1910,"5,072",-531,-9.5,158
+Santa Fe,1900,"5,603",-582,-9.4,158
+Santa Fe,1890,"6,185",-450,-6.8,158
+Santa Fe,1880,"6,635","1,870",39.2,158
+Santa Fe,1870,"4,765",130,2.8,158
+Santa Fe,1860,"4,635",,,158
