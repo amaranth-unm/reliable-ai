@@ -1255,6 +1255,13 @@ details.more[open] > :last-child { margin-bottom: 1rem; }
   vertical-align: top;
 }
 
+/* Files a reply sets out in a box (sources.md, checks.md …) can run to
+   hundreds of lines. Keep each one scrollable so the page stays readable. */
+.demo-text pre {
+  max-height: 32rem;
+  overflow: auto;
+}
+
 .demo-note {
   margin: 0;
   padding: 0.6rem 1.2rem 0.9rem;

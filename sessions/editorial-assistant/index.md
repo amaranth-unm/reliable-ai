@@ -32,9 +32,17 @@ workshop_mode: true
 redirect_from: /sessions/editorial-assistant.html
 ---
 
+{% comment %}
+Authoring references: SESSION-STYLE.md. Each step: the text, the prompt,
+what came back, what to check. Recorded replies are in _data/demos.yml and
+were made with scripts/record-runs.py from
+workshop-drafts/editorial-assistant/runs-plan.json; see MAINTAINING.md to
+re-record them.
+{% endcomment %}
+
 {% include nav/scrollspy-toc.html %}
 
-This page is the full tutorial, with every prompt and some extra exercises to work through at your own pace. You can also [view the presentation slides]({{ site.baseurl }}/sessions/editorial-assistant/slides/).
+Work down this page during the session or return to it later. Each step shows a text, the prompt sent to an AI tool and the reply that came back, so you can repeat the process with your own writing.
 {: .lead}
 
 <div class="rule" markdown="1">
@@ -65,6 +73,39 @@ You don't need to know how a model works inside to judge what it tells you. Four
 - **It forgets your preferences.** Each new conversation starts from nothing
   unless you save your rules and bring them along. (Steps 4 to 6)
 
+### About the examples
+
+The texts are invented practice material, apart from one real course assignment in step 3. The replies on this page were recorded on 11 November 2026 with Claude Opus 5.5, each in a new conversation with nothing set up beforehand. **Except in step 6, the tool could not search the web, open files or run code**, so it behaved like an ordinary chat window with text pasted into it. In step 6 it could also run commands, which is how it returned a Word file. The note under each reply says what was pasted in and what was cut; cuts are marked […]. Models change, so your replies will differ, and a different reply can be just as good.
+
+### Setting up to follow along
+
+- **Any chat assistant works:** Claude, ChatGPT, Gemini or Copilot, in a browser tab, on a free account. Step 6's Word comments need a tool that can send a file back to you; the step says more.
+- **Paste the text, then the prompt, in one message.** Most prompts here say “paste the policy, then send this”. Copy the text from this page or from the data files below, paste it into the message box, press Shift+Enter for a blank line, paste the prompt below it and send.
+- **New chat or same chat.** Where it matters, the note above a prompt says whether to start a new chat or continue the last one. A new chat keeps earlier replies from steering the next one, which matters most when you compare two readings.
+- **Fill in the brackets.** Some prompts have slots like `[genre: seminar paper / abstract]`. Replace the whole bracket with your choice before sending.
+
+### Data for this session
+
+Every text pasted or attached on this page is in **[one ZIP]({{ '/assets/editorial-assistant/editorial-assistant-data.zip' | relative_url }}) (0.1 MB)**, with a README saying where each file came from. The practice texts are also on the [practice texts page]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts).
+
+<details class="more" markdown="1">
+<summary>The files one at a time</summary>
+
+| Step | File | What it is |
+|---|---|---|
+| 1–4 | [syllabus-policy.txt]({{ '/assets/editorial-assistant/data/syllabus-policy.txt' | relative_url }}) | The AI-use policy used as the running example |
+| 3, 5 | [seminar-paragraph.txt]({{ '/assets/editorial-assistant/data/seminar-paragraph.txt' | relative_url }}) | A seminar paper paragraph, for the peer-reviewer reader |
+| 3, 5 | [abstract.txt]({{ '/assets/editorial-assistant/data/abstract.txt' | relative_url }}) | An abstract, for the grant-panelist reader |
+| 2, 5, 6 | [archive-report.txt]({{ '/assets/editorial-assistant/data/archive-report.txt' | relative_url }}) | A four-paragraph community archive report |
+| 5 | [archive-style-guide.txt]({{ '/assets/editorial-assistant/data/archive-style-guide.txt' | relative_url }}) | The working style guide for that report |
+| 3 | [making-history-campus-history-assignment.txt]({{ '/assets/editorial-assistant/data/making-history-campus-history-assignment.txt' | relative_url }}) | A real course assignment, for the two-reader exercise |
+| 5 | [campus-history-essay-style-guide.txt]({{ '/assets/editorial-assistant/data/campus-history-essay-style-guide.txt' | relative_url }}) | A real collection's style guide |
+| 5 | [alexandra-ruiz-cv-workshop.docx]({{ '/assets/editorial-assistant/data/alexandra-ruiz-cv-workshop.docx' | relative_url }}) | A fictional CV in Word, for the CV audit |
+| 6 | [machiavelli-study-guide.docx]({{ '/assets/editorial-assistant/data/machiavelli-study-guide.docx' | relative_url }}) | An AI-written study guide in Word, without comments |
+| 6 | [machiavelli-study-guide-with-comments.docx]({{ '/assets/editorial-assistant/data/machiavelli-study-guide-with-comments.docx' | relative_url }}) | The same guide with the comments step 6 added |
+
+</details>
+
 ### Before you start
 
 - **A laptop**, with an AI assistant open in a browser tab. Claude, ChatGPT, Gemini, or Copilot all work, and a free account is fine.
@@ -76,11 +117,10 @@ Use texts you have permission to share, such as your own writing or the practice
 
 ### The paragraph we'll use
 
-We begin with the **AI-use policy** from the
-[practice texts]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts). It is short enough to read
-together and familiar enough to judge. For the style-guide exercise, we move
-to a [four-paragraph project report]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts#community-archive),
-where wording choices have to hold across a longer argument.
+We begin with this **AI-use policy** from the practice texts. It is short
+enough to read together and familiar enough to judge. For the style-guide
+exercise, we move to a four-paragraph project report, where wording choices
+have to hold across a longer argument.
 
 > **Use of AI Tools.** Students may use generative AI tools in this course
 > where appropriate, but should not use them to complete assignments for them.
@@ -94,42 +134,33 @@ where wording choices have to hold across a longer argument.
 Read it as the person who wrote it and it seems clear. This session is about
 reading it as the students it is addressed to.
 
-**About the replies on this page.** Recorded replies show the tool and date.
-They come from the conversation in which this workshop was developed, so the
-tool already had some context; re-run them in a fresh conversation before
-treating them as typical. […] marks a cut. Examples labeled *prepared* were
-written for the slides rather than recorded. Your own replies will differ, and
-a different reply can be just as good.
-
 ## 1. Try a reasonable editing request
 {: .step #step-1}
 
-Paste the syllabus policy, then ask for a conventional edit.
+Paste the syllabus policy into a new chat, then ask for a conventional edit.
 
 {% include prompt.html id="baseline" %}
 
-Some of what comes back will probably help. Read the reply beside the
-original and pick one change you would accept and one you would want to argue
-with.
+{% include demo.html id="policy-baseline" %}
+
+Some of this helps, and the closing suggestion to give examples of acceptable
+use is a good one. Now read the edit beside the original.
 
 - Did “should,” “may,” and “must” keep their different meanings?
 - Did the edit make a sentence clearer, or did it settle a policy question the writer had deliberately left open?
 - Did it explain the changes that alter meaning, or only the small ones?
 - Which questions are still unanswered now that every sentence reads smoothly?
 
-“Preserve my meaning” only helps if a sentence has one meaning to begin with. Where the original is ambiguous,
-the tool either picks a reading or asks which you meant, and a question is the
-better result. Step 2 gets it to name those decisions before it rewrites
-anything.
+Here, “Any use of AI should be disclosed” became “Disclose any use of AI.”
+That turns a recommendation into a command, and the reply lists it under
+**small trims**. “Preserve my meaning” only helps if a sentence has one
+meaning to begin with. Where the original is ambiguous, the tool either picks
+a reading or asks which you meant, and a question is the better result. Step
+2 gets it to name those decisions before it rewrites anything.
 
 <div class="keypoint" markdown="1">
 Add one line to any editing request: “If a sentence could mean more than one thing, ask me which I meant before you change it.”
 </div>
-
-**Prepared example:** “Students may use AI where appropriate, but not to
-complete assignments for them.” The sentence is shorter, but “appropriate”
-still needs examples, and the paragraph still doesn't say how to disclose AI
-use.
 
 Now send the same request with your own paragraph, and look for a choice the
 edit made for you.
@@ -137,22 +168,21 @@ edit made for you.
 ## 2. Teach it to read like you do
 {: .step #step-2}
 
-Use the same original policy, this time with a specific job. Name the reader,
-focus the concern, and ask for the evidence behind each observation.
+Use the same original policy in a new chat, this time with a specific job.
+Name the reader, focus the concern, and ask for the evidence behind each
+observation.
 
 {% include prompt.html id="policy-reader-brief" %}
 
-**Prepared example:** “Any use of AI should be disclosed” doesn't say where
-or how. The instructor needs to decide what disclosure includes and where it
-goes, then add that to the policy.
+{% include demo.html id="policy-reader-brief-run" %}
 
-That reply gives you a passage, a problem, and a decision to make, because the
-prompt asked for a diagnosis before any editing.
+That reply gives you passages, problems and decisions to make, because the
+prompt asked for a diagnosis before any editing. Item 2 is the “should” that
+step 1's edit quietly changed, now raised as a question for you.
 
 For other documents, use the general brief below. A brief says what the text
 is, who reads it, what it's trying to do, what worries you, and what shouldn't
-change, and it asks for comments rather than a rewrite. The recorded reply
-after it comes from running this brief on the policy.
+change, and it asks for comments rather than a rewrite.
 
 {% include prompt.html id="editorial-brief" %}
 
@@ -171,25 +201,25 @@ like yours tend to react. An anchored question ties each answer to a passage,
 so you can check it against your text. Ask open questions to widen what you
 consider, and anchored ones when you need to know what is on the page.
 
-The two are easy to confuse in a reply. Later in the same conversation, an
-open follow-up produced this:
+The two are easy to confuse in a reply. In the same chat, an open follow-up
+produced this:
 
 {% include prompt.html id="policy-open-followup" %}
 
 {% include demo.html id="policy-vague" %}
 
-Some of this is good advice. Explaining the reasoning behind a policy and
-treating AI use as a skill are both worth considering. But the reply reads
-like a diagnosis of the paragraph, and you can't tell which parts are. Ask it
-to anchor what it said:
+Some of this is good advice. Saying how you will decide a case, and naming
+fabricated citations as the accuracy risk in a history course, are both worth
+considering. But the reply reads like a diagnosis of the paragraph, and you
+can't tell which parts are. Ask it to anchor what it said:
 
 {% include prompt.html id="quote-it" %}
 
 {% include demo.html id="policy-quoted" %}
 
-Now you can sort the reply. One point is about a sentence in the policy, and
-you can go and check it. The other two are general advice: decide whether you
-agree, but don't treat them as problems with this policy.
+Now you can sort the reply. One point comes from the policy's wording, and you
+can go and check it. The rest are inferences about students and courses:
+decide whether you agree, but don't treat them as problems with this policy.
 
 <div class="keypoint" markdown="1">
 Ask open questions when you want ideas, and ask for the exact words when you want to know what's on the page. A comment that can't point to a passage is general advice, which may still be worth taking.
@@ -200,9 +230,16 @@ look. When the claim is that something is missing, ask which purpose or rule
 makes the absence matter.
 
 These tools also tend to open with praise. When you want criticism, ask in a
-form where something has to come last:
+form where something has to come last. This needs more than one paragraph, so
+the recorded run used the four-paragraph archive report.
 
 {% include prompt.html id="anti-sycophancy" %}
+
+{% include demo.html id="archive-rank" %}
+
+The ranking forced a weakest paragraph, and the reason it gives can be
+checked: paragraph 2 says contributors “retain control” two sentences after
+saying the team makes final decisions. Step 5 comes back to that sentence.
 
 ### Which instructions to keep
 
@@ -213,91 +250,33 @@ for.
 Two other instructions describe how you want any of your writing read: *quote
 the text when you comment on it, and label general advice as general*, and
 *don't open with praise*. Type them by hand today, then make them the first
-lines of the rule file you build in step 5. Step 4 adds the rules you can only
-find by watching the tool get your own work wrong.
+lines of the style sheet you build in step 5. Step 4 adds the rules you can
+only find by watching the tool get your own work wrong.
 
 ## 3. Assign reader roles
 {: .step #step-3}
 
 Keep the text and the brief fixed, and change only the reader. A student asks
-what to do next. An assignment designer asks whether the instructions and the
-grading criteria describe the same piece of work. Neither has to rewrite
-anything to give the author a question worth answering.
+what to do next. A reviewer asks what the claim rests on. Neither has to
+rewrite anything to give the author a question worth answering.
 
-### Read a real assignment in two roles
+### Read the policy as two different readers
 
-Open the [Making History assignment exercise]({{ site.baseurl }}/examples/assignment-review/).
-It includes the actual Campus History archive-and-essay assignment, a text
-copy, and links to its surrounding instructions. Give the same materials to
-both readers in separate conversations.
-
-{% include prompt.html id="assignment-student" %}
-
-{% include prompt.html id="assignment-designer" %}
-
-The designer's framework is **purpose, task, and criteria for success**, from
-[TILT](https://www.tilthighered.org/resources). Give what the assignment
-already explains as much attention as what may be missing.
-
-{% include prompt.html id="assignment-compare" %}
-
-**Prepared observation**, in TILT's three parts:
-
-- **Purpose.** “Skills you are practicing” explains what students learn and why.
-- **Task.** The archive visit and the essay requirements give a workable sequence.
-- **Criteria.** “What I'm looking for” describes strong work. But the grading
-  also expects an “AI-Archive Comparison” that the requirements never place,
-  so students can't tell where it goes or whether it counts toward the word
-  target.
-
-A student would ask where to put the comparison, and a designer would ask why
-the grading expects something the instructions never assign. Both lead to the
-same missing sentence. Recorded runs of all three prompts are on the
-[exercise page]({{ site.baseurl }}/examples/assignment-review/). The designer's
-reading marks the comparison “No. It appears only in the criteria,” and the
-comparison then calls that overstated: the task does ask students to compare,
-but never names the comparison as something to hand in.
-
-The instructor decides how to fix it, and other course materials or class
-discussion may already cover it. Before you treat an AI reading as evidence of
-what students understand, ask some students to explain the assignment back to
-you.
-
-### Try other readers on your own text
-
-You already imagine readers when you revise: the reviewer who may object, the
-student meeting a term for the first time, the editor in a hurry. Name that
-reader in the prompt and see what it helps you notice.
-
-**Run at least two roles on your paragraph**, and ask for comments only, not
-fixes.
-
-{% include prompt.html id="role-reviewer" %}
-
-{% include prompt.html id="role-outsider" %}
-
-{% include prompt.html id="role-panelist" %}
-
-Then add the one closest to the work you brought:
-
-{% include prompt.html id="role-desk-editor" %}
+Start a new chat for each reader and paste the policy above the prompt.
 
 {% include prompt.html id="role-confused-student" %}
 
-{% include prompt.html id="role-grader" %}
-
-Here is how the confused-student role read the syllabus policy:
-
 {% include demo.html id="policy-student" %}
 
-And here is the outsider's reading of the same policy:
+{% include prompt.html id="role-outsider" %}
 
 {% include demo.html id="policy-outsider" %}
 
 ### Compare the readings
 
-Put the readings side by side. Then check the comparison against both replies
-and the original, since a tidy summary can still misrepresent all three.
+Put the readings side by side in a new chat, with the policy. Then check the
+comparison against both replies and the original, since a tidy summary can
+still misrepresent all three.
 
 {% include prompt.html id="compare-readers" %}
 
@@ -309,25 +288,68 @@ learned that the criticism is right.
 **Read the comparison for three things.**
 
 **What both readers flagged.** Go back to the passage and see whether it
-supports the concern. In the assignment, the comparison requirement really is
-named in the grading section. Where it belongs is still the author's call.
+supports the concern. Both readers stopped at “substantially” and at whether
+disclosing protects the student, and the policy really doesn't say.
 
 **What only one reader flagged.** Decide whether that concern matters for the
-audience you actually have. A specialist asking for more detail and a newcomer
-asking for a definition can both be right, for different readers.
+audience you actually have. Only the careful outsider worried about which
+tools count; the student at 11pm barely noticed.
 
 **Where the readers disagree.** Work out what the disagreement is about: a
-choice you made on purpose, a misreading, or context you left out. In the
-policy comparison above, the reply offers “instruction or enforcement” as
-though you had to pick one. A policy can do both. Keep the question it raises
-and drop the either-or.
-
-Use the questions that hold up to plan a revision, or to decide what to ask a
-real reader.
+choice you made on purpose, a misreading, or context you left out. Here the
+comparison turns the disagreement into decisions the policy hasn't made, such
+as whether it protects students' thinking or the authorship of the text. Keep
+the questions that hold up and drop any that force a false choice.
 
 <div class="keypoint" markdown="1">
 Give each imagined reader its own conversation and ask for questions, not fixes. Check the concerns they share against the passage, and the ones that matter against a real reader.
 </div>
+
+### Try other readers on other texts
+
+You already imagine readers when you revise: the reviewer who may object, the
+panelist in a hurry. Name that reader in the prompt and see what it helps you
+notice. These two used other practice texts, each pasted above the prompt in
+a new chat.
+
+{% include prompt.html id="role-reviewer" %}
+
+{% include demo.html id="seminar-reviewer" %}
+
+The reviewer makes specific historical claims about territorial legislation
+and upstream diversions. They are the tool's claims, and a real reviewer's
+would need checking just the same. The useful part is the question at the
+end, which tells the writer what the paragraph has to show.
+
+{% include prompt.html id="role-panelist" %}
+
+{% include demo.html id="abstract-panelist" %}
+
+<details class="more" markdown="1">
+<summary>Two more readers that need your own materials</summary>
+
+These ask for things only you have, a journal's aims and scope or an
+assignment's rubric, so there is no recorded reply. Use them the same way:
+one reader per chat, comments only.
+
+{% include prompt.html id="role-desk-editor" %}
+
+{% include prompt.html id="role-grader" %}
+
+</details>
+
+### Read a real assignment in two roles
+
+The [Making History assignment exercise]({{ site.baseurl }}/examples/assignment-review/)
+runs the same idea on a real course assignment, with a student reader and an
+assignment designer who uses the purpose, task and criteria framework from
+[TILT](https://www.tilthighered.org/resources). Its three prompts and their
+recorded replies are on that page. The comparison found that the grading
+expects an “AI-Archive Comparison” the requirements never ask students to
+produce, so a student can't tell how to meet a criterion the task never names.
+It also flagged claims in both readings that the assignment doesn't support.
+Before you treat an AI reading as evidence of what students understand, ask
+some students to explain the assignment back to you.
 
 ## 4. Turn corrections into rules
 {: .step #step-4}
@@ -345,10 +367,28 @@ describe the writer you'd like to be, which doesn't work as an instruction.
 Your corrections are better material: each time you said *no, put that back*,
 you found a possible rule.
 
+In the recorded run, we went back to the chat from step 1 and sent three
+corrections to its edit, one at a time:
+
+1. “Put "should" back in both places. "Disclose any use of AI" turns a recommendation into a command, and I haven't decided yet whether disclosure is required.”
+2. “Move the goal statement back to the end. I want students to meet the rules first and the reason last. Please don't move sentences without asking.”
+3. “Change "you" back to "students". The rest of my syllabus is in the third person.”
+
+The reply to the third correction is worth reading closely:
+
+{% include demo.html id="policy-correction-3" %}
+
+The first edit had also dropped “in this course” and “If you are” without
+listing either change. The tool found them only when it restored the
+original. Then, in the same chat:
+
 {% include prompt.html id="rule-harvest" %}
 
-**If you've made the same correction twice, make it a rule**, so you don't
-have to fix it by hand a third time.
+{% include demo.html id="rule-harvest-run" %}
+
+Each rule quotes the exchange it came from, so you can check it against what
+you actually said. **If you've made the same correction twice, make it a
+rule**, so you don't have to fix it by hand a third time.
 
 ### A rule has to be checkable
 
@@ -371,15 +411,25 @@ Two more things to build in:
   said which one wins, the tool may decide differently each time. Five rules
   in a clear order work better than twenty with none.
 
+The recorded run tried a typical first draft in a new chat.
+
 {% include prompt.html id="rule-sharpen" %}
 
+{% include demo.html id="rule-sharpen-run" %}
+
 Then test the rule on a passage where it *shouldn't* apply, to make sure it
-doesn't fire everywhere.
+doesn't fire everywhere. The run used the first harvested rule and three
+sentences from the practice texts.
 
 {% include prompt.html id="rule-test" %}
 
-If it fires on a passage where the hedge should have gone, the rule is too
-broad. Add the exception now, while you still remember what it was for.
+{% include demo.html id="rule-test-run" %}
+
+The rule fired on passage 2 because the word “may” appears, though that “may”
+is a hedge about evidence, not a permission. If a rule fires where it
+shouldn't, it is too broad. Add the exception now, while you still remember
+what it was for: here, split it into one rule for obligation and one for
+hedges.
 
 <div class="keypoint" markdown="1">
 When you make the same correction twice, write it as a rule someone else could check by looking at the text, then test it on a passage where it shouldn't apply.
@@ -390,94 +440,102 @@ When you make the same correction twice, write it as a rule someone else could c
 
 ### Apply a guide to a longer piece
 
-Open the [community archive report and working style guide]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts#community-archive).
-Its four paragraphs give you several kinds of editorial work: a wordy sentence
-you can simplify, a qualification worth keeping, and a claim about community
-control that needs the author's decision. The report and its details are invented.
+Open the [community archive report and working style guide]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts#community-archive),
+or download [archive-report.txt]({{ '/assets/editorial-assistant/data/archive-report.txt' | relative_url }})
+and [archive-style-guide.txt]({{ '/assets/editorial-assistant/data/archive-style-guide.txt' | relative_url }}).
+The report's four paragraphs give you several kinds of editorial work: a
+wordy sentence you can simplify, a qualification worth keeping, and a claim
+about community control that needs the author's decision. The report and its
+details are invented.
 
-Read the report first, then try a general edit without the guide.
+Read the report first, then try a general edit without the guide, pasting
+the report above the prompt in a new chat.
 
 {% include prompt.html id="archive-general-edit" %}
 
-**Prepared example:** “A common description template has made it easier for
-contributors to compare records.” That simplifies one sentence well. It leaves
-a separate question about the paragraph: how does the team's final
-decision-making authority fit with the claim that contributors retain control?
+{% include demo.html id="archive-general-run" %}
+
+The edit is careful and flags its two meaning changes, which is better than
+step 1's. But both are decisions: “retain control” became “a real say”, and
+“shows” became “suggests … can strengthen”. The reply made them and asked you
+to check afterwards.
 
 In a fresh conversation, give it the same original report and the guide rules
 you want to keep, and ask for a reading against them.
 
 {% include prompt.html id="archive-style-review" %}
 
+{% include demo.html id="archive-guide-run" %}
+
 For each comment, check the quotation and the rule. Does the rule apply here?
 Is the change a matter of wording, or does it decide what the writer means?
 The prompt also asks for a passage to leave alone, because a guide should
-protect deliberate choices as well as catch problems.
+protect deliberate choices as well as catch problems. Each comment now comes
+with a reason you can argue with, and the two questions about control and
+ownership come back to you as decisions instead of arriving as edits.
 
-Each comment now comes with a reason you can argue with. In the prepared
-example on the slides, the guide protects “may reflect” because the evidence
-can't tell several explanations apart, and it raises the question of who
-controls decisions. Compare that with your first reply.
-
-Then pick one local change you agree with and ask for it.
+Then pick one local change you agree with and ask for it in the same chat.
+The run chose the template sentence from finding 5.
 
 {% include prompt.html id="archive-style-edit" %}
 
-Compare the proposal with the original. For example, shortening “the
-implementation of a common description template” may preserve the point.
-Replacing “retain control” with “have a voice” changes the claim and needs
-the writer's agreement. The [prepared examples]({{ site.baseurl }}/sessions/editorial-assistant/practice-texts#archive-style-guide)
-give you a few comparisons to check once you have made your own.
+{% include demo.html id="archive-guide-edit-run" %}
+
+Compare the proposal with the original. Shortening “the implementation of a
+common description template” keeps the point. The reply then asks which of two
+meanings you intended instead of picking one, which is what the prompt asked
+it to do.
 
 <div class="keypoint" markdown="1">
 Ask for a reading against your guide before any edits, with each comment quoting the passage and naming its rule. Then ask for one small change at a time, and for a question whenever a change would need your decision.
 </div>
 
-### Reuse a guide across semesters
+### Reuse a guide, or audit a document
 
-The [Campus History style-guide exercise]({{ site.baseurl }}/examples/campus-history-style-guide/)
-uses the actual guide for the student essay collection. It carries editorial
-decisions across semesters: consistent headings, captions, citations, and
-light prose cleanup, while preserving each student's argument and voice.
-Download its snapshot and try it on one essay you have permission to share.
+Two exercise pages take the same approach further, each with its own prompts
+and recorded replies:
 
-{% include prompt.html id="campus-history-normalize" %}
-
-**Prepared illustration:** removing “In conclusion,” from “In conclusion, the
-letters suggest that students may have used the room after hours” follows
-the guide's treatment of assignment scaffolding. Keeping “suggest” and “may
-have” preserves the limit of the evidence. (The sentence is invented, not
-taken from a student's essay.)
-
-A saved guide needs checking too. This exercise points out two instructions in
-the current guide that contradict each other. Look for conflicts like that
-before you apply a guide across a whole collection, and read the rendered page
-afterwards, not just the file.
-
-### Audit formatting as well as prose
-
-The same approach works on formatting. The [CV audit exercise]({{ site.baseurl }}/examples/cv-audit/)
-uses a four-page fictional CV in Word that looks finished but has small
-inconsistencies, such as mixed date ranges and an article listed under two
-different statuses. Its three prompts audit the CV, check its Word structure,
-and draw a style guide from its own patterns. The first asks the tool to say
-whether it read the page, the extracted text, or the Word file itself.
+- The [Campus History style-guide exercise]({{ site.baseurl }}/examples/campus-history-style-guide/)
+  uses the actual guide for a collection of student essays. It carries
+  editorial decisions across semesters while preserving each student's
+  argument and voice, and it points out two instructions in the guide that
+  contradict each other.
+- The [CV audit exercise]({{ site.baseurl }}/examples/cv-audit/) uses a
+  four-page fictional CV in Word that looks finished but has small
+  inconsistencies. Its prompts audit the CV, check its Word structure, and
+  draw a style guide from its own patterns.
 
 ### Build a guide from your own writing
 
-The guide in the first exercise belongs to the archive report. For your own work, combine rules from
-your corrections with a few passages whose style you want to keep. Ask the
-assistant to describe their patterns from evidence:
+For your own work, combine rules from your corrections with a few passages
+whose style you want to keep. Ask the assistant to describe their patterns
+from evidence. The recorded run had no writing of ours to use, so it was sent
+three practice texts, pasted above the prompt.
 
 {% include prompt.html id="style-extract" %}
 
-Expect it to get some of this wrong. It often reads caution as vagueness, and it may miss the habits you most want named. **Saying why its description is wrong is how you find the rules you want.**
+{% include demo.html id="style-extract-run" %}
 
-Then add rules about what not to do, which tend to change the output more than positive ones:
+Its first move was the right one: it noticed the three passages weren't by one
+writer and said which it had based the rules on. With your own passages, expect
+it to get some of your habits wrong. It often reads caution as vagueness, and
+it may miss the habits you most want named. **Saying why its description is
+wrong is how you find the rules you want.**
+
+Then add rules about what not to do, which tend to change the output more than
+positive ones. In the same chat:
 
 {% include prompt.html id="style-never" %}
 
-Finally, put the standing instruction at the top, so you don't have to set out your editorial stance again in every new conversation:
+{% include demo.html id="style-never-run" %}
+
+It also found three of its own earlier rules that the new list contradicted,
+and rewrote them. Read revisions like these before you keep them: a style
+sheet that disagrees with itself will be applied differently each time.
+
+Finally, put a standing instruction at the top, so you don't have to set out
+your editorial stance again in every new conversation. This one is a file to
+keep, not a prompt with a reply.
 
 {% include prompt.html id="standing-instruction" %}
 
@@ -498,7 +556,8 @@ If you want the rules applied automatically, use a **project**, which holds
 instructions and applies them to every conversation inside it: Projects in
 Claude, projects or custom GPTs in ChatGPT, Gems in Gemini. Make one per piece
 of work rather than one for everything, since a book chapter and a grant
-narrative need different briefs.
+narrative need different briefs. This is another block to paste into a
+settings field, not a prompt with a reply.
 
 {% include prompt.html id="project-instructions" %}
 
@@ -509,44 +568,64 @@ permission to share.
 
 ### Keep the draft in a file
 
-Write in a plain text file: `.txt`, or `.md` if you want to keep headings.
-A plain file opens in any program, will outlast whichever assistant you use
-this year, and makes it obvious which version is current. **Treat the
-conversation as scratch paper and the file as the draft.**
+Write in a plain text file: `.txt`, or `.md` (Markdown, plain text with a few
+marks such as `#` for headings) if you want to keep headings. A plain file
+opens in any program, will outlast whichever assistant you use this year, and
+makes it obvious which version is current. **Treat the conversation as scratch
+paper and the file as the draft.**
 
 Keep the original file to compare against. Ask for a reading of one part,
 decide which findings to act on, then either edit it yourself or ask for one
-specific change to a copy. **Read what changed before you keep it.** A list of
-changes shows you how much was touched, not just how it was worded.
+specific change to a copy. The recorded run pasted the whole archive report
+and named its third paragraph.
 
 {% include prompt.html id="working-file" %}
 
-Some tools can edit your files directly, without copying and pasting. That's
-faster, but copying and pasting was also a chance to look at each change. When
-one instruction can rewrite a whole draft, ask for a list of changes and work
-somewhere you can undo.
+{% include demo.html id="working-file-run" %}
+
+**Read what changed before you keep it.** A list of changes shows you how much
+was touched, not just how it was worded. In the same chat:
 
 {% include prompt.html id="no-silent-edits" %}
+
+{% include demo.html id="no-silent-edits-run" %}
+
+Change 3 leaves a bracket for a fact only you know, instead of inventing one.
+Change 2 would put a new admission into your report; whether to make it is
+your call. Some tools can edit your files directly, without copying and
+pasting. That's faster, but copying and pasting was also a chance to look at
+each change. When one instruction can rewrite a whole draft, ask for a list of
+changes like this one and work somewhere you can undo.
 
 ### Ask for comments instead of changes
 
 Some tools can return a copy of your Word file with comments attached to the
 passages they're about, the way a colleague marks up a draft. Nothing in your
 text changes. You read each comment beside its passage and decide what to do
-with it.
+with it. This needs a tool that can work with files and send one back, such
+as ChatGPT or Claude with file creation turned on; a plain chat can only
+describe the comments.
+
+The recorded run attached [machiavelli-study-guide.docx]({{ '/assets/editorial-assistant/data/machiavelli-study-guide.docx' | relative_url }}),
+a study guide to Machiavelli's political thought written by a small model
+(Gemma 4) running on a laptop, and chose “a specialist in the field” as the
+reader.
 
 {% include prompt.html id="word-comments" %}
 
-In this example, a small model running locally (Gemma 4, through Ollama)
-wrote a study guide to Machiavelli's political thought, and Claude added 37
-comments to it in Word. Here are three of them, with the passages they're
+{% include demo.html id="word-comments-run" %}
+
+[Download the commented file]({{ '/assets/editorial-assistant/data/machiavelli-study-guide-with-comments.docx' | relative_url }})
+and open it in Word. Here are three of its comments, with the passages they're
 attached to:
 
 {% include demo.html id="machiavelli-comments" %}
 
-Not every tool or account can return a Word file with comments. If yours
-can't, the last line of the prompt asks for a table of passages and comments
-instead.
+Each comment names a chapter to check, and the reply says plainly that it took
+the chapter references from memory. That is the right instruction to follow:
+look up a few in an edition before you rely on any of them. If your tool can't
+return a Word file with comments, the last line of the prompt asks for a table
+of passages and comments instead.
 
 <div class="keypoint" markdown="1">
 Keep the draft and your rules in files you control, and bring them to each new conversation. Ask for a list of changes, or for comments instead of changes, so you read each one before it reaches your draft.

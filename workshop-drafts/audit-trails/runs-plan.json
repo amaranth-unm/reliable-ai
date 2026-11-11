@@ -1,0 +1,137 @@
+{
+  "session": "audit-trails",
+  "model": "claude-opus-5-5",
+  "inputs": "assets/audit-trails/data",
+  "chains": [
+    {
+      "name": "first",
+      "tools": "WebSearch,WebFetch,Read,Glob",
+      "allowed": "WebSearch WebFetch Read Glob",
+      "turns": [
+        {
+          "name": "setup-files",
+          "prompt": "audit-setup-files"
+        },
+        {
+          "name": "setup-search",
+          "prompt": "audit-setup-search"
+        },
+        {
+          "name": "baseline",
+          "prompt": "audit-baseline",
+          "save_reply": "baseline.md"
+        },
+        {
+          "name": "retrieve",
+          "prompt": "audit-retrieve",
+          "fill": {
+            "[ethical concepts / historical framing / creative practice / a question from my field]": "historical framing"
+          },
+          "extract": true
+        }
+      ]
+    },
+    {
+      "name": "second",
+      "continue": "first",
+      "tools": "WebSearch,WebFetch,Read,Glob",
+      "allowed": "WebSearch WebFetch Read Glob",
+      "turns": [
+        {
+          "name": "read",
+          "attach": [
+            "readings/S01-ali.pdf",
+            "readings/S03-bory.pdf",
+            "reading-protocol.md"
+          ],
+          "attach_note": true,
+          "prompt": "audit-read",
+          "extract": true
+        },
+        {
+          "name": "synthesize",
+          "prompt": "audit-synthesize",
+          "extract": true
+        },
+        {
+          "name": "run-record",
+          "prompt": "audit-run-record",
+          "extract": true,
+          "extract_append": [
+            "prompts.md"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sprint",
+      "setup": [
+        "workshop-drafts/audit-trails/demo-folder/."
+      ],
+      "setting_sources": "project",
+      "tools": "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash,Agent",
+      "turns": [
+        {
+          "name": "sprint",
+          "prompt": "audit-agent-sprint"
+        }
+      ]
+    },
+    {
+      "name": "check",
+      "files_from": "first",
+      "tools": "WebSearch,WebFetch,Read,Glob",
+      "allowed": "WebSearch WebFetch Read Glob",
+      "turns": [
+        {
+          "name": "setup-files",
+          "prompt": "audit-setup-files"
+        },
+        {
+          "name": "check",
+          "attach": [
+            "readings/S01-ali.pdf",
+            "readings/S03-bory.pdf",
+            "sources.md",
+            "notes.md",
+            "synthesis.md",
+            "idea-map.md",
+            "reading-queue.md"
+          ],
+          "attach_note": true,
+          "prompt": "audit-check",
+          "extract": true
+        }
+      ]
+    },
+    {
+      "name": "decide",
+      "continue": "check",
+      "files_from": "first",
+      "tools": "WebSearch,WebFetch,Read,Glob",
+      "allowed": "WebSearch WebFetch Read Glob",
+      "turns": [
+        {
+          "name": "revise",
+          "prompt": "audit-revise",
+          "fill": {
+            "[claim or connection ID: accept / revise the proposed correction / reject / unresolved; my reason for each]": "F1: revise the proposed correction. I read S01 p. 5: it lists practitioner histories alongside critical ones and doesn't criticise them, so drop \"both criticise\". But keep a note that \"Many focused on the small (yet assertive) elite Western academic communities\" may be a mild criticism, as the check says.\nF2: accept. S01 rejects origin stories; S03 keeps the 1950s and criticises how they are told.\nF3: accept. Quote the question exactly.\nF4: accept. Restore \"perhaps\", say S01 places its aim next to refusal, fix the page to p. 17 and note the shared use of history against claims of novelty in row 11.\nF5: accept. I read S01 pp. 1–2: \"everywhere and nowhere\" introduces an argument for widening the history. The boundary question is mine.\nF6: accept.\nF7: accept.\nF8: accept. I read S03 p. 13 [107]: \"neutral and non-harmful\" describes the game environment.\nF9: accept.\nF10: accept. I read S03 p. 6 [100]: the reason is \"possible\".\nF11: accept, including starting queue step 3 at S03 p. 7 [101].\nF12: unresolved. The Moreschi material is second-hand, so I can't yet tell whether art is a method there. Keep row 13 but mark it unresolved until I read Moreschi's article.\nF13: accept.\nF14: accept.\nF15: reject removing the \"different interest\" section; I want it for comparing routes with colleagues. Accept changing \"rows 6–13\" to \"rows 3 and 5–13\"."
+          },
+          "extract": true
+        },
+        {
+          "name": "run-record",
+          "attach": [
+            "prompts.md"
+          ],
+          "attach_note": true,
+          "prompt": "audit-run-record",
+          "extract": true,
+          "extract_append": [
+            "prompts.md"
+          ]
+        }
+      ]
+    }
+  ]
+}

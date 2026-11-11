@@ -9,23 +9,29 @@ header-caption: "Festina lente: the closing leaves of the Aldine <i>Terence</i>,
 header-eyebrow: Amaranth Brown Bag Series
 header-title: Reliable AI
 header-divider: bring lunch and a laptop
-header-subtitle: Hands-on sessions on getting useful, checkable results from generative AI, using work you already know how to judge.
-summary: "A brown bag series on using generative AI well in research and teaching. All skill levels welcome."
+header-subtitle: Hands-on sessions that build the skills and the confidence to use generative AI well, starting from the humanities habits you already have.
+summary: "A brown bag series that builds skill and confidence with generative AI in research and teaching. No technical background needed."
 ---
 
-A lunchtime series from Amaranth for people at UNM who are curious about generative AI but skeptical if not unconvinced by most of what they have heard about it. Each session takes a routine task in research or teaching, often one from the humanities, and explores how AI can augment or speed up the process in reliable ways.
+A lunchtime series from Amaranth for people at UNM who want to get good at using generative AI, whether you are curious, skeptical or somewhere in between. Each session takes a routine task in research or teaching, often one from the humanities, and works through it step by step, so you leave able to do it on your own.
 {: .lead}
 
-There are many reasons to be skeptical about AI. Much of what gets claimed for these tools is overstated, and the failures are the ones that matter most in our work: invented sources, confident misreadings, prose that flattens significant nuance. 
+## What you build
 
-But that doesn't mean AI is hopeless for the humanities. And often, unhelpful AI output comes from unrefined prompting and cursory use, rather than sustained engagement with a complex tool that takes significant practice to harness. 
+- **Skills you can use the next day.** Every session ends with prompts, files and habits you can take back to your own work.
+- **Comfort with the technology.** Files and folders, attaching a document, starting a new chat, letting an agent work in a folder: each session explains what it uses as it comes up, and assumes no technical background.
+- **Confidence that comes from checking.** You learn to hold what a tool gives you up against a source, a page or your own text, so you know when to rely on it and when not to.
+- **Humanities habits as the core skill.** Close reading, source criticism, attention to context and careful citation are what make AI output usable. The sessions treat them as the expertise you bring, and build on them.
 
+There are good reasons to be skeptical about AI. Much of what gets claimed for these tools is overstated, and the failures are the ones that matter most in our work: invented sources, confident misreadings, prose that flattens significant nuance. But unhelpful output often comes from cursory use rather than practice with a complex tool, and practice is what these sessions are for.
 
 ## How the sessions work
 
-Our meetings aim for a deliberate combination of demonstration and discussion. We go through some use cases that can help you augment your work. You can follow along with our sample prompts and texts, or you can work with your own writing or sources so it's easier to tell whether a tool helped or whether it merely sounded fluent.
+Each meeting combines demonstration and discussion around one task. You can follow along with our sample prompts and texts, or work with your own writing or sources, which makes it easier to tell whether a tool helped or only sounded fluent.
 
-This is not about outsourcing thinking or writing. This is about using a powerful tool to help and augment what you're already doing.
+Every session page stands on its own afterwards: the prompts, the replies they produced and the files they used, with an explanation of each new term. Work through it at your own pace, or come back to it when you need it.
+
+This is not about outsourcing thinking or writing. It is about using a powerful tool to help with what you're already doing.
 
 You can follow almost everything on a free account; when a session needs a paid tool, the presenter demonstrates it. We try to showcase a variety of tools and workflows, since everyone has different ways of working. 
 

@@ -18,14 +18,14 @@ points:
     text: "Learn when a local model is the right choice for unpublished research, student work, and IRB-protected material."
   - title: "Compare local and cloud models"
     text: "Give a local model and a frontier model the same task to see what you gain in privacy and lose in quality."
-thumbnail: "/assets/images/stradanus-press-1600.jpg"
-header-image: "/assets/images/stradanus-press-1600.jpg"
+thumbnail: "/assets/images/durer-jerome-study-1514.jpg"
+header-image: "/assets/images/durer-jerome-study-1514.jpg"
 header-tier: section
 header-filter: etching
-header-position: center right
+header-position: center center
 header-opacity: 0.18
 header-title: Local LLMs
-header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from <i>Nova Reperta</i>, engraved by Joannes Galle. Museum Plantin-Moretus, public domain."
+header-caption: "Albrecht Dürer, <i>Saint Jerome in His Study</i>, engraving, 1514. Cleveland Museum of Art, CC0, via Wikimedia Commons."
 tags: [local models, privacy]
 workshop_mode: true
 ---

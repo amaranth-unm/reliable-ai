@@ -1,9 +1,9 @@
 # Session Page Style
 
 How to write a session page for the Reliable AI brown bag series. Read this
-before starting one. `sessions/editorial-assistant/index.md` is the worked example
-for the shared page structure and voice. When its conventions change, update
-this guide. Research-workspace and unlisted-preview notes extend that example
+before starting one. `sessions/mapping-with-ai/index.md` is the worked example
+for the shared page structure, recorded replies, files and voice. When its
+conventions change, update this guide. Research-workspace and unlisted-preview notes extend that example
 for sessions that need them.
 
 Contributor notes only; excluded from the build in `_config.yml`.
@@ -200,7 +200,7 @@ filter for everyone.
 
 The spine is fixed. Sessions differ in their steps, not their skeleton.
 
-Items 4 to 6, and a `### The paragraph we'll use` for the session's running
+Items 4 to 10, and a `### The paragraph we'll use` for the session's running
 example if it has one, sit under a single `## Introduction`, marked
 `{: .step #introduction}` like the steps so it gets the same band. The table of
 contents lists `##` headings, so it shows the introduction, the numbered steps
@@ -208,7 +208,8 @@ and the takeaways, and nothing else.
 
 1. **`{% include nav/scrollspy-toc.html %}`** — first line of the body.
 2. **The orientation line**, with `{: .lead}`. Who the page is for and how to
-   use it. One short paragraph; an optional presentation link can go here.
+   use it. One short paragraph. Don't link a slide deck: the page has to work
+   on its own (see "Slide decks").
 3. **A `.rule` callout** carrying one actionable instruction. The current
    example says “Teach AI how to read your work. You stay the writer and the
    editor.” Keep it short; there is no four-word requirement. Write it last,
@@ -221,13 +222,29 @@ and the takeaways, and nothing else.
    not checkable from a browser tab and the whole series rests on the reader
    being able to check. Keep it to about 150 words — it is a map, not a
    lecture, and a long one re-creates the problem the session exists to avoid.
-6. **`### Before you start`** — what to bring, as a bulleted list, then a
+6. **A primer, when the session's tool or medium is new to most readers.**
+   `mapping-with-ai` has `### What a web map is made of`: the parts of the
+   thing the session makes, each named once in plain words and pointed at the
+   step where it matters. Write it for someone who has never done this. Every
+   term the steps rely on should be defined here or where it first appears.
+7. **`### About the examples`** — where the sources come from, which tool
+   recorded the replies and on what date, and what that tool could and
+   couldn't do (read files, run code, search the web). Readers need that to
+   make sense of replies that say "I haven't opened it".
+8. **`### Setting up to follow along`** — the mechanics a beginner trips on:
+   which kind of tool each step needs, what "attach" means and how to do it,
+   how to get a file out of a chat, and when to start a new chat or continue
+   the same one.
+9. **`### Data for this session`** — one ZIP of every file a prompt attaches,
+   with its size, and a collapsed table of the files one at a time (see
+   "Keep session work in this repository").
+10. **`### Before you start`** — what to bring, as a bulleted list, then a
    `<div class="reminder" markdown="1">` with one sentence asking readers to
    use texts they have permission to share, such as their own writing or the
    practice texts. Keep it a gentle reminder, not a list of what to leave out:
    the reader should come away knowing what they can use.
-7. **Numbered steps** — see below.
-8. **`## What to take with you`**, marked `{: .step #takeaways}` — the last
+11. **Numbered steps** — see below.
+12. **`## What to take with you`**, marked `{: .step #takeaways}` — the last
    section. The session compressed to a bulleted list of principles, each one
    bolded and then explained in a clause. These should read as portable rules,
    not as a recap of what was clicked. Wrap the intro sentence and the list in
@@ -349,15 +366,13 @@ student reads it — and showed none of it. A reader who wasn't in the room had
 no way to tell whether any of it worked, which is the difference between a
 session that carries weight and one that reads as a prompting exercise.
 
-**Match the evidence to the kind of session.** That rule comes from a
-session that teaches one bounded skill. There, the reader can't judge the
-technique without seeing it work, so carry a running example and recorded
-output through the steps, as described below. A session about a process,
-like `audit-trails-for-ai-agents`, works differently: each participant's own
-output is the specimen. Give them questions to ask of it at every step, and
-show the larger process in a live demonstration. Leave out finished examples
-the page can't explain. A complete folder of someone else's files shows the
-results of decisions, not how they were made.
+**Every prompt that produces something gets its recorded reply.** Put the
+`demo.html` include directly under the `prompt.html` include it answers, then
+a screenshot or a link to any file the run made, then what to check. This
+holds for process sessions too: a reader working alone needs to see one real
+run to know what their own should look like. Prompts that only supply a file
+to save ("Save as brief.md") are the exception, because the file is the
+output. Trim long replies with […] and say in the demo's `note` what was cut.
 
 **Carry one running example through the main steps.** Pick a specimen that looks finished —
 `editorial-assistant` uses the AI-use policy from the practice texts — and
@@ -408,6 +423,19 @@ versions, source IDs and unfinished work. Preserve the inputs used by an
 earlier version. Separate agent checks from human passage checks; a check
 record should name the passages reviewed and leave remaining coverage open.
 A prepared template must not imply these runs took place.
+
+**Record runs so that an agent can repeat them.** Make each recorded reply
+in a fresh headless session (`claude -p` with no settings or MCP servers
+loaded, as in `workshop-drafts/mapping-with-ai/_local/runs-2026-11-11/run.sh`),
+with only the tools the page says it had. Continue a conversation with
+`--resume` when the page says "in the same chat". Send exactly the prompt on
+the page, attach exactly the files the page links, and fill any brackets the
+way the page says this run did. Give every demo a `run:` line saying which
+prompt, which files and which conversation, and keep the messages sent,
+replies, generated files and the runner script in
+`workshop-drafts/<session>/_local/runs-<date>/`. A record script in `scripts/`
+should be able to repeat the whole sequence. Note in MAINTAINING.md how to
+re-record.
 
 **Date every demo, and re-run them before you teach the session again.**
 Models drift. A transcript that was true in September and is quietly false in
@@ -512,13 +540,22 @@ chat window with their own paragraph. If a sentence requires the reader to
 trust you about model internals, cut it. The reader has to be able to check
 everything here, or the series has no standing to ask them to check anything.
 
+**Explain every term a beginner wouldn't know.** Assume a reader who has
+never opened a code editor, attached a file or heard of the tool you're
+using. Define a term in plain words where it first appears, or in the primer,
+and prefer the plain phrase when it does the job ("can't be searched as text",
+not "has no text layer"). Recorded replies keep their own words; when a reply
+uses a term the reader needs, explain it in the text after it.
+
 **Never promise a specific tool's behaviour.** "Claude, ChatGPT, Gemini,
 Copilot, any of them" — the exercises work across tools, and naming versions
 dates the page.
 
 ## Slide decks
 
-Decks live at `sessions/<session>/slides/index.md` (`layout: reveal-workshop`,
+**Slides are optional and presenter-only.** A session page doesn't link its
+deck and never depends on it; everything a reader needs is on the page.
+Older sessions still have decks. Decks live at `sessions/<session>/slides/index.md` (`layout: reveal-workshop`,
 `tutorial:` pointing at the session page). The conventions the two current
 decks share:
 

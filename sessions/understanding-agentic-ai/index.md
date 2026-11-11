@@ -16,15 +16,16 @@ points:
   - title: Have one agent check another
     text: Give each PDF to a helper that sees nothing else, then have a separate checker test the synthesis against the PDFs.
 note: "Bring a laptop. The presenter runs the agent; if you already use one, you can build the same review alongside."
-thumbnail: "/assets/images/stradanus-press-1600.jpg"
-header-image: "/assets/images/stradanus-press-1600.jpg"
+thumbnail: "/assets/images/ramelli-bookwheel-1588.jpg"
+header-image: "/assets/images/ramelli-bookwheel-1588.jpg"
 header-tier: section
 header-filter: etching
-header-position: center right
+header-position: center 30%
+header-flip: true
 header-opacity: 0.18
 header-title: Understanding Agentic AI
 header-subtitle: "An AI can write a literature review in a minute, and checking it can take hours. Use an agent to build the review in steps whose results are each quick to check."
-header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from <i>Nova Reperta</i>, engraved by Joannes Galle. Museum Plantin-Moretus, public domain."
+header-caption: "Agostino Ramelli, the book wheel, from <i>Le diverse et artificiose machine</i>, Paris, 1588, plate 188. Shown mirrored. Public domain, via Wikimedia Commons."
 tags: [agents, research, literature review]
 workshop_mode: true
 redirect_from: /sessions/understanding-agentic-ai.html
@@ -32,7 +33,6 @@ redirect_from: /sessions/understanding-agentic-ai.html
 
 {% comment %}
 Authoring references: SESSION-STYLE.md and sessions/audit-trails-for-ai-agents/index.md.
-Separate introductory workshop; no meeting date assigned.
 The "Save as …" prompts are the instruction files. scripts/build-agentic-workspace.py
 packages them, with the prepared CLAUDE.md, into the download in step 6.
 {% endcomment %}
@@ -60,6 +60,28 @@ This session builds a small review with an AI agent, one step at a time.
 Each step starts from a problem you would run into checking an ordinary AI
 review and adds one thing that makes the result quicker to check. Along the
 way you will see what makes a system agentic, and how to direct one.
+
+### About the examples
+
+The replies and files on this page were recorded on 11 November 2026 with
+Claude Opus 5.5 in Claude Code. The chat review in the next section ran in
+a new conversation that could only search and open web pages. Steps 1 to 6
+ran in one agent session in a `lit-review` folder. That session could
+search the web, read and write files, download PDFs, read them and start
+helper agents. The new session at the end of step 6 could only read the
+folder. The PDFs it found are the ones it found that day; a run today will
+find others. Long files are cut, marked […], and the note under each one
+says what was cut.
+
+### The finished folder
+
+The [finished folder]({{ '/assets/agentic-ai/lit-review-finished.zip' | relative_url }})
+holds everything the recorded agent wrote: `sources.md`, the four notes,
+both versions of the synthesis, the log, the checker's findings,
+`CLAUDE.md` and `progress.md`. It leaves out the PDFs, since two of the four
+don't allow redistribution; `sources.md` links each one. Use it to check
+the recorded run against the articles, or to start step 6 from a finished
+state.
 
 ### Before you start
 
@@ -182,6 +204,13 @@ Send this to any chat assistant, the way you might on an ordinary day.
 
 {% include prompt.html id="agentic-baseline" %}
 
+{% include demo.html id="agentic-baseline-run" %}
+
+The recorded reply is careful. It says it checked the citations but didn't
+read each source in full, and it leaves out two readings it couldn't
+confirm. That is still its own account, and nothing in the reply lets you
+check it.
+
 In under a minute you have a review: five sources, what each argues and how
 they relate. It reads well. **Before you could rely on it, you would have to
 check:**
@@ -264,12 +293,16 @@ In the ChatGPT desktop app, open the `lit-review` folder. Then send this.
 
 {% include prompt.html id="agentic-search" %}
 
+{% include demo.html id="agentic-search-run" %}
+
 Watch for one cycle: an action, the result it returns and a next action
 chosen because of that result. A search turns up a promising article, the
 download returns a login page instead of a PDF, and the agent deletes the
 file, records the article as a lead and searches again. **That choice of a
 next step, made from what the last step returned, is what the definition
-above describes.**
+above describes.** The recorded run did this with the Columbia guide: the
+download came back as an error page, so the agent deleted it, listed the
+guide as a lead and chose another article.
 
 Your folder now holds:
 
@@ -313,6 +346,12 @@ students directly. Then send this. Start with two sources; step 4 explains
 why.
 
 {% include prompt.html id="agentic-read-two" %}
+
+{% include demo.html id="agentic-read-two-run" %}
+
+It also corrects itself: a command miscounted the pages, and the agent
+noticed when the text ran past the count. A note that says which pages were
+read is what lets you catch that kind of mistake.
 
 ```text
 lit-review/
@@ -360,6 +399,8 @@ Save this in the `instructions` folder as `synthesis.md`.
 
 {% include prompt.html id="agentic-synthesize" %}
 
+{% include demo.html id="agentic-synthesize-run" %}
+
 ```text
 lit-review/
   synthesis.md       version 1, from two notes
@@ -399,9 +440,18 @@ so far, and two helpers can run at once.
 
 {% include prompt.html id="agentic-continue" %}
 
+{% include demo.html id="agentic-continue-run" %}
+
 Watch the transcript. You see each helper start and finish with a short
 report, but not every page it reads. Handing work off puts less of it in
 view, so the note is what you check.
+
+Here is the start of a note a helper wrote, and the log entry the revision
+added. Step 5's checker disputes the P04 line.
+
+{% include demo.html id="agentic-note-file" %}
+
+{% include demo.html id="agentic-log-file" %}
 
 ```text
 lit-review/
@@ -441,6 +491,15 @@ Save this in the `instructions` folder as `checker.md`.
 
 {% include prompt.html id="agentic-check" %}
 
+{% include demo.html id="agentic-check-run" %}
+
+{% include demo.html id="agentic-checks-file" %}
+
+C01 says the tension the agent called sharpest doesn't hold. We opened S03
+at p. 17: it names “philosophy and ethics, history” among the humanities
+disciplines and argues for teaching ethics and integrity. The finding holds,
+so P04 needs your decision before the next version.
+
 ```text
 lit-review/
   instructions/
@@ -475,11 +534,21 @@ it reads at the start of every session.
 
 {% include prompt.html id="agentic-workflow" %}
 
+{% include demo.html id="agentic-workflow-run" %}
+
 Compare its `CLAUDE.md` with what you did, and with the
 [prepared version]({{ site.baseurl }}/assets/agentic-ai/CLAUDE.txt). Then
 quit the agent, start a new session in the same folder and send this.
 
 {% include prompt.html id="agentic-resume" %}
+
+{% include demo.html id="agentic-resume-run" %}
+
+The new session worked from the files alone. It also found two gaps in the
+workflow itself: the log can only be added to, but one finding asks for a
+correction to it, and another changes text that has no point ID. Problems
+like these show up only when someone new tries to follow the written
+process.
 
 The new session has none of the earlier conversation. The files carry the
 project forward, and the agent still has to read them.

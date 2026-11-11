@@ -79,6 +79,43 @@ accumulating every prompt in the series would get long enough to be useless
 anyway. `session` and `step` stay on each entry because they order the prompts
 within a session page and make it clear which session an entry belongs to.
 
+### Recorded replies
+
+A prompt that produces something is followed on the page by the reply it got,
+from `_data/demos.yml`:
+
+```liquid
+{% include demo.html id="policy-baseline" %}
+```
+
+Each entry takes `id`, `session`, `label`, `run`, `tool`, `date`, `note` and
+`text`. The note says what was pasted or attached and what was cut. Cuts are
+marked […]; never change a reply's wording.
+
+The replies are recorded by `scripts/record-runs.py` from a plan in
+`workshop-drafts/<session>/runs-plan.json`. The plan lists each conversation,
+the files pasted or attached, the prompt ids and how their brackets were
+filled, so an agent or a person can repeat the runs exactly:
+
+```bash
+python3 scripts/record-runs.py workshop-drafts/editorial-assistant/runs-plan.json --dry-run
+python3 scripts/record-runs.py workshop-drafts/editorial-assistant/runs-plan.json --only baseline
+```
+
+Each run is a fresh headless Claude Code session; the script's docstring
+lists the plan options. The messages sent, the replies and any files the run
+wrote go to `workshop-drafts/<session>/_local/runs-<date>/`, which Git
+ignores. Compare the new replies with the page, then copy the ones you want
+into `demos.yml` and update their `date` and the page's "About the examples".
+If a prompt changes in `prompts.yml`, re-record its reply.
+
+The files pasted or attached are in `assets/<folder>/data/`, with a
+`README.txt` giving each one's source. After changing any of them, run
+`python3 scripts/build-session-data.py <folder>` to rebuild the ZIP the
+page links. Plans exist for `editorial-assistant`, `understanding-agentic-ai`
+(data in `assets/agentic-ai/`) and `audit-trails`. Mapping has its own runner
+(see below); transcribing has not been recorded this way yet.
+
 ### Adding a session
 
 1. Add `sessions/your-session/index.md` with front matter: `title`,
@@ -145,7 +182,11 @@ workspace. The page links only its `library.ris`, as a Zotero fallback. To
 change it, edit `_data/audit_workspace.json` and run
 `python3 scripts/build-audit-workspace.py`, which also regenerates its ZIP and
 the data for the `audit-workspace.html` viewer (no longer on the page).
-These are prepared teaching materials, not recorded agent replies.
+These are prepared teaching materials, not recorded agent replies. The recorded replies on the page, and the
+recorded trail and sprint folder in `assets/audit-trails/data/`, come from
+the 11 November 2026 runs instead; see "Recorded replies" above. The
+step 5 check and step 6 decisions in the plan were written after reading
+the run's own `checks.md`, so a re-record needs new decisions too.
 
 ### Understanding Agentic AI example files
 
@@ -160,6 +201,13 @@ run `python3 scripts/build-agentic-workspace.py`. It writes
 github-pages gem would render a `.md` copy as a page). The download contains
 no articles and no recorded agent output. The presenter guide is in the same
 draft folder; save rehearsal runs in its ignored `_local/` subfolder.
+
+`assets/agentic-ai/lit-review-finished.zip` is the recorded agent's folder
+after steps 1 to 6 (11 November 2026), without the PDFs. Its source is
+`workshop-drafts/understanding-agentic-ai/lit-review-finished/`; after
+re-recording, copy the run's `work/` folder there (leaving out `pdfs/` and
+`sample-pdfs/`, and removing any local paths), then run
+`python3 scripts/build-session-data.py agentic-ai workshop-drafts/understanding-agentic-ai/lit-review-finished lit-review-finished.zip`.
 
 ### Mapping with AI
 

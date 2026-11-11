@@ -1,0 +1,282 @@
+{
+  "session": "editorial-assistant",
+  "model": "claude-opus-5-5",
+  "inputs": "assets/editorial-assistant/data",
+  "tools": "",
+  "chains": [
+    {
+      "name": "baseline",
+      "turns": [
+        {
+          "name": "edit",
+          "paste": [
+            "syllabus-policy.txt"
+          ],
+          "prompt": "baseline"
+        }
+      ]
+    },
+    {
+      "name": "reader-brief",
+      "turns": [
+        {
+          "name": "brief",
+          "paste": [
+            "syllabus-policy.txt"
+          ],
+          "prompt": "policy-reader-brief"
+        }
+      ]
+    },
+    {
+      "name": "briefed",
+      "turns": [
+        {
+          "name": "brief",
+          "paste": [
+            "syllabus-policy.txt"
+          ],
+          "prompt": "editorial-brief",
+          "fill": {
+            "[genre: seminar paper / abstract / syllabus policy / cover letter]": "syllabus policy",
+            "[audience]": "undergraduates in a history course",
+            "[do what]": "set expectations about AI use that students can actually follow",
+            "[first concern]": "what counts as disclosure",
+            "[second concern]": "whether the policy can be enforced",
+            "[voice / hedging / terminology / citation style]": "voice or terminology"
+          }
+        },
+        {
+          "name": "open-followup",
+          "prompt": "policy-open-followup"
+        },
+        {
+          "name": "quote-it",
+          "prompt": "quote-it"
+        }
+      ]
+    },
+    {
+      "name": "rank",
+      "turns": [
+        {
+          "name": "rank",
+          "paste": [
+            "archive-report.txt"
+          ],
+          "prompt": "anti-sycophancy"
+        }
+      ]
+    },
+    {
+      "name": "role-confused-student",
+      "turns": [
+        {
+          "name": "read",
+          "paste": [
+            "syllabus-policy.txt"
+          ],
+          "prompt": "role-confused-student",
+          "fill": {
+            "[an assignment / a syllabus policy]": "a syllabus policy"
+          }
+        }
+      ]
+    },
+    {
+      "name": "role-outsider",
+      "turns": [
+        {
+          "name": "read",
+          "paste": [
+            "syllabus-policy.txt"
+          ],
+          "prompt": "role-outsider"
+        }
+      ]
+    },
+    {
+      "name": "role-reviewer",
+      "turns": [
+        {
+          "name": "read",
+          "paste": [
+            "seminar-paragraph.txt"
+          ],
+          "prompt": "role-reviewer",
+          "fill": {
+            "[field]": "environmental history"
+          }
+        }
+      ]
+    },
+    {
+      "name": "role-panelist",
+      "turns": [
+        {
+          "name": "read",
+          "paste": [
+            "abstract.txt"
+          ],
+          "prompt": "role-panelist"
+        }
+      ]
+    },
+    {
+      "name": "archive-general",
+      "turns": [
+        {
+          "name": "edit",
+          "paste": [
+            "archive-report.txt"
+          ],
+          "prompt": "archive-general-edit"
+        }
+      ]
+    },
+    {
+      "name": "archive-guide",
+      "turns": [
+        {
+          "name": "review",
+          "prompt": "archive-style-review",
+          "fill_files": {
+            "[paste the working style guide]": "archive-style-guide.txt",
+            "[paste the four-paragraph report]": "archive-report.txt"
+          }
+        }
+      ]
+    },
+    {
+      "name": "style-sheet",
+      "turns": [
+        {
+          "name": "extract",
+          "paste": [
+            "seminar-paragraph.txt",
+            "abstract.txt",
+            "archive-report.txt"
+          ],
+          "prompt": "style-extract"
+        },
+        {
+          "name": "never",
+          "prompt": "style-never"
+        }
+      ]
+    },
+    {
+      "name": "working-file",
+      "turns": [
+        {
+          "name": "section",
+          "paste": [
+            "archive-report.txt"
+          ],
+          "prompt": "working-file",
+          "fill": {
+            "[section / the paragraph beginning \"...\"]": "the paragraph beginning \"Eight of the 32 people\""
+          }
+        },
+        {
+          "name": "changes",
+          "prompt": "no-silent-edits"
+        }
+      ]
+    },
+    {
+      "name": "word-comments",
+      "tools": "Read,Write,Edit,Bash",
+      "settings": "{\"sandbox\":{\"enabled\":true,\"autoAllowBashIfSandboxed\":true}}",
+      "turns": [
+        {
+          "name": "comments",
+          "attach": [
+            "machiavelli-study-guide.docx"
+          ],
+          "prompt": "word-comments",
+          "fill": {
+            "[a specialist in the field / a reviewer for a journal / a first-year student]": "a specialist in the field"
+          }
+        }
+      ]
+    },
+    {
+      "name": "baseline-rules",
+      "continue": "baseline",
+      "turns": [
+        {
+          "name": "correction-1",
+          "text": "Put \"should\" back in both places. \"Disclose any use of AI\" turns a recommendation into a command, and I haven't decided yet whether disclosure is required."
+        },
+        {
+          "name": "correction-2",
+          "text": "Move the goal statement back to the end. I want students to meet the rules first and the reason last. Please don't move sentences without asking."
+        },
+        {
+          "name": "correction-3",
+          "text": "Change \"you\" back to \"students\". The rest of my syllabus is in the third person."
+        },
+        {
+          "name": "harvest",
+          "prompt": "rule-harvest"
+        }
+      ]
+    },
+    {
+      "name": "compare",
+      "after": [],
+      "turns": [
+        {
+          "name": "compare",
+          "after": [
+            "role-confused-student",
+            "role-outsider"
+          ],
+          "paste": [
+            "syllabus-policy.txt"
+          ],
+          "prompt": "compare-readers"
+        }
+      ]
+    },
+    {
+      "name": "archive-guide-edit",
+      "continue": "archive-guide",
+      "turns": [
+        {
+          "name": "edit",
+          "prompt": "archive-style-edit",
+          "fill": {
+            "[paste the passage you chose]": "The implementation of a common description template has facilitated the comparison of records by contributors."
+          }
+        }
+      ]
+    },
+    {
+      "name": "rule-sharpen",
+      "turns": [
+        {
+          "name": "sharpen",
+          "prompt": "rule-sharpen",
+          "fill": {
+            "[paste the rule]": "Don't make my policy sound stricter than it is."
+          }
+        }
+      ]
+    },
+    {
+      "name": "rule-test",
+      "turns": [
+        {
+          "name": "test",
+          "prompt": "rule-test",
+          "fill": {
+            "[paste the rule]": "Keep the author's modal verbs (\"should,\" \"may,\" \"must,\" \"will\") exactly as written. They set how binding a requirement is, so changing them is a substantive edit, not a trim.",
+            "[paste three passages — at least one the rule should NOT apply to]": "1. Students may use generative AI tools in this course where appropriate, but should not use them to complete assignments for them.\n2. The limited response may reflect the time required to review a transcript, uncertainty about what could be changed, or a preference for discussing revisions in person.\n3. This suggests that the transition was not simply a matter of technological change but involved a renegotiation of who counted as a legitimate claimant to water."
+          }
+        }
+      ]
+    }
+  ]
+}

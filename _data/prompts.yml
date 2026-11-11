@@ -172,9 +172,9 @@
   session: editorial-assistant
   step: 3
   label: Reader — the confused student (for teaching)
-  note: "Paste an assignment prompt instead of your own prose. This one tends to be uncomfortable in a useful way."
+  note: "Paste an assignment or a course policy instead of your own prose, and pick the matching words in the brackets. This one tends to be uncomfortable in a useful way."
   text: |
-    Here is an assignment I give to undergraduates. Read it as a sophomore who wants a good grade and is reading it for the first time, the night before it's due.
+    Here is [an assignment / a syllabus policy] I give to undergraduates. Read it as a sophomore who wants a good grade and is reading it for the first time, the night before it's due.
 
     Don't improve it. Tell me: what do you think I'm asking for, what would you do first, and what are you unsure about?
 
@@ -190,9 +190,9 @@
   session: editorial-assistant
   step: 3
   label: Compare the readers
-  note: "Where the readers disagree, look for a decision you haven't made yet."
+  note: "Start a new chat. Paste the two readings, then your text, then this. Where the readers disagree, look for a decision you haven't made yet."
   text: |
-    Compare those readings. Where did the two readers disagree about what the problem was? Don't resolve the disagreement — just tell me what it suggests I haven't decided yet.
+    Above are two readings of the same text, followed by the text itself. Compare the readings. Where did the two readers disagree about what the problem was? Don't resolve the disagreement. Tell me what it suggests I haven't decided yet.
 
 - id: archive-general-edit
   session: editorial-assistant

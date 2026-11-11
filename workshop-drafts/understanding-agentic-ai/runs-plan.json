@@ -1,0 +1,31 @@
+{
+  "session": "understanding-agentic-ai",
+  "model": "claude-opus-5-5",
+  "inputs": "assets/agentic-ai/data",
+  "chains": [
+    {"name": "chat-baseline", "tools": "WebSearch,WebFetch", "allowed": "WebSearch WebFetch", "turns": [
+      {"name": "review", "prompt": "agentic-baseline"}
+    ]},
+    {"name": "agent",
+     "tools": "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash,Agent",
+     "allowed": "WebSearch WebFetch Read Write Edit Glob Grep Agent Bash(curl:*) Bash(rm:*) Bash(ls:*) Bash(mkdir:*) Bash(cp:*) Bash(mv:*) Bash(file:*) Bash(pdftotext:*) Bash(head:*)",
+     "setup": ["workshop-drafts/understanding-agentic-ai/lit-review/sample-pdfs"],
+     "turns": [
+      {"name": "save-brief", "save": {"brief.md": "agentic-brief"}},
+      {"name": "search", "prompt": "agentic-search"},
+      {"name": "save-reading", "save": {"instructions/reading.md": "agentic-reading"}},
+      {"name": "read-two", "prompt": "agentic-read-two"},
+      {"name": "save-synthesis", "save": {"instructions/synthesis.md": "agentic-synthesis"}},
+      {"name": "synthesize", "prompt": "agentic-synthesize"},
+      {"name": "continue", "prompt": "agentic-continue"},
+      {"name": "save-checker", "save": {"instructions/checker.md": "agentic-checker"}},
+      {"name": "check", "prompt": "agentic-check"},
+      {"name": "workflow", "prompt": "agentic-workflow"}
+    ]},
+    {"name": "resume", "workdir": "agent",
+     "tools": "Read,Glob,Grep", "allowed": "Read Glob Grep",
+     "turns": [
+      {"name": "resume", "prompt": "agentic-resume"}
+    ]}
+  ]
+}

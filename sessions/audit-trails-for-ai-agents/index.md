@@ -1,5 +1,6 @@
 ---
 title: Audit Trails for AI Agents
+presenter: Fred Gibbs
 layout: base
 position: 3
 date: 2026-10-21
@@ -16,15 +17,15 @@ points:
   - title: Document decisions and revisions
     text: Keep a concise record of what you accepted, changed, or rejected, and why, so others can follow your research process.
 flyer: "audit-trail-flyer-v2.jpeg"
-thumbnail: "/assets/images/stradanus-press-1600.jpg"
-header-image: "/assets/images/stradanus-press-1600.jpg"
+thumbnail: "/assets/images/woudanus-leiden-library-1610.jpg"
+header-image: "/assets/images/woudanus-leiden-library-1610.jpg"
 header-tier: section
 header-filter: etching
-header-position: center right
+header-position: center center
 header-opacity: 0.18
 header-title: Audit Trails for AI Agents
 header-subtitle: "An agent can help you find your way into a body of writing. Keep the articles, interpretations and reading choices together so you can check and revise the map."
-header-caption: "Jan van der Straet (Stradanus), <i>Impressio Librorum</i>, from <i>Nova Reperta</i>, engraved by Joannes Galle. Museum Plantin-Moretus, public domain."
+header-caption: "Willem Swanenburgh after Woudanus, the Leiden University Library, 1610. Leiden University Library, public domain, via Wikimedia Commons."
 tags: [research, agents, audit trails]
 workshop_mode: true
 redirect_from: /sessions/audit-trails-for-ai-agents.html
@@ -135,6 +136,33 @@ someone read and what you decided.
 - An agent working in a folder writes the files and its own run record. Its
   account still needs the same checks. (Step 7)
 
+### About the examples
+
+The replies on this page were recorded on 11 November 2026 with Claude
+Opus 5.5, set up to work like a browser chat: it could search the web, open
+web pages and read files we attached, and nothing else. It set each file
+out in a box, and we saved the boxes as files, as you will. Steps 1 to 4
+are one conversation, and steps 5 and 6 are a second. The interest chosen
+in step 2 was **historical framing**. Step 7 is a separate run of the
+presenter's agent. Long replies are cut, marked […], and the note under
+each one says what was cut. Models change, so your replies will differ,
+and a different reply can be just as good.
+
+One thing went wrong in the recording, and it is worth seeing. One of the
+three articles the search found sits behind a bot check that stopped our
+script from saving it, so the run went on with two PDFs. Watch what the
+notes, the comparison and the check say about the article nobody read.
+
+### Data for this session
+
+**[One ZIP]({{ '/assets/audit-trails/audit-trails-data.zip' | relative_url }})**
+holds the reading instructions and the two article PDFs from the recorded
+run, every file the run produced, from `baseline.md` to `decisions.md`,
+and the folder the step 7 agent left. A README says where each file came
+from. Both articles are
+open access under Creative Commons licenses. You don't need the ZIP to
+follow along; it lets you check the recorded trail against the articles.
+
 ### Before you start
 
 - **A laptop** with a web browser.
@@ -211,12 +239,16 @@ so they are easy to copy.
 
 {% include prompt.html id="audit-setup-files" %}
 
+{% include demo.html id="audit-setup-files-run" %}
+
 If your assistant can already work in a folder on your computer, give it
 access to `my-reading-trail` only and skip this prompt.
 
 **6. Check that it can search the web.**
 
 {% include prompt.html id="audit-setup-search" %}
+
+{% include demo.html id="audit-setup-search-run" %}
 
 If it says it can't search the web, look for a search or web option near the
 message box and turn it on.
@@ -243,6 +275,14 @@ Send the question as a reasonable first request, the way you might on any
 other day.
 
 {% include prompt.html id="audit-baseline" %}
+
+{% include demo.html id="audit-baseline-run" %}
+
+In the recorded run, all three sources came from one 2021 essay series, and
+the overview says so. Its last paragraph matters most: it read the pages
+through a tool that summarises them, so its quotations need checking against
+the essays. An overview can tell you its limits without you asking. Not all
+of them will.
 
 Save the complete reply, citations included. You will save every result
 today the same way.
@@ -289,6 +329,13 @@ top of `sources.md`, followed by the register of what it found.
 
 {% include prompt.html id="audit-retrieve" %}
 
+{% include demo.html id="audit-retrieve-run" %}
+
+This register shows its gaps. The article whose publisher page refused the
+request stays as a lead, the citation the page didn't complete has
+bracketed gaps rather than guesses, and the reply says the third source is a
+book chapter, not an article.
+
 Give the search five minutes. If fewer than three sources are ready by
 then, record that in `sources.md` and use the backup set below. A blocked or
 paywalled source stays in the register as a lead; record what you could
@@ -331,6 +378,11 @@ Goodlad's introduction, which is already a PDF: open the
 save it in `readings` as `goodlad.pdf`, and the assistant will add it to
 `sources.md` in step 3.
 
+In the recorded run, both copies of S02 sat behind a bot check that
+blocked the recording script, so only S01 and S03 were saved. In a browser
+you can usually open such a page and save it with Print. If you can't,
+record that in `sources.md` and carry on.
+
 Saving the articles also checks the register, which is the assistant's
 account of what it found. A link that goes nowhere, or to a different
 article, tells you something about the rest of it.
@@ -365,6 +417,13 @@ what the assistant said about them.
 
 {% include prompt.html id="audit-read" %}
 
+{% include demo.html id="audit-read-run" %}
+
+Rule 3, the one we changed, produced the evidence and period lines in the
+S01 note. The S02 note says nothing was read rather than summarising the
+article from its title. That is the honest answer, and it is the one to
+look for when a file didn't arrive.
+
 Save the reply as `notes.md`, with a section for each source ID. Then check
 it against your instructions.
 
@@ -393,6 +452,11 @@ Send this in the same conversation, which already has `sources.md` and
 `reading-queue.md`.
 
 {% include prompt.html id="audit-synthesize" %}
+
+{% include demo.html id="audit-synthesize-run" %}
+
+Look at the heading “The shared starting point (explicit in both)”. It
+claims both authors say something. Step 5's check found that only one does.
 
 A useful overview carries the distinctions into its prose. Read
 `synthesis.md` with these questions:
@@ -447,6 +511,12 @@ step 5.
 
 {% include prompt.html id="audit-run-record" %}
 
+{% include demo.html id="audit-run-record-run" %}
+
+The R06 entry admits that the assistant worked from its own earlier notes,
+not the copy you saved. A run record is useful when it records things like
+that.
+
 Save the reply as `prompts.md`. Then check one entry against the chat
 above it: does it give your request as you sent it, and does it say what
 the assistant couldn't open? The record is the assistant's account of its
@@ -473,6 +543,14 @@ messages, or paste the text of the `.md` files. Your interest is already in
 `sources.md`. Save the reply as `checks.md` with the tool and date.
 
 {% include prompt.html id="audit-check" %}
+
+{% include demo.html id="audit-check-run" %}
+
+F1 and F2 take apart the sentence the synthesis labelled “explicit in both”.
+F8 finds a quotation attached to the wrong thing. We opened S01 at pp. 1 and 5
+and S03 at pp. 2, 6 and 13 ourselves, and those findings hold. The check also
+noticed that `reading-protocol.md` wasn't attached, so it couldn't test the
+notes against it. Attach it in your own check.
 
 ### Follow one finding back to the article
 
@@ -519,6 +597,14 @@ records what changed and why.
 
 {% include prompt.html id="audit-revise" %}
 
+{% include demo.html id="audit-revise-run" %}
+
+Read the “Not decided” list first. The assistant left alone what we hadn't
+decided, including a table row that no longer fits our decision on F5, and
+it says so instead of quietly fixing it. Then check a change against
+`checks.md`. The revised heading still says “explicit in both”. Is that
+still true, or did a phrase survive that the decision should have changed?
+
 For each finding, write accept, revise, reject or unresolved into the
 prompt, with a reason. The assistant can lay your decisions out as a table.
 **You supply the decision.** Proposed changes stay pending until you decide;
@@ -537,9 +623,16 @@ updated files.
 Before you finish, send the run-record prompt from step 4 once more and
 add the new entries to the end of `prompts.md`.
 
-Append new corrections to the log and keep the current reading route in the
-latest files. This follows the CHM project's use of process notes alongside
-a separate account of current conclusions and open work.
+{% include demo.html id="audit-run-record-2-run" %}
+
+The second record says what it can't vouch for: it never saw the first
+conversation, so it can't confirm entries R01 to R07.
+
+Your folder now keeps two kinds of record. `prompts.md` and `decisions.md`
+are logs: you add to the end and never rewrite them, so they show how the
+work went. The synthesis, map and queue show where it stands now, with its
+open questions. A colleague reads the current files to see your reading
+route and the logs to see how you got there.
 
 <div class="keypoint" markdown="1">
 Keep the reasons behind a revised interpretation or reading choice. A colleague should be able to follow the change from your files.
@@ -563,6 +656,14 @@ file. The prompt is short because the instructions are already in the
 folder, next to the brief and the reading protocol.
 
 {% include prompt.html id="audit-agent-sprint" %}
+
+{% include demo.html id="audit-agent-sprint-run" %}
+
+In the recorded run, the most important finding was about the trail, not
+the reading. The checker noticed that S03 is a publisher's PDF reposted on
+a department website, so it may not meet the brief's open-access limit. The
+agent kept S03 and left the choice to the presenter, as `CLAUDE.md` tells
+it to.
 
 Watch for what changes, and for what doesn't.
 
