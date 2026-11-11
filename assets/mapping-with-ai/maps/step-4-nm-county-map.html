@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New Mexico counties: population change, 2020–2024</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 20px; color: #222; background: #fff; }
+  h1 { font-size: 1.35rem; margin: 0 0 4px; }
+  .sub { color: #555; margin: 0 0 14px; font-size: 0.92rem; }
+  #report { border: 1px solid #ccc; border-radius: 6px; padding: 10px 14px; margin-bottom: 14px; font-size: 0.9rem; background: #fafafa; max-width: 900px; }
+  #report h2 { font-size: 1rem; margin: 0 0 6px; }
+  #report ul { margin: 4px 0 8px 18px; padding: 0; }
+  #report .ok { color: #1a6d1a; }
+  #report .bad { color: #a40000; }
+  #wrap { position: relative; display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+  svg#map { max-width: 100%; height: auto; }
+  .county { stroke: #fff; stroke-width: 0.8; cursor: pointer; }
+  .county:hover, .county.sel { stroke: #111; stroke-width: 2; }
+  #popup { position: absolute; display: none; background: #fff; border: 1px solid #888; border-radius: 6px;
+           padding: 8px 12px; font-size: 0.88rem; box-shadow: 0 2px 8px rgba(0,0,0,.25); pointer-events: auto; min-width: 210px; z-index: 5; }
+  #popup .close { position: absolute; top: 2px; right: 7px; cursor: pointer; color: #666; font-size: 1rem; }
+  #popup b.name { display: block; font-size: 1rem; margin-bottom: 4px; padding-right: 14px; }
+  #popup table { border-collapse: collapse; }
+  #popup td { padding: 1px 6px 1px 0; }
+  #popup td.v { text-align: right; font-variant-numeric: tabular-nums; }
+  #legend { font-size: 0.88rem; }
+  #legend h3 { font-size: 0.95rem; margin: 0 0 6px; }
+  .lg-row { display: flex; align-items: center; gap: 8px; margin: 3px 0; }
+  .sw { width: 26px; height: 16px; border: 1px solid #999; }
+  .note { color: #555; font-size: 0.82rem; max-width: 900px; margin-top: 12px; }
+  #err { color: #a40000; }
+</style>
+</head>
+<body>
+<h1>New Mexico counties: percent change in population, 2020–2024</h1>
+<p class="sub">Change between Census Bureau population estimates for July 1, 2020 and July 1, 2024. Click a county for details.</p>
+
+<div id="report"><h2>Join check (5-digit county FIPS / GEOID)</h2><p>Loading Census Bureau county boundaries…</p></div>
+
+<div id="wrap">
+  <svg id="map" width="640" height="720" role="img" aria-label="Choropleth map of New Mexico counties by percent population change 2020 to 2024"></svg>
+  <div id="legend"></div>
+  <div id="popup"></div>
+</div>
+
+<p class="note">
+  Boundaries: U.S. Census Bureau TIGERweb, State_County service (current vintage), counties with STATE = 35, queried live when this page opens.
+  Population: your table (Census Bureau Vintage 2024 county estimates), columns POPESTIMATE2020 and POPESTIMATE2024; the state-level row (SUMLEV 040) is excluded.
+  Projection: Albers equal-area conic, standard parallels 32.5°N and 36.5°N, central meridian 106°W.
+  Colors: ColorBrewer RdBu (6-class diverging), colorblind-safe.
+</p>
+
+<script>
+// ---------- Your table, embedded verbatim ----------
+const CSV = `SUMLEV,STATE,COUNTY,STNAME,CTYNAME,ESTIMATESBASE2020,POPESTIMATE2020,POPESTIMATE2021,POPESTIMATE2022,POPESTIMATE2023,POPESTIMATE2024
+040,35,000,New Mexico,New Mexico,2117555,2118606,2117333,2113868,2121164,2130256
+050,35,001,New Mexico,Bernalillo County,676446,676882,675410,673039,672572,671747
+050,35,003,New Mexico,Catron County,3580,3609,3716,3793,3803,3795
+050,35,005,New Mexico,Chaves County,65156,65153,64660,63907,63668,63697
+050,35,006,New Mexico,Cibola County,27052,26969,27060,26771,26741,26686
+050,35,007,New Mexico,Colfax County,12383,12353,12348,12289,12312,12307
+050,35,009,New Mexico,Curry County,48431,48374,47950,47391,47321,47156
+050,35,011,New Mexico,De Baca County,1697,1683,1682,1697,1672,1657
+050,35,013,New Mexico,Doña Ana County,219566,220069,221756,223604,226534,229366
+050,35,015,New Mexico,Eddy County,62320,62342,60870,60221,60654,61436
+050,35,017,New Mexico,Grant County,28198,28214,27907,27699,27512,27541
+050,35,019,New Mexico,Guadalupe County,4454,4442,4424,4324,4334,4385
+050,35,021,New Mexico,Harding County,654,654,633,627,643,635
+050,35,023,New Mexico,Hidalgo County,4177,4163,4085,4012,3979,3966
+050,35,025,New Mexico,Lea County,74457,74643,73070,72300,73503,75151
+050,35,027,New Mexico,Lincoln County,20262,20304,20403,20339,20047,20025
+050,35,028,New Mexico,Los Alamos County,19422,19422,19397,19259,19420,19675
+050,35,029,New Mexico,Luna County,25422,25457,25471,25677,25573,25878
+050,35,031,New Mexico,McKinley County,72897,72586,71468,70084,69073,68945
+050,35,033,New Mexico,Mora County,4185,4192,4190,4142,4125,4096
+050,35,035,New Mexico,Otero County,67836,67866,68499,68650,69354,69711
+050,35,037,New Mexico,Quay County,8740,8710,8620,8536,8553,8403
+050,35,039,New Mexico,Rio Arriba County,40355,40268,40219,39986,39921,39955
+050,35,041,New Mexico,Roosevelt County,19193,19153,18998,18896,18879,18713
+050,35,043,New Mexico,Sandoval County,148839,149301,151509,153509,155943,157757
+050,35,045,New Mexico,San Juan County,121671,121387,121019,120580,120907,120817
+050,35,047,New Mexico,San Miguel County,27200,27128,27162,26899,26633,26428
+050,35,049,New Mexico,Santa Fe County,154826,155056,155429,155768,156507,157765
+050,35,051,New Mexico,Sierra County,11576,11565,11524,11485,11535,11389
+050,35,053,New Mexico,Socorro County,16601,16559,16304,16142,16028,15967
+050,35,055,New Mexico,Taos County,34491,34465,34688,34594,34484,34482
+050,35,057,New Mexico,Torrance County,15047,15057,15311,15398,15699,15986
+050,35,059,New Mexico,Union County,4084,4073,4099,3996,3972,3926
+050,35,061,New Mexico,Valencia County,76337,76507,77452,78254,79263,80813`;
+
+// ---------- Census boundary sources (tried in order) ----------
+const COMMON = "query?where=STATE%3D%2735%27&outFields=GEOID,NAME,STATE,COUNTY" +
+               "&returnGeometry=true&outSR=4326&maxAllowableOffset=0.002&f=geojson";
+const SOURCES = [
+  "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/1/" + COMMON,
+  "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/82/" + COMMON
+];
+
+// ---------- Classes & colors ----------
+// Fixed symmetric breaks, 2 percentage points wide, with 0 as a class boundary.
+const BREAKS = [-4, -2, 0, 2, 4];
+const COLORS = ["#b2182b", "#ef8a62", "#fddbc7", "#d1e5f0", "#67a9cf", "#2166ac"]; // ColorBrewer RdBu-6
+const LABELS = ["Loss of 4% or more", "Loss of 2% to under 4%", "Loss of under 2%",
+                "Gain of 0% to under 2%", "Gain of 2% to under 4%", "Gain of 4% or more"];
+const NODATA = "#bdbdbd";
+const classOf = v => { let i = 0; while (i < BREAKS.length && v >= BREAKS[i]) i++; return i; };
+
+const fmtInt = d3.format(",");
+const fmtPct = v => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(2) + "%";
+const fmtDelta = v => (v > 0 ? "+" : v < 0 ? "−" : "") + fmtInt(Math.abs(v));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// ---------- Parse table (keep county rows only; FIPS kept as strings) ----------
+const rows = d3.csvParse(CSV); // no autoType: FIPS stay strings, so leading zeros survive
+const table = new Map();
+for (const r of rows) {
+  if (r.SUMLEV !== "050") continue;
+  const geoid = r.STATE.padStart(2, "0") + r.COUNTY.padStart(3, "0");
+  const p20 = +r.POPESTIMATE2020, p24 = +r.POPESTIMATE2024;
+  table.set(geoid, { geoid, name: r.CTYNAME, p20, p24, delta: p24 - p20, pct: (p24 - p20) / p20 * 100 });
+}
+
+// ---------- Ring rewinding: ArcGIS GeoJSON uses RFC 7946 (CCW exteriors); d3 wants CW exteriors ----------
+function ringArea(ring) { let a = 0; for (let i = 0, n = ring.length - 1; i < n; i++) a += ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]; return a / 2; }
+function fixPoly(poly) { return poly.map((ring, i) => { const a = ringArea(ring); return (i === 0 ? a > 0 : a < 0) ? ring.slice().reverse() : ring; }); }
+function rewind(f) {
+  const g = f.geometry; if (!g) return f;
+  if (g.type === "Polygon") g.coordinates = fixPoly(g.coordinates);
+  else if (g.type === "MultiPolygon") g.coordinates = g.coordinates.map(fixPoly);
+  return f;
+}
+
+async function loadBoundaries() {
+  let lastErr;
+  for (const url of SOURCES) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const gj = await res.json();
+      if (!gj.features || !gj.features.length || !gj.features[0].properties ||
+          String(gj.features[0].properties.GEOID || "").length !== 5) throw new Error("unexpected response shape");
+      return { gj, url };
+    } catch (e) { lastErr = e; }
+  }
+  throw lastErr;
+}
+
+function writeReport(features) {
+  const bIds = new Set(features.map(f => String(f.properties.GEOID)));
+  const noTable = features.filter(f => !table.has(String(f.properties.GEOID)))
+                          .sort((a, b) => d3.ascending(a.properties.GEOID, b.properties.GEOID));
+  const noBound = [...table.values()].filter(t => !bIds.has(t.geoid));
+  const matched = features.length - noTable.length;
+  const li = arr => arr.length ? "<ul>" + arr.join("") + "</ul>" : ' <span class="ok">None.</span>';
+  document.getElementById("report").innerHTML =
+    `<h2>Join check (5-digit county FIPS / GEOID)</h2>
+     <p>${features.length} counties in the Census boundaries; ${table.size} county rows in your table
+        (state total row, SUMLEV 040 / FIPS 35000, excluded as not a county); <b>${matched} matched</b>.</p>
+     <p><b class="${noTable.length ? "bad" : "ok"}">Boundary counties with no match in your table (${noTable.length}):</b>
+        ${li(noTable.map(f => `<li>${esc(f.properties.GEOID)} — ${esc(f.properties.NAME)}</li>`))}</p>
+     <p><b class="${noBound.length ? "bad" : "ok"}">Table rows with no match in the boundaries (${noBound.length}):</b>
+        ${li(noBound.map(t => `<li>${esc(t.geoid)} — ${esc(t.name)}</li>`))}</p>`;
+}
+
+function drawLegend() {
+  const counts = new Array(COLORS.length).fill(0);
+  for (const t of table.values()) counts[classOf(t.pct)]++;
+  let html = "<h3>Population change,<br>2020–2024</h3>";
+  for (let i = COLORS.length - 1; i >= 0; i--)
+    html += `<div class="lg-row"><span class="sw" style="background:${COLORS[i]}"></span>${LABELS[i]} <span style="color:#777">(${counts[i]})</span></div>`;
+  html += `<div class="lg-row"><span class="sw" style="background:${NODATA}"></span>No data</div>`;
+  html += `<p style="color:#555;max-width:230px">Statewide: ${fmtPct((2130256 - 2118606) / 2118606 * 100)}<br>
+           County range: ${fmtPct(d3.min(table.values(), d => d.pct))} to ${fmtPct(d3.max(table.values(), d => d.pct))}</p>`;
+  document.getElementById("legend").innerHTML = html;
+}
+
+function drawMap(features) {
+  const svg = d3.select("#map"), W = +svg.attr("width"), H = +svg.attr("height");
+  const fc = { type: "FeatureCollection", features };
+  const projection = d3.geoConicEqualArea().parallels([32.5, 36.5]).rotate([106, 0]).fitSize([W - 20, H - 20], fc);
+  projection.translate([projection.translate()[0] + 10, projection.translate()[1] + 10]);
+  const path = d3.geoPath(projection);
+  const popup = document.getElementById("popup"), wrap = document.getElementById("wrap");
+
+  svg.append("g").selectAll("path").data(features).join("path")
+    .attr("class", "county").attr("d", path)
+    .attr("fill", f => { const t = table.get(String(f.properties.GEOID)); return t ? COLORS[classOf(t.pct)] : NODATA; })
+    .on("click", function (ev, f) {
+      d3.selectAll(".county").classed("sel", false); d3.select(this).classed("sel", true).raise();
+      const t = table.get(String(f.properties.GEOID));
+      popup.innerHTML = `<span class="close" title="Close">×</span><b class="name">${esc(f.properties.NAME)}</b>` + (t ?
+        `<table>
+           <tr><td>Percent change, 2020–2024</td><td class="v"><b>${fmtPct(t.pct)}</b></td></tr>
+           <tr><td>Population, July 1 2020</td><td class="v">${fmtInt(t.p20)}</td></tr>
+           <tr><td>Population, July 1 2024</td><td class="v">${fmtInt(t.p24)}</td></tr>
+           <tr><td>Change (people)</td><td class="v">${fmtDelta(t.delta)}</td></tr>
+           <tr><td>County FIPS</td><td class="v">${t.geoid}</td></tr>
+         </table>`
+        : `<p>No matching row in table (FIPS ${esc(f.properties.GEOID)}).</p>`);
+      const r = wrap.getBoundingClientRect();
+      popup.style.display = "block";
+      let x = ev.clientX - r.left + 12, y = ev.clientY - r.top + 12;
+      if (x + popup.offsetWidth > r.width) x = ev.clientX - r.left - popup.offsetWidth - 12;
+      popup.style.left = Math.max(0, x) + "px"; popup.style.top = y + "px";
+      popup.querySelector(".close").onclick = () => { popup.style.display = "none"; d3.selectAll(".county").classed("sel", false); };
+    })
+    .append("title").text(f => { const t = table.get(String(f.properties.GEOID)); return f.properties.NAME + (t ? ": " + fmtPct(t.pct) : ": no data"); });
+}
+
+(async () => {
+  try {
+    const { gj } = await loadBoundaries();
+    const features = gj.features.map(rewind);
+    writeReport(features);   // join check is reported first...
+    drawLegend();
+    drawMap(features);       // ...then the map is drawn
+  } catch (e) {
+    document.getElementById("report").innerHTML =
+      `<h2>Join check</h2><p id="err">Could not load Census Bureau county boundaries from TIGERweb (${esc(e.message)}).
+       This page needs an internet connection to fetch them.</p>`;
+  }
+})();
+</script>
+</body>
+</html>

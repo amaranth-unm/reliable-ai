@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ghost Towns of New Mexico</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  html, body { margin: 0; height: 100%; font-family: system-ui, -apple-system, Segoe UI, sans-serif; }
+  #app { display: flex; height: 100%; }
+  #sidebar { width: 280px; display: flex; flex-direction: column; border-right: 1px solid #ccc; background: #faf7f2; }
+  #sidebar h1 { font-size: 18px; margin: 12px 12px 4px; color: #6b3e1f; }
+  #sidebar p.note { font-size: 12px; color: #666; margin: 0 12px 8px; }
+  #search { margin: 0 12px 8px; padding: 6px 8px; font-size: 14px; border: 1px solid #bbb; border-radius: 4px; }
+  #list { list-style: none; margin: 0; padding: 0; overflow-y: auto; flex: 1; }
+  #list li { padding: 6px 12px; cursor: pointer; border-bottom: 1px solid #eee; font-size: 14px; }
+  #list li:hover, #list li.active { background: #f0e2cf; }
+  #list li span { display: block; font-size: 11px; color: #888; }
+  #map { flex: 1; }
+  .town-label { background: rgba(255,255,255,0.85); border: none; box-shadow: none; font-size: 11px; font-weight: 600; color: #4a2a12; padding: 0 3px; }
+  .leaflet-popup-content h3 { margin: 0 0 4px; color: #6b3e1f; }
+  .leaflet-popup-content p { margin: 2px 0; }
+  @media (max-width: 700px) { #sidebar { display: none; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="sidebar">
+    <h1>Ghost Towns of New Mexico</h1>
+    <p class="note">Click a point or a name. Locations are approximate.</p>
+    <input id="search" type="search" placeholder="Filter towns…">
+    <ul id="list"></ul>
+  </div>
+  <div id="map"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// [name, lat, lon, county, note]
+const towns = [
+  ["Shakespeare", 32.327, -108.740, "Hidalgo", "Silver-mining camp of the 1870s–80s; now a privately owned historic site."],
+  ["Steins", 32.229, -108.984, "Hidalgo", "Railroad town on the Southern Pacific, near Steins Pass."],
+  ["Hachita (Old)", 31.930, -108.330, "Grant", "Original mining settlement in the Little Hatchet Mountains."],
+  ["Georgetown", 32.858, -108.016, "Grant", "Silver-mining town of the 1870s–90s, abandoned after the 1893 silver crash."],
+  ["Mogollon", 33.396, -108.794, "Catron", "Gold and silver camp in the Mogollon Mountains; a few residents remain."],
+  ["Kingston", 32.919, -107.703, "Sierra", "Booming silver camp in the 1880s; now a tiny community."],
+  ["Lake Valley", 32.724, -107.572, "Sierra", "Silver town known for the 'Bridal Chamber' ore body; now a BLM historic site."],
+  ["Chloride", 33.338, -107.682, "Sierra", "1880s silver camp; restored Pioneer Store museum."],
+  ["Engle", 33.180, -107.040, "Sierra", "Railroad and cattle-shipping town on the AT&SF line."],
+  ["Cooks Peak", 32.530, -107.730, "Luna", "Lead and silver mining camp below Cooke's Peak."],
+  ["Hermanas", 31.850, -107.980, "Luna", "Former railroad town on the El Paso & Southwestern line."],
+  ["Kelly", 34.047, -107.186, "Socorro", "Zinc and lead mining town in the Magdalena Mountains; church and headframe remain."],
+  ["Riley", 34.354, -107.125, "Socorro", "Hispanic farming village on the Rio Salado, abandoned by the 1970s."],
+  ["Carthage", 33.870, -106.740, "Socorro", "Coal-mining town east of San Antonio."],
+  ["Rosedale", 33.970, -107.420, "Socorro", "Gold-mining camp in the San Mateo Mountains."],
+  ["White Oaks", 33.749, -105.740, "Lincoln", "Gold boomtown of the 1880s; brick buildings and cemetery remain."],
+  ["Jicarilla", 33.620, -105.590, "Lincoln", "Placer-gold mining camp in the Jicarilla Mountains."],
+  ["Ancho", 33.947, -105.743, "Lincoln", "Railroad and brick-making town; depot is now a museum."],
+  ["Claunch", 34.143, -105.990, "Socorro", "Homesteader farming town of the 1920s–30s."],
+  ["Duran", 34.465, -105.397, "Torrance", "Railroad town on the El Paso & Northeastern line."],
+  ["Pastura", 34.769, -104.941, "Guadalupe", "Railroad and ranching town."],
+  ["Yeso", 34.432, -104.612, "De Baca", "Homestead and railroad town on the AT&SF."],
+  ["Taiban", 34.442, -104.016, "De Baca", "Railroad town; its old church is a well-known photo subject."],
+  ["Cuervo", 35.030, -104.410, "Guadalupe", "Railroad and Route 66 town bypassed by I-40."],
+  ["Montoya", 35.100, -104.060, "Quay", "Route 66 and railroad stop."],
+  ["Endee", 35.100, -103.070, "Quay", "Rowdy ranching town, later a Route 66 stop."],
+  ["Glenrio", 35.180, -103.040, "Quay", "Route 66 town straddling the Texas–New Mexico line."],
+  ["Golden", 35.272, -106.216, "Santa Fe", "Gold-placer town on the Turquoise Trail; old church survives."],
+  ["Madrid", 35.406, -106.153, "Santa Fe", "Coal town abandoned in the 1950s, later revived as an arts community."],
+  ["Hagan", 35.320, -106.360, "Sandoval", "Coal-mining town of the early 1900s."],
+  ["Cabezon", 35.605, -107.105, "Sandoval", "Hispanic trading village near Cabezon Peak; privately owned."],
+  ["Bland", 35.794, -106.481, "Sandoval", "Gold camp in the Jemez Mountains, 1890s–1900s."],
+  ["Loma Parda", 35.863, -105.062, "Mora", "Village near Fort Union known for entertaining soldiers."],
+  ["Colmor", 36.170, -104.820, "Colfax/Mora", "Railroad and farming town on the AT&SF."],
+  ["Elizabethtown", 36.619, -105.287, "Colfax", "Gold-rush town of the 1860s; New Mexico's first incorporated town."],
+  ["Catskill", 36.950, -105.050, "Colfax", "Logging town of the 1890s."],
+  ["Dawson", 36.667, -104.780, "Colfax", "Phelps Dodge coal town; its cemetery marks two major mine disasters."],
+  ["Koehler", 36.790, -104.660, "Colfax", "Coal-mining camp of the St. Louis, Rocky Mountain & Pacific Co."],
+  ["Van Houten", 36.990, -104.620, "Colfax", "Coal camp in the Raton coal field."],
+  ["Sugarite", 36.940, -104.380, "Colfax", "Coal camp, now within Sugarite Canyon State Park."]
+];
+
+const map = L.map("map").setView([34.4, -106.1], 7);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 18,
+  attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+const list = document.getElementById("list");
+const entries = [];
+
+towns.sort((a, b) => a[0].localeCompare(b[0])).forEach(([name, lat, lon, county, note]) => {
+  const marker = L.circleMarker([lat, lon], {
+    radius: 7, color: "#4a2a12", weight: 2, fillColor: "#c8743a", fillOpacity: 0.9
+  }).addTo(map);
+  marker.bindTooltip(name, { permanent: true, direction: "right", offset: [8, 0], className: "town-label" });
+  marker.bindPopup(
+    `<h3>${name}</h3><p><b>County:</b> ${county}</p><p>${note}</p>` +
+    `<p style="color:#888;font-size:11px">${lat.toFixed(3)}, ${lon.toFixed(3)} · ` +
+    `<a href="https://www.google.com/maps/search/?api=1&query=${lat},${lon}" target="_blank" rel="noopener">open in maps</a></p>`
+  );
+
+  const li = document.createElement("li");
+  li.innerHTML = `${name}<span>${county} County</span>`;
+  li.onclick = () => {
+    map.flyTo([lat, lon], 11);
+    marker.openPopup();
+    document.querySelectorAll("#list li").forEach(el => el.classList.remove("active"));
+    li.classList.add("active");
+  };
+  list.appendChild(li);
+  entries.push({ name, county, li, marker });
+});
+
+document.getElementById("search").addEventListener("input", e => {
+  const q = e.target.value.toLowerCase();
+  entries.forEach(({ name, county, li, marker }) => {
+    const show = name.toLowerCase().includes(q) || county.toLowerCase().includes(q);
+    li.style.display = show ? "" : "none";
+    if (show) marker.addTo(map); else marker.remove();
+  });
+});
+</script>
+</body>
+</html>

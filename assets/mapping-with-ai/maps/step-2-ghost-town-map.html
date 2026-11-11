@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Mexico Ghost Towns</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; color: #222; }
+  header, section { padding: 0.75rem 1.25rem; }
+  h1 { font-size: 1.4rem; margin: 0.25rem 0; }
+  h2 { font-size: 1.15rem; margin: 0.5rem 0; }
+  #map { height: 70vh; min-height: 420px; }
+  .legend { background: #fff; padding: 8px 10px; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.3); line-height: 1.5; font-size: 13px; }
+  .legend .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1px solid #333; margin-right: 6px; vertical-align: -1px; }
+  .popup dt { font-weight: 600; margin-top: 3px; }
+  .popup dd { margin: 0 0 0 0; }
+  .popup .empty, td.empty { color: #888; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; vertical-align: top; }
+  th { background: #f2f2f2; }
+</style>
+</head>
+<body>
+<header>
+  <h1>New Mexico Ghost Towns</h1>
+  <p id="summary"></p>
+</header>
+<div id="map"></div>
+<section>
+  <h2>Towns without coordinates</h2>
+  <table id="unlocated">
+    <thead><tr><th>Name</th><th>County</th><th>Match note</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<!-- Data: nm_ghost_towns_gnis.csv, embedded verbatim -->
+<script type="text/plain" id="csv-data">
+name,other_names,county,settled,abandoned,status,coordinates_as_given,remarks,gnis_id,gnis_name,gnis_county,latitude,longitude,match_note
+"Alamocita","New Alamosa","Sierra","1867","1880","Submerged",,"Town was abandoned in 1880, due to change in the course of the Rio Grande, some ranches remained. Site was submerged by the Elephant Butte Reservoir.",,,,,,"No GNIS record with this name or other name"
+"Aleman","Aleman Ranch","Sierra","1868","1875","Historic site",,"Buildings on the Bar Cross Ranch",,,,,,"No GNIS record with this name or other name"
+"Anaconda",,"Cibola","1952","1982","Barren site",,"A former mining town that also once contained the only medical facility between Albuquerque and Gallup.",,,,,,"No GNIS record with this name"
+"Arkansas Junction",,"Lea",,,"Semi-abandoned site","32°41′38.44″N 103°21′3.76″W﻿ / ﻿32.6940111°N 103.3510444°W﻿ / 32.6940111; -103.3510444","Not much is left of the former community except a cafe that serves the local oil field workers.","885881","Arkansas Junction","Lea","32.6967877","-103.3510435","Exact name match"
+"Baldy Town","Baldy Camp, Chihuahua, Aztec Spring","Colfax","1888","1940","Historic site","36° 37′ 26.32″ N, 105° 10′ 18.97″ W","The site is part of the Philmont Boy Scout Ranch. It has stone ruins and mill foundations which are a part of historic programming.",,,,,,"No GNIS record with this name or any other name"
+"Bard",,"Quay",,,"Abandoned site",,,"932912","Bard","Quay","35.1286694","-103.245785","Exact name match"
+"Blackdom",,"Chaves","1901",,,,,"920069","Blackdom (historical)","Chaves","33.1637167","-104.5088556","Matched as Blackdom (historical)"
+"Bland",,"Sandoval","1893","early 1900s","Barren site","35°45′31.29″N 106°28′2.08″W﻿ / ﻿35.7586917°N 106.4672444°W﻿ / 35.7586917; -106.4672444","Destroyed in the 2011 Las Conchas Fire, some foundations remain.","918078","Bland","Sandoval","35.7575258","-106.4653087","Exact name match"
+"Bonanza City",,"Santa Fe","1880","early 1900s","Barren site",,,"902791","Bonanza City (historical)","Santa Fe","35.5389232","-106.1200224","Matched as Bonanza City (historical)"
+"Bramlett",,"Hidalgo",,,,,,,,,,,"No match in Hidalgo. Candidate: 899550 Bramlett, Socorro County - rejected on county"
+"Buckman",,"Santa Fe","1899","1925","Barren site",,,"904155","Buckman","Santa Fe","35.8319704","-106.1566916","Exact name match"
+"Cabezon",,"Sandoval",,,,,"Private property. Several structures remain.","902799","Cabezon","Sandoval","35.6264164","-107.0978205","Exact name match"
+"Cambray",,"Luna","1892",,"Neglected site",,"Private property. Structures remain in various states of disrepair.","898524","Cambray","Luna","32.2253687","-107.317518","Exact name match"
+"Canta Recio",,"Socorro","1875","1920","Barren site",,"Site was submerged by the Elephant Butte Reservoir.",,,,,,"No GNIS record with this name"
+"Carpenter",,"Grant",,,,,,,,,,,"No GNIS record with this name"
+"Chise","Chiz","Sierra",,,,,"Populated Place.","898743","Chise","Sierra","33.272293","-107.5975352","Exact name match"
+"Chloride",,"Sierra","1881","1956","Historic site",,"An unincorporated community","905118","Chloride","Sierra","33.338681","-107.6778146","Exact name match"
+"Clairmont",,"Catron",,,,,,,,,,,"No exact name match. Candidate: 898996 Claremont, Catron County - spelling differs, not accepted"
+"Cloverdale",,"Hidalgo",,,,,,"920578","Cloverdale","Hidalgo","31.4170488","-108.9297735","Exact name match"
+"Cooney",,"Catron",,,,,,"905303","Cooney","Catron","33.4228388","-108.8078405","Exact name match"
+"Cuchillo","Cuchillo Negro","Sierra","1867-1871",,"Historic site",,"An unincorporated community. Name change came after the 1900 Census, it was recorded under its present name in the 1910 Census.","898752","Cuchillo","Sierra","33.2359051","-107.3605893","Exact name match"
+"Cuervo",,"Guadalupe","1901",,"Abandoned site",,,"915818","Cuervo","Guadalupe","35.0311689","-104.4085929","Exact name match"
+"Dawson",,"Colfax","1901","1950","Abandoned Site",,"Once Large City, suffered two major mining incidents totaling some 400 casualties, Phelps Dodge Company cleared the town of relics and infrastructure","902230","Dawson (historical)","Colfax","36.6641997","-104.7747179","Matched as Dawson (historical)"
+"El Ojo Del Padre",,"Sandoval",,,,,,,,,,,"No GNIS record with this name"
+"Elephant Butte",,"Sierra",,,,,,"898770","Elephant Butte","Sierra","33.1486833","-107.1847503","Exact name match; may be the present-day city of Elephant Butte rather than the historic site"
+"Elizabethtown",,"Colfax","1866","1917","Abandoned Site",,"Once largest town in New Mexico. Ruins of one stone structure is all that remains, most wooden structures lost in 1903 fire.","928727","Elizabethtown","Colfax","36.619198","-105.2844501","Exact name match"
+"Endee",,"Quay","c.1885",,"Abandoned site",,"Founded as a supply center for ranches in the area.","898546","Endee","Quay","35.1378361","-103.1077257","Exact name match"
+"Folsom",,"Union",,,,,,"902249","Folsom","Union","36.8450241","-103.9177446","Exact name match"
+"Gary",,"Hidalgo",,,,,,"899646","Gary","Hidalgo","32.3242486","-108.8183885","Exact name match"
+"Glenrio","Rock Island","Quay (partially in Deaf Smith County, Texas)",,,,,,,,,,,"No GNIS record named Glenrio or Rock Island"
+"Gage",,"Luna",,,,,,"899641","Gage","Luna","32.2295319","-108.0861497","Exact name match"
+"Gobernador",,"Rio Arriba",,,,,,,,,,,"No GNIS record with this name"
+"Gran Quivira",,"Socorro",,,,,"(now part of the Salinas Pueblo Missions National Monument)",,,,,,"No match in Socorro. Candidate: 918196 Gran Quivira, Torrance County - rejected on county"
+"Hagan",,"Sandoval","1902","1931","Neglected site",,,"936503","Hagan (historical)","Sandoval","35.3172622","-106.313913","Matched as Hagan (historical)"
+"Hermosa",,"Sierra",,,,,"Mostly private property, but several structures remain. Ranch is owned by Ted Turner.","906935","Hermosa","Sierra","33.1575712","-107.7300347","Exact name match"
+"Jicarilla",,"Lincoln","1892","1942","Abandoned site",,"Half a dozen structures remain at the site, including both former schoolhouses.","907360","Jicarilla","Lincoln","33.8689625","-105.6630413","Exact name match"
+"Kelly",,"Socorro",,,"Historic site",,"Founded in 1866 after Patrick H. Kelly staked lead, Zinc and silver; mining sustained the town until prices declined. Small population and guided tours remain.","907521","Kelly","Socorro","34.0831199","-107.2053134","Exact name match"
+"La Belle","Labelle","Taos","1894","1910","Barren site",,"The town was founded as a result of a gold mine and ceased when the mining ended.","901692","La Belle (historical)","Taos","36.7628079","-105.3005591","Matched as La Belle (historical)"
+"Lake Valley",,"Sierra",,,"Historic site",,,"890891","Lake Valley","Sierra","32.7178572","-107.5678056","Exact name match; also 899712 Lake Valley, San Juan County - rejected on county"
+"Lanark",,"Doña Ana",,,,,,"920627","Lanark","Doña Ana","31.9701008","-106.8163876","Exact name match"
+"Mentmore",,"McKinley",,,,,"(still has post office and zip code 87319)","902833","Mentmore","McKinley","35.5141892","-108.8456424","Exact name match"
+"Montoya",,"Quay","1902",,"Abandoned site",,"Originally founded as a railroad stop in 1902. A Sinclair gasoline station operated from 1925 to the mid-1970s.","915865","Montoya","Quay","35.0997794","-104.0638615","Exact name match"
+"Mogollon",,"Catron",,,,,,"908819","Mogollon","Catron","33.3967283","-108.7942288","Exact name match"
+"Mowry City",,"Doña Ana",,,,,,,,,,,"No GNIS record with this name"
+"Newkirk","Conant (formerly)","Guadalupe","c. 1900-1910",,"Semi-abandoned site",,"In the 2010 census, Newkirk had a population of 7.","918267","Newkirk","Guadalupe","35.0683903","-104.2646989","Exact name match"
+"Old Hachita",,"Grant",,,,,"Several structures remain, including mine headframes.","899820","Old Hachita","Grant","31.9139827","-108.4328238","Exact name match"
+"Paraje",,"Socorro","1857","1942","Barren site",,"Site was submerged by the Elephant Butte Reservoir. Later exposed, some ruins and artifacts can be seen.","920188","Paraje (historical)","Socorro","33.5564576","-107.0569747","Matched as Paraje (historical); also 899836 Paraje, Cibola County - rejected on county"
+"Pinos Altos (High Pines)",,"Grant","1860",,"Historic site",,"Still has some people there, located near Silver City","920663","Pinos Altos","Grant","32.8634067","-108.2214362","Matched on Pinos Altos without the (High Pines) gloss; also 909726 Pinos Altos, San Miguel County - rejected on county"
+"Pittsburg",,"Colfax",,,,,,,,,,,"No GNIS record with this name"
+"Red Hill",,"Catron",,,,,,"910058","Red Hill","Catron","34.2186593","-108.8722962","Exact name match"
+"Road Fork",,"Hidalgo",,,,,,,,,,,"No GNIS record with this name"
+"Santa Barbara","Hatch","Doña Ana","1851, 1853","1851, 1860","Historic site",,"The village was abandoned in 1851 because of Apache raids and in 1860 by a Navajo raid. It was not re-occupied until 1875 and was renamed as Hatch.","920610","Hatch","Doña Ana","32.6653573","-107.1530744","Matched via other name Hatch (no GNIS record for Santa Barbara); record is the present-day village of Hatch"
+"San Albino",,"Sierra","1869","1914","Barren site",,"Site was submerged by the Elephant Butte Reservoir.",,,,,,"No GNIS record with this name"
+"San José",,"Sierra","1869","1916","Barren site",,"Site was submerged by the Elephant Butte Reservoir.",,,,,,"No match in Sierra. Candidates (all spelled San Jose, other counties): 899897 Eddy; 910633 San Miguel; 920836 Bernalillo; 928803 Rio Arriba - all rejected on county"
+"San Marcial",,"Socorro","1854, 1866","1866, 1929","Neglected site",,"Destroyed by flood 1866, rebuilt on opposite bank of the Rio Grande, destroyed by flood in 1929 and abandoned.","923681","San Marcial","Socorro","33.7000664","-106.9872535","Exact name match"
+"San Ygnacio de la Alamosa","Alamosa, Cañada Alamosa","Sierra","1859","1867","Barren site",,"Abandoned after destruction by flooding in 1867. Site was submerged by the Elephant Butte Reservoir.",,,,,,"No GNIS record with this name or other names"
+"Santa Rita","Santa Rita del Cobre","Grant","1801, 1873","1838, 1967","Barren site",,"Town site swallowed up by the open pit copper mine several times.","920698","Santa Rita (historical)","Grant","32.8036867","-108.0608745","Matched as Santa Rita (historical)"
+"Shakespeare","Mexican Springs, Grant, Ralston City","Hidalgo","1862","1929","Historic site",,"Currently part of a privately owned ranch, sometimes open to tourists.","920701","Shakespeare","Hidalgo","32.3259161","-108.7383876","Exact name match; also 902834 Mexican Springs, McKinley County - rejected on county"
+"Steins","Stein's Pass","Hidalgo","1880","1944",,,,"899927","Steins","Hidalgo","32.2292481","-108.9895014","Exact name match"
+"Tejon",,"Guadalupe",,,,,,"899948","Tejon","Guadalupe","34.5897904","-105.2861133","Exact name match; also 936505 Tejon (historical), Sandoval County - rejected on county"
+"Twining",,"Taos",,,,,"(site of Taos Ski Valley)","911939","Twining","Taos","36.5947511","-105.4502846","Exact name match"
+"Tyrone",,"Grant",,,,,,"938834","Tyrone","Grant","32.7097986","-108.3019925","Exact name match"
+"Valedon",,"Hidalgo",,,,,,"899978","Valedon","Hidalgo","32.3175828","-108.7450543","Exact name match"
+"Vinegaroon",,"Otero",,,,,"(east of La Luz, New Mexico; at the mouth of La Borcita)",,,,,,"No GNIS record with this name"
+"White Oaks",,"Lincoln","1879","Early 1900s","Historic site",,,"912313","White Oaks","Lincoln","33.7475738","-105.7363739","Exact name match"
+"Zapata","Zapato","Sierra","1869","1908","Abandoned site",,"Site was submerged by the Elephant Butte Reservoir.",,,,,,"No GNIS record with this name or other name"
+</script>
+
+<script>
+(function () {
+  // Minimal RFC 4180 CSV parser (quoted fields, "" escapes, commas/newlines inside quotes).
+  function parseCSV(text) {
+    var rows = [], row = [], field = '', inQuotes = false, i = 0, c;
+    while (i < text.length) {
+      c = text[i];
+      if (inQuotes) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { field += '"'; i += 2; continue; }
+          inQuotes = false; i++; continue;
+        }
+        field += c; i++; continue;
+      }
+      if (c === '"') { inQuotes = true; i++; continue; }
+      if (c === ',') { row.push(field); field = ''; i++; continue; }
+      if (c === '\r') { i++; continue; }
+      if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; i++; continue; }
+      field += c; i++;
+    }
+    if (field !== '' || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  // Strip only the single newline at the start and end of the embedded data block.
+  var raw = document.getElementById('csv-data').textContent.replace(/^\n/, '').replace(/\n$/, '');
+  var table = parseCSV(raw);
+  var header = table[0];
+  var records = table.slice(1).map(function (r) {
+    var o = {};
+    header.forEach(function (h, idx) { o[h] = r[idx] !== undefined ? r[idx] : ''; });
+    return o;
+  });
+
+  // Colors are assigned per status, compared case-insensitively so that
+  // "Abandoned site" and "Abandoned Site" share a color. Displayed text is never altered.
+  var palette = {
+    'historic site':       '#1f77b4',
+    'abandoned site':      '#d62728',
+    'semi-abandoned site': '#ff7f0e',
+    'barren site':         '#8c564b',
+    'neglected site':      '#9467bd',
+    'submerged':           '#17becf'
+  };
+  var noStatusColor = '#9e9e9e';
+  var extraColors = ['#2ca02c', '#e377c2', '#bcbd22', '#7f7f7f'];
+  function statusKey(s) { return s.toLowerCase(); }
+  function colorFor(s) {
+    if (s === '') return noStatusColor;
+    var k = statusKey(s);
+    if (!palette[k]) palette[k] = extraColors.shift() || '#000000';
+    return palette[k];
+  }
+
+  var map = L.map('map');
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  function popupContent(r) {
+    var dl = document.createElement('dl');
+    dl.className = 'popup';
+    [['Name', 'name'], ['Other names', 'other_names'], ['County', 'county'],
+     ['Settled', 'settled'], ['Abandoned', 'abandoned'], ['Status', 'status'],
+     ['GNIS ID', 'gnis_id']].forEach(function (pair) {
+      var dt = document.createElement('dt'); dt.textContent = pair[0];
+      var dd = document.createElement('dd');
+      if (r[pair[1]] === '') { dd.textContent = 'not given'; dd.className = 'empty'; }
+      else { dd.textContent = r[pair[1]]; }
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+    return dl;
+  }
+
+  var located = [], unlocated = [];
+  var legendGroups = {}; // key -> {color, labels: [original spellings]}
+  records.forEach(function (r) {
+    if (r.latitude !== '' && r.longitude !== '') located.push(r); else unlocated.push(r);
+  });
+
+  var latlngs = [];
+  located.forEach(function (r) {
+    var ll = [parseFloat(r.latitude), parseFloat(r.longitude)];
+    latlngs.push(ll);
+    var color = colorFor(r.status);
+    var key = r.status === '' ? '' : statusKey(r.status);
+    if (!legendGroups[key]) legendGroups[key] = { color: color, labels: [], count: 0 };
+    if (r.status !== '' && legendGroups[key].labels.indexOf(r.status) === -1) legendGroups[key].labels.push(r.status);
+    legendGroups[key].count++;
+    L.circleMarker(ll, {
+      radius: 7, color: '#222', weight: 1, fillColor: color, fillOpacity: 0.9
+    }).bindPopup(popupContent(r)).bindTooltip(r.name).addTo(map);
+  });
+  if (latlngs.length) map.fitBounds(latlngs, { padding: [30, 30] });
+  else map.setView([34.5, -106], 6);
+
+  var legend = L.control({ position: 'bottomright' });
+  legend.onAdd = function () {
+    var div = L.DomUtil.create('div', 'legend');
+    var title = document.createElement('strong'); title.textContent = 'Status';
+    div.appendChild(title);
+    Object.keys(legendGroups).sort(function (a, b) {
+      if (a === '') return 1; if (b === '') return -1; return a < b ? -1 : 1;
+    }).forEach(function (k) {
+      var g = legendGroups[k];
+      var line = document.createElement('div');
+      var sw = document.createElement('span'); sw.className = 'swatch'; sw.style.background = g.color;
+      line.appendChild(sw);
+      line.appendChild(document.createTextNode(
+        (k === '' ? 'No status in table' : g.labels.join(' / ')) + ' (' + g.count + ')'));
+      div.appendChild(line);
+    });
+    return div;
+  };
+  legend.addTo(map);
+
+  var tbody = document.querySelector('#unlocated tbody');
+  unlocated.forEach(function (r) {
+    var tr = document.createElement('tr');
+    ['name', 'county', 'match_note'].forEach(function (f) {
+      var td = document.createElement('td');
+      if (r[f] === '') { td.textContent = 'not given'; td.className = 'empty'; }
+      else td.textContent = r[f];
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('summary').textContent =
+    records.length + ' towns in the CSV: ' + located.length + ' mapped from GNIS coordinates, ' +
+    unlocated.length + ' without coordinates (listed below the map). Click a point for details.';
+})();
+</script>
+</body>
+</html>

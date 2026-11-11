@@ -173,7 +173,11 @@ four scans in `sessions/mapping-with-ai/images/` are cropped from that report
 Recorded outputs go in `_data/demos.yml` under the `mapping-*` ids, which
 show as red unfilled slots until recorded. Map screenshots (`run-*.jpg`) sit
 in the images folder beside the demo they belong to. The 11 November 2026
-runs were fresh headless Claude Code sessions with file tools only; the exact
+runs were fresh headless Claude Code sessions with file tools only, except
+steps 3 and 6, which were re-recorded with Bash in Claude Code's sandbox
+(`--settings '{"sandbox":{"enabled":true,"autoAllowBashIfSandboxed":true}}'`)
+so their replies show a tool that can run code. Re-record the other steps
+the same way before teaching the session again; the exact
 messages sent, replies, generated files and the runner script are in
 `workshop-drafts/mapping-with-ai/_local/runs-2026-11-11/` (ignored by Git).
 The step 1 picture (`run-hook-picture.jpg`) came from Gemini on 11 November 2026 and is shown as a figure, not a demo slot.
@@ -183,7 +187,7 @@ with a `README.txt` giving each one's source. The page links each file at
 its prompt and lists them all in "Data for this session". After changing
 any of them, run `python3 scripts/build-mapping-data.py` to rebuild
 `assets/mapping-with-ai/mapping-with-ai-data.zip`. The county boundary file
-(12 MB) is linked at the Census Bureau rather than hosted.
+(12 MB) is linked at the Census Bureau rather than hosted. The maps, figure PDF and script the runs made are in `assets/mapping-with-ai/maps/`, copied unchanged from the run archive and linked under each screenshot; the national map needs `us-county-population-2020-2024.csv` beside it.
 
 The earlier version's practice kit (`_data/mapping_examples.json`,
 `workshop-drafts/mapping-with-ai/`, `scripts/build-mapping-workspace.py` and

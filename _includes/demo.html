@@ -38,7 +38,11 @@
     <span class="demo-meta">{{ demo_tool }}{% if demo_date != blank %} · {{ demo_date }}{% endif %}</span>
     {% endif %}
   </figcaption>
-  <div class="demo-text">{{ demo_text | strip | markdownify }}</div>
+  {% comment %} Headings inside a reply belong to the reply, not the page: shift them
+     below the page's h2 steps and h3 subheads so they stay out of the
+     scrollspy contents and the document outline. {% endcomment %}
+  {% assign demo_html = demo_text | strip | markdownify | replace: "<h3", "<h5" | replace: "</h3>", "</h5>" | replace: "<h4", "<h5" | replace: "</h4>", "</h5>" | replace: "<h6", "<h5" | replace: "</h6>", "</h5>" | replace: "<h1", "<h4" | replace: "</h1>", "</h4>" | replace: "<h2", "<h4" | replace: "</h2>", "</h4>" %}
+  <div class="demo-text">{{ demo_html }}</div>
   {% if demo_note != blank %}
   <p class="demo-note">{{ demo_note }}</p>
   {% endif %}

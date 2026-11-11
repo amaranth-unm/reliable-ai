@@ -706,7 +706,7 @@
   session: mapping-with-ai
   step: 1
   label: Ask for a map drawn from data
-  note: "Send this in a new chat to a tool that can write and run code. Open the file or preview it gives you."
+  note: "Send this in a new chat. Open the HTML file it gives you in a browser."
   text: |
     Make an interactive map of the ghost towns of New Mexico as a single HTML file I can open in a browser. Put a clickable point at each town with its name.
 
@@ -722,7 +722,7 @@
   session: mapping-with-ai
   step: 2
   label: Turn a pasted table into a CSV
-  note: "Paste the table from Wikipedia's List of ghost towns in New Mexico first. Download the CSV it gives you and keep it with the page's URL and today's date."
+  note: "Paste the table above the prompt first, from Wikipedia or our copy. Download the CSV it gives you and keep it with the page's URL and the date you copied it."
   text: |
     Turn the table I pasted into a CSV file with these columns: name, other_names, county, settled, abandoned, status, coordinates_as_given, remarks.
 
@@ -734,7 +734,7 @@
   session: mapping-with-ai
   step: 2
   label: Match the towns against a gazetteer
-  note: "Attach your ghost-town CSV and the GNIS New Mexico file. This needs a tool that can read files and run code."
+  note: "Needs a tool that runs code: the GNIS file is too large to match by reading it. Attach your ghost-town CSV and the GNIS New Mexico file."
   text: |
     I have attached two files: my CSV of New Mexico ghost towns and the USGS GNIS names file for New Mexico. Match each town to a GNIS record, using the town name and its other names. GNIS often marks abandoned places with "(historical)" after the name.
 
@@ -757,10 +757,12 @@
 - id: mapping-photos-exif
   session: mapping-with-ai
   step: 3
-  label: Map photographs from their own location data
-  note: "This is the request given to GitHub Copilot in the Cats of Marrakech repository, built from the Xanthan portfolio template. With your own photos, add: \"List any images that have no location data.\""
+  label: Map a folder of photographs
+  note: "Needs a tool that runs code, because the locations are stored inside the image files. Change the folder name to yours."
   text: |
-    Please create a new YML file in the _data folder that lists each of the images in assets/images. The YML file should include geographic location extracted from the metadata of each image. Then edit map.html so that the map uses the newly created YML file. The overall goal is to have a pin on the map for each of the photos, and when a user clicks on the pin, the image appears.
+    The folder marrakech-cats contains photos taken on a phone. Read the location stored in each photo's metadata and make a map of them as a single HTML file I can open in a browser. Put a point at each photo. Clicking a point should show a small version of the photo, its filename and when it was taken. Build the small versions into the file so the map works without the photo folder.
+
+    Before making the map, save the locations as a CSV with filename, date_taken, latitude and longitude, so I can check them. Then tell me how many photos you placed and list any that had no location data.
 
 - id: mapping-county-nm
   session: mapping-with-ai
@@ -820,7 +822,7 @@
   session: mapping-with-ai
   step: 6
   label: Ask for a print figure, not a screenshot
-  note: "Attach the checked CSV and the boundary file you used. Fill in the brackets. You will need Python installed to run the script, or ask for the same in R."
+  note: "Attach the checked CSV and the boundary file you used. Fill in the brackets. A tool that runs code will run the script for you; to run it yourself you need Python. Or ask for the same in R."
   text: |
     Write a Python script, using geopandas and matplotlib, that makes a print figure from the attached CSV and boundary file. The map should show [describe the map: e.g. population per square mile in New Mexico counties, 1910].
 

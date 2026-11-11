@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Mexico city populations, 1860–1910</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<style>
+  html, body { margin: 0; height: 100%; font-family: Georgia, "Times New Roman", serif; }
+  #map { position: absolute; inset: 0; }
+  .panel {
+    background: rgba(255,255,255,0.94); padding: 10px 14px; border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.35); font-size: 14px; line-height: 1.35;
+  }
+  .panel h1 { font-size: 16px; margin: 0 0 6px; }
+  #year-label { font-size: 28px; font-weight: bold; text-align: center; margin: 2px 0 4px; }
+  #year-slider { width: 260px; display: block; }
+  .ticks { display: flex; justify-content: space-between; width: 260px; font-size: 12px; color: #444; }
+  .ticks span { cursor: pointer; }
+  .buttons { display: flex; justify-content: space-between; margin-top: 6px; }
+  .buttons button { font: inherit; font-size: 13px; padding: 2px 10px; cursor: pointer; }
+  .note { font-size: 12px; color: #555; margin-top: 6px; }
+  .legend-title { font-weight: bold; margin-bottom: 4px; }
+  .source { font-size: 12px; font-style: italic; max-width: 340px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<!-- Data, copied verbatim from census-1910-cities-checked.csv and city-coordinates-gnis.csv -->
+<script id="census-csv" type="text/csv">
+city,census_year,population,increase_number,increase_percent,source_page
+Albuquerque,1910,"11,020","4,782",76.7,158
+Albuquerque,1900,"6,238","2,453",64.8,158
+Albuquerque,1890,"3,785",,,158
+Raton,1910,"4,539",999,28.2,158
+Raton,1900,"3,540",,,158
+Roswell,1910,"6,172","4,123",201.2,158
+Roswell,1900,"2,049",,,158
+Santa Fe,1910,"5,072",-531,-9.5,158
+Santa Fe,1900,"5,603",-582,-9.4,158
+Santa Fe,1890,"6,185",-450,-6.8,158
+Santa Fe,1880,"6,635","1,870",39.2,158
+Santa Fe,1870,"4,765",130,2.8,158
+Santa Fe,1860,"4,635",,,158
+</script>
+<script id="coords-csv" type="text/csv">
+city,gnis_id,gnis_name,county,latitude,longitude
+Albuquerque,928679,Albuquerque,Bernalillo,35.0844909,-106.6511367
+Raton,902335,Raton,Colfax,36.9033581,-104.4391532
+Roswell,894171,Roswell,Chaves,33.3942655,-104.5230242
+Santa Fe,936823,Santa Fe,Santa Fe,35.6869752,-105.937799
+</script>
+
+<script>
+// ---- CSV parsing (handles quoted fields containing commas) ----
+function parseCSV(text) {
+  const rows = [];
+  for (const line of text.trim().split(/\r?\n/)) {
+    const cells = [];
+    let cur = "", inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (inQ) {
+        if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+        else if (ch === '"') inQ = false;
+        else cur += ch;
+      } else if (ch === '"') inQ = true;
+      else if (ch === ",") { cells.push(cur); cur = ""; }
+      else cur += ch;
+    }
+    cells.push(cur);
+    rows.push(cells);
+  }
+  const header = rows.shift();
+  return rows.map(r => Object.fromEntries(header.map((h, i) => [h, r[i] ?? ""])));
+}
+
+const census = parseCSV(document.getElementById("census-csv").textContent);
+const coords = parseCSV(document.getElementById("coords-csv").textContent);
+
+const coordByCity = {};
+for (const c of coords) coordByCity[c.city] = [parseFloat(c.latitude), parseFloat(c.longitude)];
+
+for (const r of census) {
+  r.year = parseInt(r.census_year, 10);
+  r.pop = parseInt(r.population.replace(/,/g, ""), 10);
+  if (!coordByCity[r.city]) console.warn("No coordinates for", r.city);
+}
+
+const years = [...new Set(census.map(r => r.year))].sort((a, b) => a - b);
+const maxPop = Math.max(...census.map(r => r.pop));
+
+// ---- Area scaling: area proportional to population, so radius ∝ sqrt(population) ----
+const MAX_RADIUS = 40; // px, for the largest population in the data
+const radiusFor = pop => MAX_RADIUS * Math.sqrt(pop / maxPop);
+
+// ---- Map ----
+const map = L.map("map");
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 18,
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+map.fitBounds(L.latLngBounds(Object.values(coordByCity)).pad(0.35));
+
+const cityLayer = L.layerGroup().addTo(map);
+
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+function showYear(year) {
+  cityLayer.clearLayers();
+  const rows = census
+    .filter(r => r.year === year && coordByCity[r.city])
+    .sort((a, b) => b.pop - a.pop); // draw large circles first so small ones stay clickable
+  for (const r of rows) {
+    L.circleMarker(coordByCity[r.city], {
+      radius: radiusFor(r.pop),
+      color: "#7a2e0e", weight: 1.5,
+      fillColor: "#d9622b", fillOpacity: 0.55
+    })
+      .bindPopup(
+        `<strong>${esc(r.city)}</strong><br>` +
+        `Year: ${esc(r.census_year)}<br>` +
+        `Population: ${esc(r.population)}<br>` +
+        `Source page: ${esc(r.source_page)}`
+      )
+      .bindTooltip(esc(r.city), { direction: "right", offset: [radiusFor(r.pop), 0] })
+      .addTo(cityLayer);
+  }
+  document.getElementById("year-label").textContent = year;
+  document.getElementById("city-count").textContent =
+    rows.length === 1 ? "1 city with a figure" : `${rows.length} cities with figures`;
+}
+
+// ---- Year control ----
+const YearControl = L.Control.extend({
+  options: { position: "topright" },
+  onAdd() {
+    const div = L.DomUtil.create("div", "panel");
+    div.innerHTML = `
+      <h1>New Mexico city populations</h1>
+      <div id="year-label"></div>
+      <input id="year-slider" type="range" min="0" max="${years.length - 1}" step="1" value="${years.length - 1}"
+             aria-label="Census year">
+      <div class="ticks">${years.map((y, i) => `<span data-i="${i}">${y}</span>`).join("")}</div>
+      <div class="buttons">
+        <button id="prev-year" type="button">&#9664; Earlier</button>
+        <button id="next-year" type="button">Later &#9654;</button>
+      </div>
+      <div class="note" id="city-count"></div>`;
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
+    return div;
+  }
+});
+new YearControl().addTo(map);
+
+const slider = document.getElementById("year-slider");
+const setIndex = i => {
+  i = Math.max(0, Math.min(years.length - 1, i));
+  slider.value = i;
+  showYear(years[i]);
+};
+slider.addEventListener("input", () => setIndex(+slider.value));
+document.getElementById("prev-year").addEventListener("click", () => setIndex(+slider.value - 1));
+document.getElementById("next-year").addEventListener("click", () => setIndex(+slider.value + 1));
+document.querySelectorAll(".ticks span").forEach(s =>
+  s.addEventListener("click", () => setIndex(+s.dataset.i)));
+
+// ---- Size legend (nested circles, same scale as the map) ----
+const LegendControl = L.Control.extend({
+  options: { position: "bottomleft" },
+  onAdd() {
+    const div = L.DomUtil.create("div", "panel");
+    const values = [10000, 5000, 1000];
+    const rMax = radiusFor(values[0]);
+    const w = rMax * 2 + 70, h = rMax * 2 + 6;
+    const baseY = h - 3, cx = rMax + 3;
+    let svg = `<svg width="${w}" height="${h}" role="img" aria-label="Circle size legend">`;
+    for (const v of values) {
+      const r = radiusFor(v);
+      svg += `<circle cx="${cx}" cy="${baseY - r}" r="${r}" fill="#d9622b" fill-opacity="0.25" stroke="#7a2e0e" stroke-width="1"/>`;
+      svg += `<line x1="${cx}" y1="${baseY - 2 * r}" x2="${cx + rMax + 8}" y2="${baseY - 2 * r}" stroke="#777" stroke-dasharray="2,2"/>`;
+      svg += `<text x="${cx + rMax + 11}" y="${baseY - 2 * r + 4}" font-size="12">${v.toLocaleString("en-US")}</text>`;
+    }
+    svg += "</svg>";
+    div.innerHTML = `<div class="legend-title">Population</div>${svg}
+      <div class="note">Circle area is proportional to population.</div>`;
+    return div;
+  }
+});
+new LegendControl().addTo(map);
+
+// ---- Source line ----
+const SourceControl = L.Control.extend({
+  options: { position: "bottomright" },
+  onAdd() {
+    const div = L.DomUtil.create("div", "panel source");
+    div.textContent = "Thirteenth Census of the United States (1913), vol. 3, p. 158.";
+    return div;
+  }
+});
+new SourceControl().addTo(map);
+
+setIndex(years.length - 1); // start at 1910
+</script>
+</body>
+</html>

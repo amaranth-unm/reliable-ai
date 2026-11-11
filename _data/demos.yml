@@ -682,7 +682,7 @@
   run: "mapping-hook-code in a new chat. Replace this include with a screenshot of the map."
   tool: "Claude Opus 5.5 in Claude Code, fresh session"
   date: "2026-11-11"
-  note: "Fresh session with file tools only: no web access and no code execution. The screenshot below is the file it wrote, opened in Chrome."
+  note: "This tool could write files but not search the web or run code. The screenshot below is the file it wrote, opened in Chrome."
   text: |
     I made the map as a single HTML file:
 
@@ -771,7 +771,7 @@
   run: "mapping-ghost-gnis with the CSV and the GNIS New Mexico file. Paste the list of flagged rows."
   tool: "Claude Opus 5.5 in Claude Code, fresh session"
   date: "2026-11-11"
-  note: "Same session. This session could not run code, so we attached GNIS's 1,601 New Mexico Populated Place records rather than the full state file. We checked all 46 matches against GNIS afterwards: every ID, name, county and coordinate agrees."
+  note: "Same session. Because this tool couldn't run code, we attached only GNIS's 1,601 New Mexico populated places, few enough for it to read, rather than the full state file. The reply's 1,602 counts the file's header line. We checked all 46 matches against GNIS afterwards: every ID, name, county and coordinate agrees."
   text: |
     I matched 46 of the 66 towns to a GNIS record in the same county and left 20 blank. The updated file is […]. Your original CSV is unchanged.
 
@@ -834,7 +834,7 @@
   run: "mapping-county-nm with a county table. Paste the unmatched list and the classification explanation, and add a screenshot."
   tool: "Claude Opus 5.5 in Claude Code, fresh session"
   date: "2026-11-11"
-  note: "Sent with New Mexico's 34 rows from the Census Bureau's Vintage 2024 county estimates file, choosing percent change from 2020 to 2024. The popup section is cut."
+  note: "Sent with New Mexico's 34 rows from the Census Bureau's 2024 county estimates file, choosing percent change from 2020 to 2024. The popup section is cut."
   text: |
     I've made the map, but I haven't opened it in a browser, and I couldn't download the Census boundaries from here because I can only read and write files. So the page fetches them itself each time it opens. That means it needs an internet connection, and the matching below hasn't been run against the live boundary data yet.
 
@@ -1034,52 +1034,41 @@
   run: "mapping-figure with a checked CSV and boundary file. Replace this include with the PNG it produced."
   tool: "Claude Opus 5.5 in Claude Code, fresh session"
   date: "2026-11-11"
-  note: "The session could not run code. We ran the script as written, with the pip instructions it gave; it worked first time and produced the figure below."
+  note: "Like step 3, this run could run commands, limited to its own folder, so it ran the script and checked the output itself. We checked its figures against the CSV: the statewide change, the range of the classes and the Catron example are all right."
   text: |
-    I've written the script to […]. I put it in its own folder, apart from the attached data files. **I haven't run it, because I can't run commands in this session.** So I haven't seen the PNG or PDF yet.
+    I wrote the script as `nm_pop_change_map.py`, ran it, and checked the output. The PNG is 1950 × 1770 px at 300 dpi and the PDF page is 468 × 424.8 pt. Both are exactly 6.5 × 5.9 in.
 
-    ## Install
+    **What's on the map**
+    - **Shading:** six classes, with 0% as a class break, so each class is either all loss or all gain. Losses are oranges and gains are blues. The colours also get steadily darker from the biggest loss to the biggest gain, so they still read in order in grayscale. I converted the PNG to gray and the six shades are clearly different. The script checks this every time it runs and stops if two neighbouring colours would print too close to the same gray.
+    - **Legend:** each class shows its range and how many counties fall in it. The lowest and highest limits (−5.0 and +6.2) come from the data. A note under the legend gives the statewide change (+0.5%), taken from the state row in the CSV.
+    - **Scale bar:** in km and miles, in the empty space below the southern border.
+    - **County names:** each name is placed only if it fits inside the county, trying a smaller size or two lines before giving up. 32 of 33 fit. Los Alamos is too small, so it's left off the map and listed in the note.
+    - **Source line:** exactly the text you specified.
+    - **Projection:** Albers Equal-Area Conic on NAD83, fitted to New Mexico. The comment at the top of the script states this. I used an equal-area projection so each county's shaded area matches its real size.
+    - **No typed data:** every number comes from the CSV. The CSV and the boundary file are matched by county FIPS code, and the script stops with an error if any county doesn't match.
 
-    Conda is the most reliable way to get geopandas and its GDAL and PROJ libraries:
+    **Decision for you:** the change is measured from the July 1, 2020 estimate to the July 1, 2024 estimate, so both ends use the same date. If you'd rather start from the April 1, 2020 estimates base, run with `--base april2020`. Most counties shift by a few tenths of a point. Some, like Catron, move more (+5.2% becomes +6.0%), but no county changes class.
 
+    **Install**
     ```bash
-    conda create -n nmmap -c conda-forge python=3.12 geopandas matplotlib
-    conda activate nmmap
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install geopandas matplotlib
+    ```
+    `geopandas` installs pandas, shapely, pyproj and pyogrio with it, and pip provides prebuilt versions for macOS, Windows and Linux. If you use conda: `conda install -c conda-forge geopandas matplotlib`.
+
+    **Run**
+
+    Put the script, the CSV and the zip in the same folder. Leave the zip as it is; the script reads it directly. Then:
+    ```bash
+    python nm_pop_change_map.py
+    ```
+    This writes `nm_population_change_2020_2024.png` and `nm_population_change_2020_2024.pdf` to that folder. To use other paths or file names:
+    ```bash
+    python nm_pop_change_map.py --csv data/nm.csv --boundaries data/cb_2023_us_county_500k.zip --out figures/fig1
     ```
 
-    Or with pip in a virtual environment (current geopandas comes with pyogrio, shapely and pyproj as prebuilt packages):
-
-    ```bash
-    python -m venv .venv && source .venv/bin/activate
-    pip install "geopandas>=0.14" "matplotlib>=3.6"
-    ```
-
-    ## Run
-
-    From the folder with the CSV and the zip (leave the zip packed):
-
-    ```bash
-    python map_script/nm_pop_change_map.py \
-      --csv nm-county-population-2020-2024.csv \
-      --boundaries cb_2023_us_county_500k.zip \
-      --out nm_pop_change_2020_2024
-    ```
-
-    This writes `nm_pop_change_2020_2024.png` (1950 px wide, 300 dpi) and `nm_pop_change_2020_2024.pdf`. It also prints a table of every county's populations, percent change and class, so you can check them against the CSV, plus a list of counties it didn't label.
-
-    ## Choices I made
-
-    - **Starting value for 2020:** the CSV has both `ESTIMATESBASE2020` (April 1, 2020) and `POPESTIMATE2020` (July 1, 2020). I used the April base, which is how the Census Bureau reports change since 2020, and the subtitle says so. To switch, change `BASE_COL` and `SUBTITLE` near the top of the script.
-    - **Projection:** Albers equal-area conic on NAD83, fitted to New Mexico. A comment in the script gives the details. I picked an equal-area projection because a shaded map compares county areas.
-    - **Grayscale:** six classes on the YlGnBu color scale, which gets steadily darker, so the order holds in grayscale. Lighter means more loss, darker means more growth. The class breaks are −4, −2, 0, 2 and 4%. The two end classes run to the data's own minimum and maximum, rounded outward so the stated range includes them.
-    - **County names:** a name is drawn only if its whole text fits inside the county with a small margin. The script tries 6.5 pt, then two lines, then 5.5 pt. Los Alamos will probably be left unlabeled, and the console will list it.
-    - **Join check:** the script matches counties between the two files by their 5-digit FIPS codes. If any county is in one file but not the other, it stops and lists them.
-    - **No typed data:** all populations and county names come from the CSV. The only numbers in the script are design settings: class breaks, sizes and projection settings.
-    - **Layout:** the legend and scale bar (km and miles) sit in a column to the right of the map. The figure is exactly 6.5 in wide, and its height follows the shape of the state (about 6 in). I didn't crop it automatically when saving, because that would change the width. The PDF keeps its text as editable text.
-
-    From reading the CSV, the values run from about −5.4% (McKinley) to +6.2% (Torrance). That puts 23 counties below zero and 10 above.
-
-    When you run it, check that none of the labels in the PNG are crowded. If some are, you can raise `LABEL_CLEARANCE_IN`.
+    To change the class breaks or colours, edit `BREAKS` and `COLORS` near the top of the script. The text in the PDF is kept editable. If the figure will have a separate caption, you can delete the two `fig.text` lines that draw the title and subtitle.
 
 - id: mapping-ghost-map-fix
   session: mapping-with-ai
@@ -1097,3 +1086,24 @@
     I reworded the comment so it no longer contains that tag; nothing else changed. I also checked the rest of the script and the embedded CSV, and neither contains `</script` anywhere else. Your data and the map logic are exactly as before.
 
     I haven't opened the file in a browser to confirm the fix, so please reload it in Chrome. You should see 46 points and 20 rows in the table below the map. If the map is still blank, the next most likely cause is the integrity hashes I wrote from memory. Delete the two `integrity="..."` attributes in the `<head>` and reload. Chrome's console (View → Developer → JavaScript Console) will show an "integrity" error if that's the problem.
+
+- id: mapping-photos-exif
+  session: mapping-with-ai
+  label: "What came back"
+  run: "mapping-photos-exif on the 20-photo sample"
+  tool: "Claude Opus 5.5 in Claude Code, fresh session"
+  date: "2026-11-11"
+  note: "Sent with the 20-photo sample from this page. Like step 6, this run could run commands, limited to its own folder. The last line, a command for opening the file on a Mac, is cut. Every coordinate in the CSV matches the photos' GPS data, and the photos do record +00:00 for the first 19 and +01:00 for the last."
+  text: |
+    I placed all **20 photos** on the map. Every photo had location data, so none are missing. I haven't opened the map in a browser, because the sandbox here blocks that. I did check that the file contains all 20 points with their small photos.
+
+    **Files** (both in the folder that contains `marrakech-cats`):
+    - `marrakech-cats-locations.csv` has filename, date_taken, latitude and longitude for each photo. Latitude and longitude are decimal degrees to 6 places. I made the map from this file.
+    - `marrakech-cats-map.html` is the map (392 KB). Clicking a point shows a small version of the photo (up to 320 px), its filename and when it was taken. The photos are built into the file, so it works without the photo folder.
+
+    **Things to know:**
+    - **It needs an internet connection.** The map background and the mapping library load from the web when you open the file. The photos and locations are stored in the file itself.
+    - **Locations:** all the points are within about 1.5 km of each other, in Marrakech's old city (around 31.62° N, 7.99° W). That fits the folder name.
+    - **Times are local, with their UTC offset.** The first 19 photos show +00:00 and the last one (22 March) shows +01:00. Morocco moves its clocks back an hour during Ramadan, which in 2026 ended around 19–20 March, so the jump looks correct. Because of that change, the last photo's filename (`…_065733…`) is an hour behind its recorded time (07:57:33).
+
+    […]

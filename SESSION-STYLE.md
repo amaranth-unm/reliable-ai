@@ -25,7 +25,11 @@ that prompt, and list all of them in one table near the top with a ZIP. Host
 small files in `assets/<session>/`; link large public files (over about 10 MB)
 directly at their source, never only to a landing page the reader has to
 search. Say which files came out of an earlier prompt, and give each file's
-source and license in a README inside the ZIP.
+source and license in a README inside the ZIP. When a step starts from a
+web page instead of a file, link the page in the instruction itself, say
+exactly what to copy, and offer the dated copy the run used (also in the
+ZIP) for anyone who wants the same input. Never write "the page" or "the
+table" without a link at that sentence.
 
 ## What a session page is for
 

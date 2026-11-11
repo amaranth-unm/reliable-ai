@@ -29,6 +29,14 @@ nm-ghost-towns-gnis.csv
   AI output: nm-ghost-towns.csv with GNIS IDs, coordinates and match
   notes added. 46 towns matched, 20 left blank.
 
+STEP 3: PHOTOGRAPHS
+
+marrakech-cats-sample.zip
+  20 of the 208 phone photographs of cats in Marrakech taken by Jonathan
+  Seyfried in March 2026, shared with his permission. All 208 are in his
+  repository:
+  https://github.com/jeseyfried/cats-of-marrakech/tree/main/assets/images/marrakech-cats
+
 STEP 4: COUNTY POPULATION
 
 nm-county-population-2020-2024.csv
