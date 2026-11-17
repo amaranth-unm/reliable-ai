@@ -837,3 +837,123 @@
   note: "Describe what you see, not what you think the cause is. This is the follow-up sent in the recorded run."
   text: |
     I opened the file in Chrome. The map area is blank, the table of towns without coordinates has headers but no rows, and a long stretch of the page's JavaScript code is printed as text below the table. Please fix it.
+
+- id: websites-read-file
+  session: building-websites-with-ai
+  step: 2
+  label: Have AI read one file to you
+  note: "Attach one file from your site (for example index.md or _config.yml), or paste its contents where the brackets are."
+  text: |
+    I'm new to building websites. I've attached one file from my website, which is built from the Xanthan template. Explain it to me line by line in plain language: what each part does, which parts are text I should edit, and which parts are settings or code I should leave alone. Use the correct technical terms, and define each one the first time you use it.
+
+    [or paste the file here]
+
+- id: websites-motion
+  session: building-websites-with-ai
+  step: 5
+  label: Add one small animation
+  note: "Ask for one effect at a time, and say what it should never do."
+  text: |
+    On my home page, I'd like the project cards to fade in gently as the reader scrolls down to them. Keep it subtle. It should switch off for readers who have asked their device to reduce motion, and the page must still work if the script fails to load.
+
+    Put the CSS in the stylesheet I already have and any JavaScript in its own small file. Don't add a library. Give me each change as a labeled snippet with the file name, and tell me how to turn the effect off again.
+
+- id: websites-new-include
+  session: building-websites-with-ai
+  step: 6
+  label: Make a reusable piece
+  note: "Name the pieces you want to fill in each time: the title, description and image."
+  text: |
+    I want a reusable project card for my website: a title, a one-sentence description and an image, shown together as a card. I'll have a dozen of them.
+
+    First look at the includes and styles I already have (below) and reuse them where you can. Make a new include file only for what is missing, so that I can write a card in a page like this: {% include project-card.html title="..." description="..." image="..." %}. Keep the card's content in the page and its looks in the stylesheet. Don't write colors or sizes into the include.
+
+    Here are my existing files: [paste them]
+
+- id: websites-scroll-projects
+  session: building-websites-with-ai
+  step: 6
+  label: Make a scrolling row of projects
+  note: "Do this after the project card exists, so the new piece builds on it."
+  text: |
+    Using the project card include we just made, build a section for my home page where the cards sit in a single row that the reader can scroll sideways, with each card snapping into place. It should stack into a single column on a phone. Reuse my existing colors and fonts, and put the new styles in my current stylesheet rather than a new one. Then show me where to add or remove a card.
+
+- id: websites-explain-change
+  session: building-websites-with-ai
+  step: 7
+  label: Ask what it did, and how to undo it
+  note: "Add this to the end of any request, or send it right after a change."
+  text: |
+    Before I paste any of this in, tell me: which files you changed, what each change does in plain language, which one line I would edit to adjust it (for example, a color or a size), and exactly how to undo it. If you changed anything I didn't ask for, say so.
+
+- id: websites-stay-consistent
+  session: building-websites-with-ai
+  step: 8
+  label: Make a new page that matches the site
+  note: "Paste a page that already works as the pattern, and the stylesheet."
+  text: |
+    I want a new page called [name] that looks and behaves like the rest of my site. Here is an existing page to use as the pattern: [paste it]. Here is my stylesheet: [paste it].
+
+    Use the same page layout, the same includes and the same CSS classes. Don't create a new stylesheet or write styles directly in the page. If something you need isn't in my stylesheet, tell me first, and I'll decide whether to add it.
+
+- id: websites-whole-site
+  session: building-websites-with-ai
+  step: 0
+  label: Ask for a whole site from nothing
+  note: "The easy way in, and the trap this session is about. Try it if you are curious; you don't need it for the later steps."
+  text: |
+    Build me a complete portfolio website for a historian: a home page, an about page, a projects page and a contact page. Make it look polished and modern. Give me all the files.
+
+- id: websites-agent-instructions
+  session: building-websites-with-ai
+  step: 9
+  label: Have the agent write its own rules
+  note: "Run this in an agentic tool opened on your site's folder. Read what it writes, then edit it until it says what you want."
+  text: |
+    Read this site's files and write an instructions file for AI assistants who will edit it later, saved as .github/copilot-instructions.md. Explain how the site is organized: where content, styles, includes and settings live, and which stylesheet holds the colors and fonts. Then list rules for future edits, written as "Do" and "Don't" lists. Include these: change colors and fonts only in the theme stylesheet; reuse existing includes and CSS classes before creating new ones; never add inline styles; never edit the files in docs/; and always tell me which files you changed. Keep it under one page, and ask me about anything you can't tell from the files.
+
+- id: websites-agent-restructure
+  session: building-websites-with-ai
+  step: 9
+  label: Ask for a larger change
+  note: "Run this in an agentic tool, with the instructions file in place. Review the plan before it edits anything."
+  text: |
+    I want to add a Projects section to my site: a page for each project, and a Projects page that lists them as cards with a title, a short description and an image. Follow the instructions file. Before changing any files, tell me your plan: which files you will create or edit, and what will appear on the site. Wait for me to approve it. After you make the changes, tell me how to run the site on my computer so I can look at it before I commit.
+
+- id: websites-copy-typography-example
+  session: building-websites-with-ai
+  step: 3
+  label: Borrow the typography of a site you like (filled in)
+  note: "The same prompt with the brackets filled in. Attach assets/css/themes/simple-theme.css from the portfolio."
+  text: |
+    I like how the text looks on https://www.megkendall.com/: the headings, the body text, the spacing and the way links look. I don't want to copy its content, its images or its layout. I want my site's type to feel similar.
+
+    I've attached my site's theme stylesheet, assets/css/themes/simple-theme.css. It is a Xanthan portfolio.
+
+    Tell me which fonts, sizes, weights, line spacing and link styles you would use to get that feel, and why. Then give me only the lines that change, each one marked with the file it belongs in. Use free fonts, tell me exactly how to load them, and don't use the original site's font files unless they are free to use.
+
+- id: websites-paste-block
+  session: building-websites-with-ai
+  step: 3
+  label: Ask for one block to paste
+  note: "Add this to the end of any request. It saves you from following a list of steps."
+  text: |
+    Don't give me step-by-step instructions. Give me one block of CSS that I can paste at the very bottom of assets/css/themes/simple-theme.css, and tell me nothing else is needed. If something must be removed from the existing file, tell me that in one sentence first.
+
+- id: websites-whole-file
+  session: building-websites-with-ai
+  step: 3
+  label: Ask for a finished file to download
+  note: "Attach the file. Use this when a change touches many lines."
+  text: |
+    I've attached my theme stylesheet, assets/css/themes/simple-theme.css. Make the heading and body font change we discussed, and give me the complete changed file as a download, with the same file name. Don't leave anything out of it. In your reply, tell me in one sentence what changed.
+
+- id: websites-palette-example
+  session: building-websites-with-ai
+  step: 4
+  label: Describe a palette and a mood (filled in)
+  note: "The same prompt with the brackets filled in. Attach assets/css/themes/simple-theme.css."
+  text: |
+    I want my site to feel warm, earthy and calm, like https://www.megkendall.com/: stone, olive and a little gold. I've attached the file that holds my site's colors, assets/css/themes/simple-theme.css.
+
+    Propose two palettes, each with a background, text color, accent color and link color, and give the hex codes. The body text must be easy to read: check the contrast of text against its background and tell me the ratios. Use the accent color sparingly, on the few things that should catch the eye, such as links and buttons. Then show me the edit for the first palette, changing only the color values and nothing else, and tell me how to switch to the second one.
