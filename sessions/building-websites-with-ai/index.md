@@ -3,7 +3,7 @@ title: Building Websites with AI
 presenter: Allie Love
 layout: base
 position: 6
-date: 2026-11-18
+date: 2026-11-17
 time: "12:00–12:50"
 location: History Commons (MVH 1104)
 kicker: Session 6 · November 18, 2026
