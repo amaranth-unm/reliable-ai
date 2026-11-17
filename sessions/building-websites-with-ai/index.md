@@ -702,17 +702,17 @@ thumbnail: assets/images/my-image.jpg
 
 The home page doesn't contain a copy of that text. It reads it from each page and draws a card, using an include (`cards/card-grid.html`). Change the summary on the Research page and the card on the home page changes with it. That is the point of keeping content and design apart: to change one, you edit one place.
 
-When you want a piece the template doesn't have, ask AI to make a new include, and have it reuse your existing styles.
+Cards are a good way to learn how a site is built, because you can add one at three levels of difficulty. Start at the first and stop whenever it does what you need.
 
-{% include prompt.html id="websites-new-include" %}
+1. **Add a page**, and its card appears on the home page. No code.
+2. **Show a row of cards** on a page you choose, from a small list of projects.
+3. **Make a new kind of card** by having the chat write a new include.
 
-Once you have a card you can reuse, you can make bigger things from it. A scrolling row of projects is a good first one.
+### Level 1: add a page, and its card appears
 
-{% include prompt.html id="websites-scroll-projects" %}
+First, where does a card get its words and picture? The template doesn't come with a list of projects. Its home-page cards are the site's *pages*: `research.md`, `teaching.md` and so on. Each has a `title`, `summary` and `thumbnail` in its front matter, and `homepage: TRUE` puts it on the home page.
 
-### Adding the card the chat gives you
-
-First, where does a card get its words and picture? In a Xanthan portfolio, from a page. Each card on the home page is a Markdown file (`research.md`, `teaching.md`) whose front matter holds the card's `title`, `summary` and `thumbnail`. A page shows up as a card because it has `homepage: TRUE`, and `position` sets the order. So **one project card = one project page**. To add a project, you create a new `.md` file, such as `my-project.md`, with this at the top:
+So to add a card for a project that deserves its own page, add a page. Create `my-project.md` with the same front matter as `research.md`:
 
 ```yaml
 ---
@@ -725,27 +725,70 @@ thumbnail: assets/images/my-project.jpg
 ---
 ```
 
-Everything below the second `---` is the project's own page. You can write it yourself, or ask the chat to write it. Upload the image to `assets/images/`, commit, and the card appears on the home page by itself, with no include to edit. This is the easiest way to add a card, and the chat can write the whole file in one reply. Ask: “Write a new page for my portfolio, `my-project.md`, in the same format as `research.md` (here is its link). Here is the project: …”
+Everything below the second `---` is the project's own page. Add the image to `assets/images/`, commit, and the card appears on the home page by itself. Ask the chat: “Write a new page for my portfolio, `my-project.md`, in the same format as `research.md`. Here is the project: …”
 
-If you want a card that looks or behaves differently, such as a scrolling row of projects, the chat may instead give you three pieces, each with a file name above it:
+### Level 2: show a row of cards on a page
+
+Not every project needs its own page. To show several projects as cards on one page, such as Research, list them in a small data file. The template's `cards/card-grid.html` include draws them:
+
+```yaml
+# _data/projects.yml
+- title: Project one
+  summary: One or two sentences.
+  thumbnail: assets/images/project-one.jpg
+  link: https://example.com/project-one
+- title: Project two
+  summary: One or two sentences.
+  thumbnail: assets/images/project-two.jpg
+  link: https://example.com/project-two
+```
+
+On the page, add one line where the cards should appear: `{% raw %}{% include cards/card-grid.html cards=site.data.projects %}{% endraw %}`. Adding a project later means adding four lines to the data file. Two or three projects is plenty to start. Ask the chat: “Make me a `_data/projects.yml` for these projects, and tell me the line to put on my Research page to show them as cards using the existing `card-grid` include.”
+
+Create the data file the same way as any new file: on GitHub, **Add file → Create new file**, type `_data/projects.yml` in the name box (typing `/` makes the folder), paste, and commit.
+
+### Level 3: make a new kind of card with an include
+
+Sometimes you want a card the template doesn't have, such as one with a different layout. Then the chat has to write a new **include**: a reusable recipe, kept in the `_includes` folder, that says how a card is built. A page uses it with a single **usage line**. Ask for it like this, and tell it to reuse your existing styles:
+
+{% include prompt.html id="websites-new-include" %}
+
+A good reply gives you each part separately, with its file name above it. It might look like this:
+
+> **1. Create `_includes/cards/project-card.html`**
+> ```html
+> <article class="project-card">
+>   <img src="{% raw %}{{ include.image }}{% endraw %}" alt="">
+>   <h3>{% raw %}{{ include.title }}{% endraw %}</h3>
+>   <p>{% raw %}{{ include.description }}{% endraw %}</p>
+> </article>
+> ```
+> **2. Add this to the bottom of `assets/css/themes/simple-theme.css`**
+> ```css
+> .project-card { background: var(--pearl); padding: 1rem; border-radius: 8px; }
+> ```
+> **3. Put this line on your Research page, once for each card**
+> `{% raw %}{% include cards/project-card.html title="My project" description="One sentence." image="assets/images/my-project.jpg" %}{% endraw %}`
+
+(A real reply may be longer. Use whatever the chat gives you.) Here is what to do with each part:
 
 | What the chat gives you | What to do with it |
 |---|---|
-| **The include**, a block of HTML named something like `_includes/cards/project-card.html` | Create a file with exactly that name and path (on GitHub: **Add file → Create new file**, type the path including the folders, paste, commit). |
-| **The styles**, a block of CSS | Paste it at the bottom of your theme file, then commit. |
-| **A usage line**, like `{% raw %}{% include cards/project-card.html cards=projects %}{% endraw %}` | Paste it into the page where the cards should appear, such as `index.md`. |
+| **The include file**, HTML with a path like `_includes/cards/project-card.html` | **Add file → Create new file**. Type the whole path in the name box, paste the code, and commit. |
+| **The styles**, CSS | Open your theme file, paste at the very bottom, and commit. |
+| **The usage line**, one line starting with `{% raw %}{% include{% endraw %}` | Open the page where the card should appear, paste it where you want the card, and commit. |
 
-The include still reads its words from your project pages, so you also need the project pages from the first part.
+Then check it:
 
-Then:
-
-1. Put the card's image in `assets/images/` if it isn't there already, and check the `thumbnail` path matches.
+1. Put each card's image in `assets/images/`, and make sure the image paths match.
 2. Commit, wait a minute or two, and hard-reload your site (Ctrl+Shift+R).
-3. If the card appears unstyled, the CSS went to the wrong file or wasn't saved. If you see the raw `{% raw %}{% include ... %}{% endraw %}` text, the include's file name or folder doesn't match the usage line. If the card is missing, check that the page has `homepage: TRUE`. Paste what you see back into the chat and ask what's wrong.
+3. If you see the raw text `{% raw %}{% include ... %}{% endraw %}` on the page, the include file's name or folder doesn't match the usage line. If the card appears but looks plain, the styles went into the wrong file or weren't saved. In each case, paste what you see into the chat and ask what's wrong.
 
-To avoid mistakes, ask for this up front: “Give me each file separately, with its full path as a heading, and tell me where the usage line goes.” If you'd rather not create files by hand, ask for a file as a download and upload it with **Add file → Upload files**.
+To avoid mistakes, ask up front: “Give me each file separately, with its full path as a heading, and tell me exactly where the usage line goes.” If you'd rather not create files by hand, ask for a file as a download and upload it with **Add file → Upload files**.
 
-Check the result by adding a second and a third card using only the three pieces of content. If a card needs more than a title, a description and an image, the include isn't finished.
+Once the card works, you can build on it. A scrolling row of projects is a good next step.
+
+{% include prompt.html id="websites-scroll-projects" %}
 
 <div class="keypoint" markdown="1">
 Tell AI to keep content in the page and looks in the stylesheet. A new feature built on that rule can be edited by hand later.

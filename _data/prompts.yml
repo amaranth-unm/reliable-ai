@@ -864,7 +864,7 @@
   label: Make a reusable piece
   note: "Name the pieces you want to fill in each time: the title, description and image."
   text: |
-    I want a reusable project card for my website: a title, a one-sentence description and an image, shown together as a card. I'll have a dozen of them.
+    I want a reusable project card for my website: a title, a one-sentence description and an image, shown together as a card. I'll add more projects over time.
 
     First look at the includes and styles I already have (below) and reuse them where you can. Make a new include file only for what is missing, so that I can write a card in a page like this: {% include project-card.html title="..." description="..." image="..." %}. Keep the card's content in the page and its looks in the stylesheet. Don't write colors or sizes into the include.
 
