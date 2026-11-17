@@ -710,6 +710,41 @@ Once you have a card you can reuse, you can make bigger things from it. A scroll
 
 {% include prompt.html id="websites-scroll-projects" %}
 
+### Adding the card the chat gives you
+
+First, where does a card get its words and picture? In a Xanthan portfolio, from a page. Each card on the home page is a Markdown file (`research.md`, `teaching.md`) whose front matter holds the card's `title`, `summary` and `thumbnail`. A page shows up as a card because it has `homepage: TRUE`, and `position` sets the order. So **one project card = one project page**. To add a project, you create a new `.md` file, such as `my-project.md`, with this at the top:
+
+```yaml
+---
+title: My project
+layout: base
+homepage: TRUE
+position: 4
+summary: One or two sentences about the project.
+thumbnail: assets/images/my-project.jpg
+---
+```
+
+Everything below the second `---` is the project's own page. You can write it yourself, or ask the chat to write it. Upload the image to `assets/images/`, commit, and the card appears on the home page by itself, with no include to edit. This is the easiest way to add a card, and the chat can write the whole file in one reply. Ask: “Write a new page for my portfolio, `my-project.md`, in the same format as `research.md` (here is its link). Here is the project: …”
+
+If you want a card that looks or behaves differently, such as a scrolling row of projects, the chat may instead give you three pieces, each with a file name above it:
+
+| What the chat gives you | What to do with it |
+|---|---|
+| **The include**, a block of HTML named something like `_includes/cards/project-card.html` | Create a file with exactly that name and path (on GitHub: **Add file → Create new file**, type the path including the folders, paste, commit). |
+| **The styles**, a block of CSS | Paste it at the bottom of your theme file, then commit. |
+| **A usage line**, like `{% raw %}{% include cards/project-card.html cards=projects %}{% endraw %}` | Paste it into the page where the cards should appear, such as `index.md`. |
+
+The include still reads its words from your project pages, so you also need the project pages from the first part.
+
+Then:
+
+1. Put the card's image in `assets/images/` if it isn't there already, and check the `thumbnail` path matches.
+2. Commit, wait a minute or two, and hard-reload your site (Ctrl+Shift+R).
+3. If the card appears unstyled, the CSS went to the wrong file or wasn't saved. If you see the raw `{% raw %}{% include ... %}{% endraw %}` text, the include's file name or folder doesn't match the usage line. If the card is missing, check that the page has `homepage: TRUE`. Paste what you see back into the chat and ask what's wrong.
+
+To avoid mistakes, ask for this up front: “Give me each file separately, with its full path as a heading, and tell me where the usage line goes.” If you'd rather not create files by hand, ask for a file as a download and upload it with **Add file → Upload files**.
+
 Check the result by adding a second and a third card using only the three pieces of content. If a card needs more than a title, a description and an image, the include isn't finished.
 
 <div class="keypoint" markdown="1">
