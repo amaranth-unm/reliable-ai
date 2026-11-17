@@ -940,6 +940,26 @@
   text: |
     Don't give me step-by-step instructions. Give me one block of CSS that I can paste at the very bottom of assets/css/themes/simple-theme.css, and tell me nothing else is needed. If something must be removed from the existing file, tell me that in one sentence first.
 
+- id: websites-complete-file
+  session: building-websites-with-ai
+  step: 3
+  label: Ask for the whole file to paste
+  note: "Send this as a follow-up in the same chat, after it has suggested the changes."
+  text: |
+    Make me a complete file to copy and paste over my existing theme.
+
+- id: websites-fix-override
+  session: building-websites-with-ai
+  step: 3
+  label: Fix something that didn't change
+  note: "Use your browser's Inspect tool to find the selector (see the steps above), then paste it in."
+  text: |
+    After adding your changes, [describe what didn't change, e.g. the card titles on my home page] still look the old way. I used my browser's Inspect tool, and the rule that is winning is:
+
+    [paste the selector and its lines here]
+
+    Give me one new rule to paste at the very bottom of assets/css/themes/simple-theme.css that is at least as specific as that one, so that it wins. Don't use !important unless nothing else works, and tell me if you use it.
+
 - id: websites-whole-file
   session: building-websites-with-ai
   step: 3

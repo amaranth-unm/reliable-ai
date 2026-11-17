@@ -93,7 +93,7 @@ The examples use a Xanthan portfolio whose colors and fonts live in a theme file
 
 - **You need your Xanthan site's GitHub repository.** If you don't have a portfolio yet, [Xanthan's Getting Started guide](https://xanthan-web.github.io/xanthan/docs/getting-started/) takes about 15 minutes.
 - **You can do all of this in your browser.** Open your repository and press the `.` (period) key to open GitHub's built-in editor, or use the pencil icon on any file. Use a chat tool in a second tab.
-- **A browser chat tool is limited.** ChatGPT and Claude work from what you put in the conversation. They can't change your repository, and they don't know what else is in it unless you show them. Step 2 covers three ways to show them.
+- **A browser chat tool is limited.** ChatGPT and Claude can't change your repository. Because your repository is public, you can give the chat its link and it can read the whole site, and you then name the one file to work on. Step 2 covers this and two other ways to show them your files.
 - **Work a page at a time.** For a small change, give the chat one file, or a few. That is enough for most changes and keeps the replies short.
 - **One change per message.** Several small requests are easier to check, and to undo, than one big one.
 - **Start a new chat for a new job.** A long conversation drifts. If answers get strange, begin again and give it the current version of your files.
@@ -134,7 +134,9 @@ A chat tool can only help with files it has seen. There are three ways to show i
 
 ### Give it a link
 
-Your repository is public, so anyone, including an AI tool, can read it. Paste the address of your repository, or of one file, into the chat and ask about it. Some tools can open the link and some can't, and the ones that can sometimes read only part of a page or an old copy. If the answer mentions files you don't have, or the tool says it can't open the link, move on to the next way. A link to a single file's raw text (the **Raw** button at the top of the file on GitHub) works better than a link to the whole repository.
+Your repository is public, so anyone, including an AI tool, can read it. Paste the address of your repository (for example `https://github.com/your-name/your-name.github.io`) into the chat, and the chat can read the whole site: every page, the stylesheets and the includes. Then name the one file you want it to work on, either by its path (“edit `assets/css/themes/simple-theme.css`”) or by attaching it or pasting its link. It then has the full picture and the exact file to change, so its answer uses your real file names and variables instead of guesses.
+
+This is the quickest way to start, and it needs no downloading. Tools differ, though: some can open links and some can't, and the ones that can sometimes read only part of a page or an old copy. If the answer mentions files you don't have, or the tool says it can't open the link, move on to the next way. A link to a single file's raw text (the **Raw** button at the top of the file on GitHub) is the most reliable link.
 
 ### Paste the text
 
@@ -180,50 +182,383 @@ In the example, the theme uses Xanthan's default fonts: Space Grotesk for headin
 
 {% include prompt.html id="websites-copy-typography-example" %}
 
+### Why the prompt is written this way
+
+Each sentence in that prompt is there for a reason. If you write your own, keep the reasons and change the words.
+
+- **“I like how the text looks on [site]: the headings, the body text, the spacing and the way links look.”** It names a reference and says *what* about it you like. Saying “the text,” rather than “the site,” keeps AI looking at type and not at everything else.
+- **“I don't want to copy its content, its images or its layout.”** It sets a limit. You want a similar *feel*, not a copy of someone's work.
+- **“I've attached my site's theme stylesheet… It is a Xanthan portfolio.”** The chat can only edit what it has seen. With your file, it uses your real variable names. Without it, it invents some.
+- **“Tell me which fonts, sizes, weights, line spacing and link styles you would use… and why.”** The “why” is how you learn. It also lets you disagree with a choice.
+- **“Give me only the lines that change, each one marked with the file it belongs in.”** You get small pieces and a destination for each, so you aren't hunting through a long file.
+- **“Use free fonts, tell me exactly how to load them.”** Many fonts are licensed, and loading a font is the step beginners forget.
+
+### What came back
+
+This is a real conversation. The prompt above, with the file `simple-theme.css` attached, was sent to ChatGPT on November 17, 2026. This is a shortened version of its first reply.
+
 <details class="more" markdown="1" open>
-<summary>Prepared example: the kind of reply that comes back</summary>
+<summary>Real example: ChatGPT's first reply, shortened</summary>
 
-Meg Kendall's site pairs a light, high-contrast serif for headings (Cormorant Garamond) with a geometric sans-serif for body text (Poppins), and uses an italic serif for small accents. Headings are lightly letter-spaced, and body text sits at about 17px with generous line spacing. Your theme already sets a sans-serif body, so the main change is the heading font.
+I would give the Xanthan portfolio a more **editorial, typography-led feel**: refined headings, softer and more readable body text, generous spacing, and understated links. I would borrow the typographic character of the reference, not reproduce its design.
 
-All changes are in `assets/css/themes/simple-theme.css`.
+One limitation: I couldn't reliably retrieve the live CSS from megkendall.com, so I can't confirm its exact fonts or measurements. What follows is my proposed interpretation of the qualities you've described, not a claim about the site's actual typefaces.
 
-**1. Load the fonts.** Add this line at the very top of the file. Both fonts are free on Google Fonts, under the SIL Open Font License.
+**Fonts.** Two free Google Fonts: **Instrument Serif** for headings, a distinctive serif with a refined, literary quality, and **DM Sans** for body text, a contemporary sans-serif that keeps descriptions and navigation crisp.
+
+| Element | Size | Weight | Line height |
+|---|---|---|---|
+| Main heading (H1) | 64 to 88px | 400 | 1.0 |
+| Section heading (H2) | 40 to 52px | 400 | 1.1 |
+| Subheading (H3) | 24 to 28px | 500 | 1.2 |
+| Body text | 17px | 400 | 1.7 |
+| Navigation | 14px | 500 | 1.4 |
+| Captions | 13px | 400 | 1.5 |
+
+The large, lighter serif headings create an editorial quality. The 17px body text and 1.7 line height make descriptions comfortable to read.
+
+**Links.** Normal text-colored links with a thin underline, a little distance between the underline and the text, and a subtle hover change. Keeping the underline visible avoids relying on color alone.
+
+**Code.** Add this line at the top of `assets/css/themes/simple-theme.css` to load the fonts:
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 ```
 
-**2. Point the theme at them.** Your file has two commented-out font lines near the bottom of the `:root` block. Remove the `/*` and `*/` around them and change them to:
+Then these font variables inside `:root`:
 
 ```css
---font-heading: 'Cormorant Garamond', Georgia, serif;
---font-body: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+--font-heading: 'Instrument Serif', Georgia, serif;
+--font-body: 'DM Sans', sans-serif;
+--font-mono: 'Courier New', monospace;
 ```
 
-**3. Space the headings.** Add this rule at the bottom of the file:
-
-```css
-h1, h2, h3, h4 { letter-spacing: 0.02em; }
-```
-
-Cormorant Garamond looks smaller than Space Grotesk at the same size, so if the headings feel small, raise them by about 10%. To undo everything, delete the three additions and comment the font lines out again.
+It also proposed rules for body text, headings, paragraph spacing, links, navigation, captions and small screens.
 </details>
 
-*Prepared example, written for this page. It is not a recorded run. The fonts and spacing described come from the stylesheet Meg Kendall's site publishes, and the file layout comes from Xanthan's `simple-theme.css`.*
+*From a real ChatGPT conversation, shortened. The reply is ChatGPT's, so the wording is its own. It is not kept in `_data/demos.yml`.*
 
-Make the three edits, commit, and reload the live site. If the result isn't what you pictured, say so in plain words, as you would to a designer.
+Two things are worth noticing. First, **it was honest that it couldn't open the site.** The fonts it chose are its own interpretation of “elegant and editorial,” not Meg Kendall's actual fonts. For many projects that is fine, because you want a similar *feel*. If you want a closer match, paste the other site's CSS into the chat, or attach a screenshot, and ask again. Second, **the reply is in pieces**: a line for the top of the file, lines for inside `:root`, and a set of rules “for body text, headings…” that it didn't spell out. You would have to work out where each piece goes.
+
+### Ask for the whole file
+
+That is why the next message was this one.
+
+{% include prompt.html id="websites-complete-file" %}
+
+It is a short message, because the chat already knows what you want from the conversation. Asking for one complete file takes away the part where you can go wrong: deciding where each snippet belongs, and in what order. A font line pasted inside `:root`, instead of at the top, is the sort of mistake that makes nothing change.
+
+<details class="more" markdown="1">
+<summary>Real example: the complete file ChatGPT returned (click to open)</summary>
+
+```css
+/* === Simple Theme Example === */
+/*
+  LEARNING GUIDE: Creating Your First Theme
+
+  This file changes colors and typography without modifying
+  the framework CSS files.
+
+  HOW TO USE THIS FILE:
+  1. Save this file as simple-theme.css
+  2. Customize the colors below if desired
+  3. In _config.yml, set theme_css to simple-theme
+  4. Save and refresh
+
+  WHAT THIS DOES:
+  - Changes site colors
+  - Changes heading and body fonts
+  - Refines typography, spacing, and links
+  - Keeps the existing Xanthan layouts and components
+*/
+
+/*****************************************************
+FONT IMPORTS
+*****************************************************/
+
+/*
+  Instrument Serif: Editorial serif for headings
+  DM Sans: Clean, contemporary sans-serif for body text
+
+  Both fonts are free through Google Fonts.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+
+/*****************************************************
+STEP 1: DEFINE YOUR COLOR PALETTE
+*****************************************************/
+
+:root {
+  /* ===== Your Color Palette ===== */
+
+  --ocean-blue: #2c5f7c;
+  --sky-blue: #4a9bbe;
+  --cloud-white: #f7f9fb;
+  --pearl: #e8eef2;
+  --charcoal: #2d3748;
+  --slate: #718096;
+
+
+  /* ===== Map Your Colors to Site Elements ===== */
+
+  /* Backgrounds */
+  --bg-page: var(--cloud-white);
+  --bg-card: var(--pearl);
+  --bg-code: var(--pearl);
+  --bg-nav: var(--ocean-blue);
+
+  /* Text Colors */
+  --text-body: var(--charcoal);
+  --text-on-dark: var(--cloud-white);
+  --text-muted: var(--slate);
+
+  /* Accent Colors */
+  --accent-primary: var(--ocean-blue);
+  --accent-border: var(--sky-blue);
+  --interactive-hover: var(--sky-blue);
+
+
+  /* ===== Typography ===== */
+
+  --font-heading: 'Instrument Serif', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+
+/*****************************************************
+STEP 2: BODY TYPOGRAPHY
+*****************************************************/
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+  color: var(--text-body);
+}
+
+
+/*****************************************************
+STEP 3: HEADINGS
+*****************************************************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-body);
+}
+
+/* Main page headings */
+
+h1 {
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  line-height: 1;
+}
+
+/* Section headings */
+
+h2 {
+  font-size: clamp(2.5rem, 4.5vw, 3.25rem);
+  line-height: 1.1;
+}
+
+/* Subheadings */
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+/* Smaller headings */
+
+h4,
+h5,
+h6 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+
+/*****************************************************
+STEP 4: PARAGRAPHS AND TEXT SPACING
+*****************************************************/
+
+p {
+  margin-bottom: 1.4em;
+}
+
+/* Keep lists comfortable to read */
+
+li {
+  line-height: 1.7;
+}
+
+/* Secondary text */
+
+small,
+figcaption {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+
+/*****************************************************
+STEP 5: LINKS
+*****************************************************/
+
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: currentColor;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease,
+    text-decoration-thickness 0.2s ease;
+}
+
+a:hover {
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.25em;
+}
+
+
+/*****************************************************
+STEP 6: NAVIGATION
+*****************************************************/
+
+nav {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+
+/*****************************************************
+STEP 7: RESPONSIVE TYPOGRAPHY
+*****************************************************/
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 12vw, 4.5rem);
+  }
+
+  h2 {
+    font-size: clamp(2.25rem, 9vw, 3rem);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+}
+
+
+/*****************************************************
+END OF THEME
+*****************************************************/
+
+/*
+  NOTES:
+
+  - The original color palette is preserved.
+  - Instrument Serif is used for large headings.
+  - DM Sans is used for body text, navigation, and metadata.
+  - Links use subtle underlines rather than button-like styling.
+  - Existing Xanthan layouts and component structures are retained.
+
+  If some elements do not change, Xanthan's more specific
+  component styles may override these general selectors.
+
+  For additional customization, see dark-energy.css
+  and the Xanthan Customizing guide.
+*/
+```
+</details>
+
+*From the same real ChatGPT conversation. Read it, and notice what is there: the same color lines you started with, the same `:root` block, and new sections for fonts, headings, links and navigation. The reply also said this is a typography-focused override, not a replacement for Xanthan's base styles.*
+
+### Using both replies
+
+The two replies do different jobs. The first one **explains** and the second one **supplies**.
+
+1. **Read the first reply.** Check that you like the fonts. Look at the sizes and the reasons. This is also where you learn the words (heading, line height, `@import`).
+2. **Apply only the second reply.** It contains everything from the first, in the right places. If you also paste the first reply's pieces, you'll have each rule twice.
+3. **Open your theme file on GitHub.** Go to `assets/css/themes/simple-theme.css` and click the pencil icon.
+4. **Select everything and paste.** Click inside the file, press `Ctrl+A` (`Cmd+A` on a Mac) to select all, then paste the complete file from the chat. This replaces your whole theme with the new one.
+5. **Check that your colors are still there.** Look at the `:root` block. If you'd changed your colors earlier, the chat only kept them because it had your current file. If they've reverted, paste your own values back in.
+6. **Commit, wait a minute, and hard-reload.** After GitHub Pages rebuilds, reload your live site with `Ctrl+Shift+R` (`Cmd+Shift+R`), which skips the copy your browser saved. If something looks wrong, open the file's **History** and restore the earlier version.
+
+### When some things don't change: overrides
+
+Look at the last note in that file: *“If some elements do not change, Xanthan's more specific component styles may override these general selectors.”* It is the most useful sentence in the reply, and it is a real problem you will meet.
+
+Here is what it means. Many CSS rules can apply to the same piece of text. When they disagree, the browser doesn't pick the last one it read. It picks the **most specific** one, and only when two are equally specific does the later one win. The chat's rule `h3 { … }` is general: it matches every `h3` on the site. Xanthan's cards, navigation bar and page headers have their own rules, something like `.card h3 { … }`, which is more specific, because it names the place the heading lives. So the headings in a card keep the old look, though your other headings changed.
+
+This isn't a bug in the chat's answer or in your site. It is how CSS works, and it is why a typography-only change can leave a few spots behind. To fix it:
+
+1. **Find the rule that is winning.** On your live site, right-click the text that didn't change and choose **Inspect**. In the panel that opens, look at the **Styles** list. The rules are listed from most to least important. A rule with a line through it has been overridden. The rule at the top that sets the font is the winner. Beside it you'll see the file it came from, and its selector, such as `.card h3`.
+2. **Give the chat that rule.** Copy the selector and its lines, and paste them into the chat with the prompt below. Ask for a new rule that is at least as specific.
+3. **Paste the new rule at the very bottom of your theme file.** A rule as specific as the old one, and placed *after* it, wins the tie. The bottom of your theme file is the place to put it.
+4. **Use `!important` only as a last resort.** Adding it to a declaration forces it to win, but it makes later changes harder, since the next override then needs `!important` too. Ask for it only if nothing else works.
+
+{% include prompt.html id="websites-fix-override" %}
+
+<details class="more" markdown="1" open>
+<summary>Prepared example: what a fix looks like</summary>
+
+**You:** After adding your changes, the card titles on my home page still look the old way. I used Inspect, and the rule that is winning is `.card h3 { font-family: 'Space Grotesk', sans-serif; }`.
+
+**Reply:** Add this at the very bottom of `assets/css/themes/simple-theme.css`:
+
+```css
+.card h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+}
+```
+
+It uses the same selector as the rule that was winning, and it comes later in the file, so it takes over. It also uses your `--font-heading` variable, so if you change the heading font again, the cards follow. To undo it, delete those lines.
+</details>
+
+*Prepared example, written for this page, not recorded. The selector `.card h3` is illustrative. Yours will be whatever Inspect shows. If you can't find the winner, an agentic tool (step 9) can search the stylesheets for you.*
+
+Make the edits, commit, and reload the live site. If the result isn't what you pictured, say so in plain words, as you would to a designer.
 
 ### Applying a reply to your site
 
-The reply above is a list of steps, which is the most common shape, but it's the slowest to apply. A reply can arrive in three shapes, and you can ask for the one you want. Whichever you use, the routine is the same: **open the file on GitHub, make the change, commit, reload your live site.** If the page looks wrong, open the file's **History**, click the earlier version, and restore it.
+The replies above arrived as a list of pieces, and then as one whole file. A reply can come in three shapes, and you can ask for the one you want. Whichever you use, the routine is the same: **open the file on GitHub, make the change, commit, reload your live site.** If the page looks wrong, open the file's **History**, click the earlier version, and restore it.
 
 | The reply gives you... | Do this |
 |---|---|
 | **A list of steps** with small snippets | On GitHub, open the file named in each step, click the pencil icon, find the lines it describes and replace them. Commit once at the end. |
 | **One block to paste** | Open the file, scroll to the very bottom, paste the block, commit. |
-| **A finished file to download** | Download it, then upload it to the same folder on GitHub with the *same name*. Commit. |
+| **A complete file** | Open the file on GitHub, select everything and paste over it (as above). Or, if the chat gives a download, upload it to the same folder with the *same name* (step 2). Commit. |
 
-You can ask for the second or third shape by adding a sentence to any request.
+If you'd like the middle shape, a block you can paste at the bottom, add a sentence to your request. It is the safest of the three for a beginner, because it leaves the rest of your file alone.
 
 {% include prompt.html id="websites-paste-block" %}
 
@@ -235,17 +570,17 @@ Nothing needs to be removed. Open `assets/css/themes/simple-theme.css`, scroll t
 ```css
 /* Typography: serif headings, sans-serif body */
 :root {
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Instrument Serif', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
-h1, h2, h3, h4 { letter-spacing: 0.02em; }
+h1, h2, h3, h4 { letter-spacing: -0.02em; }
 ```
 
 The fonts also have to be loaded. Paste this one line at the very top of the same file, above everything else:
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 ```
 
 (A browser only accepts an `@import` line at the top of a stylesheet, which is why it is a separate paste.)
@@ -253,31 +588,17 @@ The fonts also have to be loaded. Paste this one line at the very top of the sam
 
 *Prepared example, written for this page, not recorded. A block at the bottom works because later CSS rules win over earlier ones, so you never have to find the old lines. To undo it, delete the block and the line.*
 
-For a bigger change, ask for the whole file.
-
-{% include prompt.html id="websites-whole-file" %}
-
-<details class="more" markdown="1" open>
-<summary>Prepared example: a reply that is a downloadable file</summary>
-
-I've changed the heading and body fonts and the heading letter spacing, and left everything else as it was. Download it here: **simple-theme.css**.
-
-To use it: in your repository, open `assets/css/themes/`, choose **Add file**, then **Upload files**, and drop in the downloaded `simple-theme.css`. Because the name matches, GitHub replaces the old file. Commit it.
-</details>
-
-*Prepared example, written for this page, not recorded. The wording and the download link will look different in each tool. Before you upload, open the downloaded file and make sure it is complete and has the same name as the one it replaces. A file called `simple-theme (1).css` would be added next to the old one and change nothing.*
-
-The same trick makes a whole theme: describe the feel, attach your current theme as a model, and ask for a new one as a downloadable file. Upload it to `assets/css/themes/`, then set `theme_css:` in `_config.yml` to its name, without `.css`. A mistake is easy to undo, since the old theme file is still there, and you can switch back by changing that one line.
+The same trick makes a whole theme: describe the feel, attach your current theme as a model, and ask for a new one as a complete file. Paste it over your theme, or save it under a new name in `assets/css/themes/` and set `theme_css:` in `_config.yml` to that name, without `.css`. A mistake is easy to undo, since the old theme file is still there, and you can switch back by changing that one line.
 
 <details class="more" markdown="1" open>
 <summary>Prepared example: a follow-up</summary>
 
 **You:** The headings look too thin now. Make them bolder, but keep the same font.
 
-**Follow-up reply:** In the `h1, h2, h3, h4` rule you added, put `font-weight: 600;` inside the braces. Cormorant Garamond is already loaded at weight 600, so nothing else needs to change. For a middle ground, use `500`.
+**Follow-up reply:** Instrument Serif comes in only one weight (regular, plus an italic), so asking for bold would make the browser fake it, and fake bold usually looks smeared. Two options. Keep the font and add presence another way, by making headings a little larger. Or switch to a serif that has a bold, such as Cormorant Garamond or Fraunces. If you'd like the second, tell me which and I'll give you the changed lines.
 </details>
 
-Notice what the prompt asks for and what it rules out. It asks for the *feel*, which is fonts, sizes, spacing and link style, and it rules out the other site's content, images and layout. Copying someone's design wholesale isn't the goal, and fonts are licensed, so ask for free ones and ask how to load them.
+*Prepared example, written for this page, not recorded. It shows a useful habit: when a request can't be done as asked, a good reply explains why and offers choices.*
 
 <div class="keypoint" markdown="1">
 Name a site, and describe the type in your own words too (“tall, narrow headings; generous space between lines”). Each one helps the AI where the other is vague.
@@ -388,6 +709,41 @@ When you want a piece the template doesn't have, ask AI to make a new include, a
 Once you have a card you can reuse, you can make bigger things from it. A scrolling row of projects is a good first one.
 
 {% include prompt.html id="websites-scroll-projects" %}
+
+### Adding the card the chat gives you
+
+First, where does a card get its words and picture? In a Xanthan portfolio, from a page. Each card on the home page is a Markdown file (`research.md`, `teaching.md`) whose front matter holds the card's `title`, `summary` and `thumbnail`. A page shows up as a card because it has `homepage: TRUE`, and `position` sets the order. So **one project card = one project page**. To add a project, you create a new `.md` file, such as `my-project.md`, with this at the top:
+
+```yaml
+---
+title: My project
+layout: base
+homepage: TRUE
+position: 4
+summary: One or two sentences about the project.
+thumbnail: assets/images/my-project.jpg
+---
+```
+
+Everything below the second `---` is the project's own page. You can write it yourself, or ask the chat to write it. Upload the image to `assets/images/`, commit, and the card appears on the home page by itself, with no include to edit. This is the easiest way to add a card, and the chat can write the whole file in one reply. Ask: “Write a new page for my portfolio, `my-project.md`, in the same format as `research.md` (here is its link). Here is the project: …”
+
+If you want a card that looks or behaves differently, such as a scrolling row of projects, the chat may instead give you three pieces, each with a file name above it:
+
+| What the chat gives you | What to do with it |
+|---|---|
+| **The include**, a block of HTML named something like `_includes/cards/project-card.html` | Create a file with exactly that name and path (on GitHub: **Add file → Create new file**, type the path including the folders, paste, commit). |
+| **The styles**, a block of CSS | Paste it at the bottom of your theme file, then commit. |
+| **A usage line**, like `{% raw %}{% include cards/project-card.html cards=projects %}{% endraw %}` | Paste it into the page where the cards should appear, such as `index.md`. |
+
+The include still reads its words from your project pages, so you also need the project pages from the first part.
+
+Then:
+
+1. Put the card's image in `assets/images/` if it isn't there already, and check the `thumbnail` path matches.
+2. Commit, wait a minute or two, and hard-reload your site (Ctrl+Shift+R).
+3. If the card appears unstyled, the CSS went to the wrong file or wasn't saved. If you see the raw `{% raw %}{% include ... %}{% endraw %}` text, the include's file name or folder doesn't match the usage line. If the card is missing, check that the page has `homepage: TRUE`. Paste what you see back into the chat and ask what's wrong.
+
+To avoid mistakes, ask for this up front: “Give me each file separately, with its full path as a heading, and tell me where the usage line goes.” If you'd rather not create files by hand, ask for a file as a download and upload it with **Add file → Upload files**.
 
 Check the result by adding a second and a third card using only the three pieces of content. If a card needs more than a title, a description and an image, the include isn't finished.
 
