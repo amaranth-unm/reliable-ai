@@ -10,9 +10,9 @@ kicker: Session 6 · November 18, 2026
 # Draft summary and points; confirm with the presenter. Before the session is
 # announced, also add flyer, note (what to bring) and header-subtitle (the
 # session's thesis). See SESSION-STYLE.md.
-summary: "Start from a free website template, ask AI for changes in plain language, and learn to read what it changed so the site stays yours."
+summary: "Start from a free website starter site, ask AI for changes in plain language, and learn to read what it changed so the site stays yours."
 points:
-  - title: "Start from a working template"
+  - title: "Start from a working starter site"
     text: "Set up a free site on GitHub Pages, made of plain-text files you own and can keep for years."
   - title: "Direct AI in plain language"
     text: "Describe the change you want, from a warmer palette to a new page type, and let AI handle the code."
@@ -61,7 +61,11 @@ The result usually looks good. The trouble starts when you want to change it. Th
 
 ### Why start from a starter site
 
+<<<<<<< HEAD
+[Xanthan](https://xanthan-web.github.io/) is a free starter site made for scholars and students. You already have a portfolio built from it, so this session starts there. Its pages are plain text files with clear names, and you can edit them by hand without knowing how to code. Change a few words, save, reload, and the site is different. Your words live in one place and your colors and fonts in another. The files are yours to keep, and you can move them to any host.
+=======
 [Xanthan](https://xanthan-web.github.io/) is a free template made for scholars and students. This session starts from a portfolio built with it, and step 1 shows how to make one. Its pages are plain text files with clear names, and you can edit them by hand without knowing how to code. Change a few words, save, reload, and the site is different. Your words live in one place and your colors and fonts in another. The files are yours to keep, and you can move them to any host.
+>>>>>>> c62d25b0f49978958cf59c12a20350da0c6761c8
 
 ### Why add AI to a starter site
 
@@ -206,7 +210,7 @@ So the next message asked for everything in one piece.
 
 Because the chat already knows what you want, a short message is enough. A complete file removes the guesswork about where each piece goes. To use it:
 
-1. Open your theme file on GitHub and click the pencil icon.
+1. Open your theme file on GitHub's in browser code editor. 
 2. Click inside the file, select everything (`Ctrl+A`, or `Cmd+A` on a Mac) and paste the chat's file over it.
 3. Check that your colors are still there. The chat only kept them because it had your current file.
 4. Commit, wait a minute, and reload your site with `Ctrl+Shift+R` to skip the page your browser saved.
@@ -225,7 +229,7 @@ Copying and pasting works, but you are the one carrying every change from the ch
 
 ### Connect GitHub to ChatGPT
 
-In ChatGPT's settings, connect your GitHub account and choose your site's repository. OpenAI's page on [connecting GitHub to ChatGPT](https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt) has the current steps, which change from time to time. Once it is connected, you don't paste links or attach files. ChatGPT reads your whole site on its own.
+In ChatGPT's left bar, click on the option for Plugins. OpenAI's page on [connecting GitHub to ChatGPT](https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt) has the current steps, which change from time to time. Once it is connected, you don't paste links or attach files. ChatGPT reads your whole site on its own.
 
 ### Let it make the change
 
@@ -277,7 +281,6 @@ The olive from that site is `#676637`. It is only 3.9 to 1 against the backgroun
 **To undo this,** close the pull request. Your live site hasn't changed.
 </details>
 
-*Prepared example, written for this page, not recorded. Palette 1 is the published palette of the example site, and the contrast ratios were calculated for this page.*
 
 Notice what the reply does. It tells you which file it changed and that it touched nothing else, it checks contrast without being asked twice, and it says how to undo the change. If your tool skips any of these, ask.
 
@@ -313,7 +316,6 @@ I've opened a pull request that adds a project card to your site. I checked your
 **How to undo it.** Close the pull request, and none of this reaches your live site.
 </details>
 
-*Prepared example, written for this page, not recorded.*
 
 Once you have a card, you can build on it. A row of projects that scrolls sideways is a good next step:
 
@@ -364,7 +366,6 @@ You don't have to write it from scratch. Ask the AI to draft it from your files,
 - Don't delete or rename pages without asking me first.
 </details>
 
-*Prepared example, written for this page. Your AI's draft will differ, and you should read it.*
 
 With the file in place, you can ask for bigger changes and expect them to follow your rules. Ask for a plan before it does anything:
 
@@ -375,9 +376,8 @@ With the file in place, you can ask for bigger changes and expect them to follow
 
 Whatever the AI produces, check it before it reaches your live site. Three ways to look, from simplest to most thorough:
 
-1. **Read the pull request.** GitHub marks what was added in green and what was removed in red. You don't have to understand every line. Look for files you didn't expect, and ask the AI what any of them do.
-2. **Ask what you can't tell.** “Which pages will look different after this?” “Is anything here something I didn't ask for?”
-3. **See it on your own computer.** The desktop version of GitHub Copilot, or Copilot inside the free editor Visual Studio Code, can start a private copy of your site that only you can open. You click through it, check a phone-sized window, and ask for fixes while you look. Nothing is public until you accept the changes.
+1. **Ask what you can't tell.** “Which pages will look different after this?” “Is anything here something I didn't ask for?”
+2. **See it on your own computer.** The desktop version of GitHub Copilot, or Copilot inside the free editor Visual Studio Code, can start a private copy of your site that only you can open. You click through it, check a phone-sized window, and ask for fixes while you look. Nothing is public until you accept the changes.
 
 If you aren't happy, say so in plain words, as you would to a designer, or close the pull request. Your live site is exactly as it was. After you merge, the file's **History** on GitHub still lets you go back to any earlier version, so every experiment is safe.
 
@@ -396,7 +396,7 @@ This is also where the starter site pays off. Suppose you ask for a new Teaching
 
 {% include prompt.html id="websites-stay-consistent" %}
 
-The same idea helps when a group builds a site together, such as a class archive. Xanthan's [class project template](https://xanthan-web.github.io/class-project-template) gives every contributor the same layouts, so ten people's pages look like one site. The [campus history](https://amaranth.unm.edu/campus-history/) site is an example. AI can help with the design here, too. Ask it to write instructions for contributors and page templates that follow your site's conventions, so new pages match without anyone having to police them.
+The same idea helps when a group builds a site together, such as a class archive. Xanthan's [class project starter site](https://xanthan-web.github.io/class-project-template) gives every contributor the same layouts, so ten people's pages look like one site. The [campus history](https://amaranth.unm.edu/campus-history/) site is an example. AI can help with the design here, too. Ask it to write instructions for contributors and page templates that follow your site's conventions, so new pages match without anyone having to police them.
 
 ## What to take with you
 {: .step #takeaways}
