@@ -132,7 +132,7 @@ The quickest change that makes a site feel like yours is its text. Find a site w
 
 ### Try it
 
-The example theme uses Xanthan's default fonts, which give it a clean, modern, all-sans look. The goal is to move it toward [Meg Kendall's portfolio](https://www.megkendall.com/), which pairs an elegant serif for headings with a plain sans-serif for the body text. Attach your theme file, `assets/css/themes/simple-theme.css`, and send this:
+The example theme uses Xanthan's default fonts, which give it a clean, modern, all-sans look. The goal is to move it toward [the example site](https://www.megkendall.com/), which pairs an elegant serif for headings with a plain sans-serif for the body text. Attach your theme file, `assets/css/themes/simple-theme.css`, and send this:
 
 {% include prompt.html id="websites-copy-typography-example" %}
 
@@ -181,7 +181,7 @@ It also proposed rules for body text, headings, paragraph spacing, links, naviga
 
 *From a real ChatGPT conversation, shortened. The wording is ChatGPT's own.*
 
-Two things are worth noticing. The chat was honest that it couldn't read the other site's styles, so the fonts are its interpretation of “elegant and editorial,” not Meg Kendall's actual fonts. For most projects that is fine, because you want the feel. If you want a closer match, attach a screenshot and ask again. The reply also comes in pieces: a line for the top of the file, lines for the middle, and rules it didn't write out. You would have to work out where each one goes.
+Two things are worth noticing. The chat was honest that it couldn't read the other site's styles, so the fonts are its interpretation of “elegant and editorial,” not the site's actual fonts. For most projects that is fine, because you want the feel. If you want a closer match, attach a screenshot and ask again. The reply also comes in pieces: a line for the top of the file, lines for the middle, and rules it didn't write out. You would have to work out where each one goes.
 
 ### Ask for the whole file
 
@@ -262,7 +262,7 @@ The olive from that site is `#676637`. It is only 3.9 to 1 against the backgroun
 **To undo this,** close the pull request. Your live site hasn't changed.
 </details>
 
-*Prepared example, written for this page, not recorded. Palette 1 is the published palette of Meg Kendall's site, and the contrast ratios were calculated for this page.*
+*Prepared example, written for this page, not recorded. Palette 1 is the published palette of the example site, and the contrast ratios were calculated for this page.*
 
 Notice what the reply does. It tells you which file it changed and that it touched nothing else, it checks contrast without being asked twice, and it says how to undo the change. If your tool skips any of these, ask.
 
