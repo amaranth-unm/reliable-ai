@@ -848,6 +848,16 @@
 
     Reuse the styles my site already has, and keep it simple: don't add anything new to my site that comes from outside, like a third-party add-on. When you're done, tell me which files you changed and how to turn the effect off again.
 
+- id: websites-new-card
+  session: building-websites-with-ai
+  step: 6
+  label: Add a card to my home page
+  note: "Fill in the brackets. The AI can't make a real image, so ask for a stand-in you can swap later."
+  text: |
+    Add a new card to my home page for a page about [project name]. Create the page with a title, a one-sentence summary of [what it is] and a stand-in image I can replace later.
+
+    Look at how my existing home page cards work and follow the same setup, so the new card matches the others. Don't change my other cards or add new styles. Put it [last / first] in the order. When you're done, tell me which files you added, and where I edit the card's words and image.
+
 - id: websites-new-include
   session: building-websites-with-ai
   step: 6

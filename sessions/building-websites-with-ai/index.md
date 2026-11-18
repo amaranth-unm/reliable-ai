@@ -291,11 +291,43 @@ Ask for two options, not one answer. Choosing between two palettes is easier tha
 ## 6. Add something new
 {: .step #step-6}
 
-The same approach works for new features. Two ideas to try.
+Start with something small you can do yourself, then ask AI for the next piece.
+
+### Edit a card by hand
+
+The cards on your home page are built from your other pages. Each card takes its title, short description and picture from the top of the page it links to, so to change a card you edit that page.
+
+1. In your repository on GitHub, open a page that has a card on your home page, such as `research.md`.
+2. At the top, between the two lines of dashes, find the line that starts with `summary:`. That text is what appears on the card.
+3. Change the sentence and commit.
+4. Reload your live site after a minute. The card shows your new words.
+5. Try the lines starting `thumbnail:` and `position:` too. They change the card's picture and its order, and a lower number comes first.
+
+### Ask AI to add a new card
+
+Adding a card by hand means copying a page, renaming it and filling in each line. This is the kind of chore to hand to AI. Tell it to follow how your existing cards work, so the new one matches the others.
+
+{% include prompt.html id="websites-new-card" %}
+
+<details class="more" markdown="1" open>
+<summary>Prepared example: what the AI says when it can edit your site</summary>
+
+I've opened a pull request that adds a new card to your home page.
+
+**What I changed.** I added one new page, `fieldwork.md`, and copied the setup from your Research page, so its title, summary and image appear as a card next to your other cards. I didn't create any new styles.
+
+**What I didn't change.** Your existing cards, your navigation and your theme.
+
+**The image is a stand-in.** I used one of the pictures already on your site. To swap it, upload your own picture and change the `thumbnail:` line at the top of `fieldwork.md`.
+
+**How to edit it.** The title, summary and picture are at the top of `fieldwork.md`, the same place as the cards you edited by hand. Change `position:` to move the card. To remove it, delete `homepage: TRUE` from that page.
+
+**How to undo it.** Close the pull request, and none of this reaches your live site.
+</details>
 
 ### A reusable project card
 
-A card on your home page has three parts: a title, a short description and an image. Those are your content. How the card looks is the design. In Xanthan the two are kept apart: the words live in your page and the look lives in the theme. A reusable piece such as a card is called an **include**. You don't need to write one. Ask for it in plain words, and tell the AI to reuse what your site already has.
+A card has three parts: a title, a short description and an image. Those are your content. How the card looks is the design. In Xanthan the two are kept apart: the words live in your page and the look lives in the theme. A reusable piece such as a card is called an **include**. You don't need to write one. Ask for it in plain words, and tell the AI to reuse what your site already has.
 
 {% include prompt.html id="websites-new-include" %}
 
@@ -374,7 +406,18 @@ With the file in place, you can ask for bigger changes and expect them to follow
 ## 8. Look before you accept
 {: .step #step-8}
 
-Whatever the AI produces, check it before it reaches your live site. Three ways to look, from simplest to most thorough:
+Nothing the AI does reaches your live site until you merge its pull request. First, how merging works. Then, how to check a change before you do it.
+
+### Merge a pull request
+
+1. On GitHub, open your repository and click the **Pull requests** tab, then click the pull request.
+2. Click **Files changed** to read what the AI changed. Added lines are green and removed lines are red.
+3. Go back to the **Conversation** tab, click the green **Merge pull request** button, then **Confirm merge**.
+4. Wait a minute for your site to rebuild, then reload it.
+
+### Check before you merge
+
+Whatever the AI produces, check it before it reaches your live site. Two ways to look, from simplest to most thorough:
 
 1. **Ask what you can't tell.** “Which pages will look different after this?” “Is anything here something I didn't ask for?”
 2. **See it on your own computer.** The desktop version of GitHub Copilot, or Copilot inside the free editor Visual Studio Code, can start a private copy of your site that only you can open. You click through it, check a phone-sized window, and ask for fixes while you look. Nothing is public until you accept the changes.
