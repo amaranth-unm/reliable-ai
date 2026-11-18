@@ -71,7 +71,7 @@ Editing by hand gets tedious. Changing every color, adding a new kind of page or
 - AI does the jobs you don't want to do, and you decide how it does them.
 - New pieces match the old ones, because the AI works inside a structure that already exists.
 
-The session builds up to this in three stages. You start by copying and pasting between a chat and your site, which is slow but shows you exactly what is happening. Then you connect the chat to your site so the AI makes the edits itself. Last, you give it a short set of house rules and review its work before anything goes live.
+The session builds up to this in three stages. You start by copying and pasting between a chat and your site, which is slow but shows you exactly what is happening. Then you connect the chat to your site so the AI makes the edits itself. Last, you fill in a short set of house rules and review its work before anything goes live.
 
 ### What a website is made of
 
@@ -368,34 +368,37 @@ The limits are the important part. “Switch off for readers who prefer reduced 
 
 An AI that can change your whole site can also change the wrong thing. You may find yourself typing the same reminders into every chat: “keep the colors in the theme,” “don't add new styles.” Instead, you can write them down once, in a short text file in your site's folder. The AI reads it at the start of every job, like a sheet of house rules for a new assistant.
 
-Many tools look for a file named `AGENTS.md`, including Codex and GitHub Copilot. It is an ordinary text file that you can edit yourself at any time. The example portfolio will include one. It covers three things:
+Your starter site already comes with one. Look in your repository for a file named `AGENTS.md`. Tools such as Codex and GitHub Copilot read it automatically, and a small `CLAUDE.md` points Claude to the same file, so there is only one set of rules to keep. It is an ordinary text file that you can edit yourself at any time. If your site doesn't have it, copy it from the [portfolio template](https://github.com/xanthan-web/portfolio-template/blob/main/AGENTS.md). The file has two parts:
 
-- **What the site is**, in a sentence or two.
-- **Where things live**, so the AI doesn't have to guess.
-- **What to do and what not to do.** The “don't” list is your safety net. It's the place to write down whatever has gone wrong before.
+- **About this site** is yours to fill in. It is where you tell the AI who you are, who visits your site and how you want it to sound and look.
+- **How the portfolio works** is already written for you, by Xanthan, and is aimed at the AI. It explains where things live and which files not to touch, such as the framework's own folders. You can ignore it, but the AI reads all of it. This is why it reuses your site's existing pieces instead of inventing new ones.
 
-You don't have to write it from scratch. Ask the AI to draft it from your files, then read it and change it until it says what you mean.
+The part you fill in has five short headings:
+
+- **Who I am and what the site is for.** Your field, and who visits.
+- **Voice.** First person or third, formal or relaxed, and words you never want to see.
+- **Design.** Colors, fonts and mood, plus anything already settled.
+- **Content rules.** What the AI must never rewrite, such as your research statement.
+- **How I want to work with you.** How much to explain, and whether it asks before each change.
+
+Short, specific rules work better than general ones. “Never use the word *passionate*” does more than “keep the tone professional.” When the AI does something you didn't want, ask it to add a rule so it doesn't happen again.
+
+You don't have to write the section alone. Ask the AI to interview you and fill it in, then read what it wrote and change anything that isn't right.
 
 {% include prompt.html id="websites-agent-instructions" %}
 
 <details class="more" markdown="1" open>
-<summary>Prepared example: what such a file might say</summary>
+<summary>Prepared example: a filled-in “About this site”</summary>
 
-**What this site is.** A Xanthan portfolio, published on GitHub Pages.
+**Who I am and what the site is for.** I'm a historian of science. Most visitors are prospective graduate students and colleagues at other universities.
 
-**Where things live.** Page text is in the `.md` files in the top folder. Colors and fonts are in the theme file. Reusable pieces are in `_includes`. Navigation is in `_data/nav-top.yml`.
+**Voice.** First person, US spelling. Never use the word “passionate.”
 
-**Do.**
-- Change colors and fonts only in the theme file, using the variables that are there.
-- Reuse existing pieces and styles before making new ones.
-- Keep a page's title, description and image at the top of the page.
-- Tell me in plain words what you changed and how to undo it.
+**Design.** Warm and quiet, like a field notebook. The terra-cotta theme is settled, so don't suggest others.
 
-**Don't.**
-- Don't add a new stylesheet or write styles inside a page without asking me first.
-- Don't edit the `docs` folder.
-- Don't change the navigation unless I ask.
-- Don't delete or rename pages without asking me first.
+**Content rules.** Fix typos in my research statement, but never rewrite it. My CV is the source for dates and titles.
+
+**How I want to work with you.** Open a pull request for every change, and never change the main branch directly. Tell me what you changed and how to undo it.
 </details>
 
 

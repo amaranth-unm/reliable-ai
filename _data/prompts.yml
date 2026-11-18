@@ -913,18 +913,20 @@
 - id: websites-agent-instructions
   session: building-websites-with-ai
   step: 7
-  label: Have the AI draft its own rules
+  label: Have the AI interview you for the rules
   note: "Run this with a tool that can see your whole site. Read what it writes, then edit it until it says what you want."
   text: |
-    Read my site's files and write an instructions file named AGENTS.md for AI assistants who will edit it later. In plain language, explain what the site is and where things live: my page text, my colors and fonts, my reusable pieces and my navigation. Then list rules for future edits as "Do" and "Don't". Include these: change colors and fonts only in the theme; reuse existing pieces and styles before making new ones; don't add styles inside a page; don't edit the docs folder; and always tell me what you changed and how to undo it. Keep it under one page, and ask me about anything you can't tell from the files.
+    Open AGENTS.md in my site and help me fill in the section called "About this site". Ask me one question at a time about each of its five headings: who I am and who visits, my voice, my design choices, what you must never rewrite, and how I want to work with you. If I'm stuck, give me an example answer I can change.
+
+    When we've covered all five, write my answers into the file in place of the italic prompts. Don't change anything below the heading "How the portfolio template works". Then tell me what you changed.
 
 - id: websites-agent-restructure
   session: building-websites-with-ai
   step: 7
   label: Ask for a larger change
-  note: "Use this once the instructions file is in place. Read the plan before it changes anything."
+  note: "Use this once your AGENTS.md is filled in. Read the plan before it changes anything."
   text: |
-    I want to add a Projects section to my site: a page for each project, and a Projects page that lists them as cards with a title, a short description and an image. Follow the instructions file. Before changing anything, tell me your plan: which pages you will add or edit and what will appear on the site. Wait for me to approve it. Afterward, tell me how to look at the result before I accept it.
+    I want to add a Projects section to my site: a page for each project, and a Projects page that lists them as cards with a title, a short description and an image. Follow the rules in AGENTS.md. Before changing anything, tell me your plan: which pages you will add or edit and what will appear on the site. Wait for me to approve it. Afterward, tell me how to look at the result before I accept it.
 
 - id: websites-copy-typography-example
   session: building-websites-with-ai
