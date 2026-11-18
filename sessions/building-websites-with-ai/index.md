@@ -45,7 +45,7 @@ Work down this page during the session or return to it later: the prompts and ex
 {: .lead}
 
 <div class="rule" markdown="1">
-**Start from a template you can read, and let AI do the tedious parts. You stay in charge of your site.**
+**Start from a starter site you can read, and let AI do the tedious parts. You stay in charge of your site.**
 </div>
 
 ## Introduction
@@ -59,13 +59,13 @@ You can ask a chat tool for a complete website, and in a minute you will have on
 
 The result usually looks good. The trouble starts when you want to change it. The AI chose the structure, and you can't read it. A large change, such as a new kind of page, means going back to the chat, which doesn't remember its earlier choices, so each request gets layered on the last. After a dozen of them the pieces no longer agree with each other. Even with AI doing the work, keeping a site like that up to date is slow and limited.
 
-### Why start from a template
+### Why start from a starter site
 
-[Xanthan](https://xanthan-web.github.io/) is a free template made for scholars and students. You already have a portfolio built from it, so this session starts there. Its pages are plain text files with clear names, and you can edit them by hand without knowing how to code. Change a few words, save, reload, and the site is different. Your words live in one place and your colors and fonts in another. The files are yours to keep, and you can move them to any host.
+[Xanthan](https://xanthan-web.github.io/) is a free template made for scholars and students. This session starts from a portfolio built with it, and step 1 shows how to make one. Its pages are plain text files with clear names, and you can edit them by hand without knowing how to code. Change a few words, save, reload, and the site is different. Your words live in one place and your colors and fonts in another. The files are yours to keep, and you can move them to any host.
 
-### Why add AI to a template
+### Why add AI to a starter site
 
-Editing by hand gets tedious. Changing every color, adding a new kind of page or building a row of project cards takes a lot of careful typing. This is where AI helps, and a template makes it work better:
+Editing by hand gets tedious. Changing every color, adding a new kind of page or building a row of project cards takes a lot of careful typing. This is where AI helps, and a starter site makes it work better:
 
 - You stay in control, because you can look at the files and see what the AI changed.
 - AI does the jobs you don't want to do, and you decide how it does them.
@@ -85,13 +85,13 @@ You only need a handful of words. Knowing them lets you ask for the right change
 
 ### About the examples
 
-The typography example in step 2 is a real ChatGPT conversation, shortened. The other replies are labeled **Prepared example**. I wrote them for this page to show the kind of reply an AI gives when it can edit your repository. Yours will differ with the tool, the day and the files it sees. How you check them stays the same: open the page, look, and ask the AI to explain anything you can't follow.
+The typography example in step 3 is a real ChatGPT conversation, shortened. The other replies are labeled **Prepared example**. I wrote them for this page to show the kind of reply an AI gives when it can edit your repository. Yours will differ with the tool, the day and the files it sees. How you check them stays the same: open the page, look, and ask the AI to explain anything you can't follow.
 
 ### Setting up to follow along
 
-- **You need your Xanthan site's GitHub repository.** If you don't have one yet, [Xanthan's Getting Started guide](https://xanthan-web.github.io/xanthan/docs/getting-started/) takes about 15 minutes.
+- **You need your Xanthan site's GitHub repository.** If you don't have one yet, step 1 shows how to make one.
 - **You can do all of it in a browser.** Open your repository and press the `.` key to use GitHub's built-in editor, or use the pencil icon on any file.
-- **Steps 3 to 5 need a ChatGPT account** with GitHub connected. Which plans include that changes over time, so check the current instructions linked in step 3.
+- **Steps 4 to 6 need a ChatGPT account** with GitHub connected. Which plans include that changes over time, so check the current instructions linked in step 4.
 - **Make one change per message**, so each one is easy to check and to undo.
 - **Start a new chat for a new job.** A long conversation drifts.
 
@@ -101,20 +101,35 @@ The typography example in step 2 is a real ChatGPT conversation, shortened. The 
 - **A chat tool open in your browser**, such as ChatGPT, Claude or Gemini.
 - **A site you admire**, for the typography and color steps.
 
-## 1. Make one small edit by hand
+## 1. Set up a starter site
 {: .step #step-1}
 
-Before you ask AI for anything, make one change yourself. If you want to see what a Xanthan site looks like, the example is at **[xanthan-web.github.io](https://xanthan-web.github.io/)**.
+If you don't have a Xanthan site yet, you can make one in about 10 minutes. Everything happens in your browser, and you don't need to install anything. The full walkthrough is in Xanthan's [Choose a Starter Site](https://xanthan-web.github.io/docs/getting-started/templates) guide. Here is the short version.
+
+1. **Open the [starter site guide](https://xanthan-web.github.io/docs/getting-started/templates).** It describes five starter sites. For a personal site, choose **Portfolio**, which is the one used in this session. You can look at the live example and the clean starter before you decide.
+2. **Click “Start with this one.”** It takes you to a step-by-step guide for the starter site you picked.
+3. **Make a free GitHub account** if you don't have one. GitHub stores your site files and hosts the site for free.
+4. **Click “Use this template,”** the green button on the starter site's GitHub page, then choose **Create a new repository** and name it. This copies a complete working site into your own account.
+5. **Tell the site where it lives.** In your new repository, open `_config.yml` and set the `baseurl` line to match your repository's name, with a slash in front, such as `/my-portfolio`. If you named the repository `your-username.github.io`, leave it empty. A mismatch is the most common setup mistake.
+6. **Publish it.** Go to **Settings**, then **Pages**. Set the branch to **main** and click **Save**. After a minute or two your site is live at the address shown there.
+
+Bookmark two addresses: your repository on GitHub, where you edit, and your live site, which is what everyone else sees. The rest of this session starts from that site. If you already have a Xanthan portfolio, skip to step 2.
+
+## 2. Make small first edits
+{: .step #step-2}
+
+Before you ask AI for anything, change a few things yourself. The point isn't the edits. It's learning how your starter site works, so you know what you're asking AI to change later.
 
 1. Open your live site in one tab and your repository on GitHub in another.
-2. Pick a heading on the live page and find where it is written in the repository.
-3. Press `.` to open GitHub's editor, change a few words, and commit.
+2. Pick a heading on the live page and find where it is written in the repository. Notice that each page is a plain text file.
+3. Click the pencil icon on that file, change a few words, and commit.
 4. Reload the live site. GitHub Pages takes a minute or so to rebuild.
+5. Try one more: change a link, a title or a color. Look around the repository to see where each kind of change lives.
 
-Now you know your site works, and you have a baseline. If an AI change goes wrong later, you can compare against this version. Small edits like this one are often faster by hand than by asking, and they cost nothing.
+By the end you'll know that your words and your colors are kept in different places, which is the idea the rest of the session builds on. You also have a working version to compare with if an AI change goes wrong later. Small edits like these are often faster by hand than by asking, and they cost nothing.
 
-## 2. Start by copying and pasting
-{: .step #step-2}
+## 3. Start by copying and pasting
+{: .step #step-3}
 
 The first way to use AI on your site is the plainest: ask a chat tool for a change, read its answer, and copy it into your site yourself. It is slower than what comes later, and that is the reason to start here. You see exactly what the AI hands back, which teaches you what the parts of your site are called and where they live. It also teaches you the words to use in future prompts.
 
@@ -203,8 +218,8 @@ You may find a few spots that didn't change, such as card titles. The site's own
 Name a site, and also describe the type in your own words, such as “tall, narrow headings; generous space between lines.” Each helps where the other is vague.
 </div>
 
-## 3. Let the AI make the edits itself
-{: .step #step-3}
+## 4. Let the AI make the edits itself
+{: .step #step-4}
 
 Copying and pasting works, but you are the one carrying every change from the chat to your site. The next stage removes that. You connect the chat to your repository, and the AI makes the changes itself and shows them to you for approval.
 
@@ -225,8 +240,8 @@ Add this to the end of any request, so each edit comes with a lesson:
 
 {% include prompt.html id="websites-explain-change" %}
 
-## 4. Change the colors and the mood
-{: .step #step-4}
+## 5. Change the colors and the mood
+{: .step #step-5}
 
 Colors work the way typography did. Say the feeling you want, and let the AI find where the colors live. A few ways to say it:
 
@@ -270,8 +285,8 @@ Notice what the reply does. It tells you which file it changed and that it touch
 Ask for two options, not one answer. Choosing between two palettes is easier than describing one perfectly.
 </div>
 
-## 5. Add something new
-{: .step #step-5}
+## 6. Add something new
+{: .step #step-6}
 
 The same approach works for new features. Two ideas to try.
 
@@ -314,8 +329,8 @@ When you want something new, such as text that fades in as you scroll, ask for o
 
 The limits are the important part. “Switch off for readers who prefer reduced motion” is the sort of thing the AI leaves out unless you ask.
 
-## 6. Write down the rules once
-{: .step #step-6}
+## 7. Write down the rules once
+{: .step #step-7}
 
 An AI that can change your whole site can also change the wrong thing. You may find yourself typing the same reminders into every chat: “keep the colors in the theme,” “don't add new styles.” Instead, you can write them down once, in a short text file in your site's folder. The AI reads it at the start of every job, like a sheet of house rules for a new assistant.
 
@@ -355,8 +370,8 @@ With the file in place, you can ask for bigger changes and expect them to follow
 
 {% include prompt.html id="websites-agent-restructure" %}
 
-## 7. Look before you accept
-{: .step #step-7}
+## 8. Look before you accept
+{: .step #step-8}
 
 Whatever the AI produces, check it before it reaches your live site. Three ways to look, from simplest to most thorough:
 
@@ -370,14 +385,14 @@ If you aren't happy, say so in plain words, as you would to a designer, or close
 Ask for a plan before the AI starts, read the pull request before you merge, and keep your do's and don'ts in a file the AI reads.
 </div>
 
-## 8. Divide the work between you and the AI
-{: .step #step-8}
+## 9. Divide the work between you and the AI
+{: .step #step-9}
 
 A site you built yourself has two kinds of work. Some changes are quicker by hand: a color code, a heading, a link. Doing those yourself is faster than writing a request, and it costs nothing. The rest is the repetitive work that AI is good at, such as recoloring a whole site, building a card, or adding a page that matches the others.
 
 Knowing the words from this session makes both easier. You can ask for “the accent color” and not “something less blue,” and you can edit small things without asking.
 
-This is also where the template pays off. Suppose you ask for a new Teaching page. A chat that can't see your site will write a fresh page with its own fonts, colors and stylesheet. It looks fine alone, but beside your other pages it has a different heading size and a different blue. Do that a few times and the site is a pile of pieces that disagree. Because a template gives the AI a structure to follow, new pages reuse the layouts and styles you already have.
+This is also where the starter site pays off. Suppose you ask for a new Teaching page. A chat that can't see your site will write a fresh page with its own fonts, colors and stylesheet. It looks fine alone, but beside your other pages it has a different heading size and a different blue. Do that a few times and the site is a pile of pieces that disagree. Because a starter site gives the AI a structure to follow, new pages reuse the layouts and styles you already have.
 
 {% include prompt.html id="websites-stay-consistent" %}
 
@@ -389,7 +404,7 @@ The same idea helps when a group builds a site together, such as a class archive
 <div class="takeaways" markdown="1">
 Short rules to carry into your next site:
 
-- **Start from a template.** AI can build a whole site, but a site it invented is hard to change. A template gives you something you can read and edit yourself.
+- **Start from a starter site.** AI can build a whole site, but a site it invented is hard to change. A starter site gives you something you can read and edit yourself.
 - **Begin by copying and pasting.** You see exactly what the AI does, and you learn the names of your site's parts.
 - **Then let the AI make the edits.** It does the tedious work, and you decide how it does it.
 - **Say the feeling, then check the facts.** Describe a vibe, name a site you like, and ask for contrast numbers.

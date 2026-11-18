@@ -840,7 +840,7 @@
 
 - id: websites-motion
   session: building-websites-with-ai
-  step: 5
+  step: 6
   label: Add one small animation
   note: "Ask for one effect at a time, and say what it should never do."
   text: |
@@ -850,7 +850,7 @@
 
 - id: websites-new-include
   session: building-websites-with-ai
-  step: 5
+  step: 6
   label: Make a reusable piece
   note: "Name the parts you want to fill in each time: the title, description and image."
   text: |
@@ -860,7 +860,7 @@
 
 - id: websites-scroll-projects
   session: building-websites-with-ai
-  step: 5
+  step: 6
   label: Make a scrolling row of projects
   note: "Do this after the project card exists, so the new piece builds on it."
   text: |
@@ -868,7 +868,7 @@
 
 - id: websites-explain-change
   session: building-websites-with-ai
-  step: 3
+  step: 4
   label: Ask what it did, and how to undo it
   note: "Add this to the end of any request, or send it right after a change."
   text: |
@@ -876,7 +876,7 @@
 
 - id: websites-stay-consistent
   session: building-websites-with-ai
-  step: 8
+  step: 9
   label: Make a new page that matches the site
   note: "In an agent tool it can look at your pages itself. In a plain chat, paste a page that already works as the pattern."
   text: |
@@ -894,7 +894,7 @@
 
 - id: websites-agent-instructions
   session: building-websites-with-ai
-  step: 6
+  step: 7
   label: Have the AI draft its own rules
   note: "Run this with a tool that can see your whole site. Read what it writes, then edit it until it says what you want."
   text: |
@@ -902,7 +902,7 @@
 
 - id: websites-agent-restructure
   session: building-websites-with-ai
-  step: 6
+  step: 7
   label: Ask for a larger change
   note: "Use this once the instructions file is in place. Read the plan before it changes anything."
   text: |
@@ -910,7 +910,7 @@
 
 - id: websites-copy-typography-example
   session: building-websites-with-ai
-  step: 2
+  step: 3
   label: Borrow the typography of a site you like (filled in)
   note: "The same prompt with the brackets filled in. Attach assets/css/themes/simple-theme.css from the portfolio."
   text: |
@@ -922,7 +922,7 @@
 
 - id: websites-complete-file
   session: building-websites-with-ai
-  step: 2
+  step: 3
   label: Ask for the whole file to paste
   note: "Send this as a follow-up in the same chat, after it has suggested the changes."
   text: |
@@ -930,7 +930,7 @@
 
 - id: websites-palette-example
   session: building-websites-with-ai
-  step: 4
+  step: 5
   label: Describe a palette and a mood (filled in)
   note: "The same prompt with the brackets filled in. With GitHub connected, the AI finds the theme file itself."
   text: |
