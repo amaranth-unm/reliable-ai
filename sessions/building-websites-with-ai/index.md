@@ -214,8 +214,6 @@ In ChatGPT's settings, connect your GitHub account and choose your site's reposi
 
 ### Let it make the change
 
-The GitHub connection in ChatGPT only reads your site. For edits that the AI makes itself, OpenAI's tool is Codex, which is part of ChatGPT. GitHub Copilot does the same job and is built into GitHub. Either way, the AI works the same way:
-
 1. You describe the change in plain language.
 2. The AI makes it in a separate copy of your site, called a **branch**. Your live site is not touched.
 3. It opens a **pull request**. That is a page on GitHub that shows what it changed, line by line, next to what was there before.
