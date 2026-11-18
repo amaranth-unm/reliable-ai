@@ -61,11 +61,7 @@ The result usually looks good. The trouble starts when you want to change it. Th
 
 ### Why start from a starter site
 
-<<<<<<< HEAD
-[Xanthan](https://xanthan-web.github.io/) is a free starter site made for scholars and students. You already have a portfolio built from it, so this session starts there. Its pages are plain text files with clear names, and you can edit them by hand without knowing how to code. Change a few words, save, reload, and the site is different. Your words live in one place and your colors and fonts in another. The files are yours to keep, and you can move them to any host.
-=======
-[Xanthan](https://xanthan-web.github.io/) is a free template made for scholars and students. This session starts from a portfolio built with it, and step 1 shows how to make one. Its pages are plain text files with clear names, and you can edit them by hand without knowing how to code. Change a few words, save, reload, and the site is different. Your words live in one place and your colors and fonts in another. The files are yours to keep, and you can move them to any host.
->>>>>>> c62d25b0f49978958cf59c12a20350da0c6761c8
+[Xanthan](https://xanthan-web.github.io/) is a free starter site made for scholars and students. This session starts from a portfolio built with it, and step 1 shows how to make one. Its pages are plain text files with clear names, and you can edit them by hand without knowing how to code. Change a few words, save, reload, and the site is different. Your words live in one place and your colors and fonts in another. The files are yours to keep, and you can move them to any host.
 
 ### Why add AI to a starter site
 
@@ -239,6 +235,10 @@ In ChatGPT's left bar, click on the option for Plugins. OpenAI's page on [connec
 4. You read it, ask for corrections, and then accept it (called **merging**) or close it.
 
 Nothing reaches your live site until you merge. That makes this safer than pasting, where every paste changes your site at once.
+
+Some tools can change your main site directly if you let them. To make sure they don't, say so at the start of the conversation:
+
+{% include prompt.html id="websites-always-pr" %}
 
 Add this to the end of any request, so each edit comes with a lesson:
 

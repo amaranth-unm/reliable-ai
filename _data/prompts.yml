@@ -876,6 +876,14 @@
   text: |
     Using the project card we just made, build a section for my home page where the cards sit in a single row that the reader can scroll sideways, with each card snapping into place. It should stack into a single column on a phone. Reuse my existing colors and fonts, and put the new styles in my current theme rather than a new file. Then tell me how to add or remove a card.
 
+- id: websites-always-pr
+  session: building-websites-with-ai
+  step: 4
+  label: Always open a pull request
+  note: "Send this once at the start of a conversation, and again if the AI ever skips it."
+  text: |
+    For everything we do on my website, never change my main branch directly. Make each change on a separate branch and open a pull request, so I can review it before anything reaches my live site. At the end of each pull request, tell me what changed and how to undo it.
+
 - id: websites-explain-change
   session: building-websites-with-ai
   step: 4
